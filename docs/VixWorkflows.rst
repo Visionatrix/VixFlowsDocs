@@ -105,7 +105,7 @@ Consider the example of the VintagePortrait Vix flow:
       "author": "bigcat88",
       "homepage": "https://github.com/bigcat88",
       "license": "",
-      "documentation": "https://visionatrix.github.io/Visionatrix/Flows/VintagePortrait.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/VintagePortrait.html",
       "input_params": [
         {
           "name": "image",

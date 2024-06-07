@@ -5,7 +5,7 @@
   "author": "Datou",
   "homepage": "https://openart.ai/workflows/datou/comicu/8fIWdL2KU2myMdfigoWk",
   "license": "",
-  "documentation": "https://visionatrix.github.io/Visionatrix/Flows/ComicuPortrait.html",
+  "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/ComicuPortrait.html",
   "input_params": [
     {
       "name": "image",

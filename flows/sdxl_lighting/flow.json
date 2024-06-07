@@ -5,7 +5,7 @@
   "author": "bigcat88",
   "homepage": "https://github.com/bigcat88",
   "license": "",
-  "documentation": "https://visionatrix.github.io/Visionatrix/Flows/SDXL_Lighting.html",
+  "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SDXL_Lighting.html",
   "input_params": [
     {
       "name": "prompt",
