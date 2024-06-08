@@ -5,7 +5,9 @@ Memoji Portrait
 
 Create cute Memoji from a photo of a person.
 
-**Prompt** is required, simplest examples is: `cute girl`
+**Prompt** is required, simplest examples is: `girl, portrait, close up`
+
+    .. note:: To make it look more like Memoji you can add ``sico style`` words: `sico style, girl, portrait, close up`
 
 **Person's face pose** is optional.
 
@@ -14,7 +16,7 @@ Part of the flow runs on the CPU, part on the GPU, the flow is quite fast and co
 Hardware
 """"""""
 
-- **Required memory: 8-10 GB**
+- **Required memory: 10-16 GB**
 
 Time to process 1 image:
 
