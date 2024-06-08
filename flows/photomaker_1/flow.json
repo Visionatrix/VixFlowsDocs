@@ -6,6 +6,7 @@
   "homepage": "https://github.com/shiimizu/ComfyUI-PhotoMaker-Plus",
   "license": "",
   "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_1.html",
+  "tags": ["common", "portrait"],
   "input_params": [
     {
       "name": "prompt",

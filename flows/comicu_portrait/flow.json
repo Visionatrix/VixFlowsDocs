@@ -6,6 +6,7 @@
   "homepage": "https://openart.ai/workflows/datou/comicu/8fIWdL2KU2myMdfigoWk",
   "license": "",
   "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/ComicuPortrait.html",
+  "tags": ["anime", "portrait"],
   "input_params": [
     {
       "name": "image",

@@ -6,6 +6,7 @@
   "homepage": "https://openart.ai/workflows/datou/photo-2-anime-sdxl/0tBl5W8dBBe6FEhi0MxY",
   "license": "",
   "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers.html",
+  "tags": ["cartoon", "portrait"],
   "input_params": [
     {
       "name": "image",

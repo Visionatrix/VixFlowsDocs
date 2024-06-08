@@ -6,6 +6,7 @@
   "homepage": "https://openart.ai/workflows/profile/akihungac",
   "license": "",
   "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SupirUpscaler.html",
+  "tags": ["upscaler"],
   "sub_flows": [
     {
       "display_name": "SUPIR(1.5x)",

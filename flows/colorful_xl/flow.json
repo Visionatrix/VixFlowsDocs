@@ -6,6 +6,7 @@
   "homepage": "https://github.com/bigcat88",
   "license": "",
   "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Colorful_XL.html",
+  "tags": ["common"],
   "input_params": [
     {
       "name": "prompt",
