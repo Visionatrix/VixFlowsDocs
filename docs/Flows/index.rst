@@ -8,6 +8,7 @@ Available Flows
    Playground_2_5_aesthetic
    Juggernaut_Lite
    Juggernaut_XL
+   Colorful_XL
    Stable_Cascade
    VintagePortrait
    Photomaker_1

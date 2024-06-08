@@ -393,5 +393,17 @@
     "url": "https://civitai.com/api/download/models/196413?type=Model&format=SafeTensor",
     "homepage": "https://civitai.com/models/174943?modelVersionId=196413",
     "hash": "EA8C050A6DFF41D739C36B6FFB2091762340A8660310916720B6A9DD73C248C9"
+  },
+  "Colorful_XL_v4.2" : {
+    "save_path": "checkpoints/colorfulxl_v42.safetensors",
+    "url": "https://civitai.com/api/download/models/536723?type=Model&format=SafeTensor&size=pruned&fp=fp16",
+    "homepage": "https://civitai.com/models/185258?modelVersionId=536723",
+    "hash": "20D7C25A9D27476F829077CF333D782AA60C435E8CBF8867F7882B0F319A7ABF",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:colorful))(?=.*(?i:xl))(?=.*(?i:v42)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ]
   }
 }
