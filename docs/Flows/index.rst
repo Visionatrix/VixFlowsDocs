@@ -9,6 +9,7 @@ Available Flows
    Juggernaut_Lite
    Juggernaut_XL
    Colorful_XL
+   Mobius_XL
    Stable_Cascade
    VintagePortrait
    Photomaker_1

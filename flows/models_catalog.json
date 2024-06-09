@@ -405,5 +405,17 @@
         "input_name": "^(?!.*(?i:lora)).*"
       }
     ]
+  },
+  "Mobius" : {
+    "save_path": "checkpoints/mobius-fp16.safetensors",
+    "url": "https://huggingface.co/Corcelio/mobius/resolve/main/mobius-fp16.safetensors",
+    "homepage": "https://huggingface.co/Corcelio/mobius",
+    "hash": "746cb5590c179d3673ad2f99df3390f19e221523d28715e54404c2104b0050cf",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:mobius))(?=.*(?i:fp16)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ]
   }
 }
