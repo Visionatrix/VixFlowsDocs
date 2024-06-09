@@ -6,7 +6,7 @@
   "homepage": "https://github.com/bigcat88",
   "license": "",
   "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Juggernaut_XL.html",
-  "tags": ["common"],
+  "tags": ["general"],
   "input_params": [
     {
       "name": "prompt",
