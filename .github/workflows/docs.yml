@@ -20,7 +20,7 @@ jobs:
         run: python3 -m pip install -r requirements.txt
 
       - name: Zip the flows folder
-        run: zip -r flows.zip flows -x "flows/models_catalog.json"
+        run: zip -r flows.zip flows
 
       - name: Build and push Docs
         run: |
@@ -31,7 +31,7 @@ jobs:
           docroot=`mktemp -d`
           rsync -av "docs/_build/html/" "${docroot}/"
           rsync -av "flows.zip" "${docroot}/"
-          rsync -av "flows/models_catalog.json" "${docroot}/"
+          rsync -av "models_catalog.json" "${docroot}/"
           pushd "${docroot}"
           git init
           git remote add deploy "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"

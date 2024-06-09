@@ -16,7 +16,7 @@ Currently, there are two main issues with using ComfyUI flows for the general pu
 Automatic models mapping
 """"""""""""""""""""""""
 
-To address the first issue with model mapping, Visionatrix includes a `models_catalog.json <https://github.com/Visionatrix/VixFlows/blob/main/flows/models_catalog.json>`_ file.
+To address the first issue with model mapping, Visionatrix includes a `models_catalog.json <https://github.com/Visionatrix/VixFlows/blob/main/models_catalog.json>`_ file.
 
 By default, it is taken and updated from the Visionatrix repository on GitHub, in case you add a new flow and need to add new model mappings you can change its path using an environment variable to a local file path.
 
