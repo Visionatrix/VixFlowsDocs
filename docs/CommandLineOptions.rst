@@ -9,7 +9,7 @@ They can be specified when starting manually:
 
     python3 -m visionatrix run --ui --use-split-cross-attention --disable-smart-memory
 
-Here are the list of the supported options command line options related to `Visionatrix` for **run** command:
+Here are the list of the supported command line options related to `Visionatrix` for **run** command:
 
   --backend_dir BACKEND_DIR
                         Directory for the backend(folder with ComfyUI)

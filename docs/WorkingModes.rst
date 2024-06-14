@@ -8,7 +8,7 @@ Visionatrix(**Vix**) consists of:
 
 1. A server component, namely, the backend `(in short - Server)`
 2. A component responsible for processing tasks `(in short - Worker)`
-3. TaskQueue - a database (SQLite *(default)*, MySQL/MariaDB, PgSQL)
+3. TaskQueue - a database (SQLite *(default)*, PgSQL)
 4. A simple and understandable User Interface
 
 By default, Vix launches with all components integrated (Server + Worker + UI) for quick and easy use on a single computer.
@@ -30,16 +30,11 @@ In such cases, it is allowed and recommended to run the server part and the AI p
 Steps to run `Vix` in a Server mode:
 
 1. Set ``VIX_MODE`` environment variable to ``SERVER``
-2. Setup **PostgreSQL** *(recommended)* or **MariaDB** database and set correct ``DATABASE_URI`` environment variable to point on it.
+2. Setup **PostgreSQL** database and set correct ``DATABASE_URI`` environment variable to point on it.
 
     .. note:: `PgSQL example <https://docs.sqlalchemy.org/en/20/dialects/postgresql.html#module-sqlalchemy.dialects.postgresql.psycopg>`_: ``DATABASE_URI="postgresql+psycopg://vix_user:vix_password@localhost:5432/vix_db"``
 
-    .. note:: For the `MySQL or MariaDB <https://docs.sqlalchemy.org/en/20/dialects/mysql.html#module-sqlalchemy.dialects.mysql.aiomysql>`_ to work you should additionally specify ``DATABASE_URI_ASYNC`` environment variable.
-
-3. Remove default ``admin`` user and create a new one with ``python3 -m visionatrix create-user`` command.
-
-    .. note:: This step is only necessary if you plan to make the instance accessible from the Internet.
-
+3. Use ``python3 -m visionatrix create-user`` command to create a user in the database.
 4. Connect at least one Worker to handle task processing.
 
 
