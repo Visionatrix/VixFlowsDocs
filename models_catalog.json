@@ -417,5 +417,18 @@
         "input_name": "^(?!.*(?i:lora)).*"
       }
     ]
+  },
+  "SD3-Medium" : {
+    "save_path": "checkpoints/sd3_medium_incl_clips_t5xxlfp16.safetensors",
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3-medium/resolve/main/sd3_medium_incl_clips_t5xxlfp16.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/stable-diffusion-3-medium",
+    "hash": "69a950c5d143ce782a7423c532c8a12b75da6a37b0e6f26a322acf4e76208912",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sd3))(?=.*(?i:medium))(?=.*(?i:fp16)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "gated": true
   }
 }
