@@ -1,7 +1,7 @@
 {
   "name": "sd3_medium",
   "display_name": "StableDiffusion3 Medium",
-  "description": "Model for everything except human anatomy",
+  "description": "Simple one model flow for testing purposes",
   "author": "Datou",
   "homepage": "https://openart.ai/workflows/datou/sd3-basic-workflow/7Udt2JZ3Mwqf1if9EqWt",
   "license": "",
