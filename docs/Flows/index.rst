@@ -18,3 +18,4 @@ Available Flows
    ComicuPortrait
    MemojiPortrait
    SupirUpscaler
+   SD3_Medium
