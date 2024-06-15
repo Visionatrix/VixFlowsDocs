@@ -230,7 +230,7 @@
         0
       ],
       "interpolation": "lanczos",
-      "keep_proportion": true,
+      "method": "keep proportion",
       "condition": "always",
       "multiple_of": 32,
       "image": [
