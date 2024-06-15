@@ -33,3 +33,7 @@ Prompt: "*Black kitten with white wings sitting on a blue cloud, cinematic*" | p
 .. image:: /FlowsResults/SD3_Medium_2.png
 
 Prompt: "*poster, cyborg girl against an alien, black baground, high contrast, high details, cinematic*" | prompt_strength: 5.5 (seed: 2131028)
+
+.. image:: /FlowsResults/SD3_Medium_3.png
+
+Prompt: "*an oil line art painting of the angel impressive neon shadows, warm colors*" | prompt_strength: 4.1 (seed: 1167357)
