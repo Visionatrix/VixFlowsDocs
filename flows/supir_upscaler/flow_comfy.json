@@ -295,5 +295,14 @@
     "_meta": {
       "title": "WF_META"
     }
+  },
+  "112": {
+    "inputs": {
+      "text": "{\n  \"sub_flows\": [\n    {\n      \"display_name\": \"SUPIR(1.5x)\",\n      \"type\": \"image\",\n      \"input_params\": [\n        {\n          \"name\": \"scale_factor\",\n          \"default\": 1.5\n        }\n      ]\n    },\n    {\n      \"display_name\": \"SUPIR(2x)\",\n      \"type\": \"image\",\n      \"input_params\": [\n        {\n          \"name\": \"scale_factor\",\n          \"default\": 2.0\n        }\n      ]\n    }\n  ]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_SUBFLOWS"
+    }
   }
 }

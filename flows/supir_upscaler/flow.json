@@ -1,26 +1,4 @@
 {
-  "sub_flows": [
-    {
-      "display_name": "SUPIR(1.5x)",
-      "type": "image",
-      "input_params": [
-        {
-          "name": "scale_factor",
-          "default": 1.5
-        }
-      ]
-    },
-    {
-      "display_name": "SUPIR(2x)",
-      "type": "image",
-      "input_params": [
-        {
-          "name": "scale_factor",
-          "default": 2.0
-        }
-      ]
-    }
-  ],
   "input_params": [
     {
       "name": "image",
