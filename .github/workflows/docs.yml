@@ -28,7 +28,12 @@ jobs:
           set -e
           mkdir flows_publish
           for branch in $(git branch -r | grep -E 'origin/version-'); do
-            git checkout --track "$branch"
+            local_branch=$(echo "$branch" | sed -E 's/origin\///')
+            if git show-ref --verify --quiet "refs/heads/$local_branch"; then
+              git checkout "$local_branch"
+            else
+              git checkout --track "$branch"
+            fi
             version=$(echo "$branch" | sed -E 's/origin\/version-([0-9\.]+)/\1/')
             zip -r "flows_publish/flows-$version.zip" flows
           done
