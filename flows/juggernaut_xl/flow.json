@@ -1,12 +1,4 @@
 {
-  "name": "juggernaut_xl",
-  "display_name": "Juggernaut XL",
-  "description": "Juggernaut XL Community Version (NSFW)",
-  "author": "bigcat88",
-  "homepage": "https://github.com/bigcat88",
-  "license": "",
-  "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Juggernaut_XL.html",
-  "tags": ["general"],
   "input_params": [
     {
       "name": "prompt",

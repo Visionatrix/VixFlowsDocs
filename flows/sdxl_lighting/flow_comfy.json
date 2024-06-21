@@ -184,5 +184,14 @@
     "_meta": {
       "title": "CLIP Text Encode (Negative Prompt)"
     }
+  },
+  "15": {
+    "inputs": {
+      "text": "{\n  \"name\": \"sdxl_lighting\",\n  \"display_name\": \"SDXL Lighting\",\n  \"description\": \"Fast image generation\",\n  \"author\": \"bigcat88\",\n  \"homepage\": \"https://github.com/bigcat88\",\n  \"license\": \"\",\n  \"documentation\": \"https://visionatrix.github.io/VixFlowsDocs/Flows/SDXL_Lighting.html\",\n  \"tags\": [\"general\"]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_META"
+    }
   }
 }

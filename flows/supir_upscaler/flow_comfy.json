@@ -286,5 +286,14 @@
     "_meta": {
       "title": "Evaluate Integers"
     }
+  },
+  "111": {
+    "inputs": {
+      "text": "{\n  \"name\": \"supir_upscaler\",\n  \"display_name\": \"SUPIR Upscaler\",\n  \"description\": \"High-End Image Upscaler\",\n  \"author\": \"akihungac\",\n  \"homepage\": \"https://openart.ai/workflows/profile/akihungac\",\n  \"license\": \"\",\n  \"documentation\": \"https://visionatrix.github.io/VixFlowsDocs/Flows/SupirUpscaler.html\",\n  \"tags\": [\"upscaler\"]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_META"
+    }
   }
 }

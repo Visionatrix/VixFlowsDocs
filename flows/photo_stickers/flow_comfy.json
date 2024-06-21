@@ -913,5 +913,14 @@
     "_meta": {
       "title": "KSampler"
     }
+  },
+  "356": {
+    "inputs": {
+      "text": "{\n  \"name\": \"photo_stickers\",\n  \"display_name\": \"Photo Stickers\",\n  \"description\": \"Stickers from person photo\",\n  \"author\": \"Datou\",\n  \"homepage\": \"https://openart.ai/workflows/datou/photo-2-anime-sdxl/0tBl5W8dBBe6FEhi0MxY\",\n  \"license\": \"\",\n  \"documentation\": \"https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers.html\",\n  \"tags\": [\"cartoon\", \"portrait\"]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_META"
+    }
   }
 }

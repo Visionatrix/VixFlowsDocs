@@ -475,5 +475,14 @@
     "_meta": {
       "title": "SamplerCustom"
     }
+  },
+  "250": {
+    "inputs": {
+      "text": "{\n  \"name\": \"playground_2_5_aesthetic\",\n  \"display_name\": \"Aesthetic images\",\n  \"description\": \"Generate images with built-in Face Detailer\",\n  \"author\": \"Dennis Schöneberg\",\n  \"homepage\": \"https://www.linkedin.com/in/dennis-sch%C3%B6neberg-3420a2221\",\n  \"license\": \"\",\n  \"documentation\": \"https://visionatrix.github.io/VixFlowsDocs/Flows/Playground_2_5_aesthetic.html\",\n  \"tags\": [\"general\"]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_META"
+    }
   }
 }

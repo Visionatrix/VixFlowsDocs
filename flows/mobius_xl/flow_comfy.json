@@ -196,5 +196,14 @@
     "_meta": {
       "title": "CLIP Set Last Layer"
     }
+  },
+  "291": {
+    "inputs": {
+      "text": "{\n  \"name\": \"mobius_xl\",\n  \"display_name\": \"Mobius XL\",\n  \"description\": \"Mobius XL model\",\n  \"author\": \"bigcat88\",\n  \"homepage\": \"https://github.com/bigcat88\",\n  \"license\": \"\",\n  \"documentation\": \"https://visionatrix.github.io/VixFlowsDocs/Flows/Mobius_XL.html\",\n  \"tags\": [\"general\"]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_META"
+    }
   }
 }

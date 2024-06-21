@@ -1,12 +1,4 @@
 {
-  "name": "playground_2_5_aesthetic",
-  "display_name": "Aesthetic images",
-  "description": "Generate images with built-in Face Detailer",
-  "author": "Dennis Schöneberg",
-  "homepage": "https://www.linkedin.com/in/dennis-sch%C3%B6neberg-3420a2221",
-  "license": "",
-  "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Playground_2_5_aesthetic.html",
-  "tags": ["general"],
   "input_params": [
     {
       "name": "prompt",

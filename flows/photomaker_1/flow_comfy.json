@@ -295,5 +295,14 @@
     "_meta": {
       "title": "Split Image with Alpha"
     }
+  },
+  "98": {
+    "inputs": {
+      "text": "{\n  \"name\": \"photomaker_1\",\n  \"display_name\": \"Photo from 1 image\",\n  \"description\": \"Customizing Realistic Human Photos\",\n  \"author\": \"shiimizu\",\n  \"homepage\": \"https://github.com/shiimizu/ComfyUI-PhotoMaker-Plus\",\n  \"license\": \"\",\n  \"documentation\": \"https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_1.html\",\n  \"tags\": [\"general\", \"portrait\", \"cartoon\"]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_META"
+    }
   }
 }

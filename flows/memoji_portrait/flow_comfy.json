@@ -235,5 +235,14 @@
     "_meta": {
       "title": "Automatic CFG"
     }
+  },
+  "382": {
+    "inputs": {
+      "text": "{\n  \"name\": \"memoji_portrait\",\n  \"display_name\": \"Memoji Portrait\",\n  \"description\": \"Portrait photos as a Memoji\",\n  \"author\": \"Datou\",\n  \"homepage\": \"https://openart.ai/workflows/datou/memoji/Lcprla9BQL29IFVjC93l\",\n  \"license\": \"\",\n  \"documentation\": \"https://visionatrix.github.io/VixFlowsDocs/Flows/MemojiPortrait.html\",\n  \"tags\": [\"cartoon\", \"portrait\"]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_META"
+    }
   }
 }

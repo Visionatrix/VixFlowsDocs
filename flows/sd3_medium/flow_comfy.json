@@ -103,5 +103,14 @@
     "_meta": {
       "title": "@Datou"
     }
+  },
+  "278": {
+    "inputs": {
+      "text": "{\n  \"name\": \"sd3_medium\",\n  \"display_name\": \"StableDiffusion3 Medium\",\n  \"description\": \"Simple one model flow for testing purposes\",\n  \"author\": \"Datou\",\n  \"homepage\": \"https://openart.ai/workflows/datou/sd3-basic-workflow/7Udt2JZ3Mwqf1if9EqWt\",\n  \"license\": \"\",\n  \"documentation\": \"https://visionatrix.github.io/VixFlowsDocs/Flows/SD3_Medium.html\",\n  \"tags\": [\"general\"]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_META"
+    }
   }
 }

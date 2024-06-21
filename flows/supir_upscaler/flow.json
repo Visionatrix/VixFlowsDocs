@@ -1,12 +1,4 @@
 {
-  "name": "supir_upscaler",
-  "display_name": "SUPIR Upscaler",
-  "description": "High-End Image Upscaler",
-  "author": "akihungac",
-  "homepage": "https://openart.ai/workflows/profile/akihungac",
-  "license": "",
-  "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SupirUpscaler.html",
-  "tags": ["upscaler"],
   "sub_flows": [
     {
       "display_name": "SUPIR(1.5x)",

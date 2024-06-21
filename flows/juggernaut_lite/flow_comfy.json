@@ -265,5 +265,14 @@
     "_meta": {
       "title": "Save Image"
     }
+  },
+  "267": {
+    "inputs": {
+      "text": "{\n  \"name\": \"juggernaut_lite\",\n  \"display_name\": \"Juggernaut Lite\",\n  \"description\": \"Juggernaut + LoRAs with post processing\",\n  \"author\": \"Valomar\",\n  \"homepage\": \"https://comfyworkflows.com/profile/86edf4d7-d110-498d-b4e0-4cacadee750e\",\n  \"license\": \"\",\n  \"documentation\": \"https://visionatrix.github.io/VixFlowsDocs/Flows/Juggernaut_Lite.html\",\n  \"tags\": [\"general\"]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_META"
+    }
   }
 }

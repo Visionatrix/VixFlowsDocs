@@ -1,12 +1,4 @@
 {
-  "name": "photomaker_1",
-  "display_name": "Photo from 1 image",
-  "description": "Customizing Realistic Human Photos",
-  "author": "shiimizu",
-  "homepage": "https://github.com/shiimizu/ComfyUI-PhotoMaker-Plus",
-  "license": "",
-  "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_1.html",
-  "tags": ["general", "portrait", "cartoon"],
   "input_params": [
     {
       "name": "prompt",

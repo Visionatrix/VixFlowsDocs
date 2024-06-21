@@ -248,5 +248,14 @@
     "_meta": {
       "title": "🧹BRIA RMBG"
     }
+  },
+  "383": {
+    "inputs": {
+      "text": "{\n  \"name\": \"ghibli_portrait\",\n  \"display_name\": \"Ghibli Portrait\",\n  \"description\": \"Person portrait in Ghibli Studio style(Anime)\",\n  \"author\": \"Datou\",\n  \"homepage\": \"https://openart.ai/workflows/datou/ghibli-portrait-studio/pGOmpWZycgG57085CONU\",\n  \"license\": \"\",\n  \"documentation\": \"https://visionatrix.github.io/VixFlowsDocs/Flows/GhibliPortrait.html\",\n  \"tags\": [\"anime\", \"portrait\"]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_META"
+    }
   }
 }

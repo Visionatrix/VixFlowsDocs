@@ -1,11 +1,4 @@
 {
-  "name": "mobius_xl",
-  "display_name": "Mobius XL",
-  "description": "Mobius XL model",
-  "author": "bigcat88",
-  "homepage": "https://github.com/bigcat88",
-  "license": "",
-  "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Mobius_XL.html",
   "input_params": [
     {
       "name": "prompt",

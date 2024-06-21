@@ -445,5 +445,14 @@
     "_meta": {
       "title": "VAE Decode"
     }
+  },
+  "98": {
+    "inputs": {
+      "text": "{\n  \"name\": \"stable_cascade\",\n  \"display_name\": \"Stable Cascade\",\n  \"description\": \"Generation with multiple passes\",\n  \"author\": \"HowDo?\",\n  \"homepage\": \"https://comfyworkflows.com/profile/41d507c5-bdcf-424b-9b75-a3cc2ea9049d\",\n  \"license\": \"\",\n  \"documentation\": \"https://visionatrix.github.io/VixFlowsDocs/Flows/Stable_Cascade.html\",\n  \"tags\": [\"general\"]\n}"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_META"
+    }
   }
 }

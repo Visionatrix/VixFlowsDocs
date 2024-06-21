@@ -1,12 +1,4 @@
 {
-  "name": "sdxl_lighting",
-  "display_name": "SDXL Lighting",
-  "description": "Fast image generation",
-  "author": "bigcat88",
-  "homepage": "https://github.com/bigcat88",
-  "license": "",
-  "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SDXL_Lighting.html",
-  "tags": ["general"],
   "input_params": [
     {
       "name": "prompt",

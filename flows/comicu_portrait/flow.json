@@ -1,12 +1,4 @@
 {
-  "name": "comicu_portrait",
-  "display_name": "Comicu Portrait",
-  "description": "Person portrait in Anime style",
-  "author": "Datou",
-  "homepage": "https://openart.ai/workflows/datou/comicu/8fIWdL2KU2myMdfigoWk",
-  "license": "",
-  "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/ComicuPortrait.html",
-  "tags": ["anime", "portrait"],
   "input_params": [
     {
       "name": "image",

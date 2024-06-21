@@ -1,12 +1,4 @@
 {
-  "name": "sd3_medium",
-  "display_name": "StableDiffusion3 Medium",
-  "description": "Simple one model flow for testing purposes",
-  "author": "Datou",
-  "homepage": "https://openart.ai/workflows/datou/sd3-basic-workflow/7Udt2JZ3Mwqf1if9EqWt",
-  "license": "",
-  "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SD3_Medium.html",
-  "tags": ["general"],
   "input_params": [
     {
       "name": "prompt",
