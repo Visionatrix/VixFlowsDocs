@@ -1,0 +1,293 @@
+{
+  "2": {
+    "inputs": {
+      "ckpt_name": "colorfulxl_v42.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "13": {
+    "inputs": {
+      "vae_name": "sdxl_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "27": {
+    "inputs": {
+      "seed": 1100552191162771,
+      "steps": 40,
+      "cfg": [
+        "308",
+        0
+      ],
+      "sampler_name": "dpmpp_3m_sde",
+      "scheduler": "exponential",
+      "denoise": 1,
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "243",
+        0
+      ],
+      "negative": [
+        "242",
+        0
+      ],
+      "latent_image": [
+        "244",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "242": {
+    "inputs": {
+      "text": [
+        "310",
+        0
+      ],
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "243": {
+    "inputs": {
+      "text": [
+        "309",
+        0
+      ],
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "244": {
+    "inputs": {
+      "width": [
+        "282",
+        1
+      ],
+      "height": [
+        "282",
+        2
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "268": {
+    "inputs": {
+      "add_noise": true,
+      "noise_seed": 1,
+      "cfg": [
+        "308",
+        0
+      ],
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "243",
+        0
+      ],
+      "negative": [
+        "242",
+        0
+      ],
+      "sampler": [
+        "273",
+        0
+      ],
+      "sigmas": [
+        "270",
+        0
+      ],
+      "latent_image": [
+        "244",
+        0
+      ]
+    },
+    "class_type": "SamplerCustom",
+    "_meta": {
+      "title": "SamplerCustom"
+    }
+  },
+  "270": {
+    "inputs": {
+      "model_type": "SDXL",
+      "steps": 20,
+      "denoise": 1
+    },
+    "class_type": "AlignYourStepsScheduler",
+    "_meta": {
+      "title": "AlignYourStepsScheduler"
+    }
+  },
+  "273": {
+    "inputs": {
+      "sampler_name": "dpmpp_2m"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "275": {
+    "inputs": {
+      "samples": [
+        "27",
+        0
+      ],
+      "vae": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "282": {
+    "inputs": {
+      "aspect_ratio": "2:3"
+    },
+    "class_type": "SDXLAspectRatioSelector",
+    "_meta": {
+      "title": "input;Aspect Ratio;optional;advanced"
+    }
+  },
+  "297": {
+    "inputs": {
+      "samples": [
+        "268",
+        0
+      ],
+      "vae": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "298": {
+    "inputs": {
+      "filename_prefix": "",
+      "images": [
+        "307",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "307": {
+    "inputs": {
+      "state": false,
+      "display_name": "Fast Run",
+      "optional": true,
+      "advanced": true,
+      "order": 1,
+      "input_off_state": [
+        "275",
+        0
+      ],
+      "input_on_state": [
+        "297",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckbox",
+    "_meta": {
+      "title": "VixUI-Checkbox"
+    }
+  },
+  "308": {
+    "inputs": {
+      "value": 5,
+      "display_name": "Prompt strength",
+      "optional": true,
+      "advanced": true,
+      "min": 4.5,
+      "max": 7,
+      "step": 0.1,
+      "order": 10
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "309": {
+    "inputs": {
+      "text": "",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "310": {
+    "inputs": {
+      "text": "",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 25
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "311": {
+    "inputs": {
+      "name": "colorful_xl",
+      "display_name": "Colorful XL",
+      "description": "Colorful XL model (NSFW)",
+      "author": "bigcat88",
+      "homepage": "https://github.com/bigcat88",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Colorful_XL.html",
+      "license": "",
+      "tags": "[\"general\"]"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  }
+}
