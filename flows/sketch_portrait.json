@@ -1,7 +1,45 @@
 {
+  "14": {
+    "inputs": {
+      "ckpt_name": "neta_art_xl_v10.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint Base"
+    }
+  },
+  "290": {
+    "inputs": {
+      "text": [
+        "401",
+        0
+      ],
+      "clip": [
+        "14",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "291": {
+    "inputs": {
+      "text": "nsfw, lowres, bad anatomy, bad hands, text, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, username, blurry, artist name, rating: sensitive, low contrast, signature, flexible deformity, abstract, low contrast, colors",
+      "clip": [
+        "14",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
   "336": {
     "inputs": {
-      "weight": 0.6,
+      "weight": 0.7000000000000001,
       "start_at": 0,
       "end_at": 0.85,
       "instantid": [
@@ -21,19 +59,19 @@
         0
       ],
       "model": [
-        "384",
+        "14",
         0
       ],
       "positive": [
-        "384",
-        1
+        "290",
+        0
       ],
       "negative": [
-        "384",
-        2
+        "291",
+        0
       ],
       "image_kps": [
-        "394",
+        "396",
         0
       ]
     },
@@ -69,11 +107,22 @@
       "title": "Load ControlNet Model"
     }
   },
+  "345": {
+    "inputs": {
+      "width": 896,
+      "height": 1152,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
   "359": {
     "inputs": {
-      "filename_prefix": "Animagine XL 3.1/img_",
+      "filename_prefix": "Comic Portrait/img_",
       "images": [
-        "390",
+        "385",
         0
       ]
     },
@@ -87,7 +136,7 @@
       "upscale_method": "lanczos",
       "megapixels": 1,
       "image": [
-        "393",
+        "394",
         0
       ]
     },
@@ -96,31 +145,32 @@
       "title": "ImageScaleToTotalPixels"
     }
   },
-  "384": {
+  "385": {
     "inputs": {
-      "ckpt_name": "animagine-xl-3.1.safetensors",
-      "vae_name": "Baked VAE",
-      "clip_skip": -1,
-      "lora_name": "The_Simplest.safetensors",
-      "lora_model_strength": 1,
-      "lora_clip_strength": 1,
-      "positive": [
-        "399",
+      "samples": [
+        "390",
         0
       ],
-      "negative": "nsfw, lowres, (bad), text, error, fewer, extra, missing, worst quality, jpeg artifacts, low quality, watermark, unfinished, displeasing, oldest, early, chromatic aberration, signature, extra digits, artistic error, username, scan, [abstract]",
-      "token_normalization": "none",
-      "weight_interpretation": "comfy",
-      "empty_latent_width": 896,
-      "empty_latent_height": 1152,
-      "batch_size": 1
+      "vae": [
+        "386",
+        0
+      ]
     },
-    "class_type": "Efficient Loader",
+    "class_type": "VAEDecode",
     "_meta": {
-      "title": "Efficient Loader"
+      "title": "VAE Decode"
     }
   },
   "386": {
+    "inputs": {
+      "vae_name": "sdxl_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "387": {
     "inputs": {
       "hard_mode": true,
       "boost": true,
@@ -134,7 +184,7 @@
       "title": "Automatic CFG"
     }
   },
-  "387": {
+  "389": {
     "inputs": {
       "model_type": "SDXL",
       "steps": 10,
@@ -145,16 +195,16 @@
       "title": "AlignYourStepsScheduler"
     }
   },
-  "388": {
+  "390": {
     "inputs": {
       "add_noise": true,
-      "noise_seed": 419700299856744,
+      "noise_seed": 288636115122282,
       "cfg": [
-        "392",
+        "393",
         0
       ],
       "model": [
-        "386",
+        "387",
         0
       ],
       "positive": [
@@ -166,16 +216,16 @@
         2
       ],
       "sampler": [
-        "389",
+        "391",
         0
       ],
       "sigmas": [
-        "387",
+        "389",
         0
       ],
       "latent_image": [
-        "384",
-        3
+        "345",
+        0
       ]
     },
     "class_type": "SamplerCustom",
@@ -183,7 +233,7 @@
       "title": "SamplerCustom"
     }
   },
-  "389": {
+  "391": {
     "inputs": {
       "sampler_name": "dpmpp_2m"
     },
@@ -192,62 +242,36 @@
       "title": "KSamplerSelect"
     }
   },
-  "390": {
+  "392": {
     "inputs": {
-      "samples": [
-        "388",
-        0
-      ],
-      "vae": [
-        "384",
-        4
-      ]
-    },
-    "class_type": "VAEDecode",
-    "_meta": {
-      "title": "VAE Decode"
-    }
-  },
-  "391": {
-    "inputs": {
-      "name": "comicu_portrait",
-      "display_name": "ComicU Portrait",
-      "description": "Person portrait in Anime style",
+      "name": "sketch_portrait",
+      "display_name": "Sketch Portrait",
+      "description": "Person portrait in Sketch style",
       "author": "Datou",
-      "homepage": "https://openart.ai/workflows/datou/comicu/8fIWdL2KU2myMdfigoWk",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/ComicuPortrait.html",
+      "homepage": "https://openart.ai/workflows/datou/comic-portrait/nkAs1NYgf91uMeV14PP0",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SketchPortrait.html",
       "license": "",
-      "tags": "[\"anime\", \"portrait\"]"
+      "tags": "[\"anime\", \"sketch\", \"portrait\"]"
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
       "title": "VixUI-WorkflowMetadata"
     }
   },
-  "392": {
+  "393": {
     "inputs": {
-      "value": 7,
+      "value": 5,
       "display_name": "Freedom of outcome",
       "optional": true,
       "advanced": true,
-      "min": 6,
-      "max": 8,
+      "min": 4,
+      "max": 6,
       "step": 0.1,
       "order": 99
     },
     "class_type": "VixUiRangeFloat",
     "_meta": {
       "title": "VixUI-RangeFloat"
-    }
-  },
-  "393": {
-    "inputs": {
-      "image": "",
-      "upload": "image"
-    },
-    "class_type": "LoadImage",
-    "_meta": {
-      "title": "input;Person's face;order=1"
     }
   },
   "394": {
@@ -257,10 +281,20 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face pose; optional;advanced;order=2"
+      "title": "input;Person's face;order=1"
     }
   },
   "396": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person's face pose; optional;advanced;order=2"
+    }
+  },
+  "397": {
     "inputs": {
       "default_value": "girl",
       "possible_values": "[\"girl\", \"boy\", \"man\", \"woman\"]",
@@ -274,26 +308,9 @@
       "title": "VixUI-List"
     }
   },
-  "397": {
-    "inputs": {
-      "text": [
-        "398",
-        0
-      ],
-      "find": "{gender}",
-      "replace": [
-        "396",
-        0
-      ]
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
   "398": {
     "inputs": {
-      "text": "[1{gender}] {prompt}, looking at viewer, half body, (masterpiece), (best quality), (ultra-detailed), very aesthetic, illustration, perfect composition"
+      "text": "[1{gender}] {prompt}, line-sketch, ((looking at viewer, clear background, white background)), best quality"
     },
     "class_type": "Text Multiline (Code Compatible)",
     "_meta": {
@@ -303,12 +320,12 @@
   "399": {
     "inputs": {
       "text": [
-        "397",
+        "398",
         0
       ],
-      "find": "{prompt}",
+      "find": "{gender}",
       "replace": [
-        "400",
+        "397",
         0
       ]
     },
@@ -328,6 +345,23 @@
     "class_type": "VixUiPrompt",
     "_meta": {
       "title": "VixUI-Prompt"
+    }
+  },
+  "401": {
+    "inputs": {
+      "text": [
+        "399",
+        0
+      ],
+      "find": "{prompt}",
+      "replace": [
+        "400",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
     }
   }
 }
