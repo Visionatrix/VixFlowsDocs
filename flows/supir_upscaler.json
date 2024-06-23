@@ -1,0 +1,439 @@
+{
+  "5": {
+    "inputs": {
+      "use_tiled_vae": true,
+      "encoder_tile_size": [
+        "136",
+        0
+      ],
+      "decoder_tile_size": [
+        "136",
+        0
+      ],
+      "encoder_dtype": "auto",
+      "SUPIR_VAE": [
+        "21",
+        1
+      ],
+      "image": [
+        "107",
+        0
+      ]
+    },
+    "class_type": "SUPIR_first_stage",
+    "_meta": {
+      "title": "SUPIR First Stage (Denoiser)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "seed": 269969961859830,
+      "steps": 45,
+      "cfg_scale_start": 4,
+      "cfg_scale_end": 4,
+      "EDM_s_churn": 5,
+      "s_noise": 1.0030000000000001,
+      "DPMPP_eta": 1,
+      "control_scale_start": 1,
+      "control_scale_end": 1,
+      "restore_cfg": 1,
+      "keep_model_loaded": false,
+      "sampler": [
+        "125",
+        0
+      ],
+      "sampler_tile_size": [
+        "136",
+        0
+      ],
+      "sampler_tile_stride": [
+        "139",
+        0
+      ],
+      "SUPIR_model": [
+        "21",
+        0
+      ],
+      "latents": [
+        "11",
+        0
+      ],
+      "positive": [
+        "9",
+        0
+      ],
+      "negative": [
+        "9",
+        1
+      ]
+    },
+    "class_type": "SUPIR_sample",
+    "_meta": {
+      "title": "SUPIR Sampler"
+    }
+  },
+  "9": {
+    "inputs": {
+      "positive_prompt": [
+        "88",
+        0
+      ],
+      "negative_prompt": "bad quality, blurry, messy, low detail, low resolution",
+      "SUPIR_model": [
+        "21",
+        0
+      ],
+      "latents": [
+        "5",
+        2
+      ]
+    },
+    "class_type": "SUPIR_conditioner",
+    "_meta": {
+      "title": "SUPIR Conditioner"
+    }
+  },
+  "10": {
+    "inputs": {
+      "use_tiled_vae": true,
+      "decoder_tile_size": [
+        "136",
+        0
+      ],
+      "SUPIR_VAE": [
+        "21",
+        1
+      ],
+      "latents": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "SUPIR_decode",
+    "_meta": {
+      "title": "SUPIR Decode"
+    }
+  },
+  "11": {
+    "inputs": {
+      "use_tiled_vae": true,
+      "encoder_tile_size": [
+        "136",
+        0
+      ],
+      "encoder_dtype": "auto",
+      "SUPIR_VAE": [
+        "5",
+        0
+      ],
+      "image": [
+        "5",
+        1
+      ]
+    },
+    "class_type": "SUPIR_encode",
+    "_meta": {
+      "title": "SUPIR Encode"
+    }
+  },
+  "21": {
+    "inputs": {
+      "supir_model": "SUPIR-v0Q.ckpt",
+      "fp8_unet": [
+        "138",
+        0
+      ],
+      "diffusion_dtype": [
+        "117",
+        0
+      ],
+      "high_vram": false,
+      "model": [
+        "22",
+        0
+      ],
+      "clip": [
+        "22",
+        1
+      ],
+      "vae": [
+        "22",
+        2
+      ]
+    },
+    "class_type": "SUPIR_model_loader_v2",
+    "_meta": {
+      "title": "SUPIR Model Loader (v2)"
+    }
+  },
+  "22": {
+    "inputs": {
+      "ckpt_name": "leosamsHelloworldXL_helloworldXL60.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "24": {
+    "inputs": {
+      "model": "wd-swinv2-tagger-v3",
+      "threshold": 0.35000000000000003,
+      "character_threshold": 0.85,
+      "replace_underscore": false,
+      "trailing_comma": false,
+      "exclude_tags": "bad quality, blurry, messy",
+      "image": [
+        "107",
+        0
+      ]
+    },
+    "class_type": "WD14Tagger|pysssss",
+    "_meta": {
+      "title": "WD14 Tagger 🐍"
+    }
+  },
+  "88": {
+    "inputs": {
+      "action": "append",
+      "tidy_tags": "yes",
+      "text_a": [
+        "24",
+        0
+      ],
+      "text_b": "high quality, detailed",
+      "text_c": ""
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "104": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "scale_by": [
+        "120",
+        0
+      ],
+      "image": [
+        "118",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy",
+    "_meta": {
+      "title": "Upscale Image By"
+    }
+  },
+  "106": {
+    "inputs": {
+      "filename_prefix": "output",
+      "images": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "107": {
+    "inputs": {
+      "width": [
+        "109",
+        0
+      ],
+      "height": [
+        "110",
+        0
+      ],
+      "interpolation": "lanczos",
+      "method": "keep proportion",
+      "condition": "always",
+      "multiple_of": 32,
+      "image": [
+        "104",
+        0
+      ]
+    },
+    "class_type": "ImageResize+",
+    "_meta": {
+      "title": "🔧 Image Resize"
+    }
+  },
+  "108": {
+    "inputs": {
+      "image": [
+        "104",
+        0
+      ]
+    },
+    "class_type": "GetImageSize+",
+    "_meta": {
+      "title": "🔧 Get Image Size"
+    }
+  },
+  "109": {
+    "inputs": {
+      "python_expression": "((a + 31) // 32) * 32",
+      "print_to_console": "False",
+      "a": [
+        "108",
+        0
+      ],
+      "b": 0,
+      "c": 0
+    },
+    "class_type": "Evaluate Integers",
+    "_meta": {
+      "title": "Evaluate Integers"
+    }
+  },
+  "110": {
+    "inputs": {
+      "python_expression": "((a + 31) // 32) * 32",
+      "print_to_console": "False",
+      "a": [
+        "108",
+        1
+      ],
+      "b": 0,
+      "c": 0
+    },
+    "class_type": "Evaluate Integers",
+    "_meta": {
+      "title": "Evaluate Integers"
+    }
+  },
+  "112": {
+    "inputs": {
+      "text": "[\n  {\n    \"display_name\": \"SUPIR(1.5x)\",\n    \"type\": \"image\",\n    \"input_params\": [\n      {\n        \"name\": \"scale_factor\",\n        \"default\": 1.5\n      }\n    ]\n  },\n  {\n    \"display_name\": \"SUPIR(2x)\",\n    \"type\": \"image\",\n    \"input_params\": [\n      {\n        \"name\": \"scale_factor\",\n        \"default\": 2.0\n      }\n    ]\n  }\n]"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_SUBFLOWS"
+    }
+  },
+  "113": {
+    "inputs": {
+      "name": "supir_upscaler",
+      "display_name": "SUPIR Upscaler",
+      "description": "High-End Image Upscaler",
+      "author": "akihungac",
+      "homepage": "https://openart.ai/workflows/profile/akihungac",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SupirUpscaler.html",
+      "license": "",
+      "tags": "[\"upscaler\"]",
+      "version": "1.0.0"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "117": {
+    "inputs": {
+      "default_value": "auto",
+      "possible_values": "[\"fp16\", \"bf16\", \"fp32\", \"auto\"]",
+      "display_name": "Diffusion Type(set to \"fp32\" on macOS)",
+      "optional": true,
+      "advanced": true,
+      "order": 99,
+      "custom_id": ""
+    },
+    "class_type": "VixUiList",
+    "_meta": {
+      "title": "VixUI-List"
+    }
+  },
+  "118": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Image to upscale;order=1"
+    }
+  },
+  "120": {
+    "inputs": {
+      "value": 2,
+      "display_name": "Output image size factor",
+      "optional": false,
+      "advanced": true,
+      "min": 1.1,
+      "max": 3,
+      "step": 0.1,
+      "order": 2,
+      "custom_id": "scale_factor"
+    },
+    "class_type": "VixUiRangeScaleFloat",
+    "_meta": {
+      "title": "VixUI-RangeScaleFloat"
+    }
+  },
+  "125": {
+    "inputs": {
+      "default_value": "Soft",
+      "possible_values": "{\n  \"Soft\": \"TiledRestoreEDMSampler\",\n  \"Sharp\": \"TiledRestoreDPMPP2MSampler\",\n  \"Soft, disabled tiling(for small images)\": \"RestoreEDMSampler\",\n  \"Sharp, disabled tiling(for small images)\": \"RestoreDPMPP2MSampler\"\n}",
+      "display_name": "Scaling option",
+      "optional": true,
+      "advanced": true,
+      "order": 99,
+      "custom_id": ""
+    },
+    "class_type": "VixUiList",
+    "_meta": {
+      "title": "VixUI-List"
+    }
+  },
+  "136": {
+    "inputs": {
+      "python_expression": "1024 - (a*512)",
+      "print_to_console": "False",
+      "a": [
+        "138",
+        1
+      ],
+      "b": 0,
+      "c": 0
+    },
+    "class_type": "Evaluate Integers",
+    "_meta": {
+      "title": "Evaluate Integers"
+    }
+  },
+  "138": {
+    "inputs": {
+      "state": false,
+      "display_name": "Low memory mode",
+      "optional": true,
+      "advanced": true,
+      "order": 99,
+      "custom_id": ""
+    },
+    "class_type": "VixUiCheckbox",
+    "_meta": {
+      "title": "VixUI-Checkbox"
+    }
+  },
+  "139": {
+    "inputs": {
+      "python_expression": "512 - (a*256)",
+      "print_to_console": "False",
+      "a": [
+        "138",
+        1
+      ],
+      "b": 0,
+      "c": 0
+    },
+    "class_type": "Evaluate Integers",
+    "_meta": {
+      "title": "Evaluate Integers"
+    }
+  }
+}

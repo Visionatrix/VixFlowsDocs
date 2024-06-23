@@ -251,7 +251,8 @@
       "homepage": "https://openart.ai/workflows/datou/comic-portrait/nkAs1NYgf91uMeV14PP0",
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SketchPortrait.html",
       "license": "",
-      "tags": "[\"anime\", \"sketch\", \"portrait\"]"
+      "tags": "[\"anime\", \"sketch\", \"portrait\"]",
+      "version": "1.0.0"
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -267,7 +268,8 @@
       "min": 4,
       "max": 6,
       "step": 0.1,
-      "order": 99
+      "order": 99,
+      "custom_id": ""
     },
     "class_type": "VixUiRangeFloat",
     "_meta": {
@@ -301,7 +303,8 @@
       "display_name": "Base gender",
       "optional": false,
       "advanced": false,
-      "order": 2
+      "order": 2,
+      "custom_id": ""
     },
     "class_type": "VixUiList",
     "_meta": {
@@ -340,7 +343,8 @@
       "display_name": "Prompt",
       "optional": true,
       "advanced": true,
-      "order": 10
+      "order": 10,
+      "custom_id": ""
     },
     "class_type": "VixUiPrompt",
     "_meta": {

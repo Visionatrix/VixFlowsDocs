@@ -171,7 +171,8 @@
       "homepage": "https://github.com/bigcat88",
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/VintagePortrait.html",
       "license": "",
-      "tags": "[\"portrait\"]"
+      "tags": "[\"portrait\"]",
+      "version": "1.0.0"
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -184,7 +185,8 @@
       "display_name": "Prompt",
       "optional": false,
       "advanced": false,
-      "order": 2
+      "order": 2,
+      "custom_id": ""
     },
     "class_type": "VixUiPrompt",
     "_meta": {

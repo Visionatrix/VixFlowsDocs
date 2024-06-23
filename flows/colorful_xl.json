@@ -218,6 +218,7 @@
       "optional": true,
       "advanced": true,
       "order": 1,
+      "custom_id": "",
       "input_off_state": [
         "275",
         0
@@ -227,9 +228,9 @@
         0
       ]
     },
-    "class_type": "VixUiCheckbox",
+    "class_type": "VixUiCheckboxLogic",
     "_meta": {
-      "title": "VixUI-Checkbox"
+      "title": "VixUI-CheckboxLogic"
     }
   },
   "308": {
@@ -241,7 +242,8 @@
       "min": 4.5,
       "max": 7,
       "step": 0.1,
-      "order": 10
+      "order": 10,
+      "custom_id": ""
     },
     "class_type": "VixUiRangeFloat",
     "_meta": {
@@ -254,7 +256,8 @@
       "display_name": "Prompt",
       "optional": false,
       "advanced": false,
-      "order": 1
+      "order": 1,
+      "custom_id": ""
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -267,7 +270,8 @@
       "display_name": "Negative Prompt",
       "optional": true,
       "advanced": true,
-      "order": 25
+      "order": 25,
+      "custom_id": ""
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -283,7 +287,8 @@
       "homepage": "https://github.com/bigcat88",
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Colorful_XL.html",
       "license": "",
-      "tags": "[\"general\"]"
+      "tags": "[\"general\"]",
+      "version": "1.0.0"
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
