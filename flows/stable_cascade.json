@@ -1,0 +1,527 @@
+{
+  "19": {
+    "inputs": {
+      "seed": 470771946371138,
+      "steps": 20,
+      "cfg": 4,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "26",
+        0
+      ],
+      "positive": [
+        "20",
+        0
+      ],
+      "negative": [
+        "21",
+        0
+      ],
+      "latent_image": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "20": {
+    "inputs": {
+      "text": [
+        "101",
+        0
+      ],
+      "clip": [
+        "26",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "21": {
+    "inputs": {
+      "text": [
+        "102",
+        0
+      ],
+      "clip": [
+        "26",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "22": {
+    "inputs": {
+      "samples": [
+        "23",
+        0
+      ],
+      "vae": [
+        "27",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "23": {
+    "inputs": {
+      "seed": 979622377516399,
+      "steps": 10,
+      "cfg": 1.1,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "27",
+        0
+      ],
+      "positive": [
+        "24",
+        0
+      ],
+      "negative": [
+        "25",
+        0
+      ],
+      "latent_image": [
+        "36",
+        1
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "24": {
+    "inputs": {
+      "conditioning": [
+        "25",
+        0
+      ],
+      "stage_c": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "StableCascade_StageB_Conditioning",
+    "_meta": {
+      "title": "StableCascade_StageB_Conditioning"
+    }
+  },
+  "25": {
+    "inputs": {
+      "conditioning": [
+        "20",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "26": {
+    "inputs": {
+      "ckpt_name": "stable_cascade_stage_c.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "27": {
+    "inputs": {
+      "ckpt_name": "stable_cascade_stage_b.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "36": {
+    "inputs": {
+      "width": 1024,
+      "height": 576,
+      "compression": 32,
+      "batch_size": 1
+    },
+    "class_type": "StableCascade_EmptyLatentImage",
+    "_meta": {
+      "title": "StableCascade_EmptyLatentImage"
+    }
+  },
+  "78": {
+    "inputs": {
+      "seed": 980141359674880,
+      "steps": 20,
+      "cfg": 4,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "simple",
+      "denoise": 0.5,
+      "model": [
+        "26",
+        0
+      ],
+      "positive": [
+        "20",
+        0
+      ],
+      "negative": [
+        "21",
+        0
+      ],
+      "latent_image": [
+        "85",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "79": {
+    "inputs": {
+      "samples": [
+        "80",
+        0
+      ],
+      "vae": [
+        "27",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "80": {
+    "inputs": {
+      "seed": 601112506991754,
+      "steps": 10,
+      "cfg": 1.1,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "27",
+        0
+      ],
+      "positive": [
+        "81",
+        0
+      ],
+      "negative": [
+        "82",
+        0
+      ],
+      "latent_image": [
+        "85",
+        1
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "81": {
+    "inputs": {
+      "conditioning": [
+        "82",
+        0
+      ],
+      "stage_c": [
+        "78",
+        0
+      ]
+    },
+    "class_type": "StableCascade_StageB_Conditioning",
+    "_meta": {
+      "title": "StableCascade_StageB_Conditioning"
+    }
+  },
+  "82": {
+    "inputs": {
+      "conditioning": [
+        "20",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "85": {
+    "inputs": {
+      "compression": 32,
+      "image": [
+        "90",
+        0
+      ],
+      "vae": [
+        "26",
+        2
+      ]
+    },
+    "class_type": "StableCascade_StageC_VAEEncode",
+    "_meta": {
+      "title": "StableCascade_StageC_VAEEncode"
+    }
+  },
+  "86": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "100",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "89": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "width": 2048,
+      "height": 1152,
+      "crop": "disabled",
+      "image": [
+        "79",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Upscale Image"
+    }
+  },
+  "90": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "width": 1536,
+      "height": 864,
+      "crop": "disabled",
+      "image": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Upscale Image"
+    }
+  },
+  "91": {
+    "inputs": {
+      "compression": 32,
+      "image": [
+        "89",
+        0
+      ],
+      "vae": [
+        "26",
+        2
+      ]
+    },
+    "class_type": "StableCascade_StageC_VAEEncode",
+    "_meta": {
+      "title": "StableCascade_StageC_VAEEncode"
+    }
+  },
+  "93": {
+    "inputs": {
+      "seed": 536148193289049,
+      "steps": 20,
+      "cfg": 4,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "simple",
+      "denoise": 0.5,
+      "model": [
+        "26",
+        0
+      ],
+      "positive": [
+        "20",
+        0
+      ],
+      "negative": [
+        "21",
+        0
+      ],
+      "latent_image": [
+        "91",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "94": {
+    "inputs": {
+      "conditioning": [
+        "20",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "95": {
+    "inputs": {
+      "conditioning": [
+        "94",
+        0
+      ],
+      "stage_c": [
+        "93",
+        0
+      ]
+    },
+    "class_type": "StableCascade_StageB_Conditioning",
+    "_meta": {
+      "title": "StableCascade_StageB_Conditioning"
+    }
+  },
+  "96": {
+    "inputs": {
+      "seed": 935537763343328,
+      "steps": 10,
+      "cfg": 1.1,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "27",
+        0
+      ],
+      "positive": [
+        "95",
+        0
+      ],
+      "negative": [
+        "94",
+        0
+      ],
+      "latent_image": [
+        "91",
+        1
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "97": {
+    "inputs": {
+      "samples": [
+        "96",
+        0
+      ],
+      "vae": [
+        "27",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "100": {
+    "inputs": {
+      "default_value": "Two pass",
+      "possible_values": "[\"One pass\", \"Two pass\", \"Three pass\"]",
+      "display_name": "Pass count",
+      "optional": true,
+      "advanced": true,
+      "order": 20,
+      "custom_id": "pass_count",
+      "input_first": [
+        "22",
+        0
+      ],
+      "input_second": [
+        "79",
+        0
+      ],
+      "input_third": [
+        "97",
+        0
+      ]
+    },
+    "class_type": "VixUiListLogic",
+    "_meta": {
+      "title": "VixUI-ListLogic"
+    }
+  },
+  "101": {
+    "inputs": {
+      "text": "",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "102": {
+    "inputs": {
+      "text": "",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 25,
+      "custom_id": "negative_prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "103": {
+    "inputs": {
+      "name": "stable_cascade",
+      "display_name": "Stable Cascade",
+      "description": "Generation with multiple passes",
+      "author": "HowDo?",
+      "homepage": "https://comfyworkflows.com/profile/41d507c5-bdcf-424b-9b75-a3cc2ea9049d",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Stable_Cascade.html",
+      "license": "",
+      "tags": "[\"general\"]",
+      "version": "1.0.0"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  }
+}
