@@ -102,9 +102,9 @@
       }
     ],
     "save_path": "loras/The_Simplest.safetensors",
-    "url": "https://civitai.com/api/download/models/376536?type=Model&format=SafeTensor",
+    "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/lora/loras/The_Simplest.safetensors",
     "homepage": "https://civitai.com/models/336225/the-simplest",
-    "hash": "EC43D26E93173195BF6873BE6AD829EC3C4DE3F2A1F5D7F3A31E83B5BDD6C6EA"
+    "hash": "ec43d26e93173195bf6873be6ad829ec3c4de3f2a1f5d7f3a31e83b5bdd6c6ea"
   },
   "animagine-xl-3.1": {
     "regexes": [
@@ -430,5 +430,17 @@
       }
     ],
     "gated": true
+  },
+  "NetaArt_XL_1.0" : {
+    "save_path": "checkpoints/neta_art_xl_v10.safetensors",
+    "url": "https://huggingface.co/neta-art/neta-art-xl-1.0/resolve/main/neta_art_xl_v10.safetensors",
+    "homepage": "https://huggingface.co/neta-art/neta-art-xl-1.0",
+    "hash": "5a268fde845f9bce52111cd05b8241cabe1580af4c96ee5f68fb61f422693cb1",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:neta))(?=.*(?i:art))(?=.*(?i:xl))(?=.*(?i:v10)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ]
   }
 }
