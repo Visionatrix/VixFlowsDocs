@@ -149,7 +149,7 @@
         2
       ],
       "script": [
-        "358",
+        "398",
         0
       ]
     },
@@ -343,6 +343,24 @@
     "class_type": "VixUiList",
     "_meta": {
       "title": "VixUI-List"
+    }
+  },
+  "398": {
+    "inputs": {
+      "state": true,
+      "display_name": "Perform 1.5x scaling",
+      "optional": true,
+      "advanced": true,
+      "order": 99,
+      "custom_id": "extra_size",
+      "input_on_state": [
+        "358",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
     }
   }
 }
