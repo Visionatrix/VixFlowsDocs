@@ -1,0 +1,594 @@
+{
+  "4": {
+    "inputs": {
+      "ckpt_name": "albedobaseXL_v13.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": [
+        "127",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": [
+        "120",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "53": {
+    "inputs": {
+      "lora_name": "photomaker-v1.bin",
+      "strength_model": 1,
+      "model": [
+        "4",
+        0
+      ]
+    },
+    "class_type": "LoraLoaderModelOnly",
+    "_meta": {
+      "title": "LoraLoaderModelOnly"
+    }
+  },
+  "59": {
+    "inputs": {
+      "conditioning_1": [
+        "60",
+        0
+      ],
+      "conditioning_2": [
+        "62",
+        0
+      ]
+    },
+    "class_type": "ConditioningCombine",
+    "_meta": {
+      "title": "Conditioning (Combine)"
+    }
+  },
+  "60": {
+    "inputs": {
+      "start": 0,
+      "end": [
+        "101",
+        0
+      ],
+      "conditioning": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "ConditioningSetTimestepRange",
+    "_meta": {
+      "title": "ConditioningSetTimestepRange"
+    }
+  },
+  "62": {
+    "inputs": {
+      "start": [
+        "101",
+        0
+      ],
+      "end": 1,
+      "conditioning": [
+        "73",
+        0
+      ]
+    },
+    "class_type": "ConditioningSetTimestepRange",
+    "_meta": {
+      "title": "ConditioningSetTimestepRange"
+    }
+  },
+  "63": {
+    "inputs": {
+      "seed": 549269201410295,
+      "steps": 20,
+      "cfg": 5,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "53",
+        0
+      ],
+      "positive": [
+        "59",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "65": {
+    "inputs": {
+      "samples": [
+        "63",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "69": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "65",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "72": {
+    "inputs": {
+      "photomaker_model_name": "photomaker-v1.bin"
+    },
+    "class_type": "PhotoMakerLoader",
+    "_meta": {
+      "title": "PhotoMakerLoader"
+    }
+  },
+  "73": {
+    "inputs": {
+      "text": [
+        "118",
+        0
+      ],
+      "photomaker": [
+        "72",
+        0
+      ],
+      "image": [
+        "97",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "PhotoMakerEncode",
+    "_meta": {
+      "title": "PhotoMakerEncode"
+    }
+  },
+  "74": {
+    "inputs": {
+      "seed": 213410887870447,
+      "steps": 20,
+      "cfg": 5,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "53",
+        0
+      ],
+      "positive": [
+        "73",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "75": {
+    "inputs": {
+      "samples": [
+        "74",
+        0
+      ],
+      "vae": [
+        "4",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "76": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "75",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "78": {
+    "inputs": {},
+    "class_type": "BRIA_RMBG_ModelLoader_Zho",
+    "_meta": {
+      "title": "🧹BRIA_RMBG Model Loader"
+    }
+  },
+  "79": {
+    "inputs": {
+      "rmbgmodel": [
+        "78",
+        0
+      ],
+      "image": [
+        "100",
+        0
+      ]
+    },
+    "class_type": "BRIA_RMBG_Zho",
+    "_meta": {
+      "title": "🧹BRIA RMBG"
+    }
+  },
+  "97": {
+    "inputs": {
+      "image": [
+        "79",
+        0
+      ]
+    },
+    "class_type": "SplitImageWithAlpha",
+    "_meta": {
+      "title": "Split Image with Alpha"
+    }
+  },
+  "99": {
+    "inputs": {
+      "name": "photomaker_1",
+      "display_name": "Photo from 1 image",
+      "description": "Customizing Realistic Human Photos",
+      "author": "shiimizu",
+      "homepage": "https://github.com/shiimizu/ComfyUI-PhotoMaker-Plus",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_1.html",
+      "license": "",
+      "tags": "[\"general\", \"portrait\", \"cartoon\"]",
+      "version": "1.0.0"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "100": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person's face;order=1"
+    }
+  },
+  "101": {
+    "inputs": {
+      "value": 0.3,
+      "display_name": "Freedom of outcome",
+      "optional": true,
+      "advanced": true,
+      "min": 0.1,
+      "max": 0.5,
+      "step": 0.1,
+      "order": 99,
+      "custom_id": "accuracy"
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "107": {
+    "inputs": {
+      "default_value": "Cinematic",
+      "possible_values": "[\n  \"Cinematic\",\n  \"Disney Character\",\n  \"Digital Art\",\n  \"Photographic\",\n  \"Fantasy art\",\n  \"Neonpunk\",\n  \"Comic book\",\n  \"Lowpoly\",\n  \"Line art\"\n]",
+      "display_name": "Photo Style",
+      "optional": false,
+      "advanced": false,
+      "order": 4,
+      "custom_id": "style"
+    },
+    "class_type": "VixUiList",
+    "_meta": {
+      "title": "VixUI-List"
+    }
+  },
+  "108": {
+    "inputs": {
+      "key": [
+        "107",
+        0
+      ],
+      "default_value": "",
+      "dictionary": [
+        "113",
+        0
+      ]
+    },
+    "class_type": "Text Dictionary Get",
+    "_meta": {
+      "title": "Text Dictionary Get"
+    }
+  },
+  "112": {
+    "inputs": {
+      "key_1": "Cinematic",
+      "value_1": "{negative_prompt}, anime, cartoon, graphic, text, painting, crayon, graphite, abstract, glitch, deformed, mutated, ugly, disfigured",
+      "key_2": "Disney Character",
+      "value_2": "{negative_prompt}, lowres, bad anatomy, bad hands, text, bad eyes, bad arms, bad legs, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, blurry, grayscale, noisy, sloppy, messy, grainy, highly detailed, ultra textured, photo",
+      "key_3": "Digital Art",
+      "value_3": "{negative_prompt}, photo, photorealistic, realism, ugly",
+      "key_4": "Photographic",
+      "value_4": "{negative_prompt}, drawing, painting, crayon, sketch, graphite, impressionist, noisy, blurry, soft, deformed, ugly",
+      "key_5": "Fantasy art",
+      "value_5": "{negative_prompt}, photographic, realistic, realism, 35mm film, dslr, cropped, frame, text, deformed, glitch, noise, noisy, off-center, deformed, cross-eyed, closed eyes, bad anatomy, ugly, disfigured, sloppy, duplicate, mutated, black and white"
+    },
+    "class_type": "Text Dictionary New",
+    "_meta": {
+      "title": "Text Dictionary New"
+    }
+  },
+  "113": {
+    "inputs": {
+      "dictionary_a": [
+        "112",
+        0
+      ],
+      "dictionary_b": [
+        "114",
+        0
+      ]
+    },
+    "class_type": "Text Dictionary Update",
+    "_meta": {
+      "title": "Text Dictionary Update"
+    }
+  },
+  "114": {
+    "inputs": {
+      "key_1": "Neonpunk",
+      "value_1": "{negative_prompt}, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, ugly, disfigured",
+      "key_2": "Comic book",
+      "value_2": "{negative_prompt}, photograph, deformed, glitch, noisy, realistic, stock photo",
+      "key_3": "Lowpoly",
+      "value_3": "{negative_prompt}, noisy, sloppy, messy, grainy, highly detailed, ultra textured, photo",
+      "key_4": "Line art",
+      "value_4": "{negative_prompt}, anime, photorealistic, 35mm film, deformed, glitch, blurry, noisy, off-center, deformed, cross-eyed, closed eyes, bad anatomy, ugly, disfigured, mutated, realism, realistic, impressionism, expressionism, oil, acrylic",
+      "key_5": "",
+      "value_5": ""
+    },
+    "class_type": "Text Dictionary New",
+    "_meta": {
+      "title": "Text Dictionary New"
+    }
+  },
+  "117": {
+    "inputs": {
+      "dictionary_a": [
+        "129",
+        0
+      ],
+      "dictionary_b": [
+        "131",
+        0
+      ]
+    },
+    "class_type": "Text Dictionary Update",
+    "_meta": {
+      "title": "Text Dictionary Update"
+    }
+  },
+  "118": {
+    "inputs": {
+      "text": [
+        "119",
+        0
+      ],
+      "find": "{prompt}",
+      "replace": [
+        "122",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "119": {
+    "inputs": {
+      "key": [
+        "107",
+        0
+      ],
+      "default_value": "",
+      "dictionary": [
+        "117",
+        0
+      ]
+    },
+    "class_type": "Text Dictionary Get",
+    "_meta": {
+      "title": "Text Dictionary Get"
+    }
+  },
+  "120": {
+    "inputs": {
+      "text": [
+        "108",
+        0
+      ],
+      "find": "{negative_prompt}",
+      "replace": [
+        "123",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "122": {
+    "inputs": {
+      "text": "portrait of girl",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 2,
+      "custom_id": "prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "123": {
+    "inputs": {
+      "text": "",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 25,
+      "custom_id": "negative_prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "126": {
+    "inputs": {
+      "text": [
+        "119",
+        0
+      ],
+      "find": ", photomaker",
+      "replace": ""
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "127": {
+    "inputs": {
+      "text": [
+        "126",
+        0
+      ],
+      "find": "{prompt}",
+      "replace": [
+        "122",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "129": {
+    "inputs": {
+      "key_1": "Cinematic",
+      "value_1": "cinematic still {prompt} . emotional, harmonious, vignette, highly detailed, high budget, bokeh, cinemascope, moody, epic, gorgeous, film grain, grainy, photomaker",
+      "key_2": "Disney Character",
+      "value_2": "Pixar animation character of {prompt} . pixar-style, studio anime, Disney, high-quality, photomaker",
+      "key_3": "Digital Art",
+      "value_3": "concept art {prompt} . digital artwork, illustrative, painterly, matte painting, highly detailed, photomaker",
+      "key_4": "Photographic",
+      "value_4": "cinematic photo {prompt} . 35mm photograph, film, bokeh, professional, 4k, highly detailed, photomaker",
+      "key_5": "Fantasy art",
+      "value_5": "ethereal fantasy concept art of {prompt} . magnificent, celestial, ethereal, painterly, epic, majestic, magical, fantasy art, cover art, dreamy, photomaker"
+    },
+    "class_type": "Text Dictionary New",
+    "_meta": {
+      "title": "Text Dictionary New"
+    }
+  },
+  "131": {
+    "inputs": {
+      "key_1": "Neonpunk",
+      "value_1": "neonpunk style {prompt} . cyberpunk, vaporwave, neon, vibes, vibrant, stunningly beautiful, crisp, detailed, sleek, ultramodern, magenta highlights, dark purple shadows, high contrast, cinematic, ultra detailed, intricate, professional, photomaker",
+      "key_2": "Comic book",
+      "value_2": "comic {prompt} . graphic illustration, comic art, graphic novel art, vibrant, highly detailed, photomaker",
+      "key_3": "Lowpoly",
+      "value_3": "low-poly style {prompt} . low-poly game art, polygon mesh, jagged, blocky, wireframe edges, centered composition, photomaker",
+      "key_4": "Line art",
+      "value_4": "line art drawing {prompt} . professional, sleek, modern, minimalist, graphic, line art, vector graphics, photomaker",
+      "key_5": "",
+      "value_5": ""
+    },
+    "class_type": "Text Dictionary New",
+    "_meta": {
+      "title": "Text Dictionary New"
+    }
+  }
+}
