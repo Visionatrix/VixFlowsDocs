@@ -1,0 +1,317 @@
+{
+  "2": {
+    "inputs": {
+      "ckpt_name": "Juggernaut-X-RunDiffusion-NSFW.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "13": {
+    "inputs": {
+      "vae_name": "sdxl_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "27": {
+    "inputs": {
+      "seed": 376336750880278,
+      "steps": 50,
+      "cfg": [
+        "280",
+        0
+      ],
+      "sampler_name": "euler",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "254",
+        0
+      ],
+      "positive": [
+        "243",
+        0
+      ],
+      "negative": [
+        "242",
+        0
+      ],
+      "latent_image": [
+        "244",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "116": {
+    "inputs": {
+      "samples": [
+        "27",
+        0
+      ],
+      "vae": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "242": {
+    "inputs": {
+      "text": [
+        "278",
+        0
+      ],
+      "clip": [
+        "254",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "243": {
+    "inputs": {
+      "text": [
+        "277",
+        0
+      ],
+      "clip": [
+        "254",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "244": {
+    "inputs": {
+      "width": [
+        "279",
+        1
+      ],
+      "height": [
+        "279",
+        2
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "254": {
+    "inputs": {
+      "lora_name": "add-detail-xl.safetensors",
+      "strength_model": 0.5,
+      "strength_clip": 1,
+      "model": [
+        "2",
+        0
+      ],
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "267": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "281",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "268": {
+    "inputs": {
+      "add_noise": true,
+      "noise_seed": 618748884544708,
+      "cfg": [
+        "280",
+        0
+      ],
+      "model": [
+        "254",
+        0
+      ],
+      "positive": [
+        "243",
+        0
+      ],
+      "negative": [
+        "242",
+        0
+      ],
+      "sampler": [
+        "273",
+        0
+      ],
+      "sigmas": [
+        "270",
+        0
+      ],
+      "latent_image": [
+        "244",
+        0
+      ]
+    },
+    "class_type": "SamplerCustom",
+    "_meta": {
+      "title": "SamplerCustom"
+    }
+  },
+  "270": {
+    "inputs": {
+      "model_type": "SDXL",
+      "steps": 20,
+      "denoise": 1
+    },
+    "class_type": "AlignYourStepsScheduler",
+    "_meta": {
+      "title": "AlignYourStepsScheduler"
+    }
+  },
+  "273": {
+    "inputs": {
+      "sampler_name": "dpmpp_2m"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "275": {
+    "inputs": {
+      "samples": [
+        "268",
+        0
+      ],
+      "vae": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "276": {
+    "inputs": {
+      "name": "juggernaut_xl",
+      "display_name": "Juggernaut XL",
+      "description": "Juggernaut XL Community Version (NSFW)",
+      "author": "bigcat88",
+      "homepage": "https://github.com/bigcat88",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Juggernaut_XL.html",
+      "license": "",
+      "tags": "[\"general\"]",
+      "version": "1.0.0"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "277": {
+    "inputs": {
+      "text": "",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "278": {
+    "inputs": {
+      "text": "embedding:ng_deepnegative_v1_75t, embedding:negative_hand-neg,  (worst quality, low quality:2), lowres, bad anatomy, normal quality, monochrome, grayscale, ((signature, text, watermark))",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 15,
+      "custom_id": "negative_prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "279": {
+    "inputs": {
+      "aspect_ratio": "2:3"
+    },
+    "class_type": "SDXLAspectRatioSelector",
+    "_meta": {
+      "title": "input;Aspect Ratio;optional;advanced;custom_id=aspect_ratio"
+    }
+  },
+  "280": {
+    "inputs": {
+      "value": 4,
+      "display_name": "Prompt strength",
+      "optional": true,
+      "advanced": true,
+      "min": 4,
+      "max": 7,
+      "step": 0.1,
+      "order": 98,
+      "custom_id": "prompt_strength"
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "281": {
+    "inputs": {
+      "state": false,
+      "display_name": "Fast run",
+      "optional": true,
+      "advanced": true,
+      "order": 98,
+      "custom_id": "fast_run",
+      "input_off_state": [
+        "116",
+        0
+      ],
+      "input_on_state": [
+        "275",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
+    }
+  }
+}
