@@ -89,19 +89,21 @@ The SHA256 hash of the model. Used to verify the integrity of the model and chec
 Vix workflow overview
 """""""""""""""""""""
 
-Starting from the Visionatrix 0.6.0, the workflow consists of a single file: ``flow_name.json``,
+Starting from the Visionatrix **0.6.0**, the workflow consists of a single file: ``flow_name.json``,
 which is a ComfyUI workflow file adopted to Visionatrix.
 
 .. note::
 
-    The main difference between Visionatrix and ComfyUI: A task is created with a single request, which includes both incoming text parameters and input files.
+    The main difference between Visionatrix and ComfyUI:
+
+        **A task is created with a single request, which includes both incoming text parameters and input files.**
 
 The flow metadata fields described below are filled in the `VixUi-WorkflowMetadata` node.
 
 "name"
 ''''''
 
-The name of the workflow. It usually matches the name of the folder where the flow is stored.
+The name of the workflow. It usually matches the name of the file with workflow.
 
 "display_name"
 ''''''''''''''
@@ -141,8 +143,8 @@ A list of string tags that can be used to label the categories of the flow.
 "input_params"
 ''''''''''''''
 
-Starting with Visionatrix 0.6.0, the input params are parsed automatically from the adopted ComfyUI workflow.
-Based on the information from this field, the Visionatrix UI dynamically displays the interface.
+.. note:: Starting with Visionatrix 0.6.0, the input params are parsed automatically from the adopted ComfyUI workflow.
+    Based on the information from this field, the Visionatrix UI dynamically displays the interface.
 
 Technically, this is a list of objects, where each object is one input parameter, which includes:
 
