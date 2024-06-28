@@ -98,7 +98,10 @@
   },
   "242": {
     "inputs": {
-      "text": "asian, child, penis, embedding:ng_deepnegative_v1_75t, embedding:negative_hand-neg,  (worst quality, low quality:2), lowres, bad anatomy, normal quality, monochrome, grayscale, ((signature, text, watermark))",
+      "text": [
+        "269",
+        0
+      ],
       "clip": [
         "7",
         1
@@ -111,7 +114,10 @@
   },
   "243": {
     "inputs": {
-      "text": "",
+      "text": [
+        "268",
+        0
+      ],
       "clip": [
         "7",
         1
@@ -124,8 +130,14 @@
   },
   "244": {
     "inputs": {
-      "width": 832,
-      "height": 1216,
+      "width": [
+        "270",
+        1
+      ],
+      "height": [
+        "270",
+        2
+      ],
       "batch_size": 1
     },
     "class_type": "EmptyLatentImage",
@@ -264,6 +276,60 @@
     "class_type": "SaveImage",
     "_meta": {
       "title": "Save Image"
+    }
+  },
+  "267": {
+    "inputs": {
+      "name": "juggernaut_lite",
+      "display_name": "Juggernaut Lite",
+      "description": "Juggernaut + LoRAs with post processing",
+      "author": "Valomar",
+      "homepage": "https://comfyworkflows.com/profile/86edf4d7-d110-498d-b4e0-4cacadee750e",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Juggernaut_Lite.html",
+      "license": "",
+      "tags": "[\"general\"]",
+      "version": "1.0.0"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "268": {
+    "inputs": {
+      "text": "",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "269": {
+    "inputs": {
+      "text": "asian, child, penis, embedding:ng_deepnegative_v1_75t, embedding:negative_hand-neg,  (worst quality, low quality:2), lowres, bad anatomy, normal quality, monochrome, grayscale, ((signature, text, watermark))",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 15,
+      "custom_id": "negative_prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "270": {
+    "inputs": {
+      "aspect_ratio": "2:3"
+    },
+    "class_type": "SDXLAspectRatioSelector",
+    "_meta": {
+      "title": "input;Aspect Ratio;optional;advanced;custom_id=aspect_ratio"
     }
   }
 }

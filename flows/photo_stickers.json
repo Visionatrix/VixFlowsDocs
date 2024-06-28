@@ -1,7 +1,7 @@
 {
   "10": {
     "inputs": {
-      "filename_prefix": "ComfyUI",
+      "filename_prefix": "240_10",
       "images": [
         "338",
         0
@@ -10,16 +10,6 @@
     "class_type": "SaveImage",
     "_meta": {
       "title": "Save Image"
-    }
-  },
-  "22": {
-    "inputs": {
-      "image": "input.png",
-      "upload": "image"
-    },
-    "class_type": "LoadImage",
-    "_meta": {
-      "title": "Load Image"
     }
   },
   "35": {
@@ -144,7 +134,7 @@
   },
   "79": {
     "inputs": {
-      "filename_prefix": "ComfyUI",
+      "filename_prefix": "240_79",
       "images": [
         "276",
         0
@@ -157,7 +147,7 @@
   },
   "80": {
     "inputs": {
-      "filename_prefix": "ComfyUI",
+      "filename_prefix": "240_80",
       "images": [
         "290",
         0
@@ -170,7 +160,7 @@
   },
   "82": {
     "inputs": {
-      "filename_prefix": "ComfyUI",
+      "filename_prefix": "240_82",
       "images": [
         "318",
         0
@@ -183,7 +173,10 @@
   },
   "88": {
     "inputs": {
-      "text": "half body, looking at viewer, [1 {man}]  laughing",
+      "text": [
+        "364",
+        0
+      ],
       "clip": [
         "60",
         1
@@ -196,7 +189,10 @@
   },
   "91": {
     "inputs": {
-      "text": "half body, looking at viewer, [1 {man}]  laughing, Sticker, svg, vector art, sharp, kawaii style, Anime style ",
+      "text": [
+        "366",
+        0
+      ],
       "clip": [
         "59",
         1
@@ -248,7 +244,7 @@
         0
       ],
       "image": [
-        "22",
+        "330",
         0
       ],
       "model": [
@@ -275,7 +271,10 @@
   },
   "284": {
     "inputs": {
-      "text": "half body, looking at viewer, [1 {man}]  angry",
+      "text": [
+        "363",
+        0
+      ],
       "clip": [
         "60",
         1
@@ -288,7 +287,10 @@
   },
   "287": {
     "inputs": {
-      "text": "half body, looking at viewer, [1 {man}]  angry, Sticker, svg, vector art, sharp, kawaii style, Anime style ",
+      "text": [
+        "367",
+        0
+      ],
       "clip": [
         "59",
         1
@@ -340,7 +342,7 @@
         0
       ],
       "image": [
-        "22",
+        "330",
         0
       ],
       "model": [
@@ -367,7 +369,10 @@
   },
   "298": {
     "inputs": {
-      "text": "half body, looking at viewer, [1 {man}]  shocked",
+      "text": [
+        "361",
+        0
+      ],
       "clip": [
         "60",
         1
@@ -380,7 +385,10 @@
   },
   "301": {
     "inputs": {
-      "text": "half body, looking at viewer, [1 {man}]  shocked, Sticker, svg, vector art, sharp, kawaii style, Anime style ",
+      "text": [
+        "368",
+        0
+      ],
       "clip": [
         "59",
         1
@@ -432,7 +440,7 @@
         0
       ],
       "image": [
-        "22",
+        "330",
         0
       ],
       "model": [
@@ -459,7 +467,10 @@
   },
   "326": {
     "inputs": {
-      "text": "half body, looking at viewer, [1 {man}]  sad",
+      "text": [
+        "365",
+        0
+      ],
       "clip": [
         "60",
         1
@@ -472,7 +483,10 @@
   },
   "329": {
     "inputs": {
-      "text": "half body, looking at viewer, [1 {man}]  sad, Sticker, svg, vector art, sharp, kawaii style, Anime style ",
+      "text": [
+        "369",
+        0
+      ],
       "clip": [
         "59",
         1
@@ -488,7 +502,7 @@
       "upscale_method": "lanczos",
       "megapixels": 1,
       "image": [
-        "22",
+        "358",
         0
       ]
     },
@@ -548,7 +562,7 @@
   },
   "340": {
     "inputs": {
-      "seed": 1,
+      "seed": 455884554298708,
       "steps": 8,
       "cfg": 2,
       "sampler_name": "dpmpp_2m_sde",
@@ -594,7 +608,7 @@
   },
   "342": {
     "inputs": {
-      "seed": 1,
+      "seed": 864701675843957,
       "steps": 8,
       "cfg": 2,
       "sampler_name": "dpmpp_2m_sde",
@@ -656,7 +670,7 @@
   },
   "345": {
     "inputs": {
-      "seed": 1,
+      "seed": 30719400771281,
       "steps": 8,
       "cfg": 2,
       "sampler_name": "dpmpp_2m_sde",
@@ -702,7 +716,7 @@
   },
   "347": {
     "inputs": {
-      "seed": 1,
+      "seed": 711276847761956,
       "steps": 8,
       "cfg": 2,
       "sampler_name": "dpmpp_2m_sde",
@@ -732,7 +746,7 @@
   },
   "348": {
     "inputs": {
-      "seed": 1,
+      "seed": 201263407848856,
       "steps": 8,
       "cfg": 2.3000000000000003,
       "sampler_name": "dpmpp_2m_sde",
@@ -794,7 +808,7 @@
   },
   "351": {
     "inputs": {
-      "seed": 1,
+      "seed": 14205425480866,
       "steps": 8,
       "cfg": 2.3000000000000003,
       "sampler_name": "dpmpp_2m_sde",
@@ -856,7 +870,7 @@
   },
   "354": {
     "inputs": {
-      "seed": 1,
+      "seed": 990130509143536,
       "steps": 8,
       "cfg": 2.3000000000000003,
       "sampler_name": "dpmpp_2m_sde",
@@ -886,7 +900,7 @@
   },
   "355": {
     "inputs": {
-      "seed": 1,
+      "seed": 410229384032132,
       "steps": 8,
       "cfg": 2.3000000000000003,
       "sampler_name": "dpmpp_2m_sde",
@@ -912,6 +926,256 @@
     "class_type": "KSampler",
     "_meta": {
       "title": "KSampler"
+    }
+  },
+  "358": {
+    "inputs": {
+      "image": "frank.jpeg",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person's face;order=1"
+    }
+  },
+  "359": {
+    "inputs": {
+      "name": "photo_stickers",
+      "display_name": "Photo Stickers",
+      "description": "Stickers from person photo",
+      "author": "Datou",
+      "homepage": "https://openart.ai/workflows/datou/photo-2-anime-sdxl/0tBl5W8dBBe6FEhi0MxY",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers.html",
+      "license": "",
+      "tags": "[\"cartoon\", \"portrait\"]",
+      "version": "1.0.0"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "360": {
+    "inputs": {
+      "default_value": "boy",
+      "possible_values": "[\"girl\", \"boy\", \"man\", \"woman\"]",
+      "display_name": "Base gender",
+      "optional": false,
+      "advanced": false,
+      "order": 2,
+      "custom_id": "gender"
+    },
+    "class_type": "VixUiList",
+    "_meta": {
+      "title": "VixUI-List"
+    }
+  },
+  "361": {
+    "inputs": {
+      "text": [
+        "371",
+        0
+      ],
+      "find": "{gender}",
+      "replace": [
+        "360",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "362": {
+    "inputs": {
+      "text": "half body, looking at viewer, [1{gender}] laughing"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "363": {
+    "inputs": {
+      "text": [
+        "370",
+        0
+      ],
+      "find": "{gender}",
+      "replace": [
+        "360",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "364": {
+    "inputs": {
+      "text": [
+        "362",
+        0
+      ],
+      "find": "{gender}",
+      "replace": [
+        "360",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "365": {
+    "inputs": {
+      "text": [
+        "372",
+        0
+      ],
+      "find": "{gender}",
+      "replace": [
+        "360",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "366": {
+    "inputs": {
+      "text": [
+        "376",
+        0
+      ],
+      "find": "{gender}",
+      "replace": [
+        "360",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "367": {
+    "inputs": {
+      "text": [
+        "374",
+        0
+      ],
+      "find": "{gender}",
+      "replace": [
+        "360",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "368": {
+    "inputs": {
+      "text": [
+        "375",
+        0
+      ],
+      "find": "{gender}",
+      "replace": [
+        "360",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "369": {
+    "inputs": {
+      "text": [
+        "373",
+        0
+      ],
+      "find": "{gender}",
+      "replace": [
+        "360",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace"
+    }
+  },
+  "370": {
+    "inputs": {
+      "text": "half body, looking at viewer, [1{gender}] angry, frustrated"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "371": {
+    "inputs": {
+      "text": "half body, looking at viewer, [1{gender}] shocked, surprised"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "372": {
+    "inputs": {
+      "text": "half body, looking at viewer, [1{gender}] happy, calm"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "373": {
+    "inputs": {
+      "text": "half body, looking at viewer, [1{gender}] happy, calm, Sticker, svg, vector art, sharp, kawaii style, Anime style "
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "374": {
+    "inputs": {
+      "text": "half body, looking at viewer, [1{gender}] angry, frustrated, Sticker, svg, vector art, sharp, kawaii style, Anime style "
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "375": {
+    "inputs": {
+      "text": "half body, looking at viewer, [1{gender}] shocked, surprised, Sticker, svg, vector art, sharp, kawaii style, Anime style "
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "376": {
+    "inputs": {
+      "text": "half body, looking at viewer, [1{gender}] laughing, Sticker, svg, vector art, sharp, kawaii style, Anime style "
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
     }
   }
 }

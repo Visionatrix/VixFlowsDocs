@@ -43,7 +43,7 @@
         0
       ],
       "image": [
-        "240",
+        "257",
         0
       ],
       "sam_model_opt": [
@@ -91,7 +91,7 @@
       "inpaint_model": false,
       "noise_mask_feather": 0,
       "image": [
-        "240",
+        "257",
         0
       ],
       "segs": [
@@ -303,7 +303,10 @@
   },
   "229": {
     "inputs": {
-      "text": "",
+      "text": [
+        "251",
+        0
+      ],
       "clip": [
         "226",
         1
@@ -316,7 +319,10 @@
   },
   "230": {
     "inputs": {
-      "text": "hands, fingers",
+      "text": [
+        "254",
+        0
+      ],
       "clip": [
         "226",
         1
@@ -368,7 +374,10 @@
     "inputs": {
       "seed": 5,
       "steps": 50,
-      "cfg": 3,
+      "cfg": [
+        "256",
+        0
+      ],
       "sampler_name": "euler",
       "scheduler": "normal",
       "denoise": 1,
@@ -412,8 +421,14 @@
   },
   "246": {
     "inputs": {
-      "width": 1024,
-      "height": 1024,
+      "width": [
+        "281",
+        1
+      ],
+      "height": [
+        "281",
+        2
+      ],
       "batch_size": 1
     },
     "class_type": "EmptyLatentImage",
@@ -445,7 +460,10 @@
     "inputs": {
       "add_noise": true,
       "noise_seed": 5,
-      "cfg": 3,
+      "cfg": [
+        "256",
+        0
+      ],
       "model": [
         "232",
         0
@@ -474,6 +492,115 @@
     "class_type": "SamplerCustom",
     "_meta": {
       "title": "SamplerCustom"
+    }
+  },
+  "250": {
+    "inputs": {
+      "name": "playground_2_5_aesthetic",
+      "display_name": "Aesthetic images",
+      "description": "Generate images with built-in Face Detailer",
+      "author": "Dennis Schöneberg",
+      "homepage": "https://www.linkedin.com/in/dennis-sch%C3%B6neberg-3420a2221",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Playground_2_5_aesthetic.html",
+      "license": "",
+      "tags": "[\"general\"]",
+      "version": "1.0.0"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "251": {
+    "inputs": {
+      "text": "",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "254": {
+    "inputs": {
+      "text": "",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 15,
+      "custom_id": "negative_prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "256": {
+    "inputs": {
+      "value": 3,
+      "display_name": "Prompt strength",
+      "optional": true,
+      "advanced": true,
+      "min": 3,
+      "max": 5,
+      "step": 0.1,
+      "order": 99,
+      "custom_id": "prompt_strength"
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "257": {
+    "inputs": {
+      "state": false,
+      "display_name": "Fast run",
+      "optional": true,
+      "advanced": true,
+      "order": 98,
+      "custom_id": "fast_run",
+      "input_off_state": [
+        "240",
+        0
+      ],
+      "input_on_state": [
+        "282",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
+    }
+  },
+  "281": {
+    "inputs": {
+      "aspect_ratio": "3:2"
+    },
+    "class_type": "SDXLAspectRatioSelector",
+    "_meta": {
+      "title": "input;Aspect Ratio;optional;advanced;custom_id=aspect_ratio"
+    }
+  },
+  "282": {
+    "inputs": {
+      "samples": [
+        "249",
+        0
+      ],
+      "vae": [
+        "226",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
     }
   }
 }

@@ -13,6 +13,9 @@ Currently, there are two main issues with using ComfyUI flows for the general pu
     1. It's unclear where to get the model from and how to deploy/install it – a **deployment/installation issue**
     2. Without some experience, it's unclear how to just provide inputs to simple get results - a **usability issue**
 
+
+.. _models-mapping:
+
 Automatic models mapping
 """"""""""""""""""""""""
 
@@ -86,68 +89,14 @@ The SHA256 hash of the model. Used to verify the integrity of the model and chec
 Vix workflow overview
 """""""""""""""""""""
 
-Visionatrix workflows consist of two files: ``flow.json`` and ``flow_comfy.json``
-
-The main purpose of a Vix Flow is to specify how to map incoming parameters to the ComfyUI workflow for the creation endpoint of a ComfyUI task.
+Starting from the Visionatrix 0.6.0, the workflow consists of a single file: ``flow_name.json``,
+which is a ComfyUI workflow file adopted to Visionatrix.
 
 .. note::
 
     The main difference between Visionatrix and ComfyUI: A task is created with a single request, which includes both incoming text parameters and input files.
 
-Consider the example of the VintagePortrait Vix flow:
-
-.. code-block:: json
-
-    {
-      "name": "vintage_portrait",
-      "display_name": "Vintage Portrait",
-      "description": "Portrait photos in Vintage styles",
-      "author": "bigcat88",
-      "homepage": "https://github.com/bigcat88",
-      "license": "",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/VintagePortrait.html",
-      "input_params": [
-        {
-          "name": "image",
-          "display_name": "Person's face",
-          "type": "image",
-          "optional": false,
-          "comfy_node_id": {
-            "37": {
-              "dest_field_name": ["inputs", "image"]
-            }
-          }
-        },
-        {
-          "name": "prompt",
-          "display_name": "Prompt",
-          "type": "text",
-          "optional": false,
-          "advanced": false,
-          "comfy_node_id": {
-            "29": {
-              "dest_field_name": ["inputs", "positive"]
-            }
-          }
-        },
-        {
-          "name": "pose",
-          "display_name": "Person's face pose",
-          "type": "image",
-          "optional": true,
-          "advanced": true,
-          "comfy_node_id": {
-            "44": {
-              "dest_field_name": ["inputs", "image"],
-              "node_connect": {
-                "node_id": "33",
-                "dest_field_name": ["inputs", "image_kps"]
-              }
-            }
-          }
-        }
-      ]
-    }
+The flow metadata fields described below are filled in the `VixUi-WorkflowMetadata` node.
 
 "name"
 ''''''
@@ -184,12 +133,16 @@ The general license under which the flow can be used (to simplify understanding 
 
 Link to additional information about the flow.
 
+"tags"
+''''''
+
+A list of string tags that can be used to label the categories of the flow.
+
 "input_params"
 ''''''''''''''
 
-The most important part. Based on the information from this field, the Visionatrix UI dynamically displays the interface.
-
-The backend part fills in the ComfyUI workflow based on these data.
+Starting with Visionatrix 0.6.0, the input params are parsed automatically from the adopted ComfyUI workflow.
+Based on the information from this field, the Visionatrix UI dynamically displays the interface.
 
 Technically, this is a list of objects, where each object is one input parameter, which includes:
 
@@ -238,6 +191,4 @@ Create task based on Flow
         * input_params - input parameters with "type" == "text"
         * files - list of input files (files should be in the order they are defined in the Vix Flow)
 
-When this endpoint is called, a task will be created and queued for execution.
-
-*To be continued...*
+When this endpoint is called, a task will be created and queued for execution by one of available workers.

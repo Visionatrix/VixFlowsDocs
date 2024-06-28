@@ -1,7 +1,7 @@
 {
   "19": {
     "inputs": {
-      "seed": 42,
+      "seed": 470771946371138,
       "steps": 20,
       "cfg": 4,
       "sampler_name": "euler_ancestral",
@@ -31,7 +31,10 @@
   },
   "20": {
     "inputs": {
-      "text": "",
+      "text": [
+        "101",
+        0
+      ],
       "clip": [
         "26",
         1
@@ -44,7 +47,10 @@
   },
   "21": {
     "inputs": {
-      "text": "",
+      "text": [
+        "102",
+        0
+      ],
       "clip": [
         "26",
         1
@@ -73,7 +79,7 @@
   },
   "23": {
     "inputs": {
-      "seed": 42,
+      "seed": 979622377516399,
       "steps": 10,
       "cfg": 1.1,
       "sampler_name": "euler_ancestral",
@@ -161,7 +167,7 @@
   },
   "78": {
     "inputs": {
-      "seed": 42,
+      "seed": 980141359674880,
       "steps": 20,
       "cfg": 4,
       "sampler_name": "euler_ancestral",
@@ -207,7 +213,7 @@
   },
   "80": {
     "inputs": {
-      "seed": 42,
+      "seed": 601112506991754,
       "steps": 10,
       "cfg": 1.1,
       "sampler_name": "euler_ancestral",
@@ -284,7 +290,7 @@
     "inputs": {
       "filename_prefix": "ComfyUI",
       "images": [
-        "22",
+        "100",
         0
       ]
     },
@@ -344,7 +350,7 @@
   },
   "93": {
     "inputs": {
-      "seed": 548729031942500,
+      "seed": 536148193289049,
       "steps": 20,
       "cfg": 4,
       "sampler_name": "euler_ancestral",
@@ -402,7 +408,7 @@
   },
   "96": {
     "inputs": {
-      "seed": 1118438233481225,
+      "seed": 935537763343328,
       "steps": 10,
       "cfg": 1.1,
       "sampler_name": "euler_ancestral",
@@ -444,6 +450,78 @@
     "class_type": "VAEDecode",
     "_meta": {
       "title": "VAE Decode"
+    }
+  },
+  "100": {
+    "inputs": {
+      "default_value": "Two pass",
+      "possible_values": "[\"One pass\", \"Two pass\", \"Three pass\"]",
+      "display_name": "Pass count",
+      "optional": true,
+      "advanced": true,
+      "order": 20,
+      "custom_id": "pass_count",
+      "input_first": [
+        "22",
+        0
+      ],
+      "input_second": [
+        "79",
+        0
+      ],
+      "input_third": [
+        "97",
+        0
+      ]
+    },
+    "class_type": "VixUiListLogic",
+    "_meta": {
+      "title": "VixUI-ListLogic"
+    }
+  },
+  "101": {
+    "inputs": {
+      "text": "",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "102": {
+    "inputs": {
+      "text": "",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 25,
+      "custom_id": "negative_prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "103": {
+    "inputs": {
+      "name": "stable_cascade",
+      "display_name": "Stable Cascade",
+      "description": "Generation with multiple passes",
+      "author": "HowDo?",
+      "homepage": "https://comfyworkflows.com/profile/41d507c5-bdcf-424b-9b75-a3cc2ea9049d",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Stable_Cascade.html",
+      "license": "",
+      "tags": "[\"general\"]",
+      "version": "1.0.0"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
     }
   }
 }

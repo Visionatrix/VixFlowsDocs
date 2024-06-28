@@ -10,7 +10,10 @@
   },
   "290": {
     "inputs": {
-      "text": "girl, portrait, close up",
+      "text": [
+        "390",
+        0
+      ],
       "clip": [
         "379",
         1
@@ -52,7 +55,7 @@
         0
       ],
       "image": [
-        "340",
+        "387",
         0
       ],
       "model": [
@@ -65,6 +68,10 @@
       ],
       "negative": [
         "291",
+        0
+      ],
+      "image_kps": [
+        "385",
         0
       ]
     },
@@ -100,16 +107,6 @@
       "title": "Load ControlNet Model"
     }
   },
-  "340": {
-    "inputs": {
-      "image": "jul5.png",
-      "upload": "image"
-    },
-    "class_type": "LoadImage",
-    "_meta": {
-      "title": "face"
-    }
-  },
   "345": {
     "inputs": {
       "width": 1016,
@@ -119,16 +116,6 @@
     "class_type": "EmptyLatentImage",
     "_meta": {
       "title": "Empty Latent Image"
-    }
-  },
-  "346": {
-    "inputs": {
-      "image": "jul5 (1).png",
-      "upload": "image"
-    },
-    "class_type": "LoadImage",
-    "_meta": {
-      "title": "pose"
     }
   },
   "357": {
@@ -160,6 +147,10 @@
       "optional_vae": [
         "14",
         2
+      ],
+      "script": [
+        "383",
+        0
       ]
     },
     "class_type": "KSampler (Efficient)",
@@ -234,6 +225,75 @@
     "class_type": "Automatic CFG",
     "_meta": {
       "title": "Automatic CFG"
+    }
+  },
+  "383": {
+    "inputs": {
+      "state": true,
+      "display_name": "Perform 1.5x scaling",
+      "optional": true,
+      "advanced": true,
+      "order": 99,
+      "custom_id": "extra_size",
+      "input_on_state": [
+        "358",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
+    }
+  },
+  "385": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person's face pose; optional;advanced;order=3"
+    }
+  },
+  "387": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person's face;order=1"
+    }
+  },
+  "388": {
+    "inputs": {
+      "name": "memoji_portrait",
+      "display_name": "Memoji Portrait",
+      "description": "Portrait photos as a Memoji",
+      "author": "Datou",
+      "homepage": "https://openart.ai/workflows/datou/memoji/Lcprla9BQL29IFVjC93l",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MemojiPortrait.html",
+      "license": "",
+      "tags": "[\"cartoon\", \"portrait\"]",
+      "version": "1.0.0"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "390": {
+    "inputs": {
+      "text": "girl, portrait, close up",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 2,
+      "custom_id": ""
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
     }
   }
 }

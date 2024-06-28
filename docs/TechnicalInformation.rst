@@ -18,6 +18,9 @@ Visionatrix by default install and update these nodes:
  * `rgthree-comfy <https://github.com/Visionatrix/rgthree-comfy>`_
  * `comfyui_controlnet_aux <https://github.com/Visionatrix/comfyui_controlnet_aux>`_
  * `ComfyUI-AutomaticCFG <https://github.com/Visionatrix/ComfyUI-AutomaticCFG>`_
+ * `comfyui-art-venture <https://github.com/Visionatrix/comfyui-art-venture>`_
+ * `was-node-suite-comfyui <https://github.com/Visionatrix/was-node-suite-comfyui>`_
+ * `ComfyUI-Visionatrix <https://github.com/Visionatrix/ComfyUI-Visionatrix>`_
 
 We are gradually expanding the list.
 

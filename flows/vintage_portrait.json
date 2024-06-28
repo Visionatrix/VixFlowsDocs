@@ -7,7 +7,10 @@
       "lora_name": "None",
       "lora_model_strength": 1,
       "lora_clip_strength": 1,
-      "positive": "portrait of a girl, cinematic,  masterpiece",
+      "positive": [
+        "47",
+        0
+      ],
       "negative": "see panties, 3d, EasyNegativeV2, worst quality, low quality, watermark, signature, bad anatomy, bad hands, deformed limbs, blurry, cropped, cross-eyed, extra arms, speech bubble, extra legs, extra limbs, bad proportions, poorly drawn hands, text, flat background, photo,\n",
       "token_normalization": "none",
       "weight_interpretation": "comfy",
@@ -101,6 +104,10 @@
       "negative": [
         "29",
         2
+      ],
+      "image_kps": [
+        "44",
+        0
       ]
     },
     "class_type": "ApplyInstantID",
@@ -137,22 +144,53 @@
   },
   "37": {
     "inputs": {
-      "image": "input.png",
+      "image": "",
       "upload": "image"
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "Load Image"
+      "title": "input;Person's face;order=1"
     }
   },
   "44": {
     "inputs": {
-      "image": "pose.png",
+      "image": "",
       "upload": "image"
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "Load Image"
+      "title": "input;Person's face pose; optional;advanced;order=2"
+    }
+  },
+  "46": {
+    "inputs": {
+      "name": "vintage_portrait",
+      "display_name": "Vintage Portrait",
+      "description": "Portrait photos in Vintage styles",
+      "author": "bigcat88",
+      "homepage": "https://github.com/bigcat88",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/VintagePortrait.html",
+      "license": "",
+      "tags": "[\"portrait\"]",
+      "version": "1.0.0"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "47": {
+    "inputs": {
+      "text": "portrait of a girl, cinematic,  masterpiece",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 2,
+      "custom_id": ""
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
     }
   }
 }
