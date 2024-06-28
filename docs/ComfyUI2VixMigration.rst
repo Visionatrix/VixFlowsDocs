@@ -96,7 +96,7 @@ Create a zip with adjusted/new flows:
 
 	cd ../VixFlowsDocs && zip -r ../Visionatrix/flows.zip flows && cd ../Visionatrix
 
-And uncomment appropriate code lines in `options.py <https://github.com/Visionatrix/Visionatrix/blob/main/visionatrix/options.py>`_ file to use local versions of the flows.
+And uncomment appropriate code lines in `options.py file <https://github.com/Visionatrix/Visionatrix/blob/main/visionatrix/options.py>`_ to use local versions of the flows.
 
 
 5. Verify and test the workflow
