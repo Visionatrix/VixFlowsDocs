@@ -12,6 +12,7 @@ Here will leave all docs that is not suitable for Readme file.
     WorkingModes.rst
     GatedModels.rst
     VixWorkflows.rst
+    ComfyUI2VixMigration.rst
     TechnicalInformation.rst
 
 Indices and tables
