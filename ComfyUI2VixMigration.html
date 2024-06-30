@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ComfyUI to Visionatrix migration &mdash; Visionatrix 0.6.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/styles.css?v=0f758665" />
+      <link rel="stylesheet" type="text/css" href="_static/css/dark.css?v=41caee7b" />
+      <link rel="stylesheet" type="text/css" href="_static/css/light.css?v=c3d70dd7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=8fa8b3e9"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script src="_static/tabs.js?v=3ee01567"></script>
+        <script src="_static/js/script.js?v=783f4f19"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Technical Information" href="TechnicalInformation.html" />
+    <link rel="prev" title="Vix Workflows" href="VixWorkflows.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                0.6.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Flows/index.html">Available Flows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Manual Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CommandLineOptions.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WorkingModes.html">Working modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GatedModels.html">Gated Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VixWorkflows.html">Vix Workflows</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ComfyUI to Visionatrix migration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install-comfyui-visionatrix-custom-nodes">1. Install ComfyUI-Visionatrix custom nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#define-the-input-params">2. Define the input params</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#node-to-input-mapping-via-title-string">2.1 Node to Input mapping via title string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#external-nodes-used-via-node-to-input-mapping">2.2 External nodes used via Node to Input mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#map-the-models-for-automatic-download">3. Map the models for automatic download</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-the-list-of-available-flows">4. Build the list of available flows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#verify-and-test-the-workflow">5. Verify and test the workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="TechnicalInformation.html">Technical Information</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Visionatrix</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">ComfyUI to Visionatrix migration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ComfyUI2VixMigration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="comfyui-to-visionatrix-migration">
+<h1>ComfyUI to Visionatrix migration<a class="headerlink" href="#comfyui-to-visionatrix-migration" title="Link to this heading"></a></h1>
+<p>If you want to adopt your ComfyUI workflow to use in Visionatrix,
+you can use this guide to help you do so. There are a few steps you need to follow.</p>
+<section id="install-comfyui-visionatrix-custom-nodes">
+<h2>1. Install ComfyUI-Visionatrix custom nodes<a class="headerlink" href="#install-comfyui-visionatrix-custom-nodes" title="Link to this heading"></a></h2>
+<p>First, it is recommended to install our custom <a class="reference external" href="https://github.com/Visionatrix/ComfyUI-Visionatrix">ComfyUI-Visionatrix</a> nodes.
+Otherwise you will have to use custom nodes titles which are will be parsed by Visionatrix.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Visionatrix/ComfyUI-Visionatrix.git
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can do the required migration via nodes titles, which is less convenient.
+The node title must be like this: <code class="docutils literal notranslate"><span class="pre">input;Display</span> <span class="pre">Name;optional;advanced;order=1;custom_id=custom_name</span></code>.</p>
+</div>
+</section>
+<section id="define-the-input-params">
+<h2>2. Define the input params<a class="headerlink" href="#define-the-input-params" title="Link to this heading"></a></h2>
+<p>Visionatrix UI aims simplicity and clarity.
+Define the most important input params of your ComfyUI workflow to extract
+them to the Visionatrix UI as inputs, for example:</p>
+<ul class="simple">
+<li><p>prompt (textarea)</p></li>
+<li><p>negative prompt (textarea)</p></li>
+<li><p>prompt strength (range)</p></li>
+<li><p>some logic toggles (checkbox)</p></li>
+<li><p>input files (file)</p></li>
+</ul>
+<p>For that you will need to attach our custom nodes as adapters to your nodes receiving these inputs
+that are will be filled by the user from the Visionatrix UI.</p>
+<p>As example, you can have a look at our <a class="reference external" href="https://github.com/Visionatrix/VixFlowsDocs/tree/main/flows">list of worklows</a> adopted to the new format.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The list of available nodes can be found in the readme of the <a class="reference external" href="https://github.com/Visionatrix/ComfyUI-Visionatrix">ComfyUI-Visionatrix</a> repository.</p>
+</div>
+<section id="node-to-input-mapping-via-title-string">
+<h3>2.1 Node to Input mapping via title string<a class="headerlink" href="#node-to-input-mapping-via-title-string" title="Link to this heading"></a></h3>
+<p>Alternatively, Visionatrix supports other Nodes mapping as an input param
+via node title string separated by semicolon.</p>
+<blockquote>
+<div><p>The nodes titles starting with <code class="docutils literal notranslate"><span class="pre">input;</span></code> keyword are considered as
+Visionatrix input param.</p>
+</div></blockquote>
+<p>The parameters list:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">input</span></code> - keyword to define the input param</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Display</span> <span class="pre">Name</span></code> - positional parameter, the name of the input field displayed in the UI</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">optional</span></code> - if present, the optional field is set to True</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">advanced</span></code> - if present, the advanced field is set to True</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">order=1</span></code> - the order of the input param in the UI</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">custom_id=custom_name</span></code> - the custom id of the input param</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">order</span></code> is important if workflow accepts more than 1 file.</p>
+</div>
+</section>
+<section id="external-nodes-used-via-node-to-input-mapping">
+<h3>2.2 External nodes used via Node to Input mapping<a class="headerlink" href="#external-nodes-used-via-node-to-input-mapping" title="Link to this heading"></a></h3>
+<p>In our workflows, we use some external nodes mapped as input params, that you can use as example:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SDXLAspectRatioSelector</span></code> - select input field used from <a class="reference external" href="https://github.com/Visionatrix/comfyui-art-venture">comfyui-art-venture</a> for Aspect Ratio select. Usually it’s an optional and hidden to the advanced prompt options: <code class="docutils literal notranslate"><span class="pre">input;Aspect</span> <span class="pre">Ratio;optional;advanced;custom_id=aspect_ratio</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LoadImage</span></code> - default ComfyUI image loader node as image file input field. As required title: <code class="docutils literal notranslate"><span class="pre">input;Input</span> <span class="pre">image;order=1</span></code>, or optional advanced: <code class="docutils literal notranslate"><span class="pre">input;Optional</span> <span class="pre">helper</span> <span class="pre">image;optional;advanced;order=20</span></code>;</p></li>
+</ul>
+</section>
+</section>
+<section id="map-the-models-for-automatic-download">
+<h2>3. Map the models for automatic download<a class="headerlink" href="#map-the-models-for-automatic-download" title="Link to this heading"></a></h2>
+<p>Visionatrix simiplifies and automates the process of downloading the models.
+As the third step of the migration, you need to map the models that are used in your workflow (see <a class="reference internal" href="VixWorkflows.html#models-mapping"><span class="std std-ref">Automatic models mapping</span></a>).</p>
+</section>
+<section id="build-the-list-of-available-flows">
+<h2>4. Build the list of available flows<a class="headerlink" href="#build-the-list-of-available-flows" title="Link to this heading"></a></h2>
+<p>The last step is to build the list of available flows in the Visionatrix UI.
+Follow the steps described in <a class="reference external" href="https://github.com/Visionatrix/Visionatrix/blob/main/visionatrix/options.py#L56-L59">options.py</a> file
+for <code class="docutils literal notranslate"><span class="pre">FLOWS_URL</span></code> and <code class="docutils literal notranslate"><span class="pre">MODELS_CATALOG_URL</span></code> to enable Visionatrix local workflows development mode:</p>
+<p>Create a zip with adjusted/new flows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>../VixFlowsDocs<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>zip<span class="w"> </span>-r<span class="w"> </span>../Visionatrix/flows.zip<span class="w"> </span>flows<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>../Visionatrix
+</pre></div>
+</div>
+<p>And uncomment appropriate code lines in <a class="reference external" href="https://github.com/Visionatrix/Visionatrix/blob/main/visionatrix/options.py">options.py file</a> to use local versions of the flows.</p>
+</section>
+<section id="verify-and-test-the-workflow">
+<h2>5. Verify and test the workflow<a class="headerlink" href="#verify-and-test-the-workflow" title="Link to this heading"></a></h2>
+<p>Last step is to run Visionatrix and setup your workflow to verify that everything works as expected.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="VixWorkflows.html" class="btn btn-neutral float-left" title="Vix Workflows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="TechnicalInformation.html" class="btn btn-neutral float-right" title="Technical Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 Visionatrix Authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
