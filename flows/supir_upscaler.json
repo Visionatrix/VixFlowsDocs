@@ -355,7 +355,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Image to upscale;order=1"
+      "title": "input;Image to upscale;order=1;custom_id=image_to_upscale"
     }
   },
   "120": {
@@ -364,6 +364,7 @@
       "display_name": "Output image size factor",
       "optional": false,
       "advanced": true,
+      "source_input_name": "image_to_upscale",
       "min": 1.1,
       "max": 3,
       "step": 0.1,
