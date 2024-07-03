@@ -20,6 +20,8 @@ Visionatrix by default install and update these nodes:
  * `ComfyUI-AutomaticCFG <https://github.com/Visionatrix/ComfyUI-AutomaticCFG>`_
  * `comfyui-art-venture <https://github.com/Visionatrix/comfyui-art-venture>`_
  * `was-node-suite-comfyui <https://github.com/Visionatrix/was-node-suite-comfyui>`_
+ * `ComfyUI-AutoCropFaces <https://github.com/Visionatrix/ComfyUI-AutoCropFaces>`_
+ * `comfyui-ollama <https://github.com/Visionatrix/comfyui-ollama>`_
  * `ComfyUI-Visionatrix <https://github.com/Visionatrix/ComfyUI-Visionatrix>`_
 
 We are gradually expanding the list.
