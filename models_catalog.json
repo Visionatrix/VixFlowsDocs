@@ -394,7 +394,7 @@
     "homepage": "https://civitai.com/models/174943?modelVersionId=196413",
     "hash": "EA8C050A6DFF41D739C36B6FFB2091762340A8660310916720B6A9DD73C248C9"
   },
-  "Colorful_XL_v4.2" : {
+  "Colorful_XL_v4.2": {
     "save_path": "checkpoints/colorfulxl_v42.safetensors",
     "url": "https://civitai.com/api/download/models/536723?type=Model&format=SafeTensor&size=pruned&fp=fp16",
     "homepage": "https://civitai.com/models/185258?modelVersionId=536723",
@@ -406,7 +406,7 @@
       }
     ]
   },
-  "Mobius" : {
+  "Mobius": {
     "save_path": "checkpoints/mobius-fp16.safetensors",
     "url": "https://huggingface.co/Corcelio/mobius/resolve/main/mobius-fp16.safetensors",
     "homepage": "https://huggingface.co/Corcelio/mobius",
@@ -418,7 +418,7 @@
       }
     ]
   },
-  "SD3-Medium" : {
+  "SD3-Medium": {
     "save_path": "checkpoints/sd3_medium_incl_clips_t5xxlfp16.safetensors",
     "url": "https://huggingface.co/stabilityai/stable-diffusion-3-medium/resolve/main/sd3_medium_incl_clips_t5xxlfp16.safetensors",
     "homepage": "https://huggingface.co/stabilityai/stable-diffusion-3-medium",
@@ -431,7 +431,7 @@
     ],
     "gated": true
   },
-  "NetaArt_XL_1.0" : {
+  "NetaArt_XL_1.0": {
     "save_path": "checkpoints/neta_art_xl_v10.safetensors",
     "url": "https://huggingface.co/neta-art/neta-art-xl-1.0/resolve/main/neta_art_xl_v10.safetensors",
     "homepage": "https://huggingface.co/neta-art/neta-art-xl-1.0",
@@ -440,6 +440,90 @@
       {
         "input_value": "^(?=.*(?i:neta))(?=.*(?i:art))(?=.*(?i:xl))(?=.*(?i:v10)).*",
         "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ]
+  },
+  "CN-anytest_v4-marged": {
+    "save_path": "controlnet/CN-anytest_v4-marged.safetensors",
+    "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/CN-anytest_v4-marged/CN-anytest_v4-marged.safetensors",
+    "homepage": "https://huggingface.co/2vXpSwA7/iroiro-lora",
+    "hash": "807aa29189c10660dff77a5bbfcf5cf39d60f7780199db36db36a9096e11ace7",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:CN))(?=.*(?i:anytest))(?=.*(?i:v4))(?=.*(?i:marged)).*",
+        "class_name": "ControlNetLoader"
+      }
+    ]
+  },
+  "CLIP-ViT-H-14-laion2B-s32B-b79K": {
+    "save_path": "clip_vision/CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors",
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "6ca9667da1ca9e0b0f75e46bb030f7e011f44f86cbfb8d5a36590fcd7507b030",
+    "regexes": [
+      {
+        "input_value": "^(?!(?i)vit-g).*",
+        "class_name": "IPAdapterUnifiedLoader"
+      }
+    ]
+  },
+  "CLIP-ViT-bigG-14-laion2B-39B-b160k": {
+    "save_path": "clip_vision/CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors",
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "657723e09f46a7c3957df651601029f66b1748afb12b419816330f16ed45d64d",
+    "regexes": [
+      {
+        "input_value": "^(?i)vit-g.*",
+        "class_name": "IPAdapterUnifiedLoader"
+      }
+    ]
+  },
+  "ip-adapter_sdxl_vit-h": {
+    "save_path": "ipadapter/ip-adapter_sdxl_vit-h.safetensors",
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl_vit-h.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "ebf05d918348aec7abb02a5e9ecef77e0aaea6914a5c4ea13f50d45eb1681831",
+    "regexes": [
+      {
+        "input_value": "^(?i)standard.*",
+        "class_name": "IPAdapterUnifiedLoader"
+      }
+    ]
+  },
+  "ip-adapter_sdxl": {
+    "save_path": "ipadapter/ip-adapter_sdxl.safetensors",
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "ba1002529e783604c5f326d49f0122025392d1d20ac8d573b3eeb3e6dea4ebb6",
+    "regexes": [
+      {
+        "input_value": "^(?i)vit-g.*",
+        "class_name": "IPAdapterUnifiedLoader"
+      }
+    ]
+  },
+  "ip-adapter-plus_sdxl_vit_h": {
+    "save_path": "ipadapter/ip-adapter-plus_sdxl_vit-h.safetensors",
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus_sdxl_vit-h.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "3f5062b8400c94b7159665b21ba5c62acdcd7682262743d7f2aefedef00e6581",
+    "regexes": [
+      {
+        "input_value": "^(?i)plus \\(.*",
+        "class_name": "IPAdapterUnifiedLoader"
+      }
+    ]
+  },
+  "ip-adapter-plus_face_sdxl_vit_h": {
+    "save_path": "ipadapter/ip-adapter-plus-face_sdxl_vit-h.safetensors",
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus-face_sdxl_vit-h.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "677ad8860204f7d0bfba12d29e6c31ded9beefdf3e4bbd102518357d31a292c1",
+    "regexes": [
+      {
+        "input_value": "^(?i)plus face.*",
+        "class_name": "IPAdapterUnifiedLoader"
       }
     ]
   }
