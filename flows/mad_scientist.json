@@ -221,7 +221,7 @@
       "query": "Is this picture a painting, 3DCG, or photo? What is its artistic genre?",
       "debug": "enable",
       "url": "http://127.0.0.1:11434",
-      "model": "llava:7b-v1.6-vicuna-fp16",
+      "model": "llava:7b-v1.6-vicuna-q8_0",
       "keep_alive": 0,
       "images": [
         "25",
@@ -364,10 +364,11 @@
       "description": "Applying different custom styles to an image",
       "author": "Datou",
       "homepage": "https://openart.ai/workflows/datou/mad-scientist/wOEGydoDWbpwcVPL4GLc",
-      "documentation": "",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MadScientist.html",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]"
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
