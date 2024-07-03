@@ -19,3 +19,4 @@ Available Flows
    MemojiPortrait
    SupirUpscaler
    SD3_Medium
+   MadScientist
