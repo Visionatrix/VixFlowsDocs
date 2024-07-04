@@ -462,7 +462,7 @@
     "hash": "6ca9667da1ca9e0b0f75e46bb030f7e011f44f86cbfb8d5a36590fcd7507b030",
     "regexes": [
       {
-        "input_value": "^(?!(?i)vit-g).*",
+        "input_value": "(?i)^(?!vit-g).*",
         "class_name": "IPAdapterUnifiedLoader"
       }
     ]
@@ -474,7 +474,7 @@
     "hash": "657723e09f46a7c3957df651601029f66b1748afb12b419816330f16ed45d64d",
     "regexes": [
       {
-        "input_value": "^(?i)vit-g.*",
+        "input_value": "(?i)^vit-g.*",
         "class_name": "IPAdapterUnifiedLoader"
       }
     ]
@@ -486,7 +486,7 @@
     "hash": "ebf05d918348aec7abb02a5e9ecef77e0aaea6914a5c4ea13f50d45eb1681831",
     "regexes": [
       {
-        "input_value": "^(?i)standard.*",
+        "input_value": "(?i)^standard.*",
         "class_name": "IPAdapterUnifiedLoader"
       }
     ]
@@ -498,7 +498,7 @@
     "hash": "ba1002529e783604c5f326d49f0122025392d1d20ac8d573b3eeb3e6dea4ebb6",
     "regexes": [
       {
-        "input_value": "^(?i)vit-g.*",
+        "input_value": "(?i)^vit-g.*",
         "class_name": "IPAdapterUnifiedLoader"
       }
     ]
@@ -510,7 +510,7 @@
     "hash": "3f5062b8400c94b7159665b21ba5c62acdcd7682262743d7f2aefedef00e6581",
     "regexes": [
       {
-        "input_value": "^(?i)plus \\(.*",
+        "input_value": "(?i)^plus \\(.*",
         "class_name": "IPAdapterUnifiedLoader"
       }
     ]
@@ -522,7 +522,7 @@
     "hash": "677ad8860204f7d0bfba12d29e6c31ded9beefdf3e4bbd102518357d31a292c1",
     "regexes": [
       {
-        "input_value": "^(?i)plus face.*",
+        "input_value": "(?i)^plus face.*",
         "class_name": "IPAdapterUnifiedLoader"
       }
     ]
