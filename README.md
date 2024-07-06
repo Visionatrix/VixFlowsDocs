@@ -13,3 +13,4 @@ For any problems with Visionatrix or suggestions for improvement, go to the [mai
   - [Working modes](https://visionatrix.github.io/VixFlowsDocs/WorkingModes.html)
   - [Vix Workflows](https://visionatrix.github.io/VixFlowsDocs/VixWorkflows.html)
   - [Technical information](https://visionatrix.github.io/VixFlowsDocs/TechnicalInformation.html)
+  - [OpenAPI](https://visionatrix.github.io/VixFlowsDocs/swagger.html)

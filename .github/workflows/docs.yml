@@ -23,6 +23,13 @@ jobs:
       - name: Install Docs dependencies
         run: python3 -m pip install -r requirements.txt
 
+      - name: Download Swagger UI
+        run: |
+          wget https://github.com/swagger-api/swagger-ui/archive/refs/tags/v5.17.14.zip
+          unzip v5.17.14.zip -d swagger-ui
+          mv swagger-ui/swagger-ui-5.17.14/dist/ docs/swagger-ui
+          rm -rf v5.17.14.zip
+
       - name: Build flows for each version
         run: |
           set -e
@@ -50,6 +57,8 @@ jobs:
           rsync -av "docs/_build/html/" "${docroot}/"
           rsync -av "flows_publish/" "${docroot}/"
           rsync -av "models_catalog.json" "${docroot}/"
+          rsync -av "docs/swagger-ui/" "${docroot}/swagger-ui/"
+          rsync -av "docs/swagger.html" "${docroot}/swagger.html"
           pushd "${docroot}"
           git init
           git remote add deploy "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
