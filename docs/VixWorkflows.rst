@@ -162,7 +162,7 @@ Technically, this is a list of objects, where each object is one input parameter
     .. note::
         Used for both UI and backend, but not mandatory even for optional fields (as in the ComfyUI flow, the Node value is still set)
 
- * "comfy_node_id" - a field only for the backend, which defines what to do with this value (where to use it in the ComfyUI Flow)
+ * "comfy_node_id" - **a field only for the backend**, which defines what to do with this value (where to use it in the ComfyUI Flow)
 
 
 Create task based on Flow
@@ -171,12 +171,14 @@ Create task based on Flow
 
 .. code-block:: python
 
-    @APP.post("/task")
-    async def task_run(
+    @ROUTER.post("/create")
+    async def create_task(
         request: Request,
         name: str = Form(description="Name of the flow from which the task should be created"),
         count: int = Form(1, description="Number of tasks to be created"),
         input_params: str = Form(None, description="List of input parameters as an encoded json string"),
+        webhook_url: str | None = Form(None, description="URL to call when task state changes"),
+        webhook_headers: str | None = Form(None, description="Headers for webhook url as an encoded json string"),
         files: list[UploadFile | str] = Form(None, description="List of input files for flow"),  # noqa
     ) -> TaskRunResults:
         """
@@ -194,3 +196,12 @@ Create task based on Flow
         * files - list of input files (files should be in the order they are defined in the Vix Flow)
 
 When this endpoint is called, a task will be created and queued for execution by one of available workers.
+
+You can generate Python client with the help of `openapi-python-client <https://github.com/openapi-generators/openapi-python-client>`_ and
+an example code for creating a Task will look like this:
+
+.. code-block:: python
+
+    client_base = visionatrix_client.Client(base_url="http://127.0.0.1:8288")
+    params = BodyCreateTask(name="sdxl_lighting", input_params=json.dumps({"prompt": "bottle"}))
+    created_tasks_id_list = api.tasks.create_task.sync(client=client_base, body=params)
