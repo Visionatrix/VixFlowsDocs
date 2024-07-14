@@ -14,7 +14,9 @@ Original flow/idea examples: `StickerYou - 1 photo for stickers！ <https://open
 Hardware
 """"""""
 
-- **Required memory: 8 GB**
+- **Required memory: 16-24? GB**
+
+.. note:: this workflow creates 4 images in batch, I only tested on a 24GB graphics card (perhaps some node(or ComfyUI?) has a memory freeing issue as there was a huge swap usage on a 32GB MacBook when testing).
 
 Time to process 1 image:
 
