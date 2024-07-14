@@ -930,7 +930,7 @@
   },
   "358": {
     "inputs": {
-      "image": "frank.jpeg",
+      "image": "",
       "upload": "image"
     },
     "class_type": "LoadImage",

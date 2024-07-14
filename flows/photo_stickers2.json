@@ -1,0 +1,614 @@
+{
+  "305": {
+    "inputs": {
+      "ckpt_name": "DreamShaperXL_Lightning.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "307": {
+    "inputs": {
+      "share_norm": "both",
+      "share_attn": "q+k",
+      "scale": 0.7000000000000001,
+      "model": [
+        "309",
+        0
+      ]
+    },
+    "class_type": "StyleAlignedBatchAlign",
+    "_meta": {
+      "title": "StyleAligned Batch Align"
+    }
+  },
+  "309": {
+    "inputs": {
+      "b1": 1.3,
+      "b2": 1.4000000000000001,
+      "s1": 0.9,
+      "s2": 0.2,
+      "model": [
+        "539",
+        0
+      ]
+    },
+    "class_type": "FreeU_V2",
+    "_meta": {
+      "title": "FreeU_V2"
+    }
+  },
+  "312": {
+    "inputs": {
+      "text": "realism, photo-realism, real materials,   half body",
+      "clip": [
+        "539",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "326": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person's face;order=1"
+    }
+  },
+  "328": {
+    "inputs": {
+      "seed": 1,
+      "steps": 6,
+      "cfg": 2.5,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "preview_method": "none",
+      "vae_decode": "true",
+      "model": [
+        "347",
+        0
+      ],
+      "positive": [
+        "339",
+        0
+      ],
+      "negative": [
+        "312",
+        0
+      ],
+      "latent_image": [
+        "348",
+        0
+      ],
+      "optional_vae": [
+        "305",
+        2
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "339": {
+    "inputs": {
+      "text": [
+        "572",
+        0
+      ],
+      "max_frames": 4,
+      "print_output": true,
+      "pre_text": [
+        "547",
+        0
+      ],
+      "app_text": [
+        "517",
+        0
+      ],
+      "start_frame": 0,
+      "end_frame": 0,
+      "clip": [
+        "539",
+        1
+      ]
+    },
+    "class_type": "BatchPromptSchedule",
+    "_meta": {
+      "title": "Batch Prompt Schedule 📅🅕🅝"
+    }
+  },
+  "344": {
+    "inputs": {
+      "pulid_file": "ip-adapter_pulid_sdxl_fp16.safetensors"
+    },
+    "class_type": "PulidModelLoader",
+    "_meta": {
+      "title": "Load PuLID Model"
+    }
+  },
+  "345": {
+    "inputs": {
+      "provider": "CPU"
+    },
+    "class_type": "PulidInsightFaceLoader",
+    "_meta": {
+      "title": "Load InsightFace (PuLID)"
+    }
+  },
+  "346": {
+    "inputs": {},
+    "class_type": "PulidEvaClipLoader",
+    "_meta": {
+      "title": "Load Eva Clip (PuLID)"
+    }
+  },
+  "347": {
+    "inputs": {
+      "method": "style",
+      "weight": 1,
+      "start_at": 0,
+      "end_at": 1,
+      "model": [
+        "307",
+        0
+      ],
+      "pulid": [
+        "344",
+        0
+      ],
+      "eva_clip": [
+        "346",
+        0
+      ],
+      "face_analysis": [
+        "345",
+        0
+      ],
+      "image": [
+        "518",
+        0
+      ]
+    },
+    "class_type": "ApplyPulid",
+    "_meta": {
+      "title": "Apply PuLID"
+    }
+  },
+  "348": {
+    "inputs": {
+      "width": 1016,
+      "height": 1016,
+      "batch_size": 4
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "376": {
+    "inputs": {
+      "rmbgmodel": [
+        "531",
+        0
+      ],
+      "image": [
+        "378",
+        5
+      ]
+    },
+    "class_type": "BRIA_RMBG_Zho",
+    "_meta": {
+      "title": "🧹BRIA RMBG"
+    }
+  },
+  "378": {
+    "inputs": {
+      "seed": 1,
+      "steps": 6,
+      "cfg": 2.5,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "karras",
+      "denoise": 0.6,
+      "preview_method": "none",
+      "vae_decode": "true",
+      "model": [
+        "382",
+        0
+      ],
+      "positive": [
+        "382",
+        1
+      ],
+      "negative": [
+        "382",
+        2
+      ],
+      "latent_image": [
+        "328",
+        3
+      ],
+      "optional_vae": [
+        "328",
+        4
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "379": {
+    "inputs": {
+      "instantid_file": "instantid-ip-adapter.bin"
+    },
+    "class_type": "InstantIDModelLoader",
+    "_meta": {
+      "title": "Load InstantID Model"
+    }
+  },
+  "380": {
+    "inputs": {
+      "control_net_name": "instantid-controlnet.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "381": {
+    "inputs": {
+      "provider": "CPU"
+    },
+    "class_type": "InstantIDFaceAnalysis",
+    "_meta": {
+      "title": "InstantID Face Analysis"
+    }
+  },
+  "382": {
+    "inputs": {
+      "weight": 1,
+      "start_at": 0,
+      "end_at": 1,
+      "instantid": [
+        "379",
+        0
+      ],
+      "insightface": [
+        "381",
+        0
+      ],
+      "control_net": [
+        "380",
+        0
+      ],
+      "image": [
+        "518",
+        0
+      ],
+      "model": [
+        "307",
+        0
+      ],
+      "positive": [
+        "328",
+        1
+      ],
+      "negative": [
+        "328",
+        2
+      ],
+      "image_kps": [
+        "328",
+        5
+      ]
+    },
+    "class_type": "ApplyInstantID",
+    "_meta": {
+      "title": "Apply InstantID"
+    }
+  },
+  "517": {
+    "inputs": {
+      "text": [
+        "519",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "518": {
+    "inputs": {
+      "megapixels": 0.5,
+      "images": [
+        "326",
+        0
+      ]
+    },
+    "class_type": "ImageScaleToMegapixels",
+    "_meta": {
+      "title": "Scale To Megapixels"
+    }
+  },
+  "519": {
+    "inputs": {
+      "query": "Ignore the artistic style of the picture.\n\nDescribe the person in detail, including any interesting features or characteristics, such as gender, age, facial expression, race, color, hairstyle, hair color, hat, eye color, beard. \n\nIf it is wearing glasses, describe the style of glasses.\n\nDo not describe anything else, such as background.\n\nPlease create an image generation prompt in English less than 46 words to fit the description above.",
+      "debug": "enable",
+      "url": "http://127.0.0.1:11434",
+      "model": "llava:7b-v1.6-vicuna-q8_0",
+      "keep_alive": 0,
+      "images": [
+        "518",
+        0
+      ]
+    },
+    "class_type": "OllamaVision",
+    "_meta": {
+      "title": "Ollama Vision"
+    }
+  },
+  "525": {
+    "inputs": {
+      "filename_prefix": "stickers/img_",
+      "images": [
+        "575",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "531": {
+    "inputs": {},
+    "class_type": "BRIA_RMBG_ModelLoader_Zho",
+    "_meta": {
+      "title": "🧹BRIA_RMBG Model Loader"
+    }
+  },
+  "539": {
+    "inputs": {
+      "lora_01": "StudioGhibli.Redmond-StdGBRRedmAF-StudioGhibli.safetensors",
+      "strength_01": 1,
+      "lora_02": "sliders/cartoon_style.pt",
+      "strength_02": 1,
+      "lora_03": "sliders/smiling.pt",
+      "strength_03": 1,
+      "lora_04": "None",
+      "strength_04": 1,
+      "model": [
+        "305",
+        0
+      ],
+      "clip": [
+        "305",
+        1
+      ]
+    },
+    "class_type": "Lora Loader Stack (rgthree)",
+    "_meta": {
+      "title": "Lora Loader Stack (rgthree)"
+    }
+  },
+  "547": {
+    "inputs": {
+      "text": ", Stickers, Sticker, chibi:1.5, flat:1.5, (full body:1.5), simple details，empty background, black background, "
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "556": {
+    "inputs": {
+      "text": "Boxers, with red boxing gloves, swinging their fists",
+      "display_name": "Fisrt Sticker Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 11,
+      "custom_id": "prompt1"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "557": {
+    "inputs": {
+      "text": "Holding a bouquet of roses in his hand and wearing a gown",
+      "display_name": "Fourth Sticker Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 14,
+      "custom_id": "prompt4"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "558": {
+    "inputs": {
+      "text": "Dressed in a Superman costume",
+      "display_name": "Second Sticker Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 12,
+      "custom_id": "prompt2"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "559": {
+    "inputs": {
+      "text": "Dress up as Santa Claus with a rattle in your hand",
+      "display_name": "Third Sticker Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 13,
+      "custom_id": "prompt3"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "572": {
+    "inputs": {
+      "text_a": [
+        "556",
+        0
+      ],
+      "frame_a": 0,
+      "text_b": [
+        "558",
+        0
+      ],
+      "frame_b": 1,
+      "text_c": [
+        "559",
+        0
+      ],
+      "frame_c": 2,
+      "text_d": [
+        "557",
+        0
+      ],
+      "frame_d": 3,
+      "frame_e": 4,
+      "frame_f": 5,
+      "frame_g": 6
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "String Concatenate 📅🅕🅝"
+    }
+  },
+  "574": {
+    "inputs": {
+      "name": "photo_stickers2",
+      "display_name": "Photo Stickers 2",
+      "description": "Stickers from person photo",
+      "author": "Datou",
+      "homepage": "https://openart.ai/workflows/datou/stickeryou-simplified-version/diO4RafxrxaqH6RjajjQ",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2.html",
+      "license": "",
+      "tags": "[\"cartoon\", \"portrait\"]",
+      "version": "1.0.0",
+      "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "575": {
+    "inputs": {
+      "batch_index": 0,
+      "length": 1,
+      "image": [
+        "376",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "ImageFromBatch"
+    }
+  },
+  "576": {
+    "inputs": {
+      "batch_index": 1,
+      "length": 1,
+      "image": [
+        "376",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "ImageFromBatch"
+    }
+  },
+  "577": {
+    "inputs": {
+      "batch_index": 2,
+      "length": 1,
+      "image": [
+        "376",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "ImageFromBatch"
+    }
+  },
+  "578": {
+    "inputs": {
+      "batch_index": 3,
+      "length": 1,
+      "image": [
+        "376",
+        0
+      ]
+    },
+    "class_type": "ImageFromBatch",
+    "_meta": {
+      "title": "ImageFromBatch"
+    }
+  },
+  "579": {
+    "inputs": {
+      "filename_prefix": "stickers/img_",
+      "images": [
+        "576",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "580": {
+    "inputs": {
+      "filename_prefix": "stickers/img_",
+      "images": [
+        "577",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "581": {
+    "inputs": {
+      "filename_prefix": "stickers/img_",
+      "images": [
+        "578",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  }
+}
