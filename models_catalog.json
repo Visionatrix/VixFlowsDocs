@@ -526,5 +526,41 @@
         "class_name": "IPAdapterUnifiedLoader"
       }
     ]
+  },
+  "ip-adapter-pulid": {
+    "save_path": "pulid/ip-adapter_pulid_sdxl_fp16.safetensors",
+    "url": "https://huggingface.co/huchenlei/ipadapter_pulid/resolve/main/ip-adapter_pulid_sdxl_fp16.safetensors",
+    "homepage": "https://huggingface.co/huchenlei/ipadapter_pulid",
+    "hash": "b258a5cd2c0c7d35f4d3e59909d7648498686afae4d0c74917e9c47d7704fbf5",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:pulid))(?=.*(?i:sdxl))(?=.*(?i:fp16)).*",
+        "class_name": "PulidModelLoader"
+      }
+    ]
+  },
+  "baulab-lora-smiling": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sliders))(?=.*(?i:smiling))(?=.*(?i:pt)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "save_path": "loras/sliders/smiling.pt",
+    "url": "https://huggingface.co/spaces/baulab/ConceptSliders/resolve/main/models/smiling.pt",
+    "homepage": "https://baulab.info/",
+    "hash": "6430ab47393ba15222ea0988c3479f547c8b59f93a41024bcddd7121ef7147d1"
+  },
+  "baulab-lora-cartoon-style": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sliders))(?=.*(?i:cartoon_style))(?=.*(?i:pt)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "save_path": "loras/sliders/cartoon_style.pt",
+    "url": "https://huggingface.co/spaces/baulab/ConceptSliders/resolve/main/models/cartoon_style.pt",
+    "homepage": "https://baulab.info/",
+    "hash": "e07c30e4f82f709a474ae11dc5108ac48f81b6996b937757c8dd198920ea9b4d"
   }
 }

@@ -23,6 +23,8 @@ Visionatrix by default install and update these nodes:
  * `ComfyUI-AutoCropFaces <https://github.com/Visionatrix/ComfyUI-AutoCropFaces>`_
  * `comfyui-ollama <https://github.com/Visionatrix/comfyui-ollama>`_
  * `PuLID_ComfyUI <https://github.com/Visionatrix/PuLID_ComfyUI>`_
+ * `ComfyUI_FizzNodes <https://github.com/Visionatrix/ComfyUI_FizzNodes>`_
+ * `style_aligned_comfy <https://github.com/Visionatrix/style_aligned_comfy>`_
  * `ComfyUI-Visionatrix <https://github.com/Visionatrix/ComfyUI-Visionatrix>`_
 
 We are gradually expanding the list.

@@ -14,6 +14,7 @@ Available Flows
    VintagePortrait
    Photomaker_1
    PhotoStickers
+   PhotoStickers2
    GhibliPortrait
    ComicuPortrait
    MemojiPortrait
