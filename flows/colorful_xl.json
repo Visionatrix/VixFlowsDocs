@@ -1,7 +1,7 @@
 {
   "2": {
     "inputs": {
-      "ckpt_name": "colorfulxl_v42.safetensors"
+      "ckpt_name": "colorfulxl_v70.safetensors"
     },
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
@@ -175,7 +175,7 @@
   },
   "282": {
     "inputs": {
-      "aspect_ratio": "2:3"
+      "aspect_ratio": "1:1"
     },
     "class_type": "SDXLAspectRatioSelector",
     "_meta": {
