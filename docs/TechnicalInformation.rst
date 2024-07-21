@@ -25,6 +25,7 @@ Visionatrix by default install and update these nodes:
  * `PuLID_ComfyUI <https://github.com/Visionatrix/PuLID_ComfyUI>`_
  * `ComfyUI_FizzNodes <https://github.com/Visionatrix/ComfyUI_FizzNodes>`_
  * `style_aligned_comfy <https://github.com/Visionatrix/style_aligned_comfy>`_
+ * `ComfyUI_Gemini_Flash <https://github.com/Visionatrix/ComfyUI_Gemini_Flash>`_
  * `ComfyUI-Visionatrix <https://github.com/Visionatrix/ComfyUI-Visionatrix>`_
 
 We are gradually expanding the list.

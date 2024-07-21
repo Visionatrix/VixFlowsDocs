@@ -319,7 +319,7 @@
   "517": {
     "inputs": {
       "text": [
-        "519",
+        "584",
         0
       ]
     },
@@ -343,7 +343,10 @@
   },
   "519": {
     "inputs": {
-      "query": "Ignore the artistic style of the picture.\n\nDescribe the person in detail, including any interesting features or characteristics, such as gender, age, facial expression, race, color, hairstyle, hair color, hat, eye color, beard. \n\nIf it is wearing glasses, describe the style of glasses.\n\nDo not describe anything else, such as background.\n\nPlease create an image generation prompt in English less than 46 words to fit the description above.",
+      "query": [
+        "585",
+        0
+      ],
       "debug": "enable",
       "url": "http://127.0.0.1:11434",
       "model": "llava:7b-v1.6-vicuna-q8_0",
@@ -609,6 +612,56 @@
     "class_type": "SaveImage",
     "_meta": {
       "title": "Save Image"
+    }
+  },
+  "583": {
+    "inputs": {
+      "prompt": [
+        "585",
+        0
+      ],
+      "vision": true,
+      "api_key": "",
+      "proxy": "",
+      "image": [
+        "518",
+        0
+      ]
+    },
+    "class_type": "Gemini_Flash",
+    "_meta": {
+      "title": "Gemini flash"
+    }
+  },
+  "584": {
+    "inputs": {
+      "state": false,
+      "display_name": "Use Gemini for vision instead of Ollama",
+      "optional": true,
+      "advanced": true,
+      "order": 99,
+      "custom_id": "vision_provider",
+      "input_off_state": [
+        "519",
+        0
+      ],
+      "input_on_state": [
+        "583",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
+    }
+  },
+  "585": {
+    "inputs": {
+      "text": "Ignore the artistic style of the picture.\n\nDescribe the person in detail, including any interesting features or characteristics, such as gender, age, facial expression, race, color, hairstyle, hair color, hat, eye color, beard. \n\nIf it is wearing glasses, describe the style of glasses.\n\nDo not describe anything else, such as background.\n\nPlease create an image generation prompt in English less than 46 words to fit the description above."
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
     }
   }
 }

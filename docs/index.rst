@@ -14,6 +14,7 @@ Here will leave all docs that is not suitable for Readme file.
     VixWorkflows.rst
     ComfyUI2VixMigration.rst
     TechnicalInformation.rst
+    HardwareFAQ.rst
 
 
 Different utilities
