@@ -12,21 +12,6 @@
       "title": "CLIP Text Encode (Prompt)"
     }
   },
-  "58": {
-    "inputs": {
-      "sharpen_radius": 1,
-      "sigma": 0.3,
-      "alpha": 0.1,
-      "image": [
-        "126",
-        0
-      ]
-    },
-    "class_type": "ImageSharpen",
-    "_meta": {
-      "title": "ImageSharpen"
-    }
-  },
   "96": {
     "inputs": {
       "bbox_threshold": 0.5,
@@ -264,7 +249,7 @@
     "inputs": {
       "filename_prefix": "ComfyUI",
       "images": [
-        "58",
+        "126",
         0
       ]
     },
@@ -504,7 +489,8 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Playground_2_5_aesthetic.html",
       "license": "",
       "tags": "[\"general\"]",
-      "version": "1.0.0"
+      "version": "1.0.1",
+      "requires": "[]"
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
