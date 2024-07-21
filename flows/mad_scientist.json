@@ -370,7 +370,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MadScientist.html",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]"
     },
     "class_type": "VixUiWorkflowMetadata",
