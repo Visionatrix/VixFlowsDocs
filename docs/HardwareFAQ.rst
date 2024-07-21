@@ -12,16 +12,18 @@ List of GPUs by usefulness:
 3. Nvidia 3090 ``24 GB``
 4. Nvidia 4080 Super ``16 GB``
 5. Nvidia 4070 Ti Super ``16 GB``
-6. Nvidia 4060 Ti ``16 GB``
-7. Nvidia 3060 ``12 GB``
+6. AMD RX 7900 XT ``20 GB``
+7. AMD RX 7900 GRE ``16 GB``
+8. Nvidia 4060 Ti ``16 GB``
+9. Nvidia 3060 ``12 GB``
 
 .. note:: You can also look at any performance tests of hardware for ComfyUI as a reference.
 
 ---
 
-Q: Why are there no AMD cards other than *AMD 7900 XTX* on the list?
+Q: Why are there no AMD cards other than *AMD 7900 series* on the list?
 
-A: *ROCM (Radeon Open Compute) "officially" supports only the AMD 7900 XTX among consumer cards.*
+A: *ROCM (Radeon Open Compute) "officially" supports only* `these cards <https://rocm.docs.amd.com/projects/install-on-linux/en/latest/reference/system-requirements.html#supported-gpus>`_.
 
 ---
 
