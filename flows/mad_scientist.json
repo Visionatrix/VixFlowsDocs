@@ -218,7 +218,10 @@
   },
   "24": {
     "inputs": {
-      "query": "Is this picture a painting, 3DCG, or photo? What is its artistic genre?",
+      "query": [
+        "44",
+        0
+      ],
       "debug": "enable",
       "url": "http://127.0.0.1:11434",
       "model": "llava:7b-v1.6-vicuna-q8_0",
@@ -249,7 +252,7 @@
   "26": {
     "inputs": {
       "text": [
-        "24",
+        "43",
         0
       ]
     },
@@ -373,6 +376,56 @@
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
       "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "40": {
+    "inputs": {
+      "prompt": [
+        "44",
+        0
+      ],
+      "vision": true,
+      "api_key": "",
+      "proxy": "",
+      "image": [
+        "25",
+        0
+      ]
+    },
+    "class_type": "Gemini_Flash",
+    "_meta": {
+      "title": "Gemini flash"
+    }
+  },
+  "43": {
+    "inputs": {
+      "state": false,
+      "display_name": "Use Gemini for vision instead of Ollama",
+      "optional": true,
+      "advanced": true,
+      "order": 99,
+      "custom_id": "vision_provider",
+      "input_off_state": [
+        "24",
+        0
+      ],
+      "input_on_state": [
+        "40",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
+    }
+  },
+  "44": {
+    "inputs": {
+      "text": "Write a short prompt in English (less than 46 words) that defines the style (painting, 3DCG, or photography) and describes the artistic style of the image. Focus on the main subject, ignoring the background description. Only output the prompt itself."
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
     }
   }
 }

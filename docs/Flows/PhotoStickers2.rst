@@ -3,7 +3,7 @@
 Photo Stickers 2
 ================
 
-.. note:: Requires ``Ollama`` server to be present with ``llava:7b-v1.6-vicuna-q8_0`` model.
+.. note:: This feature requires vision capabilities. You must either have the **Ollama** server running with the ``llava:7b-v1.6-vicuna-q8_0 model``, or provide a ``Gemini API key`` in the settings.
 
 Turns a photo into 4 stickers using different prompts.
 
