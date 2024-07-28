@@ -6,6 +6,7 @@ Available Flows
 
    SDXL_Lighting
    Playground_2_5_aesthetic
+   Playground_2_5_prometheus
    Juggernaut_Lite
    Juggernaut_XL
    Colorful_XL

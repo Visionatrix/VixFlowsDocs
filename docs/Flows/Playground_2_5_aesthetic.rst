@@ -1,7 +1,7 @@
 .. _Playground_2_5_aesthetic:
 
-Aesthetic images(Playground 2.5)
-================================
+Aesthetic images (Playground 2.5)
+=================================
 
 The flow focuses on three key improvements: enhancing color and contrast, generating images across multiple aspect ratios, and aligning outputs with human aesthetic preferences.
 

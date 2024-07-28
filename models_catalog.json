@@ -430,6 +430,18 @@
       }
     ]
   },
+  "Prometheus": {
+    "save_path": "checkpoints/prometheus_v10.safetensors",
+    "url": "https://huggingface.co/dataautogpt3/PrometheusV1/resolve/main/Prometheus.safetensors",
+    "homepage": "https://huggingface.co/dataautogpt3/PrometheusV1",
+    "hash": "291d64d08112550b10cf7971aa7e7ea646a9c36f70b64f7bb556c8e8131f3813",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:prometheus))(?=.*(?i:v10)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ]
+  },
   "SD3-Medium": {
     "save_path": "checkpoints/sd3_medium_incl_clips_t5xxlfp16.safetensors",
     "url": "https://huggingface.co/stabilityai/stable-diffusion-3-medium/resolve/main/sd3_medium_incl_clips_t5xxlfp16.safetensors",
