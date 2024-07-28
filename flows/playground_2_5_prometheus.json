@@ -1,0 +1,227 @@
+{
+  "138": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "240",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "226": {
+    "inputs": {
+      "ckpt_name": "prometheus_v10.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "229": {
+    "inputs": {
+      "text": [
+        "251",
+        0
+      ],
+      "clip": [
+        "284",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "230": {
+    "inputs": {
+      "text": [
+        "254",
+        0
+      ],
+      "clip": [
+        "284",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "238": {
+    "inputs": {
+      "seed": 1064616970592022,
+      "steps": [
+        "285",
+        0
+      ],
+      "cfg": [
+        "256",
+        0
+      ],
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "226",
+        0
+      ],
+      "positive": [
+        "229",
+        0
+      ],
+      "negative": [
+        "230",
+        0
+      ],
+      "latent_image": [
+        "246",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "240": {
+    "inputs": {
+      "samples": [
+        "238",
+        0
+      ],
+      "vae": [
+        "226",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "246": {
+    "inputs": {
+      "width": [
+        "281",
+        1
+      ],
+      "height": [
+        "281",
+        2
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "250": {
+    "inputs": {
+      "name": "playground_2_5_prometheus",
+      "display_name": "Prometheus model",
+      "description": "Generate images using Prometheus model",
+      "author": "bigcat88",
+      "homepage": "https://github.com/bigcat88",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Playground_2_5_prometheus.html",
+      "license": "",
+      "tags": "[\"general\", \"simple\"]",
+      "version": "1.0.0",
+      "requires": "[]"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "251": {
+    "inputs": {
+      "text": "",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "254": {
+    "inputs": {
+      "text": "",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 15,
+      "custom_id": "negative_prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "256": {
+    "inputs": {
+      "value": 7,
+      "display_name": "Prompt strength",
+      "optional": true,
+      "advanced": true,
+      "min": 6,
+      "max": 8,
+      "step": 0.1,
+      "order": 99,
+      "custom_id": "prompt_strength"
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "281": {
+    "inputs": {
+      "aspect_ratio": "1:1"
+    },
+    "class_type": "SDXLAspectRatioSelector",
+    "_meta": {
+      "title": "input;Aspect Ratio;optional;advanced;custom_id=aspect_ratio"
+    }
+  },
+  "284": {
+    "inputs": {
+      "stop_at_clip_layer": -2,
+      "clip": [
+        "226",
+        1
+      ]
+    },
+    "class_type": "CLIPSetLastLayer",
+    "_meta": {
+      "title": "CLIP Set Last Layer"
+    }
+  },
+  "285": {
+    "inputs": {
+      "value": 40,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 25,
+      "max": 50,
+      "step": 1,
+      "order": 99,
+      "custom_id": ""
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  }
+}
