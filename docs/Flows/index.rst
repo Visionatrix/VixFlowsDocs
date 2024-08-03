@@ -19,6 +19,7 @@ Available Flows
    GhibliPortrait
    ComicuPortrait
    MemojiPortrait
-   SupirUpscaler
    SD3_Medium
    MadScientist
+   HumanFaceDetailer
+   SupirUpscaler

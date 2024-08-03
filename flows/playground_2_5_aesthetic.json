@@ -1,280 +1,15 @@
 {
-  "43": {
-    "inputs": {
-      "text": "detailed face",
-      "clip": [
-        "235",
-        1
-      ]
-    },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP Text Encode (Prompt)"
-    }
-  },
-  "96": {
-    "inputs": {
-      "bbox_threshold": 0.5,
-      "bbox_dilation": 0,
-      "crop_factor": 3,
-      "drop_size": 50,
-      "sub_threshold": 0.5,
-      "sub_dilation": 0,
-      "sub_bbox_expansion": 0,
-      "sam_mask_hint_threshold": 0.7000000000000001,
-      "post_dilation": 0,
-      "bbox_detector": [
-        "221",
-        0
-      ],
-      "image": [
-        "257",
-        0
-      ],
-      "sam_model_opt": [
-        "222",
-        0
-      ]
-    },
-    "class_type": "ImpactSimpleDetectorSEGS",
-    "_meta": {
-      "title": "Simple Detector (SEGS)"
-    }
-  },
-  "103": {
-    "inputs": {
-      "target": "x1",
-      "order": false,
-      "take_start": 0,
-      "take_count": 1,
-      "segs": [
-        "96",
-        0
-      ]
-    },
-    "class_type": "ImpactSEGSOrderedFilter",
-    "_meta": {
-      "title": "SEGS Filter (ordered)"
-    }
-  },
-  "106": {
-    "inputs": {
-      "guide_size": 512,
-      "guide_size_for": true,
-      "max_size": 1024,
-      "seed": 767016419755284,
-      "steps": 20,
-      "cfg": 3.5,
-      "sampler_name": "dpmpp_2m",
-      "scheduler": "karras",
-      "denoise": 0.35000000000000003,
-      "feather": 5,
-      "noise_mask": true,
-      "force_inpaint": true,
-      "wildcard": "",
-      "cycle": 1,
-      "inpaint_model": false,
-      "noise_mask_feather": 0,
-      "image": [
-        "257",
-        0
-      ],
-      "segs": [
-        "103",
-        0
-      ],
-      "model": [
-        "235",
-        0
-      ],
-      "clip": [
-        "235",
-        1
-      ],
-      "vae": [
-        "235",
-        2
-      ],
-      "positive": [
-        "43",
-        0
-      ],
-      "negative": [
-        "236",
-        0
-      ]
-    },
-    "class_type": "DetailerForEach",
-    "_meta": {
-      "title": "Detailer (SEGS)"
-    }
-  },
-  "118": {
-    "inputs": {
-      "target": "x1",
-      "order": false,
-      "take_start": 1,
-      "take_count": 1,
-      "segs": [
-        "96",
-        0
-      ]
-    },
-    "class_type": "ImpactSEGSOrderedFilter",
-    "_meta": {
-      "title": "SEGS Filter (ordered)"
-    }
-  },
-  "119": {
-    "inputs": {
-      "guide_size": 512,
-      "guide_size_for": true,
-      "max_size": 1024,
-      "seed": 228245828688511,
-      "steps": 20,
-      "cfg": 3.5,
-      "sampler_name": "dpmpp_2m",
-      "scheduler": "karras",
-      "denoise": 0.35000000000000003,
-      "feather": 5,
-      "noise_mask": true,
-      "force_inpaint": true,
-      "wildcard": "",
-      "cycle": 1,
-      "inpaint_model": false,
-      "noise_mask_feather": 0,
-      "image": [
-        "106",
-        0
-      ],
-      "segs": [
-        "118",
-        0
-      ],
-      "model": [
-        "235",
-        0
-      ],
-      "clip": [
-        "235",
-        1
-      ],
-      "vae": [
-        "235",
-        2
-      ],
-      "positive": [
-        "43",
-        0
-      ],
-      "negative": [
-        "236",
-        0
-      ]
-    },
-    "class_type": "DetailerForEach",
-    "_meta": {
-      "title": "Detailer (SEGS)"
-    }
-  },
-  "125": {
-    "inputs": {
-      "target": "x1",
-      "order": false,
-      "take_start": 2,
-      "take_count": 1,
-      "segs": [
-        "96",
-        0
-      ]
-    },
-    "class_type": "ImpactSEGSOrderedFilter",
-    "_meta": {
-      "title": "SEGS Filter (ordered)"
-    }
-  },
-  "126": {
-    "inputs": {
-      "guide_size": 512,
-      "guide_size_for": true,
-      "max_size": 1024,
-      "seed": 277343974126122,
-      "steps": 20,
-      "cfg": 3.5,
-      "sampler_name": "dpmpp_2m",
-      "scheduler": "karras",
-      "denoise": 0.35000000000000003,
-      "feather": 5,
-      "noise_mask": true,
-      "force_inpaint": true,
-      "wildcard": "",
-      "cycle": 1,
-      "inpaint_model": false,
-      "noise_mask_feather": 0,
-      "image": [
-        "119",
-        0
-      ],
-      "segs": [
-        "125",
-        0
-      ],
-      "model": [
-        "235",
-        0
-      ],
-      "clip": [
-        "235",
-        1
-      ],
-      "vae": [
-        "235",
-        2
-      ],
-      "positive": [
-        "43",
-        0
-      ],
-      "negative": [
-        "236",
-        0
-      ]
-    },
-    "class_type": "DetailerForEach",
-    "_meta": {
-      "title": "Detailer (SEGS)"
-    }
-  },
   "138": {
     "inputs": {
       "filename_prefix": "ComfyUI",
       "images": [
-        "126",
+        "257",
         0
       ]
     },
     "class_type": "SaveImage",
     "_meta": {
       "title": "Save Image"
-    }
-  },
-  "221": {
-    "inputs": {
-      "model_name": "bbox/face_yolov8m.pt"
-    },
-    "class_type": "UltralyticsDetectorProvider",
-    "_meta": {
-      "title": "UltralyticsDetectorProvider"
-    }
-  },
-  "222": {
-    "inputs": {
-      "model_name": "sam_vit_b_01ec64.pth",
-      "device_mode": "AUTO"
-    },
-    "class_type": "SAMLoader",
-    "_meta": {
-      "title": "SAMLoader (Impact)"
     }
   },
   "226": {
@@ -331,28 +66,6 @@
     "class_type": "ModelSamplingContinuousEDM",
     "_meta": {
       "title": "ModelSamplingContinuousEDM"
-    }
-  },
-  "235": {
-    "inputs": {
-      "ckpt_name": "epicrealism_naturalSinRC1VAE.safetensors"
-    },
-    "class_type": "CheckpointLoaderSimple",
-    "_meta": {
-      "title": "Load Checkpoint"
-    }
-  },
-  "236": {
-    "inputs": {
-      "text": "ugly",
-      "clip": [
-        "235",
-        1
-      ]
-    },
-    "class_type": "CLIPTextEncode",
-    "_meta": {
-      "title": "CLIP Text Encode (Prompt)"
     }
   },
   "238": {
@@ -483,13 +196,13 @@
     "inputs": {
       "name": "playground_2_5_aesthetic",
       "display_name": "Aesthetic images",
-      "description": "Generate images with built-in Face Detailer",
-      "author": "Dennis Schöneberg",
-      "homepage": "https://www.linkedin.com/in/dennis-sch%C3%B6neberg-3420a2221",
+      "description": "Generate images using Playground2.5 model",
+      "author": "bigcat88",
+      "homepage": "https://github.com/bigcat88",
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Playground_2_5_aesthetic.html",
       "license": "",
-      "tags": "[\"general\"]",
-      "version": "1.0.1",
+      "tags": "[\"general\", \"simple\"]",
+      "version": "1.1.0",
       "requires": "[]"
     },
     "class_type": "VixUiWorkflowMetadata",

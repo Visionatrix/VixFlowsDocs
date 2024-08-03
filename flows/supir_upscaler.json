@@ -325,7 +325,7 @@
       "homepage": "https://openart.ai/workflows/profile/akihungac",
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SupirUpscaler.html",
       "license": "",
-      "tags": "[\"upscaler\"]",
+      "tags": "[\"upscaler\", \"postprocess\"]",
       "version": "1.0.0"
     },
     "class_type": "VixUiWorkflowMetadata",

@@ -22,11 +22,9 @@ Hardware
 
 Time to generate 1 image:
 
-- AMD 7900 XTX: **17.5 sec** (no face) / **29 sec** (one face)
-- NVIDIA RTX 3060 (12 GB): **33 sec** (no face) / **46 sec** (one face)
-- Apple M2 Max: **99.8 sec** (no face) / **160 sec** (one face)
-
-.. note:: Results may vary, as FaceDetailer will post-process image only if it detects face.
+- AMD 7900 XTX: **17.5 sec** (no face)
+- NVIDIA RTX 3060 (12 GB): **33 sec** (no face)
+- Apple M2 Max: **99.8 sec** (no face)
 
 Examples
 """"""""
