@@ -234,7 +234,7 @@
       "homepage": "https://github.com/bigcat88",
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SDXL_Lighting.html",
       "license": "",
-      "tags": "[\"general\"]",
+      "tags": "[\"general\", \"lighting\", \"simple\"]",
       "version": "1.0.0"
     },
     "class_type": "VixUiWorkflowMetadata",

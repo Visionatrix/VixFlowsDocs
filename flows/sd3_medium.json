@@ -138,7 +138,7 @@
       "homepage": "https://openart.ai/workflows/datou/sd3-basic-workflow/7Udt2JZ3Mwqf1if9EqWt",
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SD3_Medium.html",
       "license": "",
-      "tags": "[\"general\"]",
+      "tags": "[\"general\", \"simple\"]",
       "version": "1.0.0"
     },
     "class_type": "VixUiWorkflowMetadata",

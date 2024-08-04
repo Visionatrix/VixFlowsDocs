@@ -516,7 +516,7 @@
       "homepage": "https://comfyworkflows.com/profile/41d507c5-bdcf-424b-9b75-a3cc2ea9049d",
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Stable_Cascade.html",
       "license": "",
-      "tags": "[\"general\"]",
+      "tags": "[\"general\", \"simple\"]",
       "version": "1.0.0"
     },
     "class_type": "VixUiWorkflowMetadata",

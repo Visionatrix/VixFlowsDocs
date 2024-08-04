@@ -217,7 +217,7 @@
       "max": 50,
       "step": 1,
       "order": 99,
-      "custom_id": ""
+      "custom_id": "steps_count"
     },
     "class_type": "VixUiRangeInt",
     "_meta": {
