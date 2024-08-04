@@ -5,6 +5,7 @@ Available Flows
    :maxdepth: 1
 
    SDXL_Lighting
+   Flux_1
    Playground_2_5_aesthetic
    Playground_2_5_prometheus
    Juggernaut_Lite

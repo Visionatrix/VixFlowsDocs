@@ -287,7 +287,7 @@
       "homepage": "https://github.com/bigcat88",
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Colorful_XL.html",
       "license": "",
-      "tags": "[\"general\"]",
+      "tags": "[\"general\", \"simple\"]",
       "version": "1.0.0"
     },
     "class_type": "VixUiWorkflowMetadata",

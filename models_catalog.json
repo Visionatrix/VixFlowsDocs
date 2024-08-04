@@ -190,7 +190,7 @@
     "homepage": "https://huggingface.co/ByteDance/SDXL-Lightning",
     "hash": "5aa30d94cdf7950a8b53a693682650ee061eddb128c5435a8f88defea73b2ac6"
   },
-  "SDXL_vae": {
+  "SDXL-VAE": {
     "regexes": [
       {
         "input_value": "^(?=.*(?i:sdxl)).*",
@@ -586,5 +586,101 @@
     "url": "https://huggingface.co/spaces/baulab/ConceptSliders/resolve/main/models/cartoon_style.pt",
     "homepage": "https://baulab.info/",
     "hash": "e07c30e4f82f709a474ae11dc5108ac48f81b6996b937757c8dd198920ea9b4d"
+  },
+  "FLUX-VAE": {
+    "regexes": [
+      {
+        "input_value": "^(?i:ae\\.sft)$",
+        "input_name": "(?i)vae"
+      }
+    ],
+    "save_path": "vae/ae.sft",
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.sft",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+    "hash": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
+  },
+  "FLUX-CLIP-CLIP_L": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:clip_l))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "save_path": "clip/clip_l.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors",
+    "homepage": "https://huggingface.co/comfyanonymous/flux_text_encoders",
+    "hash": "660c6f5b1abae9dc498ac2d21e1347d2abdb0cf6c0c0c8576cd796491d9a6cdd"
+  },
+  "FLUX-CLIP-T5XXL-FP16": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:t5xxl_fp16))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "save_path": "clip/t5xxl_fp16.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors",
+    "homepage": "https://huggingface.co/comfyanonymous/flux_text_encoders",
+    "hash": "6e480b09fae049a72d2a8c5fbccb8d3e92febeb233bbe9dfe7256958a9167635"
+  },
+  "FLUX-CLIP-T5XXL-FP8": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:t5xxl_fp8_e4m3fn))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "save_path": "clip/t5xxl_fp8_e4m3fn.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors",
+    "homepage": "https://huggingface.co/comfyanonymous/flux_text_encoders",
+    "hash": "7d330da4816157540d6bb7838bf63a0f02f573fc48ca4d8de34bb0cbfd514f09"
+  },
+  "FLUX-1-Schnell": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:flux1))(?=.*(?i:schnell))(?=.*(?i:sft)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "save_path": "unet/flux1-schnell.sft",
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/flux1-schnell.sft",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+    "hash": "9403429e0052277ac2a87ad800adece5481eecefd9ed334e1f348723621d2a0a"
+  },
+  "FLUX-1-Schnell-FP8": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:flux1))(?=.*(?i:schnell))(?=.*(?i:fp8))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "save_path": "unet/flux1-schnell-fp8.safetensors",
+    "url": "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-schnell-fp8.safetensors",
+    "homepage": "https://huggingface.co/Kijai/flux-fp8",
+    "hash": "bbdfba27fed8ff3be237523fb37b83821a6c4bbaa1db43ef9288767d0e4042fb"
+  },
+  "FLUX-1-Dev": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:flux1))(?=.*(?i:dev))(?=.*(?i:sft)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "save_path": "unet/flux1-dev.sft",
+    "url": "https://huggingface.co/camenduru/FLUX.1-dev/blob/main/flux1-dev.sft",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+    "hash": "4610115bb0c89560703c892c59ac2742fa821e60ef5871b33493ba544683abd7"
+  },
+  "FLUX-1-Dev-FP8": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:flux1))(?=.*(?i:dev))(?=.*(?i:fp8))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "save_path": "unet/flux1-dev-fp8.safetensors",
+    "url": "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-dev-fp8.safetensors",
+    "homepage": "https://huggingface.co/Kijai/flux-fp8",
+    "hash": "1be961341be8f5307ef26c787199f80bf4e0de3c1c0b4617095aa6ee5550dfce"
   }
 }
