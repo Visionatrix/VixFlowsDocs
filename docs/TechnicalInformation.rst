@@ -17,7 +17,7 @@ Visionatrix by default install and update these nodes:
  * `ComfyUI-Custom-Scripts <https://github.com/Visionatrix/ComfyUI-Custom-Scripts>`_
  * `rgthree-comfy <https://github.com/Visionatrix/rgthree-comfy>`_
  * `comfyui_controlnet_aux <https://github.com/Visionatrix/comfyui_controlnet_aux>`_
- * `ComfyUI-AutomaticCFG <https://github.com/Visionatrix/ComfyUI-AutomaticCFG>`_
+ * `Skimmed_CFG <https://github.com/Visionatrix/Skimmed_CFG>`_
  * `comfyui-art-venture <https://github.com/Visionatrix/comfyui-art-venture>`_
  * `was-node-suite-comfyui <https://github.com/Visionatrix/was-node-suite-comfyui>`_
  * `ComfyUI-AutoCropFaces <https://github.com/Visionatrix/ComfyUI-AutoCropFaces>`_

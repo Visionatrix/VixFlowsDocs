@@ -102,7 +102,10 @@
       "vae_name": "Baked VAE",
       "clip_skip": -1,
       "lora_name": "The_Simplest.safetensors",
-      "lora_model_strength": 1,
+      "lora_model_strength": [
+        "408",
+        0
+      ],
       "lora_clip_strength": 1,
       "positive": [
         "399",
@@ -118,20 +121,6 @@
     "class_type": "Efficient Loader",
     "_meta": {
       "title": "Efficient Loader"
-    }
-  },
-  "386": {
-    "inputs": {
-      "hard_mode": true,
-      "boost": true,
-      "model": [
-        "336",
-        0
-      ]
-    },
-    "class_type": "Automatic CFG",
-    "_meta": {
-      "title": "Automatic CFG"
     }
   },
   "387": {
@@ -154,7 +143,7 @@
         0
       ],
       "model": [
-        "386",
+        "401",
         0
       ],
       "positive": [
@@ -218,7 +207,8 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/ComicuPortrait.html",
       "license": "",
       "tags": "[\"anime\", \"portrait\"]",
-      "version": "1.0.0"
+      "version": "2.0.0",
+      "requires": "[]"
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -228,14 +218,14 @@
   "392": {
     "inputs": {
       "value": 7,
-      "display_name": "Freedom of outcome",
+      "display_name": "Vibrancy",
       "optional": true,
       "advanced": true,
-      "min": 6,
-      "max": 8,
+      "min": 3,
+      "max": 10,
       "step": 0.1,
-      "order": 99,
-      "custom_id": ""
+      "order": 90,
+      "custom_id": "vibrancy"
     },
     "class_type": "VixUiRangeFloat",
     "_meta": {
@@ -332,6 +322,58 @@
     "class_type": "VixUiPrompt",
     "_meta": {
       "title": "VixUI-Prompt"
+    }
+  },
+  "401": {
+    "inputs": {
+      "Skimming_CFG": [
+        "392",
+        0
+      ],
+      "full_skim_negative": [
+        "410",
+        0
+      ],
+      "disable_flipping_filter": false,
+      "model": [
+        "336",
+        0
+      ]
+    },
+    "class_type": "Skimmed CFG",
+    "_meta": {
+      "title": "Skimmed CFG"
+    }
+  },
+  "408": {
+    "inputs": {
+      "value": 0.5,
+      "display_name": "Simplify Style effect strength",
+      "optional": true,
+      "advanced": true,
+      "min": 0.1,
+      "max": 1,
+      "step": 0.1,
+      "order": 92,
+      "custom_id": "simplest_lora_strenth"
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "410": {
+    "inputs": {
+      "state": false,
+      "display_name": "Simplified Detailing",
+      "optional": true,
+      "advanced": true,
+      "order": 91,
+      "custom_id": ""
+    },
+    "class_type": "VixUiCheckbox",
+    "_meta": {
+      "title": "VixUI-Checkbox"
     }
   }
 }
