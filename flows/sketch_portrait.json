@@ -170,20 +170,6 @@
       "title": "Load VAE"
     }
   },
-  "387": {
-    "inputs": {
-      "hard_mode": true,
-      "boost": true,
-      "model": [
-        "336",
-        0
-      ]
-    },
-    "class_type": "Automatic CFG",
-    "_meta": {
-      "title": "Automatic CFG"
-    }
-  },
   "389": {
     "inputs": {
       "model_type": "SDXL",
@@ -200,11 +186,11 @@
       "add_noise": true,
       "noise_seed": 288636115122282,
       "cfg": [
-        "393",
+        "404",
         0
       ],
       "model": [
-        "387",
+        "402",
         0
       ],
       "positive": [
@@ -252,28 +238,12 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SketchPortrait.html",
       "license": "",
       "tags": "[\"anime\", \"sketch\", \"portrait\"]",
-      "version": "1.0.0"
+      "version": "2.0.0",
+      "requires": "[]"
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
       "title": "VixUI-WorkflowMetadata"
-    }
-  },
-  "393": {
-    "inputs": {
-      "value": 5,
-      "display_name": "Freedom of outcome",
-      "optional": true,
-      "advanced": true,
-      "min": 4,
-      "max": 6,
-      "step": 0.1,
-      "order": 99,
-      "custom_id": ""
-    },
-    "class_type": "VixUiRangeFloat",
-    "_meta": {
-      "title": "VixUI-RangeFloat"
     }
   },
   "394": {
@@ -366,6 +336,41 @@
     "class_type": "Text Find and Replace",
     "_meta": {
       "title": "Text Find and Replace"
+    }
+  },
+  "402": {
+    "inputs": {
+      "Skimming_CFG": [
+        "404",
+        0
+      ],
+      "full_skim_negative": false,
+      "disable_flipping_filter": false,
+      "model": [
+        "336",
+        0
+      ]
+    },
+    "class_type": "Skimmed CFG",
+    "_meta": {
+      "title": "Skimmed CFG"
+    }
+  },
+  "404": {
+    "inputs": {
+      "value": 5,
+      "display_name": "Vibrancy",
+      "optional": true,
+      "advanced": true,
+      "min": 3,
+      "max": 10,
+      "step": 0.1,
+      "order": 90,
+      "custom_id": "vibrancy"
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
     }
   }
 }

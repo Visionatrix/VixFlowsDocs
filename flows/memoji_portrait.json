@@ -129,7 +129,7 @@
       "preview_method": "none",
       "vae_decode": "true",
       "model": [
-        "381",
+        "392",
         0
       ],
       "positive": [
@@ -213,20 +213,6 @@
       "title": "Load LoRA"
     }
   },
-  "381": {
-    "inputs": {
-      "hard_mode": true,
-      "boost": true,
-      "model": [
-        "336",
-        0
-      ]
-    },
-    "class_type": "Automatic CFG",
-    "_meta": {
-      "title": "Automatic CFG"
-    }
-  },
   "383": {
     "inputs": {
       "state": true,
@@ -275,7 +261,8 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MemojiPortrait.html",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.0.0"
+      "version": "2.0.0",
+      "requires": "[]"
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -294,6 +281,21 @@
     "class_type": "VixUiPrompt",
     "_meta": {
       "title": "VixUI-Prompt"
+    }
+  },
+  "392": {
+    "inputs": {
+      "Skimming_CFG": 3,
+      "full_skim_negative": true,
+      "disable_flipping_filter": false,
+      "model": [
+        "336",
+        0
+      ]
+    },
+    "class_type": "Skimmed CFG",
+    "_meta": {
+      "title": "Skimmed CFG"
     }
   }
 }
