@@ -46,7 +46,7 @@
   },
   "10": {
     "inputs": {
-      "vae_name": "ae.sft"
+      "vae_name": "ae.safetensors"
     },
     "class_type": "VAELoader",
     "_meta": {
@@ -217,7 +217,7 @@
       "documentation": "https://comfyanonymous.github.io/ComfyUI_examples/flux/#simple-to-use-fp8-checkpoint-version",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[]"
     },
     "class_type": "VixUiWorkflowMetadata",
