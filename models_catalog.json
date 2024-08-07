@@ -571,7 +571,7 @@
       }
     ],
     "save_path": "loras/sliders/smiling.pt",
-    "url": "https://huggingface.co/spaces/baulab/ConceptSliders/resolve/main/models/smiling.pt",
+    "url": "https://huggingface.co/andrey18106/visionatrix_models/resolve/main/loras/smiling.pt",
     "homepage": "https://baulab.info/",
     "hash": "6430ab47393ba15222ea0988c3479f547c8b59f93a41024bcddd7121ef7147d1"
   },
@@ -583,19 +583,19 @@
       }
     ],
     "save_path": "loras/sliders/cartoon_style.pt",
-    "url": "https://huggingface.co/spaces/baulab/ConceptSliders/resolve/main/models/cartoon_style.pt",
+    "url": "https://huggingface.co/andrey18106/visionatrix_models/resolve/main/loras/cartoon_style.pt",
     "homepage": "https://baulab.info/",
     "hash": "e07c30e4f82f709a474ae11dc5108ac48f81b6996b937757c8dd198920ea9b4d"
   },
   "FLUX-VAE": {
     "regexes": [
       {
-        "input_value": "^(?i:ae\\.sft)$",
+        "input_value": "^(?i:ae\\.safetensors)$",
         "input_name": "(?i)vae"
       }
     ],
-    "save_path": "vae/ae.sft",
-    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.sft",
+    "save_path": "vae/ae.safetensors",
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors",
     "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
     "hash": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38"
   },
@@ -638,12 +638,12 @@
   "FLUX-1-Schnell": {
     "regexes": [
       {
-        "input_value": "^(?=.*(?i:flux1))(?=.*(?i:schnell))(?=.*(?i:sft)).*",
+        "input_value": "^(?!.*(?i:fp8))(?=.*(?i:flux1))(?=.*(?i:schnell))(?=.*(?i:safetensors)).*",
         "input_name": "^(?!.*(?i:lora)).*"
       }
     ],
-    "save_path": "unet/flux1-schnell.sft",
-    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/flux1-schnell.sft",
+    "save_path": "unet/flux1-schnell.safetensors",
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/flux1-schnell.safetensors",
     "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
     "hash": "9403429e0052277ac2a87ad800adece5481eecefd9ed334e1f348723621d2a0a"
   },
@@ -662,7 +662,7 @@
   "FLUX-1-Dev": {
     "regexes": [
       {
-        "input_value": "^(?=.*(?i:flux1))(?=.*(?i:dev))(?=.*(?i:sft)).*",
+        "input_value": "^(?!.*(?i:fp8))(?=.*(?i:flux1))(?=.*(?i:dev))(?=.*(?i:sft)).*",
         "input_name": "^(?!.*(?i:lora)).*"
       }
     ],
