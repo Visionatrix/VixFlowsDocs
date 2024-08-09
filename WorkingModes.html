@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working modes &mdash; Visionatrix 1.0.0.dev0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/styles.css?v=0f758665" />
+      <link rel="stylesheet" type="text/css" href="_static/css/dark.css?v=41caee7b" />
+      <link rel="stylesheet" type="text/css" href="_static/css/light.css?v=c3d70dd7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=608bb401"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script src="_static/tabs.js?v=3ee01567"></script>
+        <script src="_static/js/script.js?v=783f4f19"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Gated Models" href="GatedModels.html" />
+    <link rel="prev" title="Command Line Options" href="CommandLineOptions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0.dev0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Flows/index.html">Available Flows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Manual Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CommandLineOptions.html">Command Line Options</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Working modes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#default">DEFAULT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#server">SERVER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#worker">WORKER</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#worker-to-database-fs">Worker to Database-FS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#worker-to-server">Worker to Server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="GatedModels.html">Gated Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VixWorkflows.html">Vix Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComfyUI2VixMigration.html">ComfyUI to Visionatrix migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TechnicalInformation.html">Technical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HardwareFAQ.html">Hardware FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Visionatrix</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Working modes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/WorkingModes.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="working-modes">
+<h1>Working modes<a class="headerlink" href="#working-modes" title="Link to this heading"></a></h1>
+<section id="default">
+<h2>DEFAULT<a class="headerlink" href="#default" title="Link to this heading"></a></h2>
+<p>Visionatrix(<strong>Vix</strong>) consists of:</p>
+<ol class="arabic simple">
+<li><p>A server component, namely, the backend <cite>(in short - Server)</cite></p></li>
+<li><p>A component responsible for processing tasks <cite>(in short - Worker)</cite></p></li>
+<li><p>TaskQueue - a database (SQLite <em>(default)</em>, PgSQL)</p></li>
+<li><p>A simple and understandable User Interface</p></li>
+</ol>
+<p>By default, Vix launches with all components integrated (Server + Worker + UI) for quick and easy use on a single computer.</p>
+<p>This is <strong>DEFAULT</strong> mode, in which everything is executed within a single process.</p>
+<p>Easy installation, no need to configure, just launch and use.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is no support for multiple users or authentication in this case, as this mode uses <strong>SQLite</strong> as a database, which is limiting.</p>
+</div>
+</section>
+<section id="server">
+<h2>SERVER<a class="headerlink" href="#server" title="Link to this heading"></a></h2>
+<p>In most scenarios, including home use, you likely have more than one device capable of handling AI tasks.
+In such cases, it is allowed and recommended to run the server part and the AI processing part of the task separately.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>SQLite is not supported as a database in this mode.</strong></p>
+</div>
+<p>Steps to run <cite>Vix</cite> in a Server mode:</p>
+<ol class="arabic">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">VIX_MODE</span></code> environment variable to <code class="docutils literal notranslate"><span class="pre">SERVER</span></code></p></li>
+<li><p>Setup <strong>PostgreSQL</strong> database and set correct <code class="docutils literal notranslate"><span class="pre">DATABASE_URI</span></code> environment variable to point on it.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><a class="reference external" href="https://docs.sqlalchemy.org/en/20/dialects/postgresql.html#module-sqlalchemy.dialects.postgresql.psycopg">PgSQL example</a>: <code class="docutils literal notranslate"><span class="pre">DATABASE_URI=&quot;postgresql+psycopg://vix_user:vix_password&#64;localhost:5432/vix_db&quot;</span></code></p>
+</div>
+</div></blockquote>
+</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">visionatrix</span> <span class="pre">create-user</span></code> command to create a user in the database.</p></li>
+<li><p>Connect at least one Worker to handle task processing.</p></li>
+</ol>
+<p><em>We will provide a docker-compose file soon, with full server setup to deploy it in one click.</em></p>
+</section>
+<section id="worker">
+<h2>WORKER<a class="headerlink" href="#worker" title="Link to this heading"></a></h2>
+<p>Each worker can have a different set of tasks (Flows) installed, which is useful to avoid installing a task on a worker instance that cannot handle it.
+A worker will only request the tasks installed for it.</p>
+<p>There is two worker modes, both will be described, we ourselves most use Vix in <cite>Worker to Server</cite> mode.</p>
+<section id="worker-to-database-fs">
+<h3>Worker to Database-FS<a class="headerlink" href="#worker-to-database-fs" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Requirements:</p>
+<ol class="arabic simple">
+<li><p>The database used by the <strong>Server</strong> should be accessible for the worker.</p></li>
+<li><p>There should be the ability to map the <strong>Server</strong>’s <code class="docutils literal notranslate"><span class="pre">vix_tasks_files</span></code> folder to the worker.</p></li>
+</ol>
+</div>
+<p>Set the environment variable <code class="docutils literal notranslate"><span class="pre">VIX_MODE</span></code> to <strong>WORKER</strong> and leave <code class="docutils literal notranslate"><span class="pre">VIX_SERVER</span></code> with an empty value; do not set it.</p>
+<p>In this scenario, the worker must be configured with the correct database path using the <code class="docutils literal notranslate"><span class="pre">DATABASE_URI</span></code> environment variable.
+The format can be viewed here: <a class="reference external" href="https://docs.sqlalchemy.org/en/20/core/engines.html#database-urls">SqlAlchemy Database URLs</a></p>
+<p>By using the <code class="docutils literal notranslate"><span class="pre">TASKS_FILES_DIR</span></code> environment variable or the <code class="docutils literal notranslate"><span class="pre">--tasks_files_dir</span></code> argument, you can change the location of the  <code class="docutils literal notranslate"><span class="pre">vix_tasks_files</span></code> folder.
+The worker must have access to the Server’s <code class="docutils literal notranslate"><span class="pre">vix_tasks_files</span></code> folder.</p>
+<p>With this scaling method, workers independently retrieve tasks from the database and directly write the execution results to the servers <em>TASKS_FILES_DIR</em>.</p>
+<p>In this setup, you can imagine workers as Server threads operating remotely.</p>
+</section>
+<section id="worker-to-server">
+<h3>Worker to Server<a class="headerlink" href="#worker-to-server" title="Link to this heading"></a></h3>
+<p>This method implies that the workers do not have direct access to the database or the server file system.</p>
+<p>All communication occurs through the network, with workers accessing the server backend directly.</p>
+<p>Set the environment variable <code class="docutils literal notranslate"><span class="pre">VIX_MODE</span></code> to <strong>WORKER</strong> and set <code class="docutils literal notranslate"><span class="pre">VIX_SERVER</span></code> with the full address of the Server(including port number).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">VIX_HOST</span></code>, <code class="docutils literal notranslate"><span class="pre">VIX_PORT</span></code>, <code class="docutils literal notranslate"><span class="pre">DATABASE_URI</span></code>  will be ignored, as the worker in this mode does not need it.</p>
+</div>
+<p>In this use case, the <strong>vix_tasks_files</strong> directory will contain only temporary files; after uploading results to the Server, the results from the worker instance will be cleared.</p>
+<p>For authentication on the server worker will use <code class="docutils literal notranslate"><span class="pre">WORKER_AUTH</span></code> environment variable, which must contain “<strong>USER_ID:PASSWORD</strong>”.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Workers with an administrator account can process all tasks of all users, workers assigned to a user account can only process tasks created by that user.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="CommandLineOptions.html" class="btn btn-neutral float-left" title="Command Line Options" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="GatedModels.html" class="btn btn-neutral float-right" title="Gated Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 Visionatrix Authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

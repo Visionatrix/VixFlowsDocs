@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vix Workflows &mdash; Visionatrix 1.0.0.dev0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/styles.css?v=0f758665" />
+      <link rel="stylesheet" type="text/css" href="_static/css/dark.css?v=41caee7b" />
+      <link rel="stylesheet" type="text/css" href="_static/css/light.css?v=c3d70dd7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=608bb401"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script src="_static/tabs.js?v=3ee01567"></script>
+        <script src="_static/js/script.js?v=783f4f19"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ComfyUI to Visionatrix migration" href="ComfyUI2VixMigration.html" />
+    <link rel="prev" title="Gated Models" href="GatedModels.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0.dev0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Flows/index.html">Available Flows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Manual Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CommandLineOptions.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WorkingModes.html">Working modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GatedModels.html">Gated Models</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vix Workflows</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#automatic-models-mapping">Automatic models mapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#regexes">“regexes”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#save-path">“save_path”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#url">“url”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#homepage">“homepage”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hash">“hash”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vix-workflow-overview">Vix workflow overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#name">“name”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#display-name">“display_name”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">“description”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#author">“author”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">“homepage”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#license">“license”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#documentation">“documentation”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tags">“tags”</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input-params">“input_params”</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#create-task-based-on-flow">Create task based on Flow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ComfyUI2VixMigration.html">ComfyUI to Visionatrix migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="TechnicalInformation.html">Technical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HardwareFAQ.html">Hardware FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Visionatrix</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Vix Workflows</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/VixWorkflows.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vix-workflows">
+<h1>Vix Workflows<a class="headerlink" href="#vix-workflows" title="Link to this heading"></a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h2>
+<p>ComfyUI workflows are designed for developers and those interested in diffusion processes.</p>
+<p>Visionatrix workflows are created on top of ComfyUI workflows for easy deployment and straightforward use.</p>
+<p>Currently, there are two main issues with using ComfyUI flows for the general public:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>It’s unclear where to get the model from and how to deploy/install it – a <strong>deployment/installation issue</strong></p></li>
+<li><p>Without some experience, it’s unclear how to just provide inputs to simple get results - a <strong>usability issue</strong></p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="automatic-models-mapping">
+<span id="models-mapping"></span><h2>Automatic models mapping<a class="headerlink" href="#automatic-models-mapping" title="Link to this heading"></a></h2>
+<p>To address the first issue with model mapping, Visionatrix includes a <a class="reference external" href="https://github.com/Visionatrix/VixFlows/blob/main/models_catalog.json">models_catalog.json</a> file.</p>
+<p>By default, it is taken and updated from the Visionatrix repository on GitHub, in case you add a new flow and need to add new model mappings you can change its path using an environment variable to a local file path.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We hope that after you add something locally, you will open a pull request so that the community can benefit from it.</p>
+</div>
+<p>The file structure consists of a set of objects, each describing a ComfyUI Node class that loads or uses a model.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;InstantID-ControlNet&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s2">&quot;regexes&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;class_name&quot;</span><span class="p">:</span> <span class="s2">&quot;ControlNetLoader&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;input_value&quot;</span><span class="p">:</span> <span class="s2">&quot;^(?=.*(?i:instantid)).*&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;save_path&quot;</span><span class="p">:</span> <span class="s2">&quot;controlnet/instantid-controlnet.safetensors&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://huggingface.co/InstantX/InstantID/resolve/main/ControlNetModel/diffusion_pytorch_model.safetensors&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;homepage&quot;</span><span class="p">:</span> <span class="s2">&quot;https://huggingface.co/InstantX/InstantID&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hash&quot;</span><span class="p">:</span> <span class="s2">&quot;c8127be9f174101ebdafee9964d856b49b634435cf6daa396d3f593cf0bbbb05&quot;</span>
+  <span class="p">}</span>
+</pre></div>
+</div>
+<section id="regexes">
+<h3>“regexes”<a class="headerlink" href="#regexes" title="Link to this heading"></a></h3>
+<p>Regexes are used to understand the if this record related to the specified model from the ComfyUI workflow.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;input_name&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;class_name&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;input_value&quot;</span></code> are supported, both together and separately.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If these conditions prove insufficient, please create an issue and we will find a solution together.</p>
+</div>
+</section>
+<section id="save-path">
+<h3>“save_path”<a class="headerlink" href="#save-path" title="Link to this heading"></a></h3>
+<p>Specifies where the model will be saved.
+Default paths are relative to the root of the external models folder specified in the ComfyUI file <cite>“extra_model_paths.yaml”</cite></p>
+<p>By default in Visionatrix, this is the path to the <cite>“vix_models”</cite> folder.</p>
+<p>If a Node does not support ComfyUI’s model placement configurations and requires them to be located only in the ComfyUI folder, the entry may take the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{root}</span><span class="s2">models/insightface/models/antelopev2.zip&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="url">
+<h3>“url”<a class="headerlink" href="#url" title="Link to this heading"></a></h3>
+<p>Indicates where to download the model from if it is not already present.</p>
+<p>It is preferable for the model to be hosted on Hugging Face, but “civitai.com” is also supported.</p>
+</section>
+<section id="homepage">
+<h3>“homepage”<a class="headerlink" href="#homepage" title="Link to this heading"></a></h3>
+<p>An optional field with a link to the model’s home page where you can view the license.</p>
+</section>
+<section id="hash">
+<h3>“hash”<a class="headerlink" href="#hash" title="Link to this heading"></a></h3>
+<p>The SHA256 hash of the model. Used to verify the integrity of the model and check for download errors.</p>
+</section>
+</section>
+<section id="vix-workflow-overview">
+<h2>Vix workflow overview<a class="headerlink" href="#vix-workflow-overview" title="Link to this heading"></a></h2>
+<p>Starting from the Visionatrix <strong>0.6.0</strong>, the workflow consists of a single file: <code class="docutils literal notranslate"><span class="pre">flow_name.json</span></code>,
+which is a ComfyUI workflow file adopted to Visionatrix.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The main difference between Visionatrix and ComfyUI:</p>
+<blockquote>
+<div><p><strong>A task is created with a single request, which includes both incoming text parameters and input files.</strong></p>
+</div></blockquote>
+</div>
+<p>The flow metadata fields described below are filled in the <cite>VixUi-WorkflowMetadata</cite> node.</p>
+<section id="name">
+<h3>“name”<a class="headerlink" href="#name" title="Link to this heading"></a></h3>
+<p>The name of the workflow. It usually matches the name of the file with workflow.</p>
+</section>
+<section id="display-name">
+<h3>“display_name”<a class="headerlink" href="#display-name" title="Link to this heading"></a></h3>
+<p>Used in the UI to display the name of the flow.</p>
+</section>
+<section id="description">
+<h3>“description”<a class="headerlink" href="#description" title="Link to this heading"></a></h3>
+<p>A brief description of the flow for user display.</p>
+</section>
+<section id="author">
+<h3>“author”<a class="headerlink" href="#author" title="Link to this heading"></a></h3>
+<p>The name of the ComfyUI flow author or the Visionatrix flow author.</p>
+</section>
+<section id="id1">
+<h3>“homepage”<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>A link that will open when clicking on the flow author’s name.</p>
+</section>
+<section id="license">
+<h3>“license”<a class="headerlink" href="#license" title="Link to this heading"></a></h3>
+<p>The general license under which the flow can be used (to simplify understanding whether it can be used behind the API service, whether it can be used commercially, etc.)</p>
+</section>
+<section id="documentation">
+<h3>“documentation”<a class="headerlink" href="#documentation" title="Link to this heading"></a></h3>
+<p>Link to additional information about the flow.</p>
+</section>
+<section id="tags">
+<h3>“tags”<a class="headerlink" href="#tags" title="Link to this heading"></a></h3>
+<p>A list of string tags that can be used to label the categories of the flow.</p>
+</section>
+<section id="input-params">
+<h3>“input_params”<a class="headerlink" href="#input-params" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Starting with Visionatrix 0.6.0, the input params are parsed automatically from the adopted ComfyUI workflow.
+Based on the information from this field, the Visionatrix UI dynamically displays the interface.</p>
+</div>
+<p>Technically, this is a list of objects, where each object is one input parameter, which includes:</p>
+<blockquote>
+<div><ul>
+<li><p>“name” - the key(used only when <cite>“type”</cite> is equal to <cite>“text”</cite>)</p></li>
+<li><p>“display_name” - the name of the parameter displayed in the UI</p></li>
+<li><p>“type” - a string that can have values: <cite>“text”</cite> or <cite>“image”</cite></p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><cite>“video”</cite> and <cite>“audio”</cite> types will be added as soon as there is the first Workflow requiring it.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>“optional” - indicates whether the parameter is optional. If an optional field is not provided, the backend will fill it in automatically.</p></li>
+<li><p>“advanced” - used only in the UI, shows whether the field should be hidden by default (we do not want to overload the interface for regular users)</p></li>
+<li><p>“default” - the field value to initiate.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Used for both UI and backend, but not mandatory even for optional fields (as in the ComfyUI flow, the Node value is still set)</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>“comfy_node_id” - <strong>a field only for the backend</strong>, which defines what to do with this value (where to use it in the ComfyUI Flow)</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="create-task-based-on-flow">
+<h2>Create task based on Flow<a class="headerlink" href="#create-task-based-on-flow" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@ROUTER</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/create&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">create_task</span><span class="p">(</span>
+    <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&quot;Name of the flow from which the task should be created&quot;</span><span class="p">),</span>
+    <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Number of tasks to be created&quot;</span><span class="p">),</span>
+    <span class="n">input_params</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;List of input parameters as an encoded json string&quot;</span><span class="p">),</span>
+    <span class="n">webhook_url</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;URL to call when task state changes&quot;</span><span class="p">),</span>
+    <span class="n">webhook_headers</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Headers for webhook url as an encoded json string&quot;</span><span class="p">),</span>
+    <span class="n">files</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">UploadFile</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Form</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;List of input files for flow&quot;</span><span class="p">),</span>  <span class="c1"># noqa</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TaskRunResults</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Endpoint to initiate the creation and execution of tasks within the Vix workflow environment,</span>
+<span class="sd">    handling both file inputs and task-related parameters.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>It’s important to note that text parameters and files are passed in different parameters:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>input_params - input parameters with “type” == “text”</p></li>
+<li><p>files - list of input files (files should be in the order they are defined in the Vix Flow)</p></li>
+</ul>
+</div></blockquote>
+</div>
+<p>When this endpoint is called, a task will be created and queued for execution by one of available workers.</p>
+<p>You can generate Python client with the help of <a class="reference external" href="https://github.com/openapi-generators/openapi-python-client">openapi-python-client</a> and
+an example code for creating a Task will look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">client_base</span> <span class="o">=</span> <span class="n">visionatrix_client</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;http://127.0.0.1:8288&quot;</span><span class="p">)</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">BodyCreateTask</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;sdxl_lighting&quot;</span><span class="p">,</span> <span class="n">input_params</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&quot;prompt&quot;</span><span class="p">:</span> <span class="s2">&quot;bottle&quot;</span><span class="p">}))</span>
+<span class="n">created_tasks_id_list</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">tasks</span><span class="o">.</span><span class="n">create_task</span><span class="o">.</span><span class="n">sync</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">client_base</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="GatedModels.html" class="btn btn-neutral float-left" title="Gated Models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ComfyUI2VixMigration.html" class="btn btn-neutral float-right" title="ComfyUI to Visionatrix migration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 Visionatrix Authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

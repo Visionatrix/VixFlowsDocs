@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technical Information &mdash; Visionatrix 1.0.0.dev0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
+      <link rel="stylesheet" type="text/css" href="_static/autodoc_pydantic.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/styles.css?v=0f758665" />
+      <link rel="stylesheet" type="text/css" href="_static/css/dark.css?v=41caee7b" />
+      <link rel="stylesheet" type="text/css" href="_static/css/light.css?v=c3d70dd7" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=608bb401"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+        <script src="_static/tabs.js?v=3ee01567"></script>
+        <script src="_static/js/script.js?v=783f4f19"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FAQ" href="FAQ.html" />
+    <link rel="prev" title="ComfyUI to Visionatrix migration" href="ComfyUI2VixMigration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/logo.svg" class="logo" alt="Logo"/>
+          </a>
+              <div class="version">
+                1.0.0.dev0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Flows/index.html">Available Flows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Manual Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CommandLineOptions.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WorkingModes.html">Working modes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="GatedModels.html">Gated Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="VixWorkflows.html">Vix Workflows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ComfyUI2VixMigration.html">ComfyUI to Visionatrix migration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Technical Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#bundled-comfyui-nodes">Bundled ComfyUI nodes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workflows-storage">Workflows storage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-algorithm-of-visionatrix">Update algorithm of Visionatrix</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="HardwareFAQ.html">Hardware FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Visionatrix</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Technical Information</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/TechnicalInformation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="technical-information">
+<h1>Technical Information<a class="headerlink" href="#technical-information" title="Link to this heading"></a></h1>
+<section id="bundled-comfyui-nodes">
+<h2>Bundled ComfyUI nodes<a class="headerlink" href="#bundled-comfyui-nodes" title="Link to this heading"></a></h2>
+<p>Visionatrix by default install and update these nodes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://github.com/Visionatrix/comfyui-art-venture">comfyui-art-venture</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI-AutoCropFaces">ComfyUI-AutoCropFaces</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI-BRIA_AI-RMBG">ComfyUI-BRIA_AI-RMBG</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI-Custom-Scripts">ComfyUI-Custom-Scripts</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI-Impact-Pack">ComfyUI-Impact-Pack</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/comfyui-ollama">comfyui-ollama</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI-SUPIR">ComfyUI-SUPIR</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI-Visionatrix">ComfyUI-Visionatrix</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI-WD14-Tagger">ComfyUI-WD14-Tagger</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/comfyui_controlnet_aux">comfyui_controlnet_aux</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI_essentials">ComfyUI_essentials</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI_FizzNodes">ComfyUI_FizzNodes</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI_Gemini_Flash">ComfyUI_Gemini_Flash</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI_InstantID">ComfyUI_InstantID</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI_IPAdapter_plus">ComfyUI_IPAdapter_plus</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/ComfyUI_UltimateSDUpscale">ComfyUI_UltimateSDUpscale</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/efficiency-nodes-comfyui">efficiency-nodes-comfyui</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/PuLID_ComfyUI">PuLID_ComfyUI</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/rgthree-comfy">rgthree-comfy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/Skimmed_CFG">Skimmed_CFG</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/style_aligned_comfy">style_aligned_comfy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Visionatrix/was-node-suite-comfyui">was-node-suite-comfyui</a></p></li>
+</ul>
+</div></blockquote>
+<p>We are gradually expanding the list.</p>
+<p>The main reason many components are missing is that they are quite difficult to install, and we believe that an easy installation process is more important in most cases.</p>
+</section>
+<section id="workflows-storage">
+<h2>Workflows storage<a class="headerlink" href="#workflows-storage" title="Link to this heading"></a></h2>
+<p>All public flows are located in <a class="reference external" href="https://github.com/Visionatrix/VixFlowsDocs">VixFlowsDocs</a> repository.</p>
+<p>The repository consists of a development branch <strong>main</strong> and a set of branches <strong>version-X.Y</strong>:</p>
+<ul class="simple">
+<li><p>version-0.5</p></li>
+<li><p>version-0.6</p></li>
+<li><p>…</p></li>
+<li><p>version-1.0</p></li>
+<li><p>version-1.1</p></li>
+<li><p>main</p></li>
+</ul>
+<p>Sets of public workflows are packaged in the root of the documentation and have the following form:</p>
+<ul class="simple">
+<li><p>flows-0.5.zip</p></li>
+<li><p>flows-0.6.zip</p></li>
+<li><p>…</p></li>
+<li><p>flows-1.0.zip</p></li>
+<li><p>flows-1.1.zip</p></li>
+<li><p>flows.zip</p></li>
+</ul>
+<p>The development version of Visionatrix fetches the <code class="docutils literal notranslate"><span class="pre">flows.zip</span></code> archive by default.</p>
+<p>Release versions of Visionatrix fetch sets of flows for their version.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">FLOWS_URL</span></code> variable in Visionatrix has the default value of <code class="docutils literal notranslate"><span class="pre">https://visionatrix.github.io/VixFlowsDocs/</span></code></p>
+<p>When <strong>FLOWS_URL</strong> ends with “/”, the Visionatrix fetches an archive with flows for its version.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also specify a specific path/URL to the archive file with flows, and only that will be used.</p>
+</div>
+</section>
+<section id="update-algorithm-of-visionatrix">
+<h2>Update algorithm of Visionatrix<a class="headerlink" href="#update-algorithm-of-visionatrix" title="Link to this heading"></a></h2>
+<p>Developer versions are updated only to development versions, release versions only to release ones.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are not a developer, you are better off using the release version, as they should be more stable.</p>
+</div>
+<p>It is recommended to update Vix with the <code class="docutils literal notranslate"><span class="pre">easy_install.py</span></code> script.</p>
+<p>The update scheme in <a class="reference external" href="https://github.com/Visionatrix/Visionatrix/blob/main/scripts/easy_install.py">easy_install.py</a> is quite simple; everything is done with ordinary Git commands.</p>
+<ul>
+<li><p>If the current version is a dev release or the current branch is <code class="docutils literal notranslate"><span class="pre">main</span></code> then:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Check out the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch.</p></li>
+<li><p>Pull the latest changes from the remote repository.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>If the current version is a tagged release version:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Determine the latest tag for the current major version, and if a newer version tag is found, check out the latest version tag within the current major version.</p></li>
+<li><p>If no newer version is found within the current major version, check for the next major version.</p></li>
+<li><p>If a newer major version tag is found, prompt the user to update to this newer major version.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>After checking out the appropriate version, run a <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> command to update the Python packages.</p></li>
+<li><p>Finally, run the <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">visionatrix</span> <span class="pre">update</span></code> command to ensure that any additional necessary updates are applied (ComfyUI, custom nodes, flows).</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ComfyUI2VixMigration.html" class="btn btn-neutral float-left" title="ComfyUI to Visionatrix migration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="FAQ.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024 Visionatrix Authors.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
