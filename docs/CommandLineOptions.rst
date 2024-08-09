@@ -90,9 +90,9 @@ Can be used for Workers that do not have a user interface.
 
 .. code-block:: shell
 
-    python3 -m visionatrix install-flow --directory path_to_folder
+    python3 -m visionatrix install-flow --file path_to_json
 
-Folder should contain ``flow.json`` and ``flow_comfy.json``
+File should contain ComfyUI workflow with the `metadata <https://visionatrix.github.io/VixFlowsDocs/VixWorkflows.html#vix-workflow-overview>`_ needed for Visionatrix.
 
 .. code-block:: shell
 

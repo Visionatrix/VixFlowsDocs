@@ -6,27 +6,28 @@ Bundled ComfyUI nodes
 
 Visionatrix by default install and update these nodes:
 
+ * `comfyui-art-venture <https://github.com/Visionatrix/comfyui-art-venture>`_
+ * `ComfyUI-AutoCropFaces <https://github.com/Visionatrix/ComfyUI-AutoCropFaces>`_
+ * `ComfyUI-BRIA_AI-RMBG <https://github.com/Visionatrix/ComfyUI-BRIA_AI-RMBG>`_
+ * `ComfyUI-Custom-Scripts <https://github.com/Visionatrix/ComfyUI-Custom-Scripts>`_
  * `ComfyUI-Impact-Pack <https://github.com/Visionatrix/ComfyUI-Impact-Pack>`_
+ * `comfyui-ollama <https://github.com/Visionatrix/comfyui-ollama>`_
+ * `ComfyUI-SUPIR <https://github.com/Visionatrix/ComfyUI-SUPIR>`_
+ * `ComfyUI-Visionatrix <https://github.com/Visionatrix/ComfyUI-Visionatrix>`_
+ * `ComfyUI-WD14-Tagger <https://github.com/Visionatrix/ComfyUI-WD14-Tagger>`_
+ * `comfyui_controlnet_aux <https://github.com/Visionatrix/comfyui_controlnet_aux>`_
+ * `ComfyUI_essentials <https://github.com/Visionatrix/ComfyUI_essentials>`_
+ * `ComfyUI_FizzNodes <https://github.com/Visionatrix/ComfyUI_FizzNodes>`_
+ * `ComfyUI_Gemini_Flash <https://github.com/Visionatrix/ComfyUI_Gemini_Flash>`_
  * `ComfyUI_InstantID <https://github.com/Visionatrix/ComfyUI_InstantID>`_
  * `ComfyUI_IPAdapter_plus <https://github.com/Visionatrix/ComfyUI_IPAdapter_plus>`_
- * `efficiency-nodes-comfyui <https://github.com/Visionatrix/efficiency-nodes-comfyui>`_
  * `ComfyUI_UltimateSDUpscale <https://github.com/Visionatrix/ComfyUI_UltimateSDUpscale>`_
- * `ComfyUI-WD14-Tagger <https://github.com/Visionatrix/ComfyUI-WD14-Tagger>`_
- * `ComfyUI-SUPIR <https://github.com/Visionatrix/ComfyUI-SUPIR>`_
- * `ComfyUI_essentials <https://github.com/Visionatrix/ComfyUI_essentials>`_
- * `ComfyUI-Custom-Scripts <https://github.com/Visionatrix/ComfyUI-Custom-Scripts>`_
- * `rgthree-comfy <https://github.com/Visionatrix/rgthree-comfy>`_
- * `comfyui_controlnet_aux <https://github.com/Visionatrix/comfyui_controlnet_aux>`_
- * `Skimmed_CFG <https://github.com/Visionatrix/Skimmed_CFG>`_
- * `comfyui-art-venture <https://github.com/Visionatrix/comfyui-art-venture>`_
- * `was-node-suite-comfyui <https://github.com/Visionatrix/was-node-suite-comfyui>`_
- * `ComfyUI-AutoCropFaces <https://github.com/Visionatrix/ComfyUI-AutoCropFaces>`_
- * `comfyui-ollama <https://github.com/Visionatrix/comfyui-ollama>`_
+ * `efficiency-nodes-comfyui <https://github.com/Visionatrix/efficiency-nodes-comfyui>`_
  * `PuLID_ComfyUI <https://github.com/Visionatrix/PuLID_ComfyUI>`_
- * `ComfyUI_FizzNodes <https://github.com/Visionatrix/ComfyUI_FizzNodes>`_
+ * `rgthree-comfy <https://github.com/Visionatrix/rgthree-comfy>`_
+ * `Skimmed_CFG <https://github.com/Visionatrix/Skimmed_CFG>`_
  * `style_aligned_comfy <https://github.com/Visionatrix/style_aligned_comfy>`_
- * `ComfyUI_Gemini_Flash <https://github.com/Visionatrix/ComfyUI_Gemini_Flash>`_
- * `ComfyUI-Visionatrix <https://github.com/Visionatrix/ComfyUI-Visionatrix>`_
+ * `was-node-suite-comfyui <https://github.com/Visionatrix/was-node-suite-comfyui>`_
 
 We are gradually expanding the list.
 
