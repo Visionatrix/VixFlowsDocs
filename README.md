@@ -12,6 +12,8 @@ For any problems with Visionatrix or suggestions for improvement, go to the [mai
   - [Command Line Options](https://visionatrix.github.io/VixFlowsDocs/CommandLineOptions.html)
   - [Working modes](https://visionatrix.github.io/VixFlowsDocs/WorkingModes.html)
   - [Vix Workflows](https://visionatrix.github.io/VixFlowsDocs/VixWorkflows.html)
+  - [Creating Workflows](https://visionatrix.github.io/VixFlowsDocs/ComfyUI2VixMigration.html)
   - [Technical information](https://visionatrix.github.io/VixFlowsDocs/TechnicalInformation.html)
+  - [FAQ](https://visionatrix.github.io/VixFlowsDocs/FAQ.html)
   - [Hardware FAQ](https://visionatrix.github.io/VixFlowsDocs/HardwareFAQ.html)
   - [OpenAPI](https://visionatrix.github.io/VixFlowsDocs/swagger.html)

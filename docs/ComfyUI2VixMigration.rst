@@ -79,7 +79,7 @@ In our workflows, we use some external nodes mapped as input params, that you ca
 3. Map the models for automatic download
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Visionatrix simiplifies and automates the process of downloading the models.
+Visionatrix simplifies and automates the process of downloading the models.
 As the third step of the migration, you need to map the models that are used in your workflow (see :ref:`models-mapping`).
 
 
