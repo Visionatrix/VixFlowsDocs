@@ -1,0 +1,75 @@
+{
+  "298": {
+    "inputs": {
+      "filename_prefix": "",
+      "images": [
+        "317",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "311": {
+    "inputs": {
+      "name": "remove_background_bria",
+      "display_name": "Remove background",
+      "description": "Separate foreground",
+      "author": "bigcat88",
+      "homepage": "https://huggingface.co/briaai/RMBG-1.4",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"background\", \"simple\"]",
+      "version": "1.0.0",
+      "requires": "[]"
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "314": {
+    "inputs": {
+      "text": "[\n  {\n    \"display_name\": \"Remove background\"\n,    \"type\": \"image\"\n  }\n]"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_SUBFLOWS"
+    }
+  },
+  "315": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Input image;order=1;custom_id=input_image"
+    }
+  },
+  "316": {
+    "inputs": {},
+    "class_type": "BRIA_RMBG_ModelLoader_Zho",
+    "_meta": {
+      "title": "🧹BRIA_RMBG Model Loader"
+    }
+  },
+  "317": {
+    "inputs": {
+      "rmbgmodel": [
+        "316",
+        0
+      ],
+      "image": [
+        "315",
+        0
+      ]
+    },
+    "class_type": "BRIA_RMBG_Zho",
+    "_meta": {
+      "title": "🧹BRIA RMBG"
+    }
+  }
+}
