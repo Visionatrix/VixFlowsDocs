@@ -1,0 +1,201 @@
+{
+  "2": {
+    "inputs": {
+      "ckpt_name": "hunyuan_dit_1.2.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "116": {
+    "inputs": {
+      "samples": [
+        "298",
+        0
+      ],
+      "vae": [
+        "2",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "244": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "267": {
+    "inputs": {
+      "filename_prefix": "base",
+      "images": [
+        "116",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "291": {
+    "inputs": {
+      "name": "hunyuan_dit",
+      "display_name": "HunyuanDiT",
+      "description": "Model with Chinese Understanding ",
+      "author": "bigcat88",
+      "homepage": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/HunyuanDiT.html",
+      "license": "",
+      "tags": "[\"general\", \"simple\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "292": {
+    "inputs": {
+      "text": "",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "293": {
+    "inputs": {
+      "text": "",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 15,
+      "custom_id": "negative_prompt"
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "294": {
+    "inputs": {
+      "text": [
+        "293",
+        0
+      ],
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Negative Prompt)"
+    }
+  },
+  "295": {
+    "inputs": {
+      "text": [
+        "292",
+        0
+      ],
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "298": {
+    "inputs": {
+      "seed": 1,
+      "steps": [
+        "300",
+        0
+      ],
+      "cfg": [
+        "308",
+        0
+      ],
+      "sampler_name": "euler",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "295",
+        0
+      ],
+      "negative": [
+        "294",
+        0
+      ],
+      "latent_image": [
+        "244",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "300": {
+    "inputs": {
+      "value": 30,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 20,
+      "max": 60,
+      "step": 1,
+      "order": 91,
+      "custom_id": "steps_count"
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "308": {
+    "inputs": {
+      "value": 6,
+      "display_name": "Vibrancy",
+      "optional": true,
+      "advanced": true,
+      "min": 2,
+      "max": 15,
+      "step": 0.1,
+      "order": 90,
+      "custom_id": "vibrancy"
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  }
+}
