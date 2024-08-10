@@ -694,5 +694,17 @@
     "url": "https://huggingface.co/comfyanonymous/flux_RealismLora_converted_comfyui/resolve/main/flux_realism_lora.safetensors",
     "homepage": "https://huggingface.co/XLabs-AI/flux-RealismLora",
     "hash": "379e73dccfb57822ee3b12f374e141ce1c79a13b7ff19da4219ef2a2a610038e"
+  },
+  "HunyuanDiT": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:hunyuan_dit_1\\.2))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "save_path": "checkpoints/hunyuan_dit_1.2.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/hunyuan_dit_comfyui/resolve/main/hunyuan_dit_1.2.safetensors",
+    "homepage": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT",
+    "hash": "4fb84f84079cda457d171b3c6b15d1be95b5a3e5d9825703951a99ddf92d1787"
   }
 }

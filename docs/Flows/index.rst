@@ -13,6 +13,7 @@ Available Flows
    Colorful_XL
    Mobius_XL
    Stable_Cascade
+   HunyuanDiT
    SD3_Medium
    VintagePortrait
    Photomaker_1
