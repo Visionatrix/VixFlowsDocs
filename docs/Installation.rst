@@ -36,7 +36,7 @@ Activate Virtual Environment(**Windows**) with :command:`powershell`::
 
 For AMD graphic cards on **Linux** install **ROCM** version of PyTorch using :command:`pip`::
 
-    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.0
+    pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.1
 
 
 ---------
