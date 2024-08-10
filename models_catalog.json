@@ -682,5 +682,17 @@
     "url": "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-dev-fp8.safetensors",
     "homepage": "https://huggingface.co/Kijai/flux-fp8",
     "hash": "1be961341be8f5307ef26c787199f80bf4e0de3c1c0b4617095aa6ee5550dfce"
+  },
+  "Flux-RealismLora": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:flux_realism_lora))(?=.*(?i:safetensors)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "save_path": "loras/flux_realism_lora.safetensors",
+    "url": "https://huggingface.co/comfyanonymous/flux_RealismLora_converted_comfyui/resolve/main/flux_realism_lora.safetensors",
+    "homepage": "https://huggingface.co/XLabs-AI/flux-RealismLora",
+    "hash": "379e73dccfb57822ee3b12f374e141ce1c79a13b7ff19da4219ef2a2a610038e"
   }
 }

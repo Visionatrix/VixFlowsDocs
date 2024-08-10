@@ -23,8 +23,8 @@
         0
       ],
       "clip": [
-        "11",
-        0
+        "29",
+        1
       ]
     },
     "class_type": "CLIPTextEncode",
@@ -134,7 +134,7 @@
       "steps": 4,
       "denoise": 1,
       "model": [
-        "12",
+        "29",
         0
       ]
     },
@@ -146,7 +146,7 @@
   "22": {
     "inputs": {
       "model": [
-        "12",
+        "29",
         0
       ],
       "conditioning": [
@@ -201,12 +201,53 @@
       "documentation": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
       "license": "",
       "tags": "[\"general\", \"lighting\", \"simple\"]",
-      "version": "1.0.1",
-      "requires": "[]"
+      "version": "1.0.2",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
       "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "29": {
+    "inputs": {
+      "lora_name": "flux_realism_lora.safetensors",
+      "strength_model": [
+        "30",
+        0
+      ],
+      "strength_clip": 1,
+      "model": [
+        "12",
+        0
+      ],
+      "clip": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "30": {
+    "inputs": {
+      "value": 0,
+      "display_name": "Realism LoRa strength",
+      "optional": true,
+      "advanced": true,
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "order": 92,
+      "custom_id": "realism_lora_strength"
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
     }
   }
 }
