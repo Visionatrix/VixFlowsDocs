@@ -13,6 +13,7 @@ Available Flows
    Colorful_XL
    Mobius_XL
    Stable_Cascade
+   SD3_Medium
    VintagePortrait
    Photomaker_1
    PhotoStickers
@@ -20,7 +21,7 @@ Available Flows
    GhibliPortrait
    ComicuPortrait
    MemojiPortrait
-   SD3_Medium
+   SketchPortrait
    MadScientist
    HumanFaceDetailer
    SupirUpscaler
