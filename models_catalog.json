@@ -228,13 +228,24 @@
   "Photomaker-v1": {
     "regexes": [
       {
-        "input_value": "^(?=.*(?i:photomaker))(?=.*\\.bin).*"
+        "input_value": "^(?=.*(?i:photomaker))(?=.*(?i:v1))(?=.*\\.bin).*"
       }
     ],
     "save_path": "photomaker/photomaker-v1.bin",
     "url": "https://huggingface.co/TencentARC/PhotoMaker/resolve/main/photomaker-v1.bin",
     "homepage": "https://huggingface.co/TencentARC/PhotoMaker",
     "hash": "529d503fa378bfb3a74e3384ab2064d7269d59f0638324555d22067c31e275bc"
+  },
+  "Photomaker-v2": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:photomaker))(?=.*(?i:v2))(?=.*\\.bin).*"
+      }
+    ],
+    "save_path": "photomaker/photomaker-v2.bin",
+    "url": "https://huggingface.co/TencentARC/PhotoMaker-V2/resolve/main/photomaker-v2.bin",
+    "homepage": "https://huggingface.co/TencentARC/PhotoMaker-V2",
+    "hash": "0eeac57d7e09b95cee670a18e0d939ff303dd6f76d317c950bf584c6c9bdb8f5"
   },
   "AlbedobaseXL_v13": {
     "regexes": [
