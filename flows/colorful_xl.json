@@ -1,7 +1,7 @@
 {
   "2": {
     "inputs": {
-      "ckpt_name": "colorfulxl_v70.safetensors"
+      "ckpt_name": "colorfulxl_v72.safetensors"
     },
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
@@ -17,45 +17,9 @@
       "title": "Load VAE"
     }
   },
-  "27": {
-    "inputs": {
-      "seed": 1100552191162771,
-      "steps": 40,
-      "cfg": [
-        "308",
-        0
-      ],
-      "sampler_name": "dpmpp_3m_sde",
-      "scheduler": "exponential",
-      "denoise": 1,
-      "model": [
-        "2",
-        0
-      ],
-      "positive": [
-        "243",
-        0
-      ],
-      "negative": [
-        "242",
-        0
-      ],
-      "latent_image": [
-        "244",
-        0
-      ]
-    },
-    "class_type": "KSampler",
-    "_meta": {
-      "title": "KSampler"
-    }
-  },
   "242": {
     "inputs": {
-      "text": [
-        "310",
-        0
-      ],
+      "text": "",
       "clip": [
         "2",
         1
@@ -140,7 +104,10 @@
   "270": {
     "inputs": {
       "model_type": "SDXL",
-      "steps": 20,
+      "steps": [
+        "315",
+        0
+      ],
       "denoise": 1
     },
     "class_type": "AlignYourStepsScheduler",
@@ -150,7 +117,7 @@
   },
   "273": {
     "inputs": {
-      "sampler_name": "dpmpp_2m"
+      "sampler_name": "euler_ancestral"
     },
     "class_type": "KSamplerSelect",
     "_meta": {
@@ -160,7 +127,7 @@
   "275": {
     "inputs": {
       "samples": [
-        "27",
+        "316",
         0
       ],
       "vae": [
@@ -198,19 +165,6 @@
       "title": "VAE Decode"
     }
   },
-  "298": {
-    "inputs": {
-      "filename_prefix": "",
-      "images": [
-        "307",
-        0
-      ]
-    },
-    "class_type": "SaveImage",
-    "_meta": {
-      "title": "Save Image"
-    }
-  },
   "307": {
     "inputs": {
       "state": false,
@@ -235,15 +189,15 @@
   },
   "308": {
     "inputs": {
-      "value": 5,
-      "display_name": "Prompt strength",
+      "value": 1,
+      "display_name": "Vibrancy",
       "optional": true,
       "advanced": true,
-      "min": 4.5,
-      "max": 7,
+      "min": 1,
+      "max": 4.5,
       "step": 0.1,
       "order": 10,
-      "custom_id": "prompt_strength"
+      "custom_id": "vibrancy"
     },
     "class_type": "VixUiRangeFloat",
     "_meta": {
@@ -264,20 +218,6 @@
       "title": "VixUI-Prompt"
     }
   },
-  "310": {
-    "inputs": {
-      "text": "",
-      "display_name": "Negative Prompt",
-      "optional": true,
-      "advanced": true,
-      "order": 25,
-      "custom_id": "negative_prompt"
-    },
-    "class_type": "VixUiPrompt",
-    "_meta": {
-      "title": "VixUI-Prompt"
-    }
-  },
   "311": {
     "inputs": {
       "name": "colorful_xl",
@@ -288,11 +228,99 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Colorful_XL.html",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.0"
+      "version": "2.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
       "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "312": {
+    "inputs": {
+      "filename_prefix": "12",
+      "images": [
+        "307",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "314": {
+    "inputs": {
+      "value": 45,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 30,
+      "max": 60,
+      "step": 1,
+      "order": 99,
+      "custom_id": "steps_count"
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "315": {
+    "inputs": {
+      "python_expression": "a//3",
+      "print_to_console": "False",
+      "a": [
+        "314",
+        0
+      ],
+      "b": 0,
+      "c": 0
+    },
+    "class_type": "Evaluate Integers",
+    "_meta": {
+      "title": "Evaluate Integers"
+    }
+  },
+  "316": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 1,
+      "steps": [
+        "314",
+        0
+      ],
+      "cfg": [
+        "308",
+        0
+      ],
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "243",
+        0
+      ],
+      "negative": [
+        "242",
+        0
+      ],
+      "latent_image": [
+        "244",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced)"
     }
   }
 }
