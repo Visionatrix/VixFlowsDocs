@@ -16,23 +16,23 @@ Hardware
 
 - **Required memory: works on 10 GB**
 
-Time to generate 1 image:
+Time to generate 1 image(Vibrancy=1, Steps count=45):
 
-- AMD 7900 XTX: **16.2 sec** / **8.7 sec**
-- NVIDIA RTX 3060 (12 GB): **36 sec** / **16 sec**
-- Apple M2 Max: **93 sec** / **39 sec**
+- AMD 7900 XTX: **2.87 sec** / **8.4 sec**
+- NVIDIA RTX 3060 (12 GB): **? sec** / **? sec**
+- Apple M2 Max: **? sec** / **? sec**
 
 Examples
 """"""""
 
 .. image:: /FlowsResults/Colorful_XL_1.png
 
-Prompt: "*portrait, half-robot woman, in the dark, contrasting light, realistic, masterpiece*"  (seed: 57)
+Prompt: "*portrait, half-robot woman, in the dark, contrasting light, realistic, masterpiece*"  (Seed: 101)
 
 .. image:: /FlowsResults/Colorful_XL_2.png
 
-Prompt: "*half-cat woman, in the forest, vivid lights, realistic, masterpiece*"  (seed: 63)
+Prompt: "*half-cat woman, in the forest, vivid lights, realistic, masterpiece*"  (Fast Run: true, Vibrancy: 3, Seed: 9158296)
 
 .. image:: /FlowsResults/Colorful_XL_3.png
 
-Prompt: "*portrait, young man, angel, sky, sun, high contrast*"  (seed: 129)
+Prompt: "*portrait, young man, angel, sky, sun, high contrast*"  (Fast Run: true, Vibrancy: 2, Steps number to generate: 60, Seed: 9)
