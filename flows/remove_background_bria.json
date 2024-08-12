@@ -21,7 +21,7 @@
       "homepage": "https://huggingface.co/briaai/RMBG-1.4",
       "documentation": "",
       "license": "",
-      "tags": "[\"background\", \"simple\"]",
+      "tags": "[\"background\", \"postprocess\"]",
       "version": "1.0.0",
       "requires": "[]",
       "is_seed_supported": false,
