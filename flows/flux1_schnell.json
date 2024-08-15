@@ -9,7 +9,10 @@
         "27",
         2
       ],
-      "batch_size": 1
+      "batch_size": [
+        "31",
+        0
+      ]
     },
     "class_type": "EmptyLatentImage",
     "_meta": {
@@ -175,7 +178,8 @@
       "optional": false,
       "advanced": false,
       "order": 1,
-      "custom_id": "prompt"
+      "custom_id": "prompt",
+      "hidden": false
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -243,11 +247,30 @@
       "max": 1,
       "step": 0.1,
       "order": 92,
-      "custom_id": "realism_lora_strength"
+      "custom_id": "realism_lora_strength",
+      "hidden": false
     },
     "class_type": "VixUiRangeFloat",
     "_meta": {
       "title": "VixUI-RangeFloat"
+    }
+  },
+  "31": {
+    "inputs": {
+      "value": 1,
+      "display_name": "Batch size",
+      "optional": true,
+      "advanced": true,
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "order": 99,
+      "custom_id": "batch_size",
+      "hidden": true
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
     }
   }
 }

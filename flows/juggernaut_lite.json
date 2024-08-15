@@ -138,7 +138,10 @@
         "270",
         2
       ],
-      "batch_size": 1
+      "batch_size": [
+        "271",
+        0
+      ]
     },
     "class_type": "EmptyLatentImage",
     "_meta": {
@@ -288,7 +291,10 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Juggernaut_Lite.html",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -302,7 +308,8 @@
       "optional": false,
       "advanced": false,
       "order": 1,
-      "custom_id": "prompt"
+      "custom_id": "prompt",
+      "hidden": false
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -316,7 +323,8 @@
       "optional": true,
       "advanced": true,
       "order": 15,
-      "custom_id": "negative_prompt"
+      "custom_id": "negative_prompt",
+      "hidden": false
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -330,6 +338,24 @@
     "class_type": "SDXLAspectRatioSelector",
     "_meta": {
       "title": "input;Aspect Ratio;optional;advanced;custom_id=aspect_ratio"
+    }
+  },
+  "271": {
+    "inputs": {
+      "value": 1,
+      "display_name": "Batch size",
+      "optional": true,
+      "advanced": true,
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "order": 99,
+      "custom_id": "batch_size",
+      "hidden": true
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
     }
   }
 }
