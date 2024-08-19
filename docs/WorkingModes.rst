@@ -29,13 +29,14 @@ In such cases, it is allowed and recommended to run the server part and the AI p
 
 Steps to run `Vix` in a Server mode:
 
-1. Set ``VIX_MODE`` environment variable to ``SERVER``
-2. Setup **PostgreSQL** database and set correct ``DATABASE_URI`` environment variable to point on it.
+1. Install both `psycopg` and `greenlet` python libraries: `pip install psycopg greenlet`
+2. Set ``VIX_MODE`` environment variable to ``SERVER``
+3. Setup **PostgreSQL** database and set correct ``DATABASE_URI`` environment variable to point on it.
 
     .. note:: `PgSQL example <https://docs.sqlalchemy.org/en/20/dialects/postgresql.html#module-sqlalchemy.dialects.postgresql.psycopg>`_: ``DATABASE_URI="postgresql+psycopg://vix_user:vix_password@localhost:5432/vix_db"``
 
-3. Use ``python3 -m visionatrix create-user`` command to create a user in the database.
-4. Connect at least one Worker to handle task processing.
+4. Use ``python3 -m visionatrix create-user`` command to create a user in the database.
+5. Connect at least one Worker to handle task processing.
 
 
 *We will provide a docker-compose file soon, with full server setup to deploy it in one click.*
