@@ -52,6 +52,8 @@ Supported **ComfyUI** options
   --fp8_e5m2-text-enc   Store text encoder weights in fp8 (e5m2 variant).
   --fp16-text-enc       Store text encoder weights in fp16.
   --fp32-text-enc       Store text encoder weights in fp32.
+  --cache-classic       Use the old style (aggressive) caching. (Default)
+  --cache-lru           Use LRU caching with a maximum of N node results cached. May use more RAM/VRAM.
   --disable-ipex-optimize
                         Disables ipex.optimize when loading models with Intel GPUs.
   --use-split-cross-attention
@@ -76,9 +78,11 @@ Supported **ComfyUI** options
   --lowvram             Split the unet in parts to use less vram.
   --novram              When lowvram isn't enough.
   --cpu                 To use the CPU for everything (slow).
+  --reserve-vram        Set the amount of VRAM in GB you want to reserve for use by your OS/other software.
   --disable-smart-memory
                         Force ComfyUI to aggressively offload to regular ram
                         instead of keeping models in vram when it can.
+  --fast                Enable some untested and potentially quality deteriorating optimizations.
 
 Additional commands
 -------------------
