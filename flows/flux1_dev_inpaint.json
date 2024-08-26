@@ -1,0 +1,365 @@
+{
+  "1": {
+    "inputs": {
+      "noise": [
+        "4",
+        0
+      ],
+      "guider": [
+        "5",
+        0
+      ],
+      "sampler": [
+        "7",
+        0
+      ],
+      "sigmas": [
+        "8",
+        0
+      ],
+      "latent_image": [
+        "9",
+        2
+      ]
+    },
+    "class_type": "SamplerCustomAdvanced",
+    "_meta": {
+      "title": "SamplerCustomAdvanced"
+    }
+  },
+  "2": {
+    "inputs": {
+      "samples": [
+        "1",
+        0
+      ],
+      "vae": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "4": {
+    "inputs": {
+      "noise_seed": 3
+    },
+    "class_type": "RandomNoise",
+    "_meta": {
+      "title": "RandomNoise"
+    }
+  },
+  "5": {
+    "inputs": {
+      "model": [
+        "6",
+        0
+      ],
+      "conditioning": [
+        "9",
+        0
+      ]
+    },
+    "class_type": "BasicGuider",
+    "_meta": {
+      "title": "BasicGuider"
+    }
+  },
+  "6": {
+    "inputs": {
+      "model": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "DifferentialDiffusion",
+    "_meta": {
+      "title": "Differential Diffusion"
+    }
+  },
+  "7": {
+    "inputs": {
+      "sampler_name": "euler"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "8": {
+    "inputs": {
+      "scheduler": "simple",
+      "steps": [
+        "50",
+        0
+      ],
+      "denoise": [
+        "48",
+        0
+      ],
+      "model": [
+        "19",
+        0
+      ]
+    },
+    "class_type": "BasicScheduler",
+    "_meta": {
+      "title": "BasicScheduler"
+    }
+  },
+  "9": {
+    "inputs": {
+      "positive": [
+        "10",
+        0
+      ],
+      "negative": [
+        "11",
+        0
+      ],
+      "vae": [
+        "17",
+        0
+      ],
+      "pixels": [
+        "32",
+        1
+      ],
+      "mask": [
+        "32",
+        2
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "10": {
+    "inputs": {
+      "guidance": 3.5,
+      "conditioning": [
+        "15",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "11": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "15": {
+    "inputs": {
+      "text": [
+        "40",
+        0
+      ],
+      "clip": [
+        "16",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "16": {
+    "inputs": {
+      "clip_name1": "t5xxl_fp16.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "17": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "19": {
+    "inputs": {
+      "unet_name": "flux1-dev.sft",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "21": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Image to redraw;order=1;custom_id=source_image;inpaint"
+    }
+  },
+  "30": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "31": {
+    "inputs": {
+      "rescale_algorithm": "bislerp",
+      "stitch": [
+        "32",
+        0
+      ],
+      "inpainted_image": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "InpaintStitch",
+    "_meta": {
+      "title": "✂️ Inpaint Stitch"
+    }
+  },
+  "32": {
+    "inputs": {
+      "context_expand_pixels": 32,
+      "context_expand_factor": 1,
+      "fill_mask_holes": false,
+      "blur_mask_pixels": 24,
+      "invert_mask": false,
+      "blend_pixels": 0,
+      "rescale_algorithm": "bislerp",
+      "mode": "ranged size",
+      "force_width": 1024,
+      "force_height": 1024,
+      "rescale_factor": 1,
+      "min_width": 512,
+      "min_height": 512,
+      "max_width": 1024,
+      "max_height": 1024,
+      "padding": 32,
+      "image": [
+        "21",
+        0
+      ],
+      "mask": [
+        "21",
+        1
+      ]
+    },
+    "class_type": "InpaintCrop",
+    "_meta": {
+      "title": "✂️ Inpaint Crop"
+    }
+  },
+  "37": {
+    "inputs": {
+      "name": "flux1_dev_inpaint",
+      "display_name": "Flux Redraw",
+      "description": "Redrawing parts of an image",
+      "author": "bigcat88",
+      "homepage": "https://openart.ai/workflows/profile/akita_deadly_60?sort=latest",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/FluxInpaint.html",
+      "license": "",
+      "tags": "[\"redraw\", \"postprocess\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "38": {
+    "inputs": {
+      "text": "[\n  {\n    \"display_name\": \"Flux Redraw\",\n    \"type\": \"image_inpaint\"\n  }\n]"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_SUBFLOWS"
+    }
+  },
+  "40": {
+    "inputs": {
+      "text": "",
+      "display_name": "Prompt",
+      "optional": true,
+      "advanced": false,
+      "order": 2,
+      "custom_id": "prompt",
+      "hidden": false
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "48": {
+    "inputs": {
+      "value": 0.9,
+      "display_name": "Replacing factor",
+      "optional": true,
+      "advanced": true,
+      "min": 0.1,
+      "max": 1,
+      "step": 0.01,
+      "order": 90,
+      "custom_id": "denoise",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "50": {
+    "inputs": {
+      "value": 20,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 30,
+      "max": 60,
+      "step": 1,
+      "order": 98,
+      "custom_id": "steps_count",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  }
+}
