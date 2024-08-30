@@ -350,7 +350,7 @@
       "display_name": "Steps number to generate",
       "optional": true,
       "advanced": true,
-      "min": 30,
+      "min": 20,
       "max": 60,
       "step": 1,
       "order": 98,
