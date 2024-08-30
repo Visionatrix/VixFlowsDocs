@@ -11,20 +11,20 @@ They can be specified when starting manually:
 
 Here are the list of the supported command line options related to `Visionatrix` for **run** command:
 
-  --backend_dir BACKEND_DIR
+  --backend_dir=BACKEND_DIR
                         Directory for the backend(folder with ComfyUI)
                             Default: ``vix_backend``
-  --flows_dir FLOWS_DIR
+  --flows_dir=FLOWS_DIR
                         Directory for the flows
                             Default: ``vix_flows``
-  --models_dir MODELS_DIR
+  --models_dir=MODELS_DIR
                         Directory for the models
                             Default: ```vix_models``
-  --tasks_files_dir TASKS_FILES_DIR
+  --tasks_files_dir=TASKS_FILES_DIR
                         Directory for input/output files
                             Default: ``vix_task_files``
-  --host HOST           Host to be used by Visionatrix
-  --port PORT           Port to be used by Visionatrix
+  --host=HOST           Host to be used by Visionatrix
+  --port=PORT           Port to be used by Visionatrix
   --ui                  Flag to enable User interface(JS frontend).
 
 Supported **ComfyUI** options
@@ -94,12 +94,12 @@ Can be used for Workers that do not have a user interface.
 
 .. code-block:: shell
 
-    python3 -m visionatrix install-flow --file path_to_json
+    python3 -m visionatrix install-flow --file=path_to_json
 
 File should contain ComfyUI workflow with the `metadata <https://visionatrix.github.io/VixFlowsDocs/VixWorkflows.html#vix-workflow-overview>`_ needed for Visionatrix.
 
 .. code-block:: shell
 
-  python3 -m visionatrix install-flow --name photo_stickers
+  python3 -m visionatrix install-flow --name=photo_stickers
 
 This will install flow by it's ``ID`` which is equal to it's folder name `here <https://github.com/Visionatrix/VixFlows/tree/main/flows>`_
