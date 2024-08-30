@@ -207,16 +207,6 @@
       "title": "Load Diffusion Model"
     }
   },
-  "21": {
-    "inputs": {
-      "image": "",
-      "upload": "image"
-    },
-    "class_type": "LoadImage",
-    "_meta": {
-      "title": "input;Image to redraw;order=1;custom_id=source_image;inpaint"
-    }
-  },
   "31": {
     "inputs": {
       "rescale_algorithm": "bislerp",
@@ -236,10 +226,10 @@
   },
   "32": {
     "inputs": {
-      "context_expand_pixels": 32,
+      "context_expand_pixels": 48,
       "context_expand_factor": 1,
       "fill_mask_holes": false,
-      "blur_mask_pixels": 24,
+      "blur_mask_pixels": 12,
       "invert_mask": false,
       "blend_pixels": 0,
       "rescale_algorithm": "bislerp",
@@ -253,11 +243,11 @@
       "max_height": 1024,
       "padding": 32,
       "image": [
-        "21",
+        "57",
         0
       ],
       "mask": [
-        "21",
+        "57",
         1
       ]
     },
@@ -339,6 +329,16 @@
     "class_type": "SaveImage",
     "_meta": {
       "title": "Save Image"
+    }
+  },
+  "57": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Image to redraw;order=1;custom_id=source_image;inpaint;edge_size=48"
     }
   }
 }

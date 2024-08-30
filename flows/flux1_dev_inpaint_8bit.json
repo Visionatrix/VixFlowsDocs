@@ -217,7 +217,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Image to redraw;order=1;custom_id=source_image;inpaint"
+      "title": "input;Image to redraw;order=1;custom_id=source_image;inpaint;edge_size=48"
     }
   },
   "30": {
@@ -252,10 +252,10 @@
   },
   "32": {
     "inputs": {
-      "context_expand_pixels": 32,
+      "context_expand_pixels": 48,
       "context_expand_factor": 1,
       "fill_mask_holes": false,
-      "blur_mask_pixels": 24,
+      "blur_mask_pixels": 12,
       "invert_mask": false,
       "blend_pixels": 0,
       "rescale_algorithm": "bislerp",
@@ -342,24 +342,6 @@
     "class_type": "VixUiRangeFloat",
     "_meta": {
       "title": "VixUI-RangeFloat"
-    }
-  },
-  "49": {
-    "inputs": {
-      "value": 20,
-      "display_name": "Steps number to generate",
-      "optional": true,
-      "advanced": true,
-      "min": 30,
-      "max": 60,
-      "step": 1,
-      "order": 98,
-      "custom_id": "steps_count",
-      "hidden": false
-    },
-    "class_type": "VixUiRangeInt",
-    "_meta": {
-      "title": "VixUI-RangeInt"
     }
   },
   "50": {
