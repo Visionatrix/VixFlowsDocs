@@ -1,7 +1,7 @@
 {
   "2": {
     "inputs": {
-      "ckpt_name": "colorfulxl_v72.safetensors"
+      "ckpt_name": "colorfulxl_v73.safetensors"
     },
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
@@ -234,7 +234,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Colorful_XL.html",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "2.0.0",
+      "version": "2.1.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true

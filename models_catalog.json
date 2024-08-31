@@ -441,6 +441,18 @@
       }
     ]
   },
+  "Colorful_XL_v7.3": {
+    "save_path": "checkpoints/colorfulxl_v73.safetensors",
+    "url": "https://huggingface.co/AI-Art-Collab/colorfulxl_v73/resolve/main/colorfulxl_v73-000004.safetensors",
+    "homepage": "https://civitai.com/models/185258",
+    "hash": "29d21aa537de4c141b13cd7ed584d24566cd34368014a357c6f4f0480b2787df",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:colorful))(?=.*(?i:xl))(?=.*(?i:v73)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ]
+  },
   "Mobius": {
     "save_path": "checkpoints/mobius-fp16.safetensors",
     "url": "https://huggingface.co/Corcelio/mobius/resolve/main/mobius-fp16.safetensors",
