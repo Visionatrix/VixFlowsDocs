@@ -242,7 +242,10 @@
   },
   "32": {
     "inputs": {
-      "context_expand_pixels": 48,
+      "context_expand_pixels": [
+        "52",
+        0
+      ],
       "context_expand_factor": 1,
       "fill_mask_holes": false,
       "blur_mask_pixels": 12,
@@ -360,6 +363,24 @@
     "class_type": "LoadImage",
     "_meta": {
       "title": "input;Image to redraw;order=1;custom_id=source_image;inpaint;edge_size=48"
+    }
+  },
+  "52": {
+    "inputs": {
+      "value": 48,
+      "display_name": "Expand context by pixel count",
+      "optional": true,
+      "advanced": true,
+      "min": 0,
+      "max": 48,
+      "step": 8,
+      "order": 99,
+      "custom_id": "edge_size",
+      "hidden": true
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
     }
   }
 }
