@@ -147,38 +147,11 @@
       "optional_vae": [
         "14",
         2
-      ],
-      "script": [
-        "398",
-        0
       ]
     },
     "class_type": "KSampler (Efficient)",
     "_meta": {
       "title": "KSampler (Efficient)"
-    }
-  },
-  "358": {
-    "inputs": {
-      "upscale_type": "latent",
-      "hires_ckpt_name": "(use same)",
-      "latent_upscaler": "ttl_nn.SDXL",
-      "pixel_upscaler": "4x_NMKD-Siax_200k.pth",
-      "upscale_by": 1.5,
-      "use_same_seed": true,
-      "seed": -1,
-      "hires_steps": 4,
-      "denoise": 0.5,
-      "iterations": 1,
-      "use_controlnet": false,
-      "control_net_name": "depth-zoe-xl-v1.0-controlnet.safetensors",
-      "strength": 0.8,
-      "preprocessor": "DepthAnythingPreprocessor",
-      "preprocessor_imgs": true
-    },
-    "class_type": "HighRes-Fix Script",
-    "_meta": {
-      "title": "HighRes-Fix Script"
     }
   },
   "359": {
@@ -246,7 +219,10 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/GhibliPortrait.html",
       "license": "",
       "tags": "[\"anime\", \"portrait\"]",
-      "version": "1.0.0"
+      "version": "1.1.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -280,7 +256,8 @@
       "optional": true,
       "advanced": true,
       "order": 10,
-      "custom_id": "prompt"
+      "custom_id": "prompt",
+      "hidden": false
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -338,29 +315,12 @@
       "optional": false,
       "advanced": false,
       "order": 2,
-      "custom_id": "gender"
+      "custom_id": "gender",
+      "hidden": false
     },
     "class_type": "VixUiList",
     "_meta": {
       "title": "VixUI-List"
-    }
-  },
-  "398": {
-    "inputs": {
-      "state": true,
-      "display_name": "Perform 1.5x scaling",
-      "optional": true,
-      "advanced": true,
-      "order": 99,
-      "custom_id": "extra_size",
-      "input_on_state": [
-        "358",
-        0
-      ]
-    },
-    "class_type": "VixUiCheckboxLogic",
-    "_meta": {
-      "title": "VixUI-CheckboxLogic"
     }
   }
 }
