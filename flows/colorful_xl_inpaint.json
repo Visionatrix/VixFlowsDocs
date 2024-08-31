@@ -1,0 +1,442 @@
+{
+  "2": {
+    "inputs": {
+      "ckpt_name": "colorfulxl_v73.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "13": {
+    "inputs": {
+      "vae_name": "sdxl_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "242": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "243": {
+    "inputs": {
+      "text": [
+        "309",
+        0
+      ],
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "268": {
+    "inputs": {
+      "add_noise": true,
+      "noise_seed": 1,
+      "cfg": [
+        "308",
+        0
+      ],
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "321",
+        0
+      ],
+      "negative": [
+        "321",
+        1
+      ],
+      "sampler": [
+        "273",
+        0
+      ],
+      "sigmas": [
+        "270",
+        0
+      ],
+      "latent_image": [
+        "321",
+        2
+      ]
+    },
+    "class_type": "SamplerCustom",
+    "_meta": {
+      "title": "SamplerCustom"
+    }
+  },
+  "270": {
+    "inputs": {
+      "model_type": "SDXL",
+      "steps": [
+        "315",
+        0
+      ],
+      "denoise": [
+        "323",
+        0
+      ]
+    },
+    "class_type": "AlignYourStepsScheduler",
+    "_meta": {
+      "title": "AlignYourStepsScheduler"
+    }
+  },
+  "273": {
+    "inputs": {
+      "sampler_name": "euler_ancestral"
+    },
+    "class_type": "KSamplerSelect",
+    "_meta": {
+      "title": "KSamplerSelect"
+    }
+  },
+  "275": {
+    "inputs": {
+      "samples": [
+        "324",
+        0
+      ],
+      "vae": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "297": {
+    "inputs": {
+      "samples": [
+        "268",
+        0
+      ],
+      "vae": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "307": {
+    "inputs": {
+      "state": true,
+      "display_name": "Fast Run",
+      "optional": true,
+      "advanced": true,
+      "order": 4,
+      "custom_id": "fast_run",
+      "hidden": false,
+      "input_off_state": [
+        "275",
+        0
+      ],
+      "input_on_state": [
+        "297",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
+    }
+  },
+  "308": {
+    "inputs": {
+      "value": 1,
+      "display_name": "Vibrancy",
+      "optional": true,
+      "advanced": true,
+      "min": 1,
+      "max": 4.5,
+      "step": 0.1,
+      "order": 10,
+      "custom_id": "vibrancy",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "309": {
+    "inputs": {
+      "text": "",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 3,
+      "custom_id": "prompt",
+      "hidden": false
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "312": {
+    "inputs": {
+      "filename_prefix": "12",
+      "images": [
+        "322",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "314": {
+    "inputs": {
+      "value": 45,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 30,
+      "max": 60,
+      "step": 1,
+      "order": 98,
+      "custom_id": "steps_count",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "315": {
+    "inputs": {
+      "python_expression": "a//3",
+      "print_to_console": "False",
+      "a": [
+        "314",
+        0
+      ],
+      "b": 0,
+      "c": 0
+    },
+    "class_type": "Evaluate Integers",
+    "_meta": {
+      "title": "Evaluate Integers"
+    }
+  },
+  "318": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Image to redraw;order=1;custom_id=source_image;inpaint;edge_size=48"
+    }
+  },
+  "319": {
+    "inputs": {
+      "context_expand_pixels": [
+        "320",
+        0
+      ],
+      "context_expand_factor": 1,
+      "fill_mask_holes": false,
+      "blur_mask_pixels": 12,
+      "invert_mask": false,
+      "blend_pixels": 0,
+      "rescale_algorithm": "bislerp",
+      "mode": "forced size",
+      "force_width": 1024,
+      "force_height": 1024,
+      "rescale_factor": 1,
+      "min_width": 1024,
+      "min_height": 1024,
+      "max_width": 1024,
+      "max_height": 1024,
+      "padding": 32,
+      "image": [
+        "318",
+        0
+      ],
+      "mask": [
+        "318",
+        1
+      ]
+    },
+    "class_type": "InpaintCrop",
+    "_meta": {
+      "title": "✂️ Inpaint Crop"
+    }
+  },
+  "320": {
+    "inputs": {
+      "value": 48,
+      "display_name": "Expand context by pixel count",
+      "optional": true,
+      "advanced": true,
+      "min": 0,
+      "max": 48,
+      "step": 8,
+      "order": 99,
+      "custom_id": "edge_size",
+      "hidden": true
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "321": {
+    "inputs": {
+      "positive": [
+        "243",
+        0
+      ],
+      "negative": [
+        "242",
+        0
+      ],
+      "vae": [
+        "13",
+        0
+      ],
+      "pixels": [
+        "319",
+        1
+      ],
+      "mask": [
+        "319",
+        2
+      ]
+    },
+    "class_type": "InpaintModelConditioning",
+    "_meta": {
+      "title": "InpaintModelConditioning"
+    }
+  },
+  "322": {
+    "inputs": {
+      "rescale_algorithm": "bislerp",
+      "stitch": [
+        "319",
+        0
+      ],
+      "inpainted_image": [
+        "307",
+        0
+      ]
+    },
+    "class_type": "InpaintStitch",
+    "_meta": {
+      "title": "✂️ Inpaint Stitch"
+    }
+  },
+  "323": {
+    "inputs": {
+      "value": 0.5,
+      "display_name": "Replacing factor",
+      "optional": true,
+      "advanced": true,
+      "min": 0.1,
+      "max": 1,
+      "step": 0.01,
+      "order": 90,
+      "custom_id": "denoise",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "324": {
+    "inputs": {
+      "seed": 1,
+      "steps": [
+        "314",
+        0
+      ],
+      "cfg": [
+        "308",
+        0
+      ],
+      "sampler_name": "euler_ancestral",
+      "scheduler": "simple",
+      "denoise": [
+        "323",
+        0
+      ],
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "321",
+        0
+      ],
+      "negative": [
+        "321",
+        1
+      ],
+      "latent_image": [
+        "321",
+        2
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "325": {
+    "inputs": {
+      "text": "[\n  {\n    \"display_name\": \"ColorfulXL Redraw\",\n    \"type\": \"image_inpaint\"\n  }\n]"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_SUBFLOWS"
+    }
+  },
+  "326": {
+    "inputs": {
+      "name": "colorful_xl_inpaint",
+      "display_name": "ColorfulXL Redraw",
+      "description": "Redrawing parts of an image",
+      "author": "bigcat88",
+      "homepage": "https://openart.ai/workflows/profile/akita_deadly_60?sort=latest",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Inpaint.html",
+      "license": "",
+      "tags": "[\"redraw\", \"postprocess\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  }
+}
