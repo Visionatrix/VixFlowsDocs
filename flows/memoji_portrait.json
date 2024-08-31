@@ -69,10 +69,6 @@
       "negative": [
         "291",
         0
-      ],
-      "image_kps": [
-        "385",
-        0
       ]
     },
     "class_type": "ApplyInstantID",
@@ -147,38 +143,11 @@
       "optional_vae": [
         "14",
         2
-      ],
-      "script": [
-        "383",
-        0
       ]
     },
     "class_type": "KSampler (Efficient)",
     "_meta": {
       "title": "KSampler (Efficient)"
-    }
-  },
-  "358": {
-    "inputs": {
-      "upscale_type": "latent",
-      "hires_ckpt_name": "(use same)",
-      "latent_upscaler": "ttl_nn.SDXL",
-      "pixel_upscaler": "4x_NMKD-Siax_200k.pth",
-      "upscale_by": 1.5,
-      "use_same_seed": true,
-      "seed": -1,
-      "hires_steps": 4,
-      "denoise": 0.5,
-      "iterations": 1,
-      "use_controlnet": false,
-      "control_net_name": "depth-zoe-xl-v1.0-controlnet.safetensors",
-      "strength": 0.8,
-      "preprocessor": "DepthAnythingPreprocessor",
-      "preprocessor_imgs": true
-    },
-    "class_type": "HighRes-Fix Script",
-    "_meta": {
-      "title": "HighRes-Fix Script"
     }
   },
   "359": {
@@ -213,24 +182,6 @@
       "title": "Load LoRA"
     }
   },
-  "383": {
-    "inputs": {
-      "state": true,
-      "display_name": "Perform 1.5x scaling",
-      "optional": true,
-      "advanced": true,
-      "order": 99,
-      "custom_id": "extra_size",
-      "input_on_state": [
-        "358",
-        0
-      ]
-    },
-    "class_type": "VixUiCheckboxLogic",
-    "_meta": {
-      "title": "VixUI-CheckboxLogic"
-    }
-  },
   "385": {
     "inputs": {
       "image": "",
@@ -261,8 +212,10 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MemojiPortrait.html",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "2.0.0",
-      "requires": "[]"
+      "version": "2.1.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -276,7 +229,8 @@
       "optional": false,
       "advanced": false,
       "order": 2,
-      "custom_id": ""
+      "custom_id": "prompt",
+      "hidden": false
     },
     "class_type": "VixUiPrompt",
     "_meta": {
