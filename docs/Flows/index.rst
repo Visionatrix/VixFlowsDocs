@@ -26,3 +26,4 @@ Available Flows
    MadScientist
    HumanFaceDetailer
    SupirUpscaler
+   Inpaint
