@@ -131,7 +131,7 @@
   "15": {
     "inputs": {
       "pixels": [
-        "18",
+        "46",
         0
       ],
       "vae": [
@@ -173,19 +173,6 @@
       "title": "Save Image @Datou"
     }
   },
-  "18": {
-    "inputs": {
-      "megapixels": 1,
-      "images": [
-        "2",
-        0
-      ]
-    },
-    "class_type": "ImageScaleToMegapixels",
-    "_meta": {
-      "title": "Scale To Megapixels"
-    }
-  },
   "22": {
     "inputs": {
       "strength": 0.6,
@@ -198,7 +185,7 @@
         0
       ],
       "image": [
-        "18",
+        "46",
         0
       ]
     },
@@ -295,7 +282,7 @@
         0
       ],
       "image_kps": [
-        "18",
+        "46",
         0
       ]
     },
@@ -333,31 +320,20 @@
   },
   "33": {
     "inputs": {
-      "max_number_of_faces": 5,
-      "index_of_face": 1,
+      "number_of_faces": 5,
       "scale_factor": 1.5,
       "shift_factor": 0.5,
-      "aspect_ratio": 1,
+      "start_index": 0,
+      "max_faces_per_image": 50,
+      "aspect_ratio": "1:1",
       "image": [
-        "18",
+        "46",
         0
       ]
     },
     "class_type": "AutoCropFaces",
     "_meta": {
       "title": "Auto Crop Faces"
-    }
-  },
-  "34": {
-    "inputs": {
-      "images": [
-        "33",
-        0
-      ]
-    },
-    "class_type": "PreviewImage",
-    "_meta": {
-      "title": "Preview Image"
     }
   },
   "39": {
@@ -370,8 +346,10 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MadScientist.html",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.1.0",
-      "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]"
+      "version": "1.2.0",
+      "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
+      "is_seed_supported": true,
+      "is_count_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -405,6 +383,7 @@
       "advanced": true,
       "order": 99,
       "custom_id": "vision_provider",
+      "hidden": false,
       "input_off_state": [
         "24",
         0
@@ -426,6 +405,22 @@
     "class_type": "Text Multiline (Code Compatible)",
     "_meta": {
       "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "46": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "width": 1024,
+      "height": 1024,
+      "crop": "center",
+      "image": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "ImageScale",
+    "_meta": {
+      "title": "Upscale Image"
     }
   }
 }
