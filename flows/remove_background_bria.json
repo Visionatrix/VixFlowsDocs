@@ -15,14 +15,14 @@
   "311": {
     "inputs": {
       "name": "remove_background_bria",
-      "display_name": "Remove background",
-      "description": "Separate foreground",
+      "display_name": "Remove background (Bria)",
+      "description": "Foregrounding (non-commercial)",
       "author": "bigcat88",
       "homepage": "https://huggingface.co/briaai/RMBG-1.4",
       "documentation": "",
       "license": "",
       "tags": "[\"background\", \"postprocess\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[]",
       "is_seed_supported": false,
       "is_count_supported": false
@@ -34,7 +34,7 @@
   },
   "314": {
     "inputs": {
-      "text": "[\n  {\n    \"display_name\": \"Remove background\"\n,    \"type\": \"image\"\n  }\n]"
+      "text": "[\n  {\n    \"display_name\": \"Remove background (Bria)\"\n,    \"type\": \"image\"\n  }\n]"
     },
     "class_type": "Text Multiline (Code Compatible)",
     "_meta": {
