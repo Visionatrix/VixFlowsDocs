@@ -1,0 +1,133 @@
+{
+  "1": {
+    "inputs": {
+      "device": "auto",
+      "image": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "BiRefNet",
+    "_meta": {
+      "title": "BiRefNet Segmentation"
+    }
+  },
+  "2": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Input image;order=1;custom_id=input_image"
+    }
+  },
+  "11": {
+    "inputs": {
+      "image": [
+        "2",
+        0
+      ],
+      "alpha": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "JoinImageWithAlpha",
+    "_meta": {
+      "title": "Join Image with Alpha"
+    }
+  },
+  "13": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "14": {
+    "inputs": {
+      "mask": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "InvertMask",
+    "_meta": {
+      "title": "InvertMask"
+    }
+  },
+  "15": {
+    "inputs": {
+      "text": "[\n  {\n    \"display_name\": \"Remove background (BiRefNet)\"\n,    \"type\": \"image\"\n  }\n]"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_SUBFLOWS"
+    }
+  },
+  "16": {
+    "inputs": {
+      "name": "remove_background_birefnet",
+      "display_name": "Remove background (BiRefNet)",
+      "description": "Foregrounding (commercial use)",
+      "author": "bigcat88",
+      "homepage": "https://github.com/zhengpeng7/birefnet",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"background\", \"postprocess\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": false,
+      "is_count_supported": false
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "17": {
+    "inputs": {
+      "device": "cpu",
+      "image": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "ImageToDevice+",
+    "_meta": {
+      "title": "🔧 Image To Device"
+    }
+  },
+  "18": {
+    "inputs": {
+      "mask": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "MaskToImage",
+    "_meta": {
+      "title": "Convert Mask to Image"
+    }
+  },
+  "22": {
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "ImageToMask",
+    "_meta": {
+      "title": "Convert Image to Mask"
+    }
+  }
+}
