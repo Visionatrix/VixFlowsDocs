@@ -690,7 +690,7 @@
       }
     ],
     "save_path": "unet/flux1-schnell-fp8.safetensors",
-    "url": "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-schnell-fp8.safetensors",
+    "url": "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-schnell-fp8-e4m3fn.safetensors",
     "homepage": "https://huggingface.co/Kijai/flux-fp8",
     "hash": "bbdfba27fed8ff3be237523fb37b83821a6c4bbaa1db43ef9288767d0e4042fb"
   },
@@ -714,7 +714,7 @@
       }
     ],
     "save_path": "unet/flux1-dev-fp8.safetensors",
-    "url": "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-dev-fp8.safetensors",
+    "url": "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-dev-fp8-e4m3fn.safetensors",
     "homepage": "https://huggingface.co/Kijai/flux-fp8",
     "hash": "1be961341be8f5307ef26c787199f80bf4e0de3c1c0b4617095aa6ee5550dfce"
   },
