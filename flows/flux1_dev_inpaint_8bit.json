@@ -210,16 +210,6 @@
       "title": "Load Diffusion Model"
     }
   },
-  "21": {
-    "inputs": {
-      "image": "",
-      "upload": "image"
-    },
-    "class_type": "LoadImage",
-    "_meta": {
-      "title": "input;Image to redraw;order=1;custom_id=source_image;inpaint;edge_size=48"
-    }
-  },
   "30": {
     "inputs": {
       "filename_prefix": "ComfyUI",
@@ -252,10 +242,7 @@
   },
   "32": {
     "inputs": {
-      "context_expand_pixels": [
-        "51",
-        0
-      ],
+      "context_expand_pixels": 0,
       "context_expand_factor": 1,
       "fill_mask_holes": false,
       "blur_mask_pixels": 12,
@@ -266,18 +253,22 @@
       "force_width": 1024,
       "force_height": 1024,
       "rescale_factor": 1,
-      "min_width": 512,
-      "min_height": 512,
+      "min_width": 1024,
+      "min_height": 1024,
       "max_width": 1024,
       "max_height": 1024,
       "padding": 32,
       "image": [
-        "21",
+        "53",
         0
       ],
       "mask": [
-        "21",
-        1
+        "60",
+        0
+      ],
+      "optional_context_mask": [
+        "61",
+        0
       ]
     },
     "class_type": "InpaintCrop",
@@ -295,7 +286,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Inpaint.html",
       "license": "",
       "tags": "[\"redraw\", \"postprocess\"]",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true
@@ -307,7 +298,7 @@
   },
   "38": {
     "inputs": {
-      "text": "[\n  {\n    \"display_name\": \"Flux Redraw (Small)\",\n    \"type\": \"image_inpaint\"\n  }\n]"
+      "text": "[\n  {\n    \"display_name\": \"Flux Redraw (Small)\",\n    \"type\": \"image-inpaint\"\n  }\n]"
     },
     "class_type": "Text Multiline (Code Compatible)",
     "_meta": {
@@ -320,7 +311,7 @@
       "display_name": "Prompt",
       "optional": true,
       "advanced": false,
-      "order": 2,
+      "order": 10,
       "custom_id": "prompt",
       "hidden": false
     },
@@ -365,22 +356,86 @@
       "title": "VixUI-RangeInt"
     }
   },
-  "51": {
+  "53": {
     "inputs": {
-      "value": 48,
-      "display_name": "Expand context by pixel count",
-      "optional": true,
-      "advanced": true,
-      "min": 0,
-      "max": 48,
-      "step": 8,
-      "order": 99,
-      "custom_id": "edge_size",
-      "hidden": true
+      "image": "",
+      "upload": "image"
     },
-    "class_type": "VixUiRangeInt",
+    "class_type": "LoadImage",
     "_meta": {
-      "title": "VixUI-RangeInt"
+      "title": "input;Image to redraw;order=1;custom_id=source_image;"
+    }
+  },
+  "55": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Mask to redraw;order=2;custom_id=mask_redraw;mask;source_input_name=source_image"
+    }
+  },
+  "57": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Context to include;order=3;custom_id=mask_context;mask;optional;source_input_name=source_image"
+    }
+  },
+  "58": {
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "55",
+        0
+      ]
+    },
+    "class_type": "ImageToMask",
+    "_meta": {
+      "title": "Convert Image to Mask"
+    }
+  },
+  "59": {
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "57",
+        0
+      ]
+    },
+    "class_type": "ImageToMask",
+    "_meta": {
+      "title": "Convert Image to Mask"
+    }
+  },
+  "60": {
+    "inputs": {
+      "threshold": 128,
+      "mask": [
+        "58",
+        0
+      ]
+    },
+    "class_type": "ToBinaryMask",
+    "_meta": {
+      "title": "ToBinaryMask"
+    }
+  },
+  "61": {
+    "inputs": {
+      "threshold": 128,
+      "mask": [
+        "59",
+        0
+      ]
+    },
+    "class_type": "ToBinaryMask",
+    "_meta": {
+      "title": "ToBinaryMask"
     }
   }
 }
