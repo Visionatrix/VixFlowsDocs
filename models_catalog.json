@@ -714,7 +714,7 @@
       }
     ],
     "save_path": "unet/flux1-dev-fp8.safetensors",
-    "url": "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-dev-fp8-e4m3fn.safetensors",
+    "url": "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-dev-fp8.safetensors",
     "homepage": "https://huggingface.co/Kijai/flux-fp8",
     "hash": "1be961341be8f5307ef26c787199f80bf4e0de3c1c0b4617095aa6ee5550dfce"
   },
