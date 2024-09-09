@@ -174,7 +174,7 @@
       "min": 1,
       "max": 4.5,
       "step": 0.1,
-      "order": 10,
+      "order": 11,
       "custom_id": "vibrancy",
       "hidden": false
     },
@@ -189,7 +189,7 @@
       "display_name": "Prompt",
       "optional": false,
       "advanced": false,
-      "order": 3,
+      "order": 10,
       "custom_id": "prompt",
       "hidden": false
     },
@@ -245,22 +245,9 @@
       "title": "Evaluate Integers"
     }
   },
-  "318": {
-    "inputs": {
-      "image": "",
-      "upload": "image"
-    },
-    "class_type": "LoadImage",
-    "_meta": {
-      "title": "input;Image to redraw;order=1;custom_id=source_image;inpaint;edge_size=48"
-    }
-  },
   "319": {
     "inputs": {
-      "context_expand_pixels": [
-        "320",
-        0
-      ],
+      "context_expand_pixels": 0,
       "context_expand_factor": 1,
       "fill_mask_holes": false,
       "blur_mask_pixels": 12,
@@ -277,35 +264,21 @@
       "max_height": 1024,
       "padding": 32,
       "image": [
-        "318",
+        "327",
         0
       ],
       "mask": [
-        "318",
-        1
+        "332",
+        0
+      ],
+      "optional_context_mask": [
+        "334",
+        0
       ]
     },
     "class_type": "InpaintCrop",
     "_meta": {
       "title": "✂️ Inpaint Crop"
-    }
-  },
-  "320": {
-    "inputs": {
-      "value": 48,
-      "display_name": "Expand context by pixel count",
-      "optional": true,
-      "advanced": true,
-      "min": 0,
-      "max": 48,
-      "step": 8,
-      "order": 99,
-      "custom_id": "edge_size",
-      "hidden": true
-    },
-    "class_type": "VixUiRangeInt",
-    "_meta": {
-      "title": "VixUI-RangeInt"
     }
   },
   "321": {
@@ -412,7 +385,7 @@
   },
   "325": {
     "inputs": {
-      "text": "[\n  {\n    \"display_name\": \"ColorfulXL Redraw\",\n    \"type\": \"image_inpaint\"\n  }\n]"
+      "text": "[\n  {\n    \"display_name\": \"ColorfulXL Redraw\",\n    \"type\": \"image-inpaint\"\n  }\n]"
     },
     "class_type": "Text Multiline (Code Compatible)",
     "_meta": {
@@ -429,7 +402,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Inpaint.html",
       "license": "",
       "tags": "[\"redraw\", \"postprocess\"]",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true
@@ -437,6 +410,88 @@
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
       "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "327": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Image to redraw;order=1;custom_id=source_image;"
+    }
+  },
+  "328": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Mask to redraw;order=2;custom_id=mask_redraw;mask;source_input_name=source_image"
+    }
+  },
+  "329": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Context to include;order=3;custom_id=mask_context;mask;optional;source_input_name=source_image"
+    }
+  },
+  "330": {
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "328",
+        0
+      ]
+    },
+    "class_type": "ImageToMask",
+    "_meta": {
+      "title": "Convert Image to Mask"
+    }
+  },
+  "332": {
+    "inputs": {
+      "threshold": 128,
+      "mask": [
+        "330",
+        0
+      ]
+    },
+    "class_type": "ToBinaryMask",
+    "_meta": {
+      "title": "ToBinaryMask"
+    }
+  },
+  "333": {
+    "inputs": {
+      "channel": "red",
+      "image": [
+        "329",
+        0
+      ]
+    },
+    "class_type": "ImageToMask",
+    "_meta": {
+      "title": "Convert Image to Mask"
+    }
+  },
+  "334": {
+    "inputs": {
+      "threshold": 128,
+      "mask": [
+        "333",
+        0
+      ]
+    },
+    "class_type": "ToBinaryMask",
+    "_meta": {
+      "title": "ToBinaryMask"
     }
   }
 }
