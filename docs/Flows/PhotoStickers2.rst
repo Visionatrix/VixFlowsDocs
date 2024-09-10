@@ -20,7 +20,7 @@ Hardware
 
 Time to process 1 image:
 
-- AMD 7900 XTX/Intel 10900: **63 sec**
+- AMD 7900 XTX/Intel 10900: **59.8 sec**
 
 Examples
 """"""""

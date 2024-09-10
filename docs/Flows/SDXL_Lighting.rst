@@ -10,9 +10,9 @@ Hardware
 
 - **Required memory: 6-7 GB**
 
-Time to generate 1 image(8 steps):
+Time to generate 1 image(8 steps/4 steps):
 
-- AMD 7900 XTX: **2.3 sec**
+- AMD 7900 XTX: **1.6 sec** / **1 sec**
 - NVIDIA RTX 3060 (12 GB): **3.4 sec**
 - Apple M2 Max: **9.7 sec**
 
