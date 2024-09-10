@@ -25,12 +25,11 @@ Hardware
 
 Time to generate 1 image with default **Flux**:
 
-- AMD 7900 XTX: **86 sec** (25 steps) / **152 sec** (50 steps)
+- AMD 7900 XTX: **71.4 sec** (25 steps) / **141 sec** (50 steps)
 - Apple M2 Max: **XX sec**
 
 Time to generate 1 image with default **Flux Lighting (Small)**:
 
-- AMD 7900 XTX: **8 sec**
 - NVIDIA RTX 3060 (12 GB): **XX sec**
 - Apple M2 Max: **XX sec**
 

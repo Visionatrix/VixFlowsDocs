@@ -14,7 +14,7 @@ Hardware
 
 Time to generate 1 image(30 steps):
 
-- AMD 7900 XTX: **40 sec**
+- AMD 7900 XTX: **34 sec**
 
 Examples
 """"""""
