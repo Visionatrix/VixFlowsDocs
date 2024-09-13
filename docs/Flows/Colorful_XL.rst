@@ -16,9 +16,9 @@ Hardware
 
 - **Required memory: works on 10 GB**
 
-Time to generate 1 image(Vibrancy=1, Steps count=45):
+Time to generate 1 image(Vibrancy=1, Steps count=45)(fast run on/off):
 
-- AMD 7900 XTX: **2.87 sec** / **8.4 sec**
+- AMD 7900 XTX: **2.57 sec** / **6.8 sec**
 - NVIDIA RTX 3060 (12 GB): **? sec** / **? sec**
 - Apple M2 Max: **? sec** / **? sec**
 

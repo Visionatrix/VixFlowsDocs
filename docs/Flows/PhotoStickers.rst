@@ -14,7 +14,7 @@ Hardware
 
 Time to process 1 image:
 
-- AMD 7900 XTX/Intel 10900: **50 sec**
+- AMD 7900 XTX/Intel 10900: **35.2 sec**
 - NVIDIA RTX 3060 (12 GB)/AMD 7900X: **47 sec**
 
 Examples
