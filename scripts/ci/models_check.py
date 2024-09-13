@@ -4,6 +4,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from time import sleep
 
 import requests
 from huggingface_hub import HfApi
@@ -19,13 +20,22 @@ def parse_huggingface_url(url: str):
     return repo_id, filename, revision
 
 
-def get_huggingface_model_hash(model_url: str) -> str | None:
+def __get_huggingface_model_hash(model_url: str) -> str | None:
     with contextlib.suppress(Exception):
         repo_id, filename, revision = parse_huggingface_url(model_url)
         repo_info = HfApi().model_info(repo_id, revision=revision, files_metadata=True)
         for file in repo_info.siblings:
             if file.rfilename == filename:
                 return file.lfs.sha256
+    return None
+
+
+def get_huggingface_model_hash(model_url: str) -> str | None:
+    for _ in range(5):
+        r = __get_huggingface_model_hash(model_url)
+        if r is not None:
+            return r
+        sleep(1)
     return None
 
 
