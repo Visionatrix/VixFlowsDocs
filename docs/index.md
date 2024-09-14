@@ -1,8 +1,8 @@
 # Visionatrix Documentation
 
-Welcome to the **Visionatrix** project documentation. Here, you will find all the necessary information to get started and understand how the project works.
+Welcome to the **Visionatrix** project documentation.
 
-## Table of Contents
+Here, you will find all the information to get started and understand how the project works.
 
 - [Installation](installation.md)
 - [Working Modes](working_modes.md)

@@ -47,4 +47,12 @@ markdown_extensions:
 theme:
   name: material
   features:
+    - content.code.annotate
     - content.code.copy
+    - content.footnote.tooltips
+    - content.tabs.link
+    - content.tooltips
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
