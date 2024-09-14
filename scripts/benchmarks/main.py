@@ -436,20 +436,6 @@ async def install_flow(flow_name: str) -> bool:
     return False
 
 
-async def check_and_install_flows():
-    for flow_test in SELECTED_TEST_FLOW_SUITE:
-        flow_name = flow_test.flow_name
-        if not await is_flow_installed(flow_name):
-            print(f"Flow '{flow_name}' is not installed. Installing now...")
-            success = await install_flow(flow_name)
-            if not success:
-                print(f"Failed to install flow '{flow_name}'.")
-                return False
-        else:
-            print(f"Flow '{flow_name}' is already installed.")
-    return True
-
-
 async def wait_for_installation_to_complete(
     flow_name: str, poll_interval: int = 5, timeout: int = 300
 ) -> bool:
@@ -555,6 +541,76 @@ async def get_task_progress(task_id: int, poll_interval: int = 3) -> dict:
                 return {"error": "request_error"}
 
 
+async def run_test_case(
+    flow_name: str,
+    test_case: TestCase,
+    results_summary: dict,
+    test_semaphore: asyncio.Semaphore,
+):
+    # Use the test_semaphore to limit concurrent tests
+    async with test_semaphore:
+        input_params = test_case.input_params
+        input_files = test_case.input_files
+        warm_up = test_case.warm_up
+        count = test_case.count + 1 if warm_up else test_case.count
+
+        # Create tasks, passing input files if present
+        task_ids = await create_task(flow_name, input_params, count, input_files)
+        if not task_ids:
+            print(
+                f"Failed to create tasks for flow '{flow_name}', test case: {test_case.name}"
+            )
+            return
+
+        # Wait for tasks to finish and save results
+        task_results = []
+        flow_comfy_saved = False
+        for task_id in task_ids:
+            result = await get_task_progress(task_id)
+            task_results.append(result)
+
+            if not flow_comfy_saved and "flow_comfy" in result:
+                await save_flow_comfy(flow_name, test_case.name, result["flow_comfy"])
+                flow_comfy_saved = True
+
+        if warm_up:
+            task_results = task_results[1:]
+
+        # Save results and capture summary
+        summary = await save_results(flow_name, test_case.name, test_case, task_results)
+        if summary:
+            results_summary[flow_name].append(
+                {"test_case": test_case.name, "avg_exec_time": summary["avg_exec_time"]}
+            )
+
+
+async def process_flow(
+    flow_test: FlowTest,
+    results_summary: dict,
+    installation_semaphore: asyncio.Semaphore,
+    test_semaphore: asyncio.Semaphore,
+):
+    flow_name = flow_test.flow_name
+    results_summary[flow_name] = []  # Initialize the flow in the results summary
+
+    # Check if the flow is installed
+    if not await is_flow_installed(flow_name):
+        print(f"Flow '{flow_name}' is not installed. Installing now...")
+
+        # Use semaphore to ensure only one installation at a time
+        async with installation_semaphore:
+            success = await install_flow(flow_name)
+            if not success:
+                print(f"Failed to install flow '{flow_name}'.")
+                return
+    else:
+        print(f"Flow '{flow_name}' is already installed.")
+
+    # As soon as the flow is installed, start testing
+    for test_case in flow_test.test_cases:
+        await run_test_case(flow_name, test_case, results_summary, test_semaphore)
+
+
 async def benchmarker():
     # Ask the user which suite to run
     await select_test_flow_suite()
@@ -564,59 +620,24 @@ async def benchmarker():
         print("Cannot proceed as the server is down.")
         return
 
-    # Check and install flows if necessary
-    if not await check_and_install_flows():
-        print("Failed to prepare all flows for benchmarking.")
-        return
-
     # Create a results dictionary to store the summary
     results_summary = {}
 
-    # Run benchmarks for each flow and test case
+    # Semaphores to control concurrency
+    installation_semaphore = asyncio.Semaphore(1)  # Only 1 flow installation at a time
+    test_semaphore = asyncio.Semaphore(1)  # Only 1 test at a time
+
+    flow_tasks = []
+
     for flow_test in SELECTED_TEST_FLOW_SUITE:
-        flow_name = flow_test.flow_name
-        results_summary[flow_name] = []  # Initialize the flow in the results summary
-        for test_case in flow_test.test_cases:
-            input_params = test_case.input_params
-            input_files = test_case.input_files
-            warm_up = test_case.warm_up
-            count = test_case.count + 1 if warm_up else test_case.count
-
-            # Create tasks, passing input files if present
-            task_ids = await create_task(flow_name, input_params, count, input_files)
-            if not task_ids:
-                print(
-                    f"Failed to create tasks for flow '{flow_name}', test case: {test_case.name}"
-                )
-                continue
-
-            # Wait for tasks to finish and save results
-            task_results = []
-            flow_comfy_saved = False
-            for task_id in task_ids:
-                result = await get_task_progress(task_id)
-                task_results.append(result)
-
-                if not flow_comfy_saved and "flow_comfy" in result:
-                    await save_flow_comfy(
-                        flow_name, test_case.name, result["flow_comfy"]
-                    )
-                    flow_comfy_saved = True
-
-            if warm_up:
-                task_results = task_results[1:]
-
-            # Save results and capture summary
-            summary = await save_results(
-                flow_name, test_case.name, test_case, task_results
+        flow_task = asyncio.create_task(
+            process_flow(
+                flow_test, results_summary, installation_semaphore, test_semaphore
             )
-            if summary:
-                results_summary[flow_name].append(
-                    {
-                        "test_case": test_case.name,
-                        "avg_exec_time": summary["avg_exec_time"],
-                    }
-                )
+        )
+        flow_tasks.append(flow_task)
+
+    await asyncio.gather(*flow_tasks)
 
     # Generate the JSON results summary file
     await generate_results_summary_json(results_summary)
