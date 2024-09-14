@@ -53,6 +53,7 @@ def generate_hardware_results_table():
 
         table_md += "\n"  # Add spacing between flow groups
 
+    table_md = table_md[:-1] if table_md.endswith("\n\n") else table_md
     # Save the table to a Markdown file
     with open("docs/hardware_results.md", "w") as f:
         f.write(table_md)
