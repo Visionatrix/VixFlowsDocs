@@ -103,3 +103,5 @@ scripts/visionatrix
 tasks_history.db
 /flows.zip
 flows_publish
+hardware_results/
+site/

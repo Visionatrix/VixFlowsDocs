@@ -50,11 +50,11 @@ jobs:
       - name: Build and push Docs
         run: |
           export CHANGES_DATE=`date -d"@$(git log -1 --pretty=%ct)" --iso-8601=seconds`
-          make html
+          mkdocs build
           git config --global user.name bigcat88
           git config --global user.email "bigcat88@users.noreply.github.com"
           docroot=`mktemp -d`
-          rsync -av "docs/_build/html/" "${docroot}/"
+          rsync -av "site/" "${docroot}/"
           rsync -av "flows_publish/" "${docroot}/"
           rsync -av "models_catalog.json" "${docroot}/"
           rsync -av "docs/swagger-ui/" "${docroot}/swagger-ui/"

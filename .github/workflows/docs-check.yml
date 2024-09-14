@@ -18,6 +18,5 @@ jobs:
       - name: Install Docs dependencies
         run: python3 -m pip install -r requirements.txt
 
-      - name: Build and push Docs
-        run: |
-          make html SPHINXOPTS="-W"
+      - name: Build Docs
+        run: mkdocs build --strict
