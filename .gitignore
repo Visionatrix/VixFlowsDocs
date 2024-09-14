@@ -105,3 +105,4 @@ tasks_history.db
 flows_publish
 hardware_results/
 site/
+scripts/results/
