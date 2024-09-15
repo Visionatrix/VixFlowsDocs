@@ -19,4 +19,6 @@ jobs:
         run: python3 -m pip install -r requirements.txt
 
       - name: Build Docs
-        run: mkdocs build --strict
+        run: |
+          python3 scripts/benchmarks/generate_hardware_results.py
+          mkdocs build --strict
