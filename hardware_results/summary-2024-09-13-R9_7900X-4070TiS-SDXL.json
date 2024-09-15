@@ -1,0 +1,122 @@
+{
+    "test_time": "2024/09/13",
+    "flows": [
+        {
+            "flow_name": "sdxl_lighting",
+            "flow_display_name": "SDXL Lighting",
+            "test_cases": [
+                {
+                    "test_case": "4_steps",
+                    "avg_exec_time": 0.8788322776666367,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                },
+                {
+                    "test_case": "8_steps",
+                    "avg_exec_time": 1.4441025000000234,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                }
+            ]
+        },
+        {
+            "flow_name": "juggernaut_lite",
+            "flow_display_name": "Juggernaut Lite",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 10.15705222766663,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                }
+            ]
+        },
+        {
+            "flow_name": "juggernaut_xl",
+            "flow_display_name": "Juggernaut XL",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 10.936654817333268,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                },
+                {
+                    "test_case": "fast_run",
+                    "avg_exec_time": 4.567601893000149,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                }
+            ]
+        },
+        {
+            "flow_name": "colorful_xl",
+            "flow_display_name": "Colorful XL",
+            "test_cases": [
+                {
+                    "test_case": "fast_run_30steps",
+                    "avg_exec_time": 1.5121036353333086,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                },
+                {
+                    "test_case": "fast_run_60steps",
+                    "avg_exec_time": 2.6786135493333254,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                },
+                {
+                    "test_case": "usual_run_30steps",
+                    "avg_exec_time": 3.8188120210002126,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                },
+                {
+                    "test_case": "usual_run_60steps",
+                    "avg_exec_time": 7.2001601536667295,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                }
+            ]
+        },
+        {
+            "flow_name": "mobius_xl",
+            "flow_display_name": "Mobius XL",
+            "test_cases": [
+                {
+                    "test_case": "fast_run_30steps",
+                    "avg_exec_time": 5.014051782333354,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                },
+                {
+                    "test_case": "usual_run_30steps",
+                    "avg_exec_time": 12.021883228333385,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                }
+            ]
+        },
+        {
+            "flow_name": "playground_2_5_aesthetic",
+            "flow_display_name": "Aesthetic images",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 10.498190840999996,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                },
+                {
+                    "test_case": "fast_run",
+                    "avg_exec_time": 4.41220873066671,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                }
+            ]
+        },
+        {
+            "flow_name": "playground_2_5_prometheus",
+            "flow_display_name": "Prometheus model",
+            "test_cases": [
+                {
+                    "test_case": "25steps",
+                    "avg_exec_time": 5.744705615666589,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                },
+                {
+                    "test_case": "50steps",
+                    "avg_exec_time": 11.180116042333339,
+                    "hardware_desc": "R9_7900X-4070TiS"
+                }
+            ]
+        }
+    ]
+}

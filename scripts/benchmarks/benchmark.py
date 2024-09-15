@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import asyncio
 import json
+import math
 import os
 import statistics
 import typing
@@ -11,13 +12,16 @@ from pathlib import Path
 import httpx
 from pydantic import BaseModel, Field
 
+os.chdir(Path(__file__).parent)
+
 SERVER_URL = os.environ.get("SERVER_URL", "http://127.0.0.1:8288")
 REMOVE_RESULTS_FROM_VISIONATRIX = int(os.environ.get("REMOVE_RESULTS", "1"))
 DEFAULT_NUMBER_OF_TEST_CASE_RUNS = int(os.environ.get("COUNT", "3"))
-HARDWARE = os.environ.get("HARDWARE", "REPLACE").strip("\"'")
+HARDWARE = os.environ.get("HARDWARE", "HW_REPLACE44").strip("\"'")
+FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "1800"))
 TEST_START_TIME = datetime.now()
 RESULTS_DIR = Path("results").joinpath(
-    f"{TEST_START_TIME.strftime('%Y_%m_%d-%H:%M:%S')}"
+    f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}"
 )
 SELECTED_TEST_FLOW_SUITE = []
 
@@ -332,7 +336,7 @@ TEST_CASES_FLUX = [
         ],
     ),
 ]
-TEST_CASES_TOP_TIER = [
+TEST_CASES_HEAVY = [
     FlowTest(
         flow_name="flux1_dev",
         test_cases=[
@@ -348,7 +352,7 @@ TEST_CASES_TOP_TIER = [
     ),
 ]
 validate_flows_test_cases(
-    TEST_CASES_SDXL + TEST_CASES_OTHER + TEST_CASES_FLUX + TEST_CASES_TOP_TIER
+    TEST_CASES_SDXL + TEST_CASES_OTHER + TEST_CASES_FLUX + TEST_CASES_HEAVY
 )
 
 
@@ -358,7 +362,7 @@ async def select_test_flow_suite():
     print("1. SDXL Suite")
     print("2. FLUX Suite")
     print("3. OTHER Suite")
-    print("4. TOP TIER(24GB+ VRAM) Suite")
+    print("4. HEAVY(24GB+ VRAM) Suite")
 
     user_choice = input("Enter the number of the suite (1/2/3/4): ")
 
@@ -372,8 +376,8 @@ async def select_test_flow_suite():
         SELECTED_TEST_FLOW_SUITE = TEST_CASES_OTHER
         print("Selected OTHER Suite.")
     elif user_choice == "4":
-        SELECTED_TEST_FLOW_SUITE = TEST_CASES_TOP_TIER
-        print("Selected TOP TIER Suite.")
+        SELECTED_TEST_FLOW_SUITE = TEST_CASES_HEAVY
+        print("Selected HEAVY Suite.")
     else:
         print("Invalid selection. Please restart and select a valid suite.")
         exit(1)
@@ -437,7 +441,7 @@ async def install_flow(flow_name: str) -> bool:
 
 
 async def wait_for_installation_to_complete(
-    flow_name: str, poll_interval: int = 5, timeout: int = 300
+    flow_name: str, poll_interval: int = 5, timeout: int = FLOW_INSTALL_TIMEOUT
 ) -> bool:
     elapsed_time = 0
     async with httpx.AsyncClient() as client:
@@ -456,8 +460,9 @@ async def wait_for_installation_to_complete(
                                 )
                                 return False
                             return True
+                        rounded_flow_progress = math.floor(flow["progress"] * 10) / 10
                         print(
-                            f"Flow '{flow_name}' installation progress: {flow['progress']}%"
+                            f"Flow '{flow_name}' installation progress: {rounded_flow_progress}%"
                         )
 
                 await asyncio.sleep(poll_interval)
@@ -524,7 +529,10 @@ async def get_task_progress(task_id: int, poll_interval: int = 3) -> dict:
                     task_data = response.json()
                     if task_data.get("progress") == 100.0 or task_data.get("error"):
                         return task_data
-                    print(f"Task {task_id} progress: {task_data.get('progress')}%")
+                    rounded_task_progress = (
+                        math.floor(task_data.get("progress") * 10) / 10
+                    )
+                    print(f"Task {task_id} progress: {rounded_task_progress}%")
                     max_read_timeout_count = 20
                 await asyncio.sleep(poll_interval)
             except httpx.ReadTimeout:
@@ -547,6 +555,16 @@ async def run_test_case(
     results_summary: dict,
     test_semaphore: asyncio.Semaphore,
 ):
+    # Check if results for this test case already exist on disk
+    flow_test_case_dir = os.path.join(RESULTS_DIR, f"{flow_name}__{test_case.name}")
+    metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
+
+    if os.path.exists(metadata_file):
+        print(
+            f"Results for flow '{flow_name}', test case '{test_case.name}' already exist. Skipping."
+        )
+        return
+
     # Use the test_semaphore to limit concurrent tests
     async with test_semaphore:
         input_params = test_case.input_params
@@ -583,6 +601,9 @@ async def run_test_case(
                 {"test_case": test_case.name, "avg_exec_time": summary["avg_exec_time"]}
             )
 
+            # Save the updated results summary after each test case
+            await generate_results_summary_json(results_summary)
+
 
 async def process_flow(
     flow_test: FlowTest,
@@ -591,7 +612,22 @@ async def process_flow(
     test_semaphore: asyncio.Semaphore,
 ):
     flow_name = flow_test.flow_name
-    results_summary[flow_name] = []  # Initialize the flow in the results summary
+
+    # Initialize the flow in the results summary if not already present
+    if flow_name not in results_summary:
+        results_summary[flow_name] = []
+
+    # Check if all test cases for this flow have already been completed
+    completed_test_cases = {tc["test_case"] for tc in results_summary[flow_name]}
+    remaining_test_cases = [
+        tc for tc in flow_test.test_cases if tc.name not in completed_test_cases
+    ]
+
+    if not remaining_test_cases:
+        print(
+            f"All test cases for flow '{flow_name}' have already been completed. Skipping."
+        )
+        return
 
     # Check if the flow is installed
     if not await is_flow_installed(flow_name):
@@ -606,9 +642,30 @@ async def process_flow(
     else:
         print(f"Flow '{flow_name}' is already installed.")
 
-    # As soon as the flow is installed, start testing
-    for test_case in flow_test.test_cases:
+    # As soon as the flow is installed, start testing remaining test cases
+    for test_case in remaining_test_cases:
         await run_test_case(flow_name, test_case, results_summary, test_semaphore)
+
+
+async def load_results_summary() -> dict:
+    # Determine the suite identifier to locate the correct summary file
+    suite_identifier = get_suite_identifier()
+    summary_file = os.path.join(
+        RESULTS_DIR,
+        f"summary-{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_identifier}.json",
+    )
+
+    if os.path.exists(summary_file):
+        with open(summary_file, "r") as f:
+            data = json.load(f)
+            # Convert the loaded data into the required format
+            results_summary = {
+                flow["flow_name"]: flow["test_cases"] for flow in data.get("flows", [])
+            }
+            print(f"Loaded existing results summary from {summary_file}")
+            return results_summary
+    else:
+        return {}
 
 
 async def benchmarker():
@@ -620,12 +677,12 @@ async def benchmarker():
         print("Cannot proceed as the server is down.")
         return
 
-    # Create a results dictionary to store the summary
-    results_summary = {}
-
     # Semaphores to control concurrency
     installation_semaphore = asyncio.Semaphore(1)  # Only 1 flow installation at a time
-    test_semaphore = asyncio.Semaphore(1)  # Only 1 test at a time
+    test_semaphore = asyncio.Semaphore(1)  # Only 1 test runs at a time
+
+    # Load existing results if available
+    results_summary = await load_results_summary()
 
     flow_tasks = []
 
@@ -651,6 +708,14 @@ async def save_results(
     flow_test_case_dir = os.path.join(RESULTS_DIR, f"{flow_name}__{test_case_name}")
     os.makedirs(flow_test_case_dir, exist_ok=True)
 
+    failed_tasks = [task for task in task_results if task.get("error")]
+    if failed_tasks:
+        print(
+            f"Some tasks failed for flow '{flow_name}', test case '{test_case_name}' with errors:"
+        )
+        for i in failed_tasks:
+            print(i["error"])
+
     # Calculate summary statistics
     execution_times = [
         task["execution_time"] for task in task_results if "execution_time" in task
@@ -672,7 +737,7 @@ async def save_results(
 
     metadata = {
         "flow_name": flow_name,
-        "test_case": test_case.model_dump_json(indent=4),
+        "test_case": test_case.model_dump(),
         "summary": summary,  # Add the summary before task_results
         "task_results": task_results,
     }
@@ -760,42 +825,64 @@ async def save_output(
     print(f"Output saved for task {task_id}, node {node_id} to {output_file}")
 
 
-async def generate_results_summary_json(results_summary: dict):
-    suite_identifier = ""
+def get_suite_identifier() -> str:
     if SELECTED_TEST_FLOW_SUITE == TEST_CASES_SDXL:
-        suite_identifier = "SDXL"
+        return "SDXL"
     elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_FLUX:
-        suite_identifier = "FLUX"
+        return "FLUX"
     elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_OTHER:
-        suite_identifier = "OTHER"
-    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_TOP_TIER:
-        suite_identifier = "TOP TIER"
+        return "OTHER"
+    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_HEAVY:
+        return "HEAVY"
+    raise RuntimeError("Unknown TEST SUITE")
+
+
+async def generate_results_summary_json(results_summary: dict):
+    suite_identifier = get_suite_identifier()
 
     summary_file = os.path.join(
         RESULTS_DIR,
-        f"results_summary_{suite_identifier}-{HARDWARE}-{TEST_START_TIME.strftime('%Y-%m-%d')}.json",
+        f"summary-{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_identifier}.json",
     )
+
     results_data = {
         "test_time": TEST_START_TIME.strftime("%Y/%m/%d"),
         "flows": [],
     }
+
     flows_display_names = await get_flow_display_names()
 
-    # Populate the flows with test results
-    for flow_name, test_cases in results_summary.items():
+    # Instead of relying on in-memory data, read results from disk
+    for flow_name in results_summary.keys():
         flow_data = {
             "flow_name": flow_name,
             "flow_display_name": flows_display_names.get(flow_name, flow_name),
             "test_cases": [],
         }
-        for test_case in test_cases:
-            flow_data["test_cases"].append(
-                {
-                    "test_case": test_case["test_case"],
-                    "avg_exec_time": test_case["avg_exec_time"],
-                    "hardware_desc": HARDWARE,
-                }
+
+        # Read test case results from the corresponding directories
+        for test_case_entry in results_summary[flow_name]:
+            test_case_name = test_case_entry["test_case"]
+            flow_test_case_dir = os.path.join(
+                RESULTS_DIR, f"{flow_name}__{test_case_name}"
             )
+            metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
+
+            if os.path.exists(metadata_file):
+                with open(metadata_file, "r") as f:
+                    metadata = json.load(f)
+                    summary = metadata.get("summary", {})
+                    flow_data["test_cases"].append(
+                        {
+                            "test_case": test_case_name,
+                            "avg_exec_time": summary.get("avg_exec_time"),
+                        }
+                    )
+            else:
+                print(
+                    f"Warning: Metadata file for flow '{flow_name}', test case '{test_case_name}' not found."
+                )
+
         results_data["flows"].append(flow_data)
 
     # Write the results to a JSON file

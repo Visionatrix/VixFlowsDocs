@@ -50,6 +50,7 @@ jobs:
       - name: Build and push Docs
         run: |
           export CHANGES_DATE=`date -d"@$(git log -1 --pretty=%ct)" --iso-8601=seconds`
+          python3 scripts/benchmarks/generate_hardware_results.py
           mkdocs build
           git config --global user.name bigcat88
           git config --global user.email "bigcat88@users.noreply.github.com"

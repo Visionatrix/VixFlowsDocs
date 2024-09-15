@@ -1,0 +1,32 @@
+{
+    "test_time": "2024/09/13",
+    "flows": [
+        {
+            "flow_name": "flux1_dev_8bit",
+            "flow_display_name": "Flux (Small)",
+            "test_cases": [
+                {
+                    "test_case": "20steps",
+                    "avg_exec_time": 37.42710090300034,
+                    "hardware_desc": "i9_10900-7900XTX"
+                },
+                {
+                    "test_case": "40steps",
+                    "avg_exec_time": 74.38036600125042,
+                    "hardware_desc": "i9_10900-7900XTX"
+                }
+            ]
+        },
+        {
+            "flow_name": "flux1_schnell_8bit",
+            "flow_display_name": "Flux Lighting (Small)",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 7.357450785000765,
+                    "hardware_desc": "i9_10900-7900XTX"
+                }
+            ]
+        }
+    ]
+}

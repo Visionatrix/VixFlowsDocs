@@ -1,8 +1,12 @@
-import os
 import json
+import os
+import re
+from pathlib import Path
 
-# Directory where the `results_summary_XXX.json` files are stored
-HARDWARE_RESULTS_DIR = "hardware_results"
+os.chdir(Path(__file__).parent)
+# Directory where the `summary-date-HARDWARE-SUITE.json` files are stored
+HARDWARE_RESULTS_DIR = Path("../../hardware_results")
+PATTERN = r"summary-\d{4}-\d{2}-\d{2}-(.*?)-(SDXL|FLUX|OTHER|HEAVY)\.json"
 
 
 # Function to generate a Markdown table from multiple results_summary.json files
@@ -14,6 +18,11 @@ def generate_hardware_results_table():
     for root, _, files in os.walk(HARDWARE_RESULTS_DIR):
         for file in files:
             if file.endswith(".json"):
+                match = re.search(PATTERN, file)
+                if not match:
+                    print("found file with invalid naming:", file)
+                    continue
+                hardware_desc = match.group(1)
                 file_path = os.path.join(root, file)
                 with open(file_path, "r") as f:
                     results_data = json.load(f)
@@ -26,12 +35,18 @@ def generate_hardware_results_table():
                             results_by_flow[flow_name] = []
 
                         for test_case in flow["test_cases"]:
-                            results_by_flow[flow_name].append({
-                                "test_case": test_case["test_case"],
-                                "avg_exec_time": round(test_case["avg_exec_time"], 1),
-                                "hardware_desc": test_case["hardware_desc"],
-                                "test_time": results_data["test_time"],  # Adding test_time from metadata
-                            })
+                            results_by_flow[flow_name].append(
+                                {
+                                    "test_case": test_case["test_case"],
+                                    "avg_exec_time": round(
+                                        test_case["avg_exec_time"], 1
+                                    ),
+                                    "hardware_desc": hardware_desc,
+                                    "test_time": results_data[
+                                        "test_time"
+                                    ],  # Adding test_time from metadata
+                                }
+                            )
 
     # Generate a Markdown table
     table_md = "# Hardware Test Results\n\n"
@@ -39,7 +54,9 @@ def generate_hardware_results_table():
     # Iterate over each flow, first sort by test_case, then by avg_exec_time
     for flow_name, test_cases in results_by_flow.items():
         # Sort test cases first by 'test_case' alphabetically, then by 'avg_exec_time'
-        sorted_test_cases = sorted(test_cases, key=lambda x: (x["test_case"], x["avg_exec_time"]))
+        sorted_test_cases = sorted(
+            test_cases, key=lambda x: (x["test_case"], x["avg_exec_time"])
+        )
 
         table_md += f"## {flow_to_display_name[flow_name]}\n\n"
         table_md += "| Test Case  |  Avg Execution Time (s) | Hardware Description | Test Time |\n"
@@ -55,7 +72,7 @@ def generate_hardware_results_table():
 
     table_md = table_md[:-1] if table_md.endswith("\n\n") else table_md
     # Save the table to a Markdown file
-    with open("docs/hardware_results.md", "w") as f:
+    with open(Path("../../docs/hardware_results.md"), "w") as f:
         f.write(table_md)
 
     print("Hardware test results table generated at docs/hardware_results.md")

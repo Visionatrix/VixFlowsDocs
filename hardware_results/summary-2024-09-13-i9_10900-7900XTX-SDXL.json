@@ -1,0 +1,122 @@
+{
+    "test_time": "2024/09/13",
+    "flows": [
+        {
+            "flow_name": "sdxl_lighting",
+            "flow_display_name": "SDXL Lighting",
+            "test_cases": [
+                {
+                    "test_case": "4_steps",
+                    "avg_exec_time": 1.0666292267496829,
+                    "hardware_desc": "i9_10900-7900XTX"
+                },
+                {
+                    "test_case": "8_steps",
+                    "avg_exec_time": 1.6902707809997537,
+                    "hardware_desc": "i9_10900-7900XTX"
+                }
+            ]
+        },
+        {
+            "flow_name": "juggernaut_lite",
+            "flow_display_name": "Juggernaut Lite",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 9.208366818750164,
+                    "hardware_desc": "i9_10900-7900XTX"
+                }
+            ]
+        },
+        {
+            "flow_name": "juggernaut_xl",
+            "flow_display_name": "Juggernaut XL",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 15.148308121500122,
+                    "hardware_desc": "i9_10900-7900XTX"
+                },
+                {
+                    "test_case": "fast_run",
+                    "avg_exec_time": 6.2556433127501805,
+                    "hardware_desc": "i9_10900-7900XTX"
+                }
+            ]
+        },
+        {
+            "flow_name": "colorful_xl",
+            "flow_display_name": "Colorful XL",
+            "test_cases": [
+                {
+                    "test_case": "fast_run_30steps",
+                    "avg_exec_time": 1.95916982225026,
+                    "hardware_desc": "i9_10900-7900XTX"
+                },
+                {
+                    "test_case": "fast_run_60steps",
+                    "avg_exec_time": 3.4866955709999274,
+                    "hardware_desc": "i9_10900-7900XTX"
+                },
+                {
+                    "test_case": "usual_run_30steps",
+                    "avg_exec_time": 5.01547002250004,
+                    "hardware_desc": "i9_10900-7900XTX"
+                },
+                {
+                    "test_case": "usual_run_60steps",
+                    "avg_exec_time": 9.575216640000008,
+                    "hardware_desc": "i9_10900-7900XTX"
+                }
+            ]
+        },
+        {
+            "flow_name": "mobius_xl",
+            "flow_display_name": "Mobius XL",
+            "test_cases": [
+                {
+                    "test_case": "fast_run_30steps",
+                    "avg_exec_time": 7.173761420250003,
+                    "hardware_desc": "i9_10900-7900XTX"
+                },
+                {
+                    "test_case": "usual_run_30steps",
+                    "avg_exec_time": 17.319431959749863,
+                    "hardware_desc": "i9_10900-7900XTX"
+                }
+            ]
+        },
+        {
+            "flow_name": "playground_2_5_aesthetic",
+            "flow_display_name": "Aesthetic images",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 15.068115058749981,
+                    "hardware_desc": "i9_10900-7900XTX"
+                },
+                {
+                    "test_case": "fast_run",
+                    "avg_exec_time": 6.229756580750063,
+                    "hardware_desc": "i9_10900-7900XTX"
+                }
+            ]
+        },
+        {
+            "flow_name": "playground_2_5_prometheus",
+            "flow_display_name": "Prometheus model",
+            "test_cases": [
+                {
+                    "test_case": "25steps",
+                    "avg_exec_time": 8.885974457999964,
+                    "hardware_desc": "i9_10900-7900XTX"
+                },
+                {
+                    "test_case": "50steps",
+                    "avg_exec_time": 17.365900846500153,
+                    "hardware_desc": "i9_10900-7900XTX"
+                }
+            ]
+        }
+    ]
+}
