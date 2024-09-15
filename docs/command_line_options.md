@@ -67,7 +67,7 @@ python3 -m visionatrix install-flow --file=path_to_json
 ```
 
 File should contain ComfyUI workflow with the
-[metadata](https://visionatrix.github.io/VixFlowsDocs/vix_workflows.html#vix-workflow-overview)
+[metadata](./vix_workflows.md#vix-workflow-overview)
 needed for Visionatrix.
 
 ``` shell

@@ -1,4 +1,10 @@
 site_name: Visionatrix Documentation
+
+repo_url: https://github.com/Visionatrix/Visionatrix
+repo_name: Visionatrix
+edit_uri: https://github.com/Visionatrix/VixFlowsDocs/edit/main/docs/
+site_url: https://visionatrix.github.io/
+
 nav:
   - Home: index.md
   - Flows:
@@ -43,6 +49,8 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - toc:
+      permalink: true
 
 theme:
   name: material
@@ -52,7 +60,48 @@ theme:
     - content.footnote.tooltips
     - content.tabs.link
     - content.tooltips
+    - content.action.edit
+    - content.action.view
     - search.highlight
     - search.share
     - search.suggest
     - toc.follow
+
+  logo: assets/vix_logo.png
+  icon:
+    repo: fontawesome/brands/github
+
+  palette:
+
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: teal
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - search
+  - social
+
+
+validation:
+  anchors: warn
