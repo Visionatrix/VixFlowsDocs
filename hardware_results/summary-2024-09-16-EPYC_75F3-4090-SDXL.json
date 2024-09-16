@@ -1,5 +1,5 @@
 {
-    "test_time": "2024/09/14",
+    "test_time": "2024/09/16",
     "flows": [
         {
             "flow_name": "sdxl_lighting",
@@ -7,13 +7,11 @@
             "test_cases": [
                 {
                     "test_case": "4_steps",
-                    "avg_exec_time": 0.8744293348863721,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 0.8191566940397024
                 },
                 {
                     "test_case": "8_steps",
-                    "avg_exec_time": 1.418035307340324,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 1.2263606002554297
                 }
             ]
         },
@@ -23,8 +21,7 @@
             "test_cases": [
                 {
                     "test_case": "default",
-                    "avg_exec_time": 16.56345449183136,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 13.61082914583385
                 }
             ]
         },
@@ -34,13 +31,11 @@
             "test_cases": [
                 {
                     "test_case": "default",
-                    "avg_exec_time": 7.264404488913715,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 6.589017525874079
                 },
                 {
                     "test_case": "fast_run",
-                    "avg_exec_time": 3.094485538825393,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 2.885815864428878
                 }
             ]
         },
@@ -50,23 +45,19 @@
             "test_cases": [
                 {
                     "test_case": "fast_run_30steps",
-                    "avg_exec_time": 1.7003469381481409,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 1.4825524784624577
                 },
                 {
                     "test_case": "fast_run_60steps",
-                    "avg_exec_time": 2.8127170566469433,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 2.5426095724105835
                 },
                 {
                     "test_case": "usual_run_30steps",
-                    "avg_exec_time": 3.9797012146562336,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 3.6877128971740603
                 },
                 {
                     "test_case": "usual_run_60steps",
-                    "avg_exec_time": 7.008731552399695,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 6.912743991427123
                 }
             ]
         },
@@ -76,13 +67,11 @@
             "test_cases": [
                 {
                     "test_case": "fast_run_30steps",
-                    "avg_exec_time": 11.076998914405703,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 8.158646507002413
                 },
                 {
                     "test_case": "usual_run_30steps",
-                    "avg_exec_time": 24.4514196800068,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 20.504719803482296
                 }
             ]
         },
@@ -92,13 +81,11 @@
             "test_cases": [
                 {
                     "test_case": "default",
-                    "avg_exec_time": 7.031992467865348,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 6.624630024284125
                 },
                 {
                     "test_case": "fast_run",
-                    "avg_exec_time": 3.737537341751158,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 2.8246934192255138
                 }
             ]
         },
@@ -108,13 +95,11 @@
             "test_cases": [
                 {
                     "test_case": "25steps",
-                    "avg_exec_time": 11.9708978286013,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 12.002555807866155
                 },
                 {
                     "test_case": "50steps",
-                    "avg_exec_time": 20.526395966485143,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 20.410273960232736
                 }
             ]
         }
