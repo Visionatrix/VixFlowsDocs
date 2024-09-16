@@ -34,6 +34,9 @@ nav:
       - Inpaint: Flows/Inpaint.md
   - Installation: installation.md
   - Working Modes: working_modes.md
+  - Guides:
+      - Overview: Guides/index.md
+      - Worker to the Database: Guides/worker_to_database.md
   - Command Line Options: command_line_options.md
   - Technical Information: technical_information.md
   - Gated Models: gated_models.md
