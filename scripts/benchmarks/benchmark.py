@@ -23,6 +23,12 @@ TEST_START_TIME = datetime.now()
 RESULTS_DIR = Path("results").joinpath(
     f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}"
 )
+
+USER_NAME, USER_PASS = os.getenv("USER", ""), os.getenv("PASS", "")
+BASIC_AUTH = httpx.BasicAuth(USER_NAME, USER_PASS) if USER_NAME and USER_PASS else None
+if BASIC_AUTH:
+    print("Using authentication for connect")
+
 SELECTED_TEST_FLOW_SUITE = []
 
 INSTALLED_FLOWS_CACHE = []
@@ -384,7 +390,7 @@ async def select_test_flow_suite():
 
 
 async def is_server_online() -> bool:
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             response = await client.get(f"{SERVER_URL}/api/flows/installed")
             response.raise_for_status()  # Ensure server responds correctly
@@ -399,7 +405,7 @@ async def get_installed_flows() -> list:
 
     if INSTALLED_FLOWS_CACHE:
         return INSTALLED_FLOWS_CACHE
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         response = await client.get(f"{SERVER_URL}/api/flows/installed")
         response.raise_for_status()
         INSTALLED_FLOWS_CACHE = response.json()
@@ -418,7 +424,7 @@ async def get_flow_display_names() -> dict[str, str]:
 
 async def install_flow(flow_name: str) -> bool:
     print(f"Installing flow '{flow_name}'...")
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             response = await client.post(
                 f"{SERVER_URL}/api/flows/flow", params={"name": flow_name}
@@ -444,7 +450,7 @@ async def wait_for_installation_to_complete(
     flow_name: str, poll_interval: int = 5, timeout: int = FLOW_INSTALL_TIMEOUT
 ) -> bool:
     elapsed_time = 0
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         while elapsed_time < timeout:
             try:
                 response = await client.get(f"{SERVER_URL}/api/flows/install-progress")
@@ -491,7 +497,7 @@ async def create_task(
                 print(f"File {file_name} not found in the input_files directory.")
                 return []
 
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             form_data = {
                 "name": flow_name,
@@ -519,7 +525,7 @@ async def create_task(
 
 async def get_task_progress(task_id: int, poll_interval: int = 3) -> dict:
     max_read_timeout_count = 20
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         while True:
             try:
                 response = await client.get(
@@ -767,7 +773,7 @@ async def save_results(
 
 
 async def delete_task(task_id: int) -> None:
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             response = await client.delete(
                 f"{SERVER_URL}/api/tasks/task", params={"task_id": task_id}
@@ -791,7 +797,7 @@ async def save_flow_comfy(flow_name: str, test_case_name: str, flow_comfy: dict)
 
 
 async def get_task_results(task_id: int, node_id: int) -> bytes:
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             response = await client.get(
                 f"{SERVER_URL}/api/tasks/results",
