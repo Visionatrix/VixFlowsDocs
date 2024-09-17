@@ -24,7 +24,7 @@ RESULTS_DIR = Path("results").joinpath(
     f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}"
 )
 
-USER_NAME, USER_PASS = os.getenv("USER", ""), os.getenv("PASS", "")
+USER_NAME, USER_PASS = os.getenv("USERNAME", ""), os.getenv("USERPASS", "")
 BASIC_AUTH = httpx.BasicAuth(USER_NAME, USER_PASS) if USER_NAME and USER_PASS else None
 if BASIC_AUTH:
     print("Using authentication for connect")
@@ -538,13 +538,15 @@ async def get_task_progress(task_id: int, poll_interval: int = 3) -> dict:
                     rounded_task_progress = (
                         math.floor(task_data.get("progress") * 10) / 10
                     )
-                    print(f"Task {task_id} progress: {rounded_task_progress}%")
+                    print(
+                        f"Task `{task_data['name']}` with id={task_id}, progress: {rounded_task_progress}%"
+                    )
                     max_read_timeout_count = 20
                 await asyncio.sleep(poll_interval)
             except httpx.ReadTimeout:
                 max_read_timeout_count -= 1
                 print(
-                    f"ReadTimeout error, continue({max_read_timeout_count} tries left)"
+                    f"Task with id={task_id}: ReadTimeout error, continue... {max_read_timeout_count} tries left"
                 )
                 if not max_read_timeout_count:
                     return {"error": "read timeout error"}

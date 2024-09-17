@@ -1,5 +1,5 @@
 {
-    "test_time": "2024/09/14",
+    "test_time": "2024/09/17",
     "flows": [
         {
             "flow_name": "stable_cascade",
@@ -7,18 +7,15 @@
             "test_cases": [
                 {
                     "test_case": "one_pass",
-                    "avg_exec_time": 6.295165763236582,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 5.993898505344987
                 },
                 {
                     "test_case": "two_pass",
-                    "avg_exec_time": 14.459644814953208,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 14.137323117814958
                 },
                 {
                     "test_case": "three_pass",
-                    "avg_exec_time": 26.20149173680693,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 25.706989417473476
                 }
             ]
         },
@@ -28,59 +25,33 @@
             "test_cases": [
                 {
                     "test_case": "20steps",
-                    "avg_exec_time": 6.487509272061288,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 6.18691351202627
                 },
                 {
                     "test_case": "40steps",
-                    "avg_exec_time": 12.512711023911834,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 12.118085860895613
                 }
             ]
         },
         {
             "flow_name": "vintage_portrait",
             "flow_display_name": "Vintage Portrait",
-            "test_cases": [
-                {
-                    "test_case": "default",
-                    "avg_exec_time": 67.72192618530244,
-                    "hardware_desc": "EPYC_75F3-4090"
-                }
-            ]
+            "test_cases": []
         },
         {
             "flow_name": "sketch_portrait",
             "flow_display_name": "Sketch Portrait",
-            "test_cases": [
-                {
-                    "test_case": "default",
-                    "avg_exec_time": 42.2033288795501,
-                    "hardware_desc": "EPYC_75F3-4090"
-                }
-            ]
+            "test_cases": []
         },
         {
             "flow_name": "comicu_portrait",
             "flow_display_name": "ComicU Portrait",
-            "test_cases": [
-                {
-                    "test_case": "default",
-                    "avg_exec_time": 23.459859899245203,
-                    "hardware_desc": "EPYC_75F3-4090"
-                }
-            ]
+            "test_cases": []
         },
         {
             "flow_name": "ghibli_portrait",
             "flow_display_name": "Ghibli Portrait",
-            "test_cases": [
-                {
-                    "test_case": "default",
-                    "avg_exec_time": 23.56544211320579,
-                    "hardware_desc": "EPYC_75F3-4090"
-                }
-            ]
+            "test_cases": []
         },
         {
             "flow_name": "memoji_portrait",
@@ -90,7 +61,12 @@
         {
             "flow_name": "photomaker_1",
             "flow_display_name": "Photo from 1 image",
-            "test_cases": []
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 14.790717164364954
+                }
+            ]
         },
         {
             "flow_name": "remove_background_birefnet",
@@ -98,8 +74,7 @@
             "test_cases": [
                 {
                     "test_case": "1024x1024",
-                    "avg_exec_time": 0.3678522100672126,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 0.3678522100672126
                 }
             ]
         },
@@ -109,8 +84,7 @@
             "test_cases": [
                 {
                     "test_case": "1024x1024",
-                    "avg_exec_time": 0.2846905132755637,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 0.2846905132755637
                 }
             ]
         },
@@ -120,21 +94,14 @@
             "test_cases": [
                 {
                     "test_case": "1MPx1.5",
-                    "avg_exec_time": 115.802590303123,
-                    "hardware_desc": "EPYC_75F3-4090"
+                    "avg_exec_time": 83.27513283398002
                 }
             ]
         },
         {
             "flow_name": "photo_stickers",
             "flow_display_name": "Photo Stickers",
-            "test_cases": [
-                {
-                    "test_case": "default",
-                    "avg_exec_time": 149.97298822551966,
-                    "hardware_desc": "EPYC_75F3-4090"
-                }
-            ]
+            "test_cases": []
         }
     ]
 }

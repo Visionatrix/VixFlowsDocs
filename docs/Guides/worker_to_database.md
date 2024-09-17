@@ -88,14 +88,14 @@ title: Worker to Database-FS Mode
       ```
     </details>
 
-7. Start the Visionatrix Server:
+7. Start the Visionatrix Server(*from activated venv*):
 
     ```bash
     DATABASE_URI="postgresql+psycopg://vix_user:vix_password@localhost:5432/vix_db" \
     VIX_SERVER_FULL_MODELS=1 python3 -m visionatrix run --ui --mode=SERVER > server.log 2>&1 & echo "Server PID: $!"
     ```
 
-8. Start the Visionatrix Worker:
+8. Start the Visionatrix Worker(*from activated venv*):
 
     ```bash
     DATABASE_URI="postgresql+psycopg://vix_user:vix_password@localhost:5432/vix_db" \
