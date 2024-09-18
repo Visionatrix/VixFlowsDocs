@@ -386,7 +386,7 @@ async def select_test_flow_suite():
         print("Selected SDXL Suite.")
     elif user_choice == "2":
         SELECTED_TEST_FLOW_SUITE = TEST_CASES_PORTRAITS
-        print("Selected OTHER Suite.")
+        print("Selected PORTRAITS Suite.")
     elif user_choice == "3":
         SELECTED_TEST_FLOW_SUITE = TEST_CASES_OTHER
         print("Selected OTHER Suite.")
@@ -891,7 +891,7 @@ def get_suite_identifier() -> str:
     if SELECTED_TEST_FLOW_SUITE == TEST_CASES_SDXL:
         return "SDXL"
     elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_PORTRAITS:
-        return "OTHER"
+        return "PORTRAITS"
     elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_OTHER:
         return "OTHER"
     elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_FLUX:
