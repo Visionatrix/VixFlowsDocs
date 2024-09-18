@@ -28,6 +28,8 @@ USER_NAME, USER_PASS = os.getenv("USERNAME", ""), os.getenv("USERPASS", "")
 BASIC_AUTH = httpx.BasicAuth(USER_NAME, USER_PASS) if USER_NAME and USER_PASS else None
 if BASIC_AUTH:
     print("Using authentication for connect")
+PAUSE_INTERVAL = int(os.environ.get("PAUSE_INTERVAL", "0"))
+FIRST_TEST_FLAG = True
 
 SELECTED_TEST_FLOW_SUITE = []
 
@@ -612,6 +614,17 @@ async def run_test_case(
 
     # Use the test_semaphore to limit concurrent tests
     async with test_semaphore:
+        global FIRST_TEST_FLAG
+
+        if FIRST_TEST_FLAG:
+            FIRST_TEST_FLAG = False
+        else:
+            if PAUSE_INTERVAL:
+                print(
+                    f"Pausing for {PAUSE_INTERVAL} seconds before starting next test."
+                )
+                await asyncio.sleep(PAUSE_INTERVAL)
+
         input_params = test_case.input_params
         input_files = test_case.input_files
         warm_up = test_case.warm_up
