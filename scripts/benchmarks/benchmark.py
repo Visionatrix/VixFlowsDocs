@@ -655,7 +655,12 @@ async def run_test_case(
         summary = await save_results(flow_name, test_case.name, test_case, task_results)
         if summary:
             results_summary[flow_name].append(
-                {"test_case": test_case.name, "avg_exec_time": summary["avg_exec_time"]}
+                {
+                    "test_case": test_case.name,
+                    "avg_exec_time": summary["avg_exec_time"],
+                    "min_exec_time": summary["min_exec_time"],
+                    "max_exec_time": summary["max_exec_time"],
+                }
             )
 
             # Save the updated results summary after each test case
