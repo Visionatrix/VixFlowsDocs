@@ -375,8 +375,8 @@ async def select_test_flow_suite():
     print("Please select the test suite you want to run:")
     print("1. SDXL Suite")
     print("2. PORTRAITS Suite")
-    print("3. FLUX Suite")
-    print("4. OTHER Suite")
+    print("3. OTHER Suite")
+    print("4. FLUX Suite")
     print("5. HEAVY(24GB+ VRAM) Suite")
 
     user_choice = input("Enter the number of the suite (1/2/3/4/5): ")
