@@ -14,7 +14,7 @@ Flows Developing:
 
   - [Vix Workflows](FlowsDeveloping/vix_workflows.md)
   - [Technical Information](FlowsDeveloping/technical_information.md)
-  - [Gated Models](FlowsDeveloping/gated_models.md)    
+  - [Gated Models](FlowsDeveloping/gated_models.md)
   - [ComfyUI to Vix Workflows Migration](FlowsDeveloping/comfyui_vix_migration.md)
 
 Common information:
