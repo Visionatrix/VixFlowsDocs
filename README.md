@@ -9,15 +9,15 @@ For any problems with Visionatrix or suggestions for improvement, go to the [mai
 - [Documentation](https://visionatrix.github.io/VixFlowsDocs/)
   - [Available Flows](https://visionatrix.github.io/VixFlowsDocs/Flows/)
   - Admin Manual:
-    - [Installation](https://visionatrix.github.io/VixFlowsDocs/installation/)
+    - [Installation](https://visionatrix.github.io/VixFlowsDocs/AdminManual/installation/)
     - [Working Modes](https://visionatrix.github.io/VixFlowsDocs/AdminManual/WorkingModes/working_modes/)
     - [Command Line Options](https://visionatrix.github.io/VixFlowsDocs/AdminManual/command_line_options/)
   - Flows Developing:
     - [Vix Workflows](https://visionatrix.github.io/VixFlowsDocs/FlowsDeveloping/vix_workflows/)
     - [Technical information](https://visionatrix.github.io/VixFlowsDocs/FlowsDeveloping/technical_information/)
-    - [Gated Models](https://visionatrix.github.io/VixFlowsDocs/FlowsDeveloping/technical_information/)
+    - [Gated Models](https://visionatrix.github.io/VixFlowsDocs/FlowsDeveloping/gated_models/)
     - [Creating Workflows](https://visionatrix.github.io/VixFlowsDocs/FlowsDeveloping/comfyui_vix_migration/)
-  Common information:
+  - Common information:
     - [FAQ](https://visionatrix.github.io/VixFlowsDocs/faq/)
     - [Hardware FAQ](https://visionatrix.github.io/VixFlowsDocs/hardware_faq/)
     - [Hardware Results](https://visionatrix.github.io/VixFlowsDocs/hardware_results/)
