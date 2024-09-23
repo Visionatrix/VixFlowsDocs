@@ -10,7 +10,7 @@ Admin Manual:
   - [Working Modes](AdminManual/WorkingModes/working_modes.md)
   - [Command Line Options](AdminManual/command_line_options.md)
 
-FlowsDeveloping:
+Flows Developing:
 
   - [Vix Workflows](FlowsDeveloping/vix_workflows.md)
   - [Technical Information](FlowsDeveloping/technical_information.md)
