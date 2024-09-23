@@ -1,0 +1,67 @@
+{
+    "test_time": "2024/09/23",
+    "flows": [
+        {
+            "flow_name": "stable_cascade",
+            "flow_display_name": "Stable Cascade",
+            "test_cases": [
+                {
+                    "test_case": "one_pass",
+                    "avg_exec_time": 47.657161250011995
+                },
+                {
+                    "test_case": "two_pass",
+                    "avg_exec_time": 160.65433231249335
+                },
+                {
+                    "test_case": "three_pass",
+                    "avg_exec_time": 397.74526066647377
+                }
+            ]
+        },
+        {
+            "flow_name": "hunyuan_dit",
+            "flow_display_name": "HunyuanDiT",
+            "test_cases": [
+                {
+                    "test_case": "20steps",
+                    "avg_exec_time": 108.07906331249978
+                },
+                {
+                    "test_case": "40steps",
+                    "avg_exec_time": 214.51112410399946
+                }
+            ]
+        },
+        {
+            "flow_name": "remove_background_birefnet",
+            "flow_display_name": "Remove background (BiRefNet)",
+            "test_cases": [
+                {
+                    "test_case": "1024x1024",
+                    "avg_exec_time": 1.7141578955051955
+                }
+            ]
+        },
+        {
+            "flow_name": "remove_background_bria",
+            "flow_display_name": "Remove background (Bria)",
+            "test_cases": [
+                {
+                    "test_case": "1024x1024",
+                    "avg_exec_time": 0.432920584018575
+                }
+            ]
+        },
+        {
+            "flow_name": "supir_upscaler",
+            "flow_display_name": "SUPIR Upscaler",
+            "test_cases": [
+                {
+                    "test_case": "1MPx1.5",
+                    "avg_exec_time": 566.8228520000121
+                }
+            ]
+        }
+    ]
+}

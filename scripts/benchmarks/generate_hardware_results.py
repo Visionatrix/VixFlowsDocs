@@ -6,7 +6,7 @@ from pathlib import Path
 os.chdir(Path(__file__).parent)
 # Directory where the `summary-date-HARDWARE-SUITE.json` files are stored
 HARDWARE_RESULTS_DIR = Path("../../hardware_results")
-PATTERN = r"summary-\d{4}-\d{2}-\d{2}-(.*?)-(SDXL|FLUX|OTHER|HEAVY)\.json"
+PATTERN = r"summary-\d{4}-\d{2}-\d{2}-(.*?)-(SDXL|PORTRAITS|OTHER|FLUX|HEAVY)\.json"
 
 
 # Function to generate a Markdown table from multiple results_summary.json files
