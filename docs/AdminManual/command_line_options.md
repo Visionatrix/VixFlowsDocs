@@ -12,7 +12,7 @@ They can be specified when starting manually:
 python3 -m visionatrix run --ui --use-split-cross-attention --disable-smart-memory
 ```
 
-Here are the list of the supported command line options related to [Visionatrix] for **run** command:
+Here are list of the supported command line options related to `Visionatrix` for **run** command:
 
 
 #### --backend_dir=BACKEND_DIR
@@ -67,7 +67,7 @@ python3 -m visionatrix install-flow --file=path_to_json
 ```
 
 File should contain ComfyUI workflow with the
-[metadata](./vix_workflows.md#vix-workflow-overview)
+[metadata](../FlowsDeveloping/vix_workflows.md#vix-workflow-overview)
 needed for Visionatrix.
 
 ``` shell
