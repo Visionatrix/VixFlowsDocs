@@ -1,5 +1,5 @@
 {
-    "test_time": "2024/09/13",
+    "test_time": "2024/09/23",
     "flows": [
         {
             "flow_name": "flux1_dev_8bit",
@@ -7,13 +7,11 @@
             "test_cases": [
                 {
                     "test_case": "20steps",
-                    "avg_exec_time": 23.93407983166647,
-                    "hardware_desc": "R9_7900X-4070TiS"
+                    "avg_exec_time": 25.923701363000266
                 },
                 {
                     "test_case": "40steps",
-                    "avg_exec_time": 46.70003046833335,
-                    "hardware_desc": "R9_7900X-4070TiS"
+                    "avg_exec_time": 48.57250613166676
                 }
             ]
         },
@@ -23,8 +21,7 @@
             "test_cases": [
                 {
                     "test_case": "default",
-                    "avg_exec_time": 5.4509730326666,
-                    "hardware_desc": "R9_7900X-4070TiS"
+                    "avg_exec_time": 6.555848037333514
                 }
             ]
         }

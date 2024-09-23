@@ -93,7 +93,7 @@ database and directly write the execution results to the servers *TASKS_FILES_DI
 
 In this setup, you can imagine workers as Server threads operating remotely.
 
-See installation guide for this mode: [Worker To Database-FS](Guides/worker_to_database.md)
+See installation guide for this mode: [Worker To Database-FS](worker_to_database.md)
 
 ### Worker to Server
 
