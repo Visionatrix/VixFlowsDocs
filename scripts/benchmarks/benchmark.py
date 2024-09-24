@@ -16,23 +16,26 @@ os.chdir(Path(__file__).parent)
 
 SERVER_URL = os.environ.get("SERVER_URL", "http://127.0.0.1:8288")
 REMOVE_RESULTS_FROM_VISIONATRIX = int(os.environ.get("REMOVE_RESULTS", "1"))
-DEFAULT_NUMBER_OF_TEST_CASE_RUNS = int(os.environ.get("COUNT", "3"))
-HARDWARE = os.environ.get("HARDWARE", "HW_REPLACE44").strip("\"'")
+DEFAULT_NUMBER_OF_TEST_CASE_RUNS = int(os.environ.get("COUNT", "2"))
+HARDWARE = os.environ.get("HARDWARE", "YOUR_CPU-YOUR_GPU").strip("\"'")
+WARMUP = bool(int(os.environ.get("WARMUP", "1")))
 FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "1800"))
 TEST_START_TIME = datetime.now()
 RESULTS_DIR = Path("results").joinpath(
     f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}"
 )
 
-USER_NAME, USER_PASS = os.getenv("USERNAME", ""), os.getenv("USERPASS", "")
-BASIC_AUTH = httpx.BasicAuth(USER_NAME, USER_PASS) if USER_NAME and USER_PASS else None
+USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", ""), os.getenv("USER_PASSWORD", "")
+BASIC_AUTH = (
+    httpx.BasicAuth(USER_NAME, USER_PASSWORD) if USER_NAME and USER_PASSWORD else None
+)
 if BASIC_AUTH:
     print("Using authentication for connect")
 PAUSE_INTERVAL = int(os.environ.get("PAUSE_INTERVAL", "0"))
+PAUSE_INTERVAL_AFTER_WARMUP = int(os.environ.get("PAUSE_INTERVAL_AFTER_WARMUP", "0"))
+
 FIRST_TEST_FLAG = True
-
 SELECTED_TEST_FLOW_SUITE = []
-
 INSTALLED_FLOWS_CACHE = []
 
 
@@ -49,7 +52,7 @@ class TestCase(BaseModel):
         description="List of file paths to pass to the flow during the task creation",
     )
     warm_up: bool = Field(
-        True,
+        WARMUP,
         description="If set to True, the warm-up run will be executed before test start.",
     )
     count: int = Field(
@@ -627,11 +630,33 @@ async def run_test_case(
 
         input_params = test_case.input_params
         input_files = test_case.input_files
-        warm_up = test_case.warm_up
-        count = test_case.count + 1 if warm_up else test_case.count
+        if test_case.warm_up:
+            print("Warming up...")
+            warmup_task_id = await create_task(flow_name, input_params, 1, input_files)
+            if not warmup_task_id:
+                print(
+                    f"Failed to create warmup task for flow '{flow_name}', test case: {test_case.name}"
+                )
+                return
+            r = await get_task_progress(warmup_task_id[0])
+            if r.get("error", ""):
+                print(
+                    f"Failed to finish warmup task for flow '{flow_name}', test case: {test_case.name}"
+                    f"\nError: {r['error']}"
+                )
+                return
+            if REMOVE_RESULTS_FROM_VISIONATRIX:
+                await delete_task(warmup_task_id[0])
+            if PAUSE_INTERVAL_AFTER_WARMUP:
+                print(
+                    f"Pausing for {PAUSE_INTERVAL_AFTER_WARMUP} seconds after warmup."
+                )
+                await asyncio.sleep(PAUSE_INTERVAL_AFTER_WARMUP)
 
         # Create tasks, passing input files if present
-        task_ids = await create_task(flow_name, input_params, count, input_files)
+        task_ids = await create_task(
+            flow_name, input_params, test_case.count, input_files
+        )
         if not task_ids:
             print(
                 f"Failed to create tasks for flow '{flow_name}', test case: {test_case.name}"
@@ -648,11 +673,10 @@ async def run_test_case(
                 await save_flow_comfy(flow_name, test_case.name, result["flow_comfy"])
                 break  # No need to check further once saved
 
-        if warm_up:
-            task_results = task_results[1:]
-
         # Save results and capture summary
-        summary = await save_results(flow_name, test_case.name, test_case, task_results)
+        summary = await save_results(
+            flow_name, test_case.name, test_case, task_results
+        )  # noqa
         if summary:
             results_summary[flow_name].append(
                 {
@@ -757,9 +781,6 @@ async def benchmarker():
         flow_tasks.append(flow_task)
 
     await asyncio.gather(*flow_tasks)
-
-    # Generate the JSON results summary file
-    await generate_results_summary_json(results_summary)
 
 
 async def save_results(

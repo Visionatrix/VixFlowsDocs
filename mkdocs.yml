@@ -46,6 +46,7 @@ nav:
   - FAQ: faq.md
   - Hardware FAQ: hardware_faq.md
   - Hardware Results: hardware_results.md
+  - How To Benchmark: how_to_benchmark.md
   - Swagger API: swagger.html
 
 markdown_extensions:

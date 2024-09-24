@@ -1,5 +1,5 @@
 {
-    "test_time": "2024/09/13",
+    "test_time": "2024/09/24",
     "flows": [
         {
             "flow_name": "flux1_dev",
@@ -7,13 +7,11 @@
             "test_cases": [
                 {
                     "test_case": "20steps",
-                    "avg_exec_time": 52.623215481249645,
-                    "hardware_desc": "i9_10900-7900XTX"
+                    "avg_exec_time": 56.20099137950092
                 },
                 {
                     "test_case": "40steps",
-                    "avg_exec_time": 103.50971343000037,
-                    "hardware_desc": "i9_10900-7900XTX"
+                    "avg_exec_time": 110.1237817695
                 }
             ]
         }

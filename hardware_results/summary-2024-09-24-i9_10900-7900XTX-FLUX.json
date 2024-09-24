@@ -1,5 +1,5 @@
 {
-    "test_time": "2024/09/13",
+    "test_time": "2024/09/24",
     "flows": [
         {
             "flow_name": "flux1_dev_8bit",
@@ -7,13 +7,11 @@
             "test_cases": [
                 {
                     "test_case": "20steps",
-                    "avg_exec_time": 37.42710090300034,
-                    "hardware_desc": "i9_10900-7900XTX"
+                    "avg_exec_time": 38.754069298000104
                 },
                 {
                     "test_case": "40steps",
-                    "avg_exec_time": 74.38036600125042,
-                    "hardware_desc": "i9_10900-7900XTX"
+                    "avg_exec_time": 77.04926321249877
                 }
             ]
         },
@@ -23,8 +21,7 @@
             "test_cases": [
                 {
                     "test_case": "default",
-                    "avg_exec_time": 7.357450785000765,
-                    "hardware_desc": "i9_10900-7900XTX"
+                    "avg_exec_time": 8.171019977999094
                 }
             ]
         }
