@@ -5,3 +5,4 @@ mkdocs-git-revision-date-localized-plugin
 mkdocs-material[imaging]
 requests
 huggingface_hub
+httpx

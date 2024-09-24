@@ -22,4 +22,8 @@ Common information:
 - [FAQ](faq.md)
 - [Hardware FAQ](hardware_faq.md)
 - [Hardware Results](hardware_results.md)
+
+Specialized stuff:
+
+- [How To Perform Benchmarks](how_to_benchmark.md)
 - [Swagger API](swagger.html)
