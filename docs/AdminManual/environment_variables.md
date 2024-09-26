@@ -4,7 +4,7 @@ title: Environment Variables
 
 # Environment Variables
 
-Visionatrix uses environment variables for configuration and customization. You can set these variables in your system environment or via a .env file, using the [python-dotenv](https://pypi.org/project/python-dotenv/) package.
+In addition to usual way of setting environment variables they can be set via a `.env` file, as Visionatrix uses the [python-dotenv](https://pypi.org/project/python-dotenv/) package to load variables from a `.env` file.
 
 Additionally, some variables can also be specified via command-line arguments, which take precedence over environment variables.
 
@@ -22,45 +22,52 @@ VARIABLE_NAME=value
 
 ### BACKEND_DIR
 
-- **Description**: Directory for the backend (folder containing ComfyUI). (TODO: add info that it can absolute or relative)
+- **Description**: Directory for the backend (folder containing ComfyUI). The path can be absolute or relative.
 - **Default**: `./vix_backend`
 
     !!! note
 
-        Command-line argument `--backend_dir=BACKEND_DIR` has priority over the environment variable.
+        Command-line argument `--backend_dir=BACKEND_DIR` takes precedence over the environment variable.
 
 ### FLOWS_DIR
 
-- **Description**: Directory for storing flows.  (TODO: add info that it can absolute or relative)
+- **Description**: Directory for storing flows. The path can be absolute or relative.
 - **Default**: `./vix_flows`
 
     !!! note
 
-        Command-line argument `--flows_dir=FLOWS_DIR` has priority over the environment variable.
+        Command-line argument `--flows_dir=FLOWS_DIR` takes precedence over the environment variable.
 
 ### MODELS_DIR
 
-- **Description**: Directory for the models.
+- **Description**: Directory for the models. The path can be absolute or relative.
 - **Default**: `./vix_models`
 
     !!! note
 
-        Command-line argument `--models_dir=MODELS_DIR` has priority over the environment variable.
+        Command-line argument `--models_dir=MODELS_DIR` takes precedence over the environment variable.
 
 ### TASKS_FILES_DIR
 
-- **Description**: Directory for input/output files.
-- **Default**: Absolute path to `./vix_tasks_files`.  (TODO: add info that it can absolute or relative)
+- **Description**: Directory for input/output files. The path can be absolute or relative.
+- **Default**: Absolute path to `./vix_tasks_files`
 
     !!! note
 
-        Command-line Argument**: `--tasks_files_dir=FILES_DIR` has priority over the environment variable.
+        Command-line argument `--tasks_files_dir=FILES_DIR` takes precedence over the environment variable.
 
 ### UI_DIR
 
 - **Description**: Path to the User Interface (JavaScript frontend). This is the directory that will be served as the root of the website.
 - **Default**: Empty string.
-- **Command-line Argument**: `--ui` (flag to enable the User Interface; takes precedence over environment variable). TODO: if it is specified just like a flag in cmd, then default frontend will be used. if additional argument specified to it then it should be path to the folder with frontend
+
+    !!! note
+
+        - **Command-line Argument**:
+          - `--ui` (enables the User Interface using the default frontend), or
+          - `--ui=/path/to/frontend` (specifies the path to a custom frontend).
+
+        Command-line argument take precedence over the environment variable.
 
 ### VIX_MODE
 
@@ -74,21 +81,21 @@ Please refer to the [Working Modes](WorkingModes/working_modes.md) documentation
 
 ## Variables for Specific Modes
 
-### SERVER and DEFAULT mode
+### SERVER and DEFAULT Mode
 
 #### VIX_HOST
 
 - **Description**: Address to bind in the `DEFAULT` or `SERVER` mode.
-- **Default**: Empty string (binds to all available addresses). TODO: 127.0.0.1 interface is the default
+- **Default**: `127.0.0.1` (binds to the local interface)
 
 #### VIX_PORT
 
 - **Description**: Port to bind to in the `DEFAULT` or `SERVER` mode.
-- **Default**: Empty string (default port is used). TODO: 8288 port is the default
+- **Default**: `8288`
 
 #### VIX_SERVER_WORKERS
 
-- **Description**: Number of server instances to spawn (using Uvicorn). Useful for a production with a huge number of users.
+- **Description**: Number of server instances to spawn (using Uvicorn). Useful for production environments with a large number of users.
 - **Default**: `1`
 
 #### VIX_SERVER_FULL_MODELS
@@ -99,7 +106,12 @@ Please refer to the [Working Modes](WorkingModes/working_modes.md) documentation
 
 #### DATABASE_URI
 
-- **Description**: URI for the database used by Visionatrix. Required in `SERVER` mode. SQLite is not supported in `SERVER` mode.
+- **Description**: URI for the database used by Visionatrix. Required in `SERVER` mode.
+
+    !!! warning
+
+        SQLite is not supported in the `SERVER` mode.
+
 - **Default**: `sqlite:///./tasks_history.db`
   - For SQLite: If the path is relative, it is relative to the current directory.
 - **Note**: For PostgreSQL, the format is: `postgresql+psycopg://user:password@host:port/database`
@@ -112,25 +124,32 @@ When running in `WORKER` mode, the following variables are relevant:
 
 - **Description**: The full URL of the Server to connect to when running in `WORKER` mode in the [Worker to Server](WorkingModes/working_modes.md#worker-to-server) configuration.
 - **Default**: Empty string.
-- **Note**: If `VIX_SERVER` is set, the Worker will communicate with the Server via the network, and `DATABASE_URI` will be ignored.
+
+!!! note
+
+    If `VIX_SERVER` is set, the Worker will communicate with the Server via the network; `DATABASE_URI` will be ignored.
 
 #### WORKER_AUTH
 
-- **Description**: Authentication credentials for the Worker when connecting to the Server. Format: `USER_ID:PASSWORD`. TODO: add info that it is only for "Worker to Server"
+- **Description**: Authentication credentials for the Worker when connecting to the Server. Format: `USER_ID:PASSWORD`.
 - **Default**: `admin:admin`
+
+!!! note
+
+    This is only applicable for the **Worker to Server** configuration.
 
 #### WORKER_NET_TIMEOUT
 
-- **Description**: Network timeout in seconds for the Worker when communicating with the Server. TODO: add info that it is only for "Worker to Server"
+- **Description**: Network timeout in seconds for the Worker when communicating with the Server.
 - **Default**: `15.0`
 
-### All Modes
+!!! note
+
+    This is only applicable for the **Worker to Server** configuration.
 
 #### DATABASE_URI
 
-- **Description**: URI for the database used by Visionatrix. In `WORKER` mode, this is required when using the [Worker to Database-FS](WorkingModes/working_modes.md#worker-to-database-fs) configuration.
-- **Default**: `sqlite:///./tasks_history.db`
-- **Note**: For PostgreSQL, the format is: `postgresql+psycopg://user:password@host:port/database`
+- **Description**: In `WORKER` mode it is only used for [Worker to Database-FS](WorkingModes/working_modes.md#worker-to-database-fs) configuration.
 
 ### Other Variables
 
@@ -186,10 +205,6 @@ When running in `WORKER` mode, the following variables are relevant:
 - **Description**: If set to `1`, the execution time of each node will be logged.
 - **Default**: `0` (disabled)
 - **Set to**: `1` to enable.
-
-## Notes on Configuration Priority
-
-For variables that can be specified both via environment variables and command-line arguments (e.g., `BACKEND_DIR`, `FLOWS_DIR`, ...), the command-line arguments take precedence over environment variables. This allows for temporary overrides without changing the environment configuration.
 
 ## Examples
 
