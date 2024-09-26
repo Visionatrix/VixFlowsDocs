@@ -12,6 +12,7 @@ For any problems with Visionatrix or suggestions for improvement, go to the [mai
     - [Installation](https://visionatrix.github.io/VixFlowsDocs/AdminManual/installation/)
     - [Working Modes](https://visionatrix.github.io/VixFlowsDocs/AdminManual/WorkingModes/working_modes/)
     - [Command Line Options](https://visionatrix.github.io/VixFlowsDocs/AdminManual/command_line_options/)
+    - [Environment Variables](https://visionatrix.github.io/VixFlowsDocs/AdminManual/environment_variables/)
   - Flows Developing:
     - [Vix Workflows](https://visionatrix.github.io/VixFlowsDocs/FlowsDeveloping/vix_workflows/)
     - [Technical information](https://visionatrix.github.io/VixFlowsDocs/FlowsDeveloping/technical_information/)
