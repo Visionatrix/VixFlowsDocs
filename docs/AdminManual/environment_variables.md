@@ -77,6 +77,10 @@ VARIABLE_NAME=value
   - `WORKER`: Only processing tasks for the Server (client consuming mode, no backend).
 - **Default**: `DEFAULT`
 
+    !!! note
+
+        Command-line Argument `--mode=` take precedence over the environment variable.
+
 Please refer to the [Working Modes](WorkingModes/working_modes.md) documentation for more details.
 
 ## Variables for Specific Modes
@@ -123,15 +127,20 @@ When running in `WORKER` mode, the following variables are relevant:
 #### VIX_SERVER
 
 - **Description**: The full URL of the Server to connect to when running in `WORKER` mode in the [Worker to Server](WorkingModes/working_modes.md#worker-to-server) configuration.
-- **Default**: Empty string.
 
-!!! note
+!!! warning
 
     If `VIX_SERVER` is set, the Worker will communicate with the Server via the network; `DATABASE_URI` will be ignored.
 
+    You **required** to specify `VIX_SERVER` **OR** `DATABASE_URI` for Worker, so it can fetch tasks to proceed.
+
+#### DATABASE_URI
+
+- **Description**: In `WORKER` mode it is only used for [Worker to Database-FS](WorkingModes/working_modes.md#worker-to-database-fs) configuration.
+
 #### WORKER_AUTH
 
-- **Description**: Authentication credentials for the Worker when connecting to the Server. Format: `USER_ID:PASSWORD`.
+- **Description**: Authentication credentials for the Worker when connecting to the Server. Format: `USER_ID:PASSWORD`
 - **Default**: `admin:admin`
 
 !!! note
@@ -146,10 +155,6 @@ When running in `WORKER` mode, the following variables are relevant:
 !!! note
 
     This is only applicable for the **Worker to Server** configuration.
-
-#### DATABASE_URI
-
-- **Description**: In `WORKER` mode it is only used for [Worker to Database-FS](WorkingModes/working_modes.md#worker-to-database-fs) configuration.
 
 ### Other Variables
 
@@ -206,6 +211,26 @@ When running in `WORKER` mode, the following variables are relevant:
 - **Default**: `0` (disabled)
 - **Set to**: `1` to enable.
 
+### CORS_ORIGINS
+
+- **Description**: A comma-separated list of origins that are allowed to make Cross-Origin Resource Sharing (CORS) requests to the server. This is necessary when the frontend and backend are hosted on different domains or ports. By specifying allowed origins, you enable the frontend applications running on those origins to interact with the Visionatrix backend.
+
+- **Default**: Empty string (CORS is disabled; only same-origin requests are allowed).
+
+- **Example**:
+
+    ```ini
+    CORS_ORIGINS="http://localhost:3000,http://192.168.1.132:3000,http://192.168.1.132:8288"
+    ```
+
+    In this example, requests are permitted from:
+
+    - `http://localhost:3000`
+    - `http://192.168.1.132:3000`
+    - `http://192.168.1.132:8288`
+
+- **Note**: This setting is important when developing or deploying the frontend separately from the backend, especially during development when the frontend might be served by a development server on a different port.
+
 ## Examples
 
 ### Using a `.env` File
@@ -245,7 +270,7 @@ On Windows Command Prompt:
 ```cmd
 set VIX_MODE=WORKER
 set VIX_SERVER=http://server_address:8000
-set WORKER_AUTH=worker_user:worker_password
+set WORKER_AUTH=username:userpassword
 ```
 
 ### Starting Visionatrix with Command-Line Arguments
