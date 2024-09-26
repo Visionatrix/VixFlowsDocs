@@ -38,6 +38,7 @@ nav:
           - Overview: AdminManual/WorkingModes/working_modes.md
           - Worker to the Database: AdminManual/WorkingModes/worker_to_database.md
       - Command Line Options: AdminManual/command_line_options.md
+      - Environment Variables: AdminManual/environment_variables.md
   - Flows Developing:
       - Overview: FlowsDeveloping/vix_workflows.md
       - Technical Information: FlowsDeveloping/technical_information.md

@@ -9,6 +9,7 @@ Admin Manual:
   - [Installation](AdminManual/installation.md)
   - [Working Modes](AdminManual/WorkingModes/working_modes.md)
   - [Command Line Options](AdminManual/command_line_options.md)
+  - [Environment Variables](AdminManual/environment_variables.md)
 
 Flows Developing:
 
