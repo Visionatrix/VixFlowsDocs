@@ -219,10 +219,11 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/GhibliPortrait.html",
       "license": "",
       "tags": "[\"anime\", \"portrait\"]",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "requires": "[]",
       "is_seed_supported": true,
-      "is_count_supported": true
+      "is_count_supported": true,
+      "is_translations_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -257,7 +258,8 @@
       "advanced": true,
       "order": 10,
       "custom_id": "prompt",
-      "hidden": false
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {

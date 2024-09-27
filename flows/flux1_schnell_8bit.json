@@ -179,7 +179,8 @@
       "advanced": false,
       "order": 1,
       "custom_id": "prompt",
-      "hidden": false
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -205,10 +206,11 @@
       "documentation": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
       "license": "",
       "tags": "[\"general\", \"lighting\", \"simple\"]",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "requires": "[]",
       "is_seed_supported": true,
-      "is_count_supported": true
+      "is_count_supported": true,
+      "is_translations_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {

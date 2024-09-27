@@ -172,7 +172,11 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/VintagePortrait.html",
       "license": "",
       "tags": "[\"portrait\"]",
-      "version": "1.0.0"
+      "version": "1.0.1",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -186,7 +190,9 @@
       "optional": false,
       "advanced": false,
       "order": 2,
-      "custom_id": ""
+      "custom_id": "",
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {

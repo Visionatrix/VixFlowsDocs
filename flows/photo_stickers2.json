@@ -421,7 +421,9 @@
       "optional": false,
       "advanced": false,
       "order": 11,
-      "custom_id": "prompt1"
+      "custom_id": "prompt1",
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -435,7 +437,9 @@
       "optional": false,
       "advanced": false,
       "order": 14,
-      "custom_id": "prompt4"
+      "custom_id": "prompt4",
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -449,7 +453,9 @@
       "optional": false,
       "advanced": false,
       "order": 12,
-      "custom_id": "prompt2"
+      "custom_id": "prompt2",
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -463,7 +469,9 @@
       "optional": false,
       "advanced": false,
       "order": 13,
-      "custom_id": "prompt3"
+      "custom_id": "prompt3",
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -511,8 +519,11 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2.html",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.1.0",
-      "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]"
+      "version": "1.1.1",
+      "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -641,6 +652,7 @@
       "advanced": true,
       "order": 99,
       "custom_id": "vision_provider",
+      "hidden": false,
       "input_off_state": [
         "519",
         0

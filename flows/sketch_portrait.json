@@ -238,8 +238,11 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SketchPortrait.html",
       "license": "",
       "tags": "[\"anime\", \"sketch\", \"portrait\"]",
-      "version": "2.0.0",
-      "requires": "[]"
+      "version": "2.0.1",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -274,7 +277,8 @@
       "optional": false,
       "advanced": false,
       "order": 2,
-      "custom_id": ""
+      "custom_id": "",
+      "hidden": false
     },
     "class_type": "VixUiList",
     "_meta": {
@@ -314,7 +318,9 @@
       "optional": true,
       "advanced": true,
       "order": 10,
-      "custom_id": ""
+      "custom_id": "",
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -366,7 +372,8 @@
       "max": 10,
       "step": 0.1,
       "order": 90,
-      "custom_id": "vibrancy"
+      "custom_id": "vibrancy",
+      "hidden": false
     },
     "class_type": "VixUiRangeFloat",
     "_meta": {

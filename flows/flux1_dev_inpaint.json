@@ -286,10 +286,11 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Inpaint.html",
       "license": "",
       "tags": "[\"redraw\", \"postprocess\"]",
-      "version": "2.0.0",
+      "version": "2.0.1",
       "requires": "[]",
       "is_seed_supported": true,
-      "is_count_supported": true
+      "is_count_supported": true,
+      "is_translations_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -313,7 +314,8 @@
       "advanced": false,
       "order": 10,
       "custom_id": "prompt",
-      "hidden": false
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {

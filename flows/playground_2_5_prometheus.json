@@ -135,10 +135,11 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Playground_2_5_prometheus.html",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[]",
       "is_seed_supported": true,
-      "is_count_supported": true
+      "is_count_supported": true,
+      "is_translations_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -153,7 +154,8 @@
       "advanced": false,
       "order": 1,
       "custom_id": "prompt",
-      "hidden": false
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -168,7 +170,8 @@
       "advanced": true,
       "order": 15,
       "custom_id": "negative_prompt",
-      "hidden": false
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {

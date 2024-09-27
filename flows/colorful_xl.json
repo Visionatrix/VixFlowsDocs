@@ -217,7 +217,8 @@
       "advanced": false,
       "order": 1,
       "custom_id": "prompt",
-      "hidden": false
+      "hidden": false,
+      "translatable": true
     },
     "class_type": "VixUiPrompt",
     "_meta": {
@@ -234,10 +235,11 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Colorful_XL.html",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "2.1.0",
+      "version": "2.1.1",
       "requires": "[]",
       "is_seed_supported": true,
-      "is_count_supported": true
+      "is_count_supported": true,
+      "is_translations_supported": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
