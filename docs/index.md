@@ -6,7 +6,7 @@ Here, you will find all the information to get started and understand how the pr
 
 Admin Manual:
 
-  - [Installation](AdminManual/installation.md)
+  - [Installation](AdminManual/Installation/installation.md)
   - [Working Modes](AdminManual/WorkingModes/working_modes.md)
   - [Command Line Options](AdminManual/command_line_options.md)
   - [Environment Variables](AdminManual/environment_variables.md)
