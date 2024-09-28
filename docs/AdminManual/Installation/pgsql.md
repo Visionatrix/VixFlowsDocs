@@ -32,7 +32,7 @@ sudo DEBIAN_FRONTEND=noninteractive apt install -y postgresql postgresql-contrib
 
 **Note:** This command will install the default version of PostgreSQL available in your distribution's repositories.
 
-#### Step 3: Start PostgreSQL Service
+#### Step 3: Start PostgreSQL
 
 Start the PostgreSQL service:
 
@@ -42,7 +42,7 @@ sudo systemctl start postgresql
 
 ### Installing on CentOS/RHEL
 
-#### Step 1: Add PostgreSQL Repository
+#### Step 1: Add Repository
 
 Enable the PostgreSQL repository for the desired version.
 
@@ -70,7 +70,7 @@ Install PostgreSQL server:
 sudo yum install -y postgresql13-server
 ```
 
-#### Step 4: Initialize Database and Enable Service
+#### Step 4: Initialize and Enable
 
 Initialize the database and enable automatic start:
 
@@ -98,7 +98,7 @@ Initialize the PostgreSQL database:
 sudo postgresql-setup --initdb
 ```
 
-### Step 3: Start and Enable PostgreSQL Service
+### Step 3: Start PostgreSQL
 
 ```bash
 sudo systemctl start postgresql
@@ -111,7 +111,7 @@ sudo systemctl enable postgresql
 
 ### Using Homebrew
 
-#### Step 1: Install Homebrew (If Not Installed)
+#### Step 1: Install Homebrew
 
 If you don't have Homebrew installed, run:
 
@@ -131,7 +131,7 @@ brew update
 brew install postgresql
 ```
 
-### Step 4: Start PostgreSQL Service
+### Step 4: Start PostgreSQL
 
 To start PostgreSQL now and restart at login:
 
@@ -161,7 +161,7 @@ Download the PostgreSQL installer for macOS from the [official PostgreSQL websit
 
 ## Installation on Windows
 
-### Using PostgreSQL Installer for Windows
+### PostgreSQL Installer
 
 #### Step 1: Download the Installer
 
@@ -197,7 +197,7 @@ Then initialize the database(*not always required*):
 initdb -D /var/lib/pgsql/data
 ```
 
-### Starting the PostgreSQL Service
+### Starting the PostgreSQL
 
 Ensure PostgreSQL is running and set to start on boot.
 
@@ -234,21 +234,21 @@ pg_ctl -D /usr/local/var/postgres start
 
 We will create a database named `vix_db` and a user `vix_user` with password `vix_password`, as required by Visionatrix.
 
-#### Option 1: Using the PostgreSQL Shell
+#### Option 1: Via PgSQL Shell
 
-##### Step 1: Switch to the `postgres` User
+##### Step 1: Switch to `postgres`
 
 ```bash
 sudo -u postgres psql
 ```
 
-##### Step 2: Create a New User
+##### Step 2: Create User
 
 ```sql
 CREATE USER vix_user WITH PASSWORD 'vix_password';
 ```
 
-##### Step 3: Create a New Database
+##### Step 3: Create Database
 
 ```sql
 CREATE DATABASE vix_db OWNER vix_user;
@@ -260,13 +260,13 @@ CREATE DATABASE vix_db OWNER vix_user;
 GRANT ALL PRIVILEGES ON DATABASE vix_db TO vix_user;
 ```
 
-#### Step 5: Exit the PostgreSQL Shell
+##### Step 5: Exit Shell
 
 ```sql
 \q
 ```
 
-#### Option 2: Running Commands Directly
+#### Option 2: Direct Commands
 
 You can execute all commands directly from the terminal:
 
