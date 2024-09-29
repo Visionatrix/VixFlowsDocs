@@ -1,3 +1,4 @@
+import argparse
 import builtins
 import contextlib
 import json
@@ -77,12 +78,38 @@ def check_model(model_name: str, model: dict) -> bool:
 
 
 if __name__ == "__main__":
-    with builtins.open(
-        Path(__file__).parent.parent.parent.joinpath("models_catalog.json"), "r"
-    ) as f:
-        models = json.load(f)
-        for name, info in models.items():
-            check_model(name, info)
+    parser = argparse.ArgumentParser(description="Model validation script")
+    parser.add_argument(
+        "--nodes_models",
+        action="store_true",
+        help="Check models from basic_node_list.py",
+    )
+    args = parser.parse_args()
+    if args.nodes_models:
+        sys.path.insert(
+            0, str(Path(__file__).parent.parent.parent.joinpath("src_visionatrix"))
+        )
+
+        try:
+            from visionatrix.basic_node_list import BASIC_NODE_LIST
+        except ImportError as e:
+            print(f"Import error: {e}")
+            sys.exit(1)
+
+        for node_name, node_info in BASIC_NODE_LIST.items():
+            models = node_info.get("models", [])
+            for ai_model in models:
+                if not check_model(ai_model.name, ai_model.dict()):
+                    ERRORS_LIST.append(
+                        f"Error in node '{node_name}' for model '{ai_model.name}'"
+                    )
+    else:
+        with builtins.open(
+            Path(__file__).parent.parent.parent.joinpath("models_catalog.json"), "r"
+        ) as f:
+            models = json.load(f)
+            for name, info in models.items():
+                check_model(name, info)
     print()
     print(f"ERRORS: {len(ERRORS_LIST)}")
     for i in ERRORS_LIST:
