@@ -15,10 +15,24 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
       - name: Install dependencies
         run: python3 -m pip install -r requirements.txt
 
       - name: Check models
         run: python3 scripts/ci/models_check.py
+
+      - name: Checkout Visionatrix
+        uses: actions/checkout@v4
+        with:
+          path: src_visionatrix
+          repository: Visionatrix/Visionatrix
+
+      - name: Install Visionatrix
+        run: |
+          python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install "src_visionatrix/."
+
+      - name: Check Nodes models
+        run: python3 scripts/ci/models_check.py --nodes_models
