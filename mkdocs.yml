@@ -36,6 +36,7 @@ nav:
       - Installation:
           - Overview: AdminManual/Installation/installation.md
           - PostgreSQL Database: AdminManual/Installation/pgsql.md
+          - Using Gemini through Proxy: AdminManual/Installation/proxy_gemini.md
       - Working Modes:
           - Overview: AdminManual/WorkingModes/working_modes.md
           - Worker to the Database: AdminManual/WorkingModes/worker_to_database.md
