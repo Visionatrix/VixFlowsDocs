@@ -10,6 +10,10 @@ This is useful if you're in a region where **free direct access** to the Gemini 
 
     If you use **Gemini Pro** model - you don't need it either, it doesn't have free access, and **paid access works** from everywhere and **without** proxy.
 
+!!! note
+
+    The information on this page is provided for educational purposes, so that you can check what Gemini Flash is capable of before connecting the payment method to your Google account.
+
 ## Prerequisites
 
 - A **Virtual Private Server (VPS)** or access to a machine with a public IP address.
@@ -81,8 +85,6 @@ After setting up your proxy server, update Visionatrix settings to route API req
 
 If you have a payment card connected, you can access the Gemini API directly from almost any country in the world.
 
-#### Steps:
-
 1. Ensure Billing Is Set Up:
 
     - Log in to your Google Cloud Platform account.
@@ -93,7 +95,7 @@ If you have a payment card connected, you can access the Gemini API directly fro
     - Enter your **Google API Key** in the designated field.
     - Leave the **"Google Proxy"** field empty.
 
-3. Select the Gemini Model:
+3. You can select the Gemini Model to use in Visionatrix settings:
 
-     - **Gemini Flash**: An affordable option suitable for most users.
+     - **Gemini Flash**(*default*): An affordable option suitable for most users.
      - **Gemini Pro**: Offers superior results but is **not available for free**.
