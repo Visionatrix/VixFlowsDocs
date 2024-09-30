@@ -741,5 +741,29 @@
     "url": "https://huggingface.co/comfyanonymous/hunyuan_dit_comfyui/resolve/main/hunyuan_dit_1.2.safetensors",
     "homepage": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT",
     "hash": "4fb84f84079cda457d171b3c6b15d1be95b5a3e5d9825703951a99ddf92d1787"
+  },
+  "RealVisXL_V5.0_fp16": {
+    "regexes": [
+      {
+        "input_value": "^(?!.*(?i:lightning))(?=.*(?i:RealVis))(?=.*(?i:XL))(?=.*(?i:V5\\.0))(?=.*(?i:fp16)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "save_path": "checkpoints/RealVisXL_V5.0_fp16.safetensors",
+    "url": "https://huggingface.co/SG161222/RealVisXL_V5.0/resolve/main/RealVisXL_V5.0_fp16.safetensors",
+    "homepage": "https://huggingface.co/SG161222/RealVisXL_V5.0",
+    "hash": "6a35a7855770ae9820a3c931d4964c3817b6d9e3c6f9c4dabb5b3a94e5643b80"
+  },
+  "RealVisXL_V5.0_Lightning_fp16": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:RealVis))(?=.*(?i:XL))(?=.*(?i:V5\\.0))(?=.*(?i:Lightning))(?=.*(?i:fp16)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "save_path": "checkpoints/RealVisXL_V5.0_Lightning_fp16.safetensors",
+    "url": "https://huggingface.co/SG161222/RealVisXL_V5.0_Lightning/resolve/main/RealVisXL_V5.0_Lightning_fp16.safetensors",
+    "homepage": "https://huggingface.co/SG161222/RealVisXL_V5.0_Lightning",
+    "hash": "fabcadd9330dcc4f9702063428d40b9d4d07168d8acefc819b8d1d9db466b3ec"
   }
 }
