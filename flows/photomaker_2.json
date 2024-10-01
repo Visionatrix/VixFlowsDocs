@@ -650,7 +650,7 @@
   "235": {
     "inputs": {
       "default_value": "Photographic (Default)",
-      "possible_values": "[\"(No style)\",\"Cinematic\",\"Disney Charactor\",\"Digital Art\",\"Photographic (Default)\",\"Fantasy art\",\"Neonpunk\",\"Enhance\",\"Lowpoly\",\"Line art\"]",
+      "possible_values": "[\"(No style)\",\"Cinematic\",\"Disney Charactor\",\"Digital Art\",\"Photographic (Default)\",\"Fantasy art\",\"Neonpunk\",\"Enhance\",\"Line art\"]",
       "display_name": "PhotoMaker Style",
       "optional": true,
       "advanced": true,
