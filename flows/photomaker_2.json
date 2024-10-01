@@ -1,0 +1,816 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 1,
+      "steps": 50,
+      "cfg": 5,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "204",
+        0
+      ],
+      "positive": [
+        "73",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "4": {
+    "inputs": {
+      "ckpt_name": "RealVisXL_V5.0_fp16.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 1024,
+      "height": 1024,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "6": {
+    "inputs": {
+      "text": [
+        "29",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "7": {
+    "inputs": {
+      "text": [
+        "70",
+        1
+      ],
+      "clip": [
+        "4",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "180",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "20": {
+    "inputs": {
+      "add_noise": "enable",
+      "noise_seed": 40008504369398,
+      "steps": 50,
+      "cfg": 5,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "start_at_step": 0,
+      "end_at_step": [
+        "229",
+        0
+      ],
+      "return_with_leftover_noise": "enable",
+      "model": [
+        "4",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced)"
+    }
+  },
+  "21": {
+    "inputs": {
+      "add_noise": "disable",
+      "noise_seed": 1,
+      "steps": 50,
+      "cfg": 5,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "start_at_step": [
+        "229",
+        0
+      ],
+      "end_at_step": 10000,
+      "return_with_leftover_noise": "disable",
+      "model": [
+        "204",
+        0
+      ],
+      "positive": [
+        "73",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "20",
+        0
+      ]
+    },
+    "class_type": "KSamplerAdvanced",
+    "_meta": {
+      "title": "KSampler (Advanced)"
+    }
+  },
+  "26": {
+    "inputs": {
+      "samples": [
+        "21",
+        0
+      ],
+      "vae": [
+        "180",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "29": {
+    "inputs": {
+      "action": "replace",
+      "tidy_tags": "no",
+      "text_a": [
+        "70",
+        0
+      ],
+      "text_b": "/ img/",
+      "text_c": "",
+      "result": "portrait of a beautiful man"
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "32": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person's face;order=1"
+    }
+  },
+  "33": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person's face;order=2"
+    }
+  },
+  "59": {
+    "inputs": {
+      "conditioning_1": [
+        "60",
+        0
+      ],
+      "conditioning_2": [
+        "62",
+        0
+      ]
+    },
+    "class_type": "ConditioningCombine",
+    "_meta": {
+      "title": "Conditioning (Combine)"
+    }
+  },
+  "60": {
+    "inputs": {
+      "start": 0,
+      "end": [
+        "227",
+        0
+      ],
+      "conditioning": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "ConditioningSetTimestepRange",
+    "_meta": {
+      "title": "ConditioningSetTimestepRange"
+    }
+  },
+  "62": {
+    "inputs": {
+      "start": [
+        "227",
+        0
+      ],
+      "end": 1,
+      "conditioning": [
+        "73",
+        0
+      ]
+    },
+    "class_type": "ConditioningSetTimestepRange",
+    "_meta": {
+      "title": "ConditioningSetTimestepRange"
+    }
+  },
+  "63": {
+    "inputs": {
+      "seed": 1,
+      "steps": 50,
+      "cfg": 5,
+      "sampler_name": "euler",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "204",
+        0
+      ],
+      "positive": [
+        "59",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "65": {
+    "inputs": {
+      "samples": [
+        "63",
+        0
+      ],
+      "vae": [
+        "180",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "67": {
+    "inputs": {
+      "filename_prefix": "ComfyUI_def",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "69": {
+    "inputs": {
+      "filename_prefix": "ComfyUI_ratio",
+      "images": [
+        "65",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "70": {
+    "inputs": {
+      "style_name": [
+        "235",
+        0
+      ],
+      "positive": [
+        "215",
+        0
+      ],
+      "negative": [
+        "228",
+        0
+      ]
+    },
+    "class_type": "PhotoMakerStyles",
+    "_meta": {
+      "title": "Apply PhotoMaker Style"
+    }
+  },
+  "73": {
+    "inputs": {
+      "trigger_word": "img",
+      "text": [
+        "70",
+        0
+      ],
+      "clip": [
+        "4",
+        1
+      ],
+      "photomaker": [
+        "74",
+        0
+      ],
+      "image": [
+        "254",
+        0
+      ],
+      "insightface_opt": [
+        "76",
+        0
+      ]
+    },
+    "class_type": "PhotoMakerEncodePlus",
+    "_meta": {
+      "title": "PhotoMaker Encode Plus"
+    }
+  },
+  "74": {
+    "inputs": {
+      "photomaker_model_name": "photomaker-v2.bin"
+    },
+    "class_type": "PhotoMakerLoaderPlus",
+    "_meta": {
+      "title": "PhotoMaker Loader Plus"
+    }
+  },
+  "76": {
+    "inputs": {
+      "provider": "CPU"
+    },
+    "class_type": "PhotoMakerInsightFaceLoader",
+    "_meta": {
+      "title": "PhotoMaker InsightFace Loader"
+    }
+  },
+  "180": {
+    "inputs": {
+      "vae_name": "sdxl_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "204": {
+    "inputs": {
+      "lora_strength": 1,
+      "model": [
+        "4",
+        0
+      ],
+      "photomaker": [
+        "74",
+        0
+      ]
+    },
+    "class_type": "PhotoMakerLoraLoaderPlus",
+    "_meta": {
+      "title": "PhotoMaker LoRA Loader Plus"
+    }
+  },
+  "209": {
+    "inputs": {
+      "number_of_faces": 1,
+      "scale_factor": 4.3,
+      "shift_factor": 0.45,
+      "start_index": 0,
+      "max_faces_per_image": 50,
+      "aspect_ratio": "1:1",
+      "image": [
+        "33",
+        0
+      ]
+    },
+    "class_type": "AutoCropFaces",
+    "_meta": {
+      "title": "Auto Crop Faces"
+    }
+  },
+  "211": {
+    "inputs": {
+      "number_of_faces": 1,
+      "scale_factor": 4.3,
+      "shift_factor": 0.45,
+      "start_index": 0,
+      "max_faces_per_image": 50,
+      "aspect_ratio": "1:1",
+      "image": [
+        "32",
+        0
+      ]
+    },
+    "class_type": "AutoCropFaces",
+    "_meta": {
+      "title": "Auto Crop Faces"
+    }
+  },
+  "215": {
+    "inputs": {
+      "delimiter": " ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "226",
+        0
+      ],
+      "text_b": [
+        "218",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "218": {
+    "inputs": {
+      "text": "img"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "220": {
+    "inputs": {},
+    "class_type": "BRIA_RMBG_ModelLoader_Zho",
+    "_meta": {
+      "title": "🧹BRIA_RMBG Model Loader"
+    }
+  },
+  "221": {
+    "inputs": {
+      "rmbgmodel": [
+        "220",
+        0
+      ],
+      "image": [
+        "211",
+        0
+      ]
+    },
+    "class_type": "BRIA_RMBG_Zho",
+    "_meta": {
+      "title": "🧹BRIA RMBG"
+    }
+  },
+  "222": {
+    "inputs": {
+      "rmbgmodel": [
+        "220",
+        0
+      ],
+      "image": [
+        "209",
+        0
+      ]
+    },
+    "class_type": "BRIA_RMBG_Zho",
+    "_meta": {
+      "title": "🧹BRIA RMBG"
+    }
+  },
+  "223": {
+    "inputs": {
+      "image": [
+        "222",
+        0
+      ]
+    },
+    "class_type": "SplitImageWithAlpha",
+    "_meta": {
+      "title": "Split Image with Alpha"
+    }
+  },
+  "224": {
+    "inputs": {
+      "image": [
+        "221",
+        0
+      ]
+    },
+    "class_type": "SplitImageWithAlpha",
+    "_meta": {
+      "title": "Split Image with Alpha"
+    }
+  },
+  "225": {
+    "inputs": {
+      "name": "photomaker_2",
+      "display_name": "Photo from 2-4 images",
+      "description": "Customizing Realistic Human Photos",
+      "author": "shiimizu",
+      "homepage": "https://github.com/shiimizu/ComfyUI-PhotoMaker-Plus",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_2.html",
+      "license": "",
+      "tags": "[\"general\", \"portrait\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "226": {
+    "inputs": {
+      "text": "portrait of a girl",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 8,
+      "custom_id": "prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "227": {
+    "inputs": {
+      "value": 0.2,
+      "display_name": "Freedom of outcome",
+      "optional": true,
+      "advanced": true,
+      "min": 0.1,
+      "max": 0.5,
+      "step": 0.1,
+      "order": 99,
+      "custom_id": "accuracy",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "228": {
+    "inputs": {
+      "text": "asymmetry, worst quality, low quality, illustration, 3d, 2d, painting, cartoons, sketch, open mouth",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 25,
+      "custom_id": "negative_prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "229": {
+    "inputs": {
+      "expression": "(a * 100) / 2",
+      "a": [
+        "227",
+        0
+      ]
+    },
+    "class_type": "MathExpression|pysssss",
+    "_meta": {
+      "title": "Math Expression 🐍"
+    }
+  },
+  "235": {
+    "inputs": {
+      "default_value": "Photographic (Default)",
+      "possible_values": "[\"(No style)\",\"Cinematic\",\"Disney Charactor\",\"Digital Art\",\"Photographic (Default)\",\"Fantasy art\",\"Neonpunk\",\"Enhance\",\"Lowpoly\",\"Line art\"]",
+      "display_name": "PhotoMaker Style",
+      "optional": true,
+      "advanced": true,
+      "order": 20,
+      "custom_id": "",
+      "hidden": false
+    },
+    "class_type": "VixUiList",
+    "_meta": {
+      "title": "VixUI-List"
+    }
+  },
+  "236": {
+    "inputs": {
+      "filename_prefix": "ComfyUI_steps",
+      "images": [
+        "26",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "240": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person's face;order=3;optional"
+    }
+  },
+  "241": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person's face;order=4;optional"
+    }
+  },
+  "242": {
+    "inputs": {
+      "number_of_faces": 1,
+      "scale_factor": 4.3,
+      "shift_factor": 0.45,
+      "start_index": 0,
+      "max_faces_per_image": 50,
+      "aspect_ratio": "1:1",
+      "image": [
+        "240",
+        0
+      ]
+    },
+    "class_type": "AutoCropFaces",
+    "_meta": {
+      "title": "Auto Crop Faces"
+    }
+  },
+  "243": {
+    "inputs": {
+      "rmbgmodel": [
+        "220",
+        0
+      ],
+      "image": [
+        "242",
+        0
+      ]
+    },
+    "class_type": "BRIA_RMBG_Zho",
+    "_meta": {
+      "title": "🧹BRIA RMBG"
+    }
+  },
+  "244": {
+    "inputs": {
+      "image": [
+        "243",
+        0
+      ]
+    },
+    "class_type": "SplitImageWithAlpha",
+    "_meta": {
+      "title": "Split Image with Alpha"
+    }
+  },
+  "247": {
+    "inputs": {
+      "number_of_faces": 1,
+      "scale_factor": 4.3,
+      "shift_factor": 0.45,
+      "start_index": 0,
+      "max_faces_per_image": 50,
+      "aspect_ratio": "1:1",
+      "image": [
+        "241",
+        0
+      ]
+    },
+    "class_type": "AutoCropFaces",
+    "_meta": {
+      "title": "Auto Crop Faces"
+    }
+  },
+  "248": {
+    "inputs": {
+      "rmbgmodel": [
+        "220",
+        0
+      ],
+      "image": [
+        "247",
+        0
+      ]
+    },
+    "class_type": "BRIA_RMBG_Zho",
+    "_meta": {
+      "title": "🧹BRIA RMBG"
+    }
+  },
+  "249": {
+    "inputs": {
+      "image": [
+        "248",
+        0
+      ]
+    },
+    "class_type": "SplitImageWithAlpha",
+    "_meta": {
+      "title": "Split Image with Alpha"
+    }
+  },
+  "254": {
+    "inputs": {
+      "method": "lanczos",
+      "image_1": [
+        "224",
+        0
+      ],
+      "image_2": [
+        "223",
+        0
+      ],
+      "image_3": [
+        "244",
+        0
+      ],
+      "image_4": [
+        "249",
+        0
+      ]
+    },
+    "class_type": "ImageBatchMultiple+",
+    "_meta": {
+      "title": "🔧 Images Batch Multiple"
+    }
+  }
+}
