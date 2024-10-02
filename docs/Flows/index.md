@@ -20,6 +20,7 @@
 - [Memoji Portrait](MemojiPortrait.md)
 - [Sketch Portrait](SketchPortrait.md)
 - [Photomaker 1](Photomaker_1.md)
+- [Photomaker 2](Photomaker_2.md)
 - [Photo Stickers](PhotoStickers.md)
 - [Photo Stickers 2](PhotoStickers2.md)
 - [Mad Scientist](MadScientist.md)

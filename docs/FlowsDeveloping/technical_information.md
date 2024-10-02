@@ -29,6 +29,7 @@ Visionatrix by default install and update these nodes:
 > -   [Skimmed_CFG](https://github.com/Visionatrix/Skimmed_CFG)
 > -   [style_aligned_comfy](https://github.com/Visionatrix/style_aligned_comfy)
 > -   [was-node-suite-comfyui](https://github.com/Visionatrix/was-node-suite-comfyui)
+> -   [ComfyUI-PhotoMaker-Plus](https://github.com/Visionatrix/ComfyUI-PhotoMaker-Plus)
 
 We are gradually expanding the list.
 
