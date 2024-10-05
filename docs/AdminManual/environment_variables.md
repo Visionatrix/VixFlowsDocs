@@ -160,7 +160,7 @@ When running in `WORKER` mode, the following variables are relevant:
 
 #### FLOWS_URL
 
-- **Description**: URL or path that points to the location of archive files containing lists and definitions of Visionatrix workflows. Specifies where Visionatrix fetches the available flows.
+- **Description**: URLs or file paths (separated by semicolons `;`) that point to locations of archive files containing lists and definitions of Visionatrix workflows. Specifies where Visionatrix fetches the available flows.
 - **Default**: `https://visionatrix.github.io/VixFlowsDocs/`
 - **More Information**: [Workflows Storage](../FlowsDeveloping/technical_information.md#workflows-storage)
 

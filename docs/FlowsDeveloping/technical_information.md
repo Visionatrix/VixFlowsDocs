@@ -37,42 +37,84 @@ The main reason many components are missing is that they are quite
 difficult to install, and we believe that an easy installation process
 is more important in most cases.
 
-## Workflows storage
+## Workflows Storage
 
-All public flows are located in
-[VixFlowsDocs](https://github.com/Visionatrix/VixFlowsDocs) repository.
+All public flows are located in the [VixFlowsDocs](https://github.com/Visionatrix/VixFlowsDocs) repository.
 
-The repository consists of a development branch **main** and a set of
-branches **version-X.Y**:
+The repository consists of a development branch **main** and a set of branches **version-X.Y**:
 
 -   version-0.5
 -   version-0.6
--   \...
+-   ...
 -   version-1.0
 -   version-1.1
 -   main
 
-Sets of public workflows are packaged in the root of the documentation
-and have the following form:
+Sets of public workflows are packaged in the root of the documentation and have the following form:
 
 -   flows-0.5.zip
 -   flows-0.6.zip
--   \...
+-   ...
 -   flows-1.0.zip
 -   flows-1.1.zip
 -   flows.zip
 
-The development version of Visionatrix fetches the `flows.zip` archive
-by default.
+The development version of Visionatrix fetches the `flows.zip` archive by default.
 
 Release versions of Visionatrix fetch sets of flows for their version.
 
-The `FLOWS_URL` variable in Visionatrix has the default value of
-`https://visionatrix.github.io/VixFlowsDocs/`
+### Configuring Flows Sources
 
-When **FLOWS_URL** ends with "/", the Visionatrix fetches an archive with flows for its version.
+The `FLOWS_URL` variable in Visionatrix has the default value of:
 
-!!! note
+```ini
+FLOWS_URL=https://visionatrix.github.io/VixFlowsDocs/
+```
 
-    You can also specify a specific path/URL to the archive file with flows,
-    and only that will be used.
+**You can specify multiple URLs or paths to flow archives by separating them with semicolons `;`.**
+
+When element in the **FLOWS_URL** ends with `/`, Visionatrix fetches an archive with flows appropriate for its version:
+
+- For development versions, it fetches `flows.zip`.
+- For release versions, it fetches `flows-X.Y.zip`, where `X.Y` matches the major and minor Visionatrix version numbers.
+
+#### Examples
+
+1. **Default Configuration**:
+
+    ```ini
+    FLOWS_URL=https://visionatrix.github.io/VixFlowsDocs/
+    ```
+
+    Visionatrix will fetch flows from the official repository corresponding to its version.
+
+2. **Custom Flow Sources**:
+
+    ```ini
+    FLOWS_URL=https://visionatrix.github.io/VixFlowsDocs/;https://example.com/custom_flows.zip;/local/path/flows.zip
+    ```
+
+    Visionatrix will fetch flows from:
+
+    - The official repository.
+    - A custom online archive at `https://example.com/custom_flows.zip`.
+    - A local archive at `/local/path/flows.zip`.
+
+#### Flow Merging and Versioning
+
+- When multiple flows have the same name across different sources, Visionatrix will:
+
+    - Prefer the flow with the highest version number.
+    - If versions are equal, the flow from the first source in the `FLOWS_URL` list takes precedence.
+
+- This allows you to override or supplement the default flows with custom ones.
+
+#### Notes
+
+- **Local Paths**: You can specify local paths to flow archives, which is useful during development or when working offline.
+
+- **URL Endings**:
+
+    - If a URL ends with `/`, Visionatrix automatically appends the appropriate `flows.zip` or `flows-X.Y.zip` based on its version.
+
+    - If a URL points directly to an archive (e.g., `https://example.com/custom_flows.zip`), Visionatrix will use that specific file.
