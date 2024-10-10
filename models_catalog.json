@@ -70,6 +70,18 @@
   "homepage": "https://huggingface.co/stabilityai/control-lora",
   "hash": "cf741a672fc3f753956260cb16101250f16c3c5bb3690a3d736bef66eafa7515"
   },
+  "OpenPose-XL2-1.0": {
+    "regexes": [
+    {
+      "class_name": "ControlNetLoader",
+      "input_value": "^(?=.*(?i:control))(?=.*(?i:lora))(?=.*(?i:openposeXL2))(?=.*(?i:rank256)).*"
+    }
+  ],
+  "save_path": "controlnet/control-lora-openposeXL2-rank256.safetensors",
+  "url": "https://huggingface.co/thibaud/controlnet-openpose-sdxl-1.0/resolve/main/control-lora-openposeXL2-rank256.safetensors",
+  "homepage": "https://huggingface.co/thibaud/controlnet-openpose-sdxl-1.0",
+  "hash": "8afa079285bf9384eaf8f6322884cb4f24bbe405da490f91f5540d3bff585e75"
+  },
   "StickersRedmond": {
     "regexes": [
       {
@@ -105,6 +117,18 @@
     "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/lora/loras/The_Simplest.safetensors",
     "homepage": "https://civitai.com/models/336225/the-simplest",
     "hash": "ec43d26e93173195bf6873be6ad829ec3c4de3f2a1f5d7f3a31e83b5bdd6c6ea"
+  },
+  "PE-PencilDrawing": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:PE))(?=.*(?i:Pencil))(?=.*(?i:Drawing)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "save_path": "loras/PE_PencilDrawing.safetensors",
+    "url": "https://civitai.com/api/download/models/145610?type=Model&format=SafeTensor",
+    "homepage": "https://civitai.com/models/132383",
+    "hash": "002EC698232DC1CB50B27E7B56B32F397E6528E07B0BCB4AB8A421C866C1E7BC"
   },
   "animagine-xl-3.1": {
     "regexes": [
@@ -622,6 +646,18 @@
     "homepage": "https://baulab.info/",
     "hash": "e07c30e4f82f709a474ae11dc5108ac48f81b6996b937757c8dd198920ea9b4d"
   },
+  "baulab-lora-professional": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sliders))(?=.*(?i:professional))(?=.*(?i:pt)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "save_path": "loras/sliders/professional.pt",
+    "url": "https://huggingface.co/andrey18106/visionatrix_models/resolve/main/loras/professional.pt",
+    "homepage": "https://baulab.info/",
+    "hash": "2d4289f4c60dd008fe487369ddccf3492bd678cc1e6b30de2c17f9ce802b12ac"
+  },
   "FLUX-VAE": {
     "regexes": [
       {
@@ -765,5 +801,29 @@
     "url": "https://huggingface.co/SG161222/RealVisXL_V5.0_Lightning/resolve/main/RealVisXL_V5.0_Lightning_fp16.safetensors",
     "homepage": "https://huggingface.co/SG161222/RealVisXL_V5.0_Lightning",
     "hash": "fabcadd9330dcc4f9702063428d40b9d4d07168d8acefc819b8d1d9db466b3ec"
+  },
+  "Rife-47": {
+    "regexes": [
+    {
+      "class_name": "RIFE VFI",
+      "input_value": "rife47\\.pth$"
+    }
+  ],
+  "save_path": "{root}custom_nodes/ComfyUI-Frame-Interpolation/ckpts/rife/rife47.pth",
+  "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/video/rife/rife47.pth",
+  "homepage": "https://www.svp-team.com/wiki/RIFE_AI_interpolation",
+  "hash": "6a8a825ab2750558bdd20dcced386fd82b7222c7ba58c11d3b611d9c44f1be63"
+  },
+  "Rife-49": {
+    "regexes": [
+    {
+      "class_name": "RIFE VFI",
+      "input_value": "rife49\\.pth$"
+    }
+  ],
+  "save_path": "{root}custom_nodes/ComfyUI-Frame-Interpolation/ckpts/rife/rife49.pth",
+  "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/video/rife/rife49.pth",
+  "homepage": "https://www.svp-team.com/wiki/RIFE_AI_interpolation",
+  "hash": "e55fd00f3cc184e3c65961f4bb827a9da022e78eed36b055242c0ac30000d533"
   }
 }
