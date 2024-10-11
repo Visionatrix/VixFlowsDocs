@@ -216,7 +216,7 @@
       "description": "Person portrait in Ghibli Studio style(Anime)",
       "author": "Datou",
       "homepage": "https://openart.ai/workflows/datou/ghibli-portrait-studio/pGOmpWZycgG57085CONU",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/GhibliPortrait.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/GhibliPortrait/",
       "license": "",
       "tags": "[\"anime\", \"portrait\"]",
       "version": "1.1.1",

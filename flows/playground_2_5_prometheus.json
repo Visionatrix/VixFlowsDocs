@@ -132,7 +132,7 @@
       "description": "Generate images using Prometheus model",
       "author": "bigcat88",
       "homepage": "https://github.com/bigcat88",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Playground_2_5_prometheus.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Playground_2_5_prometheus/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
       "version": "1.0.1",

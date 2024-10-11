@@ -204,7 +204,7 @@
       "description": "Person portrait in Anime style",
       "author": "Datou",
       "homepage": "https://openart.ai/workflows/datou/comicu/8fIWdL2KU2myMdfigoWk",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/ComicuPortrait.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/ComicuPortrait/",
       "license": "",
       "tags": "[\"anime\", \"portrait\"]",
       "version": "2.0.1",

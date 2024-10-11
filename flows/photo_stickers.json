@@ -945,7 +945,7 @@
       "description": "Stickers from person photo",
       "author": "Datou",
       "homepage": "https://openart.ai/workflows/datou/photo-2-anime-sdxl/0tBl5W8dBBe6FEhi0MxY",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
       "version": "1.0.0"

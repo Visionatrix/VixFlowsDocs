@@ -343,7 +343,7 @@
       "description": "Applying different custom styles to an image",
       "author": "Datou",
       "homepage": "https://openart.ai/workflows/datou/mad-scientist/wOEGydoDWbpwcVPL4GLc",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MadScientist.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MadScientist/",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
       "version": "1.2.0",
