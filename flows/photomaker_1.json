@@ -308,7 +308,7 @@
       "description": "Customizing Realistic Human Photos",
       "author": "shiimizu",
       "homepage": "https://github.com/shiimizu/ComfyUI-PhotoMaker-Plus",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_1.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_1/",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"cartoon\"]",
       "version": "1.0.1",

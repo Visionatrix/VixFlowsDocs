@@ -58,7 +58,7 @@
       "description": "Model with Chinese Understanding ",
       "author": "bigcat88",
       "homepage": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/HunyuanDiT.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/HunyuanDiT/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
       "version": "1.0.1",

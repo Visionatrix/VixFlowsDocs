@@ -202,7 +202,7 @@
       "description": "Generate images using Playground2.5 model",
       "author": "bigcat88",
       "homepage": "https://github.com/bigcat88",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Playground_2_5_aesthetic.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Playground_2_5_aesthetic/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
       "version": "1.1.1",

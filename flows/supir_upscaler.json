@@ -323,7 +323,7 @@
       "description": "High-End Image Upscaler",
       "author": "akihungac",
       "homepage": "https://openart.ai/workflows/profile/akihungac",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SupirUpscaler.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SupirUpscaler/",
       "license": "",
       "tags": "[\"upscaler\", \"postprocess\"]",
       "version": "1.0.0"

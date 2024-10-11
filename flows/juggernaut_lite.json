@@ -288,7 +288,7 @@
       "description": "Juggernaut + LoRAs with post processing",
       "author": "Valomar",
       "homepage": "https://comfyworkflows.com/profile/86edf4d7-d110-498d-b4e0-4cacadee750e",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Juggernaut_Lite.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Juggernaut_Lite/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
       "version": "1.0.1",

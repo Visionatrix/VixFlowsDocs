@@ -306,7 +306,7 @@
       "description": "Adding Facial Details to Portraits",
       "author": "bigcat88",
       "homepage": "https://github.com/bigcat88",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/HumanFaceDetailer.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/HumanFaceDetailer/",
       "license": "",
       "tags": "[\"portrait\", \"postprocess\"]",
       "version": "1.0.0",

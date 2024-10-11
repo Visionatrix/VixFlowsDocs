@@ -209,7 +209,7 @@
       "description": "Portrait photos as a Memoji",
       "author": "Datou",
       "homepage": "https://openart.ai/workflows/datou/memoji/Lcprla9BQL29IFVjC93l",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MemojiPortrait.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MemojiPortrait/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
       "version": "2.1.1",

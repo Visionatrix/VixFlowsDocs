@@ -239,7 +239,7 @@
       "description": "Fast image generation",
       "author": "bigcat88",
       "homepage": "https://github.com/bigcat88",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SDXL_Lighting.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SDXL_Lighting/",
       "license": "",
       "tags": "[\"general\", \"lighting\", \"simple\"]",
       "version": "1.0.1",

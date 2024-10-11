@@ -516,7 +516,7 @@
       "description": "Stickers from person photo",
       "author": "Datou",
       "homepage": "https://openart.ai/workflows/datou/stickeryou-simplified-version/diO4RafxrxaqH6RjajjQ",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
       "version": "1.1.1",

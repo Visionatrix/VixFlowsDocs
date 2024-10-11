@@ -267,7 +267,7 @@
       "description": "Redrawing parts of an image",
       "author": "bigcat88",
       "homepage": "https://openart.ai/workflows/profile/akita_deadly_60?sort=latest",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Inpaint.html",
+      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Inpaint/",
       "license": "",
       "tags": "[\"redraw\", \"lighting\", \"postprocess\"]",
       "version": "2.0.1",
