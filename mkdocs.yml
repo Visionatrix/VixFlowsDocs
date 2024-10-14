@@ -33,6 +33,7 @@ nav:
       - Human Face Detailer: Flows/HumanFaceDetailer.md
       - Flux 1: Flows/Flux_1.md
       - Inpaint: Flows/Inpaint.md
+      - All Your Life: Flows/AllYourLife.md
   - Admin Manual:
       - Installation:
           - Overview: AdminManual/Installation/installation.md

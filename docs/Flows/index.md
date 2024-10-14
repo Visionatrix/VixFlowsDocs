@@ -28,3 +28,4 @@
 - [Human Face Detailer](HumanFaceDetailer.md)
 - [Flux 1](Flux_1.md)
 - [Inpaint](Inpaint.md)
+- [AllYourLife](AllYourLife.md)
