@@ -19,7 +19,7 @@ Visionatrix by default install and update these nodes:
 > -   [comfyui_controlnet_aux](https://github.com/Visionatrix/comfyui_controlnet_aux)
 > -   [ComfyUI_essentials](https://github.com/Visionatrix/ComfyUI_essentials)
 > -   [ComfyUI_FizzNodes](https://github.com/Visionatrix/ComfyUI_FizzNodes)
-> -   [ComfyUI_Gemini_Flash](https://github.com/Visionatrix/ComfyUI_Gemini_Flash)
+> -   [ComfyUI-Gemini](https://github.com/Visionatrix/ComfyUI-Gemini)
 > -   [ComfyUI_InstantID](https://github.com/Visionatrix/ComfyUI_InstantID)
 > -   [ComfyUI_IPAdapter_plus](https://github.com/Visionatrix/ComfyUI_IPAdapter_plus)
 > -   [ComfyUI_UltimateSDUpscale](https://github.com/Visionatrix/ComfyUI_UltimateSDUpscale)
@@ -29,7 +29,10 @@ Visionatrix by default install and update these nodes:
 > -   [Skimmed_CFG](https://github.com/Visionatrix/Skimmed_CFG)
 > -   [style_aligned_comfy](https://github.com/Visionatrix/style_aligned_comfy)
 > -   [was-node-suite-comfyui](https://github.com/Visionatrix/was-node-suite-comfyui)
+> -   [ComfyUI-Inpaint-CropAndStitch](https://github.com/Visionatrix/ComfyUI-Inpaint-CropAndStitch)
 > -   [ComfyUI-PhotoMaker-Plus](https://github.com/Visionatrix/ComfyUI-PhotoMaker-Plus)
+> -   [ComfyUI-VideoHelperSuite](https://github.com/Visionatrix/ComfyUI-VideoHelperSuite)
+> -   [ComfyUI-Frame-Interpolation](https://github.com/Visionatrix/ComfyUI-Frame-Interpolation)
 
 We are gradually expanding the list.
 

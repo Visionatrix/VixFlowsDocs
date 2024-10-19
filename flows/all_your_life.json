@@ -137,17 +137,12 @@
       ],
       "max_frames": 8,
       "print_output": false,
-      "pre_text": "Black and white pencil drawing of a portrait, monochrome, pencil sketch",
       "app_text": [
         "456",
         0
       ],
       "start_frame": 0,
       "end_frame": 0,
-      "pw_a": 0,
-      "pw_b": 0,
-      "pw_c": 0,
-      "pw_d": 0,
       "clip": [
         "206",
         1
@@ -484,80 +479,6 @@
       "title": "RIFE VFI (recommend rife47 and rife49)"
     }
   },
-  "408": {
-    "inputs": {
-      "query": [
-        "412",
-        0
-      ],
-      "debug": "enable",
-      "url": "http://127.0.0.1:11434",
-      "model": "llava:7b-v1.6-vicuna-fp16",
-      "keep_alive": 0,
-      "images": [
-        "378",
-        0
-      ]
-    },
-    "class_type": "OllamaVision",
-    "_meta": {
-      "title": "Ollama Vision"
-    }
-  },
-  "409": {
-    "inputs": {
-      "prompt": [
-        "412",
-        0
-      ],
-      "vision": true,
-      "api_key": "",
-      "proxy": "",
-      "image": [
-        "378",
-        0
-      ]
-    },
-    "class_type": "Gemini_Flash",
-    "_meta": {
-      "title": "Gemini flash"
-    }
-  },
-  "410": {
-    "inputs": {
-      "state": [
-        "458",
-        0
-      ],
-      "display_name": "Gemini instead of Ollama(Gender)",
-      "optional": true,
-      "advanced": true,
-      "order": 98,
-      "custom_id": "vision_provider_gender",
-      "hidden": true,
-      "input_off_state": [
-        "408",
-        0
-      ],
-      "input_on_state": [
-        "409",
-        0
-      ]
-    },
-    "class_type": "VixUiCheckboxLogic",
-    "_meta": {
-      "title": "VixUI-CheckboxLogic"
-    }
-  },
-  "412": {
-    "inputs": {
-      "text": "Male or Female? do not output anything else."
-    },
-    "class_type": "Text Multiline",
-    "_meta": {
-      "title": "Text Multiline"
-    }
-  },
   "417": {
     "inputs": {
       "text": "\"0\" :\"Three months old,litte girl，baby:2，kawaii,very short hair\",\n\"1\" :\"5-year-old,cute kid,girl\",\n\"2\" :\"16-year-old,young girl,long hair\",\n\"3\" :\"26-year-old,woman,long hair\",\n\"4\" :\"44-year-old,old woman\",\n\"5\" :\"64-year-old,old woman,gray hair\",\n\"6\" :\"84-year-old,old woman,wrinkles,white hair\",\n\"7\" :\"104-year-old,very old woman,wrinkles:2,white hair\","
@@ -579,7 +500,7 @@
   "439": {
     "inputs": {
       "text": [
-        "442",
+        "489",
         0
       ],
       "find": "Female",
@@ -610,23 +531,9 @@
       "title": "Text Find and Replace"
     }
   },
-  "442": {
-    "inputs": {
-      "text": [
-        "410",
-        0
-      ],
-      "find": " ",
-      "replace": ""
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
   "446": {
     "inputs": {
-      "text": "Please carefully analyze the image and return only one of the following race categories for artistic purposes: 'White', 'Black', 'Asian', 'Hispanic', or 'Indian'. Provide only one word from the list without any explanation. If the race is unclear or it is not possible to determine from the image, return 'Neutral'."
+      "text": "Analyze the image and return one word for each, focusing only on the main person:  \n1. Race: Choose only from 'White', 'Black', 'Asian', 'Hispanic', 'Indian', or 'Neutral' (if unclear).\n2. Gender: Choose only from 'Male' or 'Female' (default to 'Female' if unclear). Do not use 'Neutral' for gender.\n\nPlease respond in this format:\n\"Race\": \"YourRaceHere\", \"Gender\": \"YourGenderHere\"."
     },
     "class_type": "Text Multiline",
     "_meta": {
@@ -643,6 +550,8 @@
       "url": "http://127.0.0.1:11434",
       "model": "llava:7b-v1.6-vicuna-fp16",
       "keep_alive": 0,
+      "format": "json",
+      "seed": 735649772,
       "images": [
         "378",
         0
@@ -653,43 +562,21 @@
       "title": "Ollama Vision"
     }
   },
-  "448": {
-    "inputs": {
-      "prompt": [
-        "446",
-        0
-      ],
-      "vision": true,
-      "api_key": "",
-      "proxy": "",
-      "image": [
-        "378",
-        0
-      ]
-    },
-    "class_type": "Gemini_Flash",
-    "_meta": {
-      "title": "Gemini flash"
-    }
-  },
   "452": {
     "inputs": {
-      "state": [
-        "458",
-        0
-      ],
-      "display_name": "Gemini instead of Ollama(Race)",
+      "state": true,
+      "display_name": "Use Gemini instead of Ollama",
       "optional": true,
       "advanced": true,
-      "order": 99,
-      "custom_id": "vision_provider_race",
-      "hidden": true,
+      "order": 95,
+      "custom_id": "vision_provider",
+      "hidden": false,
       "input_off_state": [
         "447",
         0
       ],
       "input_on_state": [
-        "448",
+        "486",
         0
       ]
     },
@@ -703,14 +590,15 @@
       "action": "append",
       "tidy_tags": "yes",
       "text_a": [
-        "452",
+        "480",
         0
       ],
       "text_b": ", ",
       "text_c": [
-        "442",
+        "488",
         0
-      ]
+      ],
+      "result": "Smiling character in a White Shirt，Smile，looking at viewer, Asian"
     },
     "class_type": "StringFunction|pysssss",
     "_meta": {
@@ -722,33 +610,19 @@
       "action": "append",
       "tidy_tags": "yes",
       "text_a": [
-        "480",
+        "454",
         0
       ],
       "text_b": ", ",
       "text_c": [
-        "454",
+        "489",
         0
-      ]
+      ],
+      "result": "Smiling character in a White Shirt，Smile，looking at viewer, Asian, Female"
     },
     "class_type": "StringFunction|pysssss",
     "_meta": {
       "title": "String Function 🐍"
-    }
-  },
-  "458": {
-    "inputs": {
-      "state": false,
-      "display_name": "Use Gemini for vision instead of Ollama",
-      "optional": true,
-      "advanced": true,
-      "order": 95,
-      "custom_id": "vision_provider",
-      "hidden": false
-    },
-    "class_type": "VixUiCheckbox",
-    "_meta": {
-      "title": "VixUI-Checkbox"
     }
   },
   "460": {
@@ -811,7 +685,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/AllYourLife",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"sketch\", \"video\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -842,6 +716,69 @@
     "class_type": "GetImageSize+",
     "_meta": {
       "title": "🔧 Get Image Size"
+    }
+  },
+  "486": {
+    "inputs": {
+      "prompt": [
+        "446",
+        0
+      ],
+      "safety_settings": "BLOCK_NONE",
+      "response_type": "json",
+      "model": "gemini-1.5-flash-002",
+      "api_key": "",
+      "proxy": "",
+      "system_instruction": "",
+      "error_fallback_value": "",
+      "image_1": [
+        "378",
+        0
+      ]
+    },
+    "class_type": "Ask_Gemini",
+    "_meta": {
+      "title": "Ask Gemini"
+    }
+  },
+  "487": {
+    "inputs": {
+      "dictionary_text": [
+        "452",
+        0
+      ]
+    },
+    "class_type": "Text Dictionary Convert",
+    "_meta": {
+      "title": "Text Dictionary Convert"
+    }
+  },
+  "488": {
+    "inputs": {
+      "key": "Race",
+      "default_value": "Neutral",
+      "dictionary": [
+        "487",
+        0
+      ]
+    },
+    "class_type": "Text Dictionary Get",
+    "_meta": {
+      "title": "Text Dictionary Get"
+    }
+  },
+  "489": {
+    "inputs": {
+      "key": "Gender",
+      "default_value": "Female",
+      "dictionary": [
+        "487",
+        0
+      ]
+    },
+    "class_type": "Text Dictionary Get",
+    "_meta": {
+      "title": "Text Dictionary Get"
     }
   }
 }

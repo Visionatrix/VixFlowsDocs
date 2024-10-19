@@ -213,6 +213,8 @@
       "url": "http://127.0.0.1:11434",
       "model": "llava:7b-v1.6-vicuna-q8_0",
       "keep_alive": 0,
+      "format": "text",
+      "seed": 564503560,
       "images": [
         "25",
         0
@@ -346,33 +348,15 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MadScientist/",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
-      "is_count_supported": true
+      "is_count_supported": true,
+      "is_translations_supported": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
       "title": "VixUI-WorkflowMetadata"
-    }
-  },
-  "40": {
-    "inputs": {
-      "prompt": [
-        "44",
-        0
-      ],
-      "vision": true,
-      "api_key": "",
-      "proxy": "",
-      "image": [
-        "25",
-        0
-      ]
-    },
-    "class_type": "Gemini_Flash",
-    "_meta": {
-      "title": "Gemini flash"
     }
   },
   "43": {
@@ -389,7 +373,7 @@
         0
       ],
       "input_on_state": [
-        "40",
+        "47",
         0
       ]
     },
@@ -421,6 +405,29 @@
     "class_type": "ImageScale",
     "_meta": {
       "title": "Upscale Image"
+    }
+  },
+  "47": {
+    "inputs": {
+      "prompt": [
+        "44",
+        0
+      ],
+      "safety_settings": "BLOCK_NONE",
+      "response_type": "text",
+      "model": "gemini-1.5-flash-002",
+      "api_key": "",
+      "proxy": "",
+      "system_instruction": "",
+      "error_fallback_value": "",
+      "image_1": [
+        "25",
+        0
+      ]
+    },
+    "class_type": "Ask_Gemini",
+    "_meta": {
+      "title": "Ask Gemini"
     }
   }
 }
