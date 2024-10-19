@@ -351,6 +351,8 @@
       "url": "http://127.0.0.1:11434",
       "model": "llava:7b-v1.6-vicuna-q8_0",
       "keep_alive": 0,
+      "format": "text",
+      "seed": 564503560,
       "images": [
         "518",
         0
@@ -519,7 +521,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -625,25 +627,6 @@
       "title": "Save Image"
     }
   },
-  "583": {
-    "inputs": {
-      "prompt": [
-        "585",
-        0
-      ],
-      "vision": true,
-      "api_key": "",
-      "proxy": "",
-      "image": [
-        "518",
-        0
-      ]
-    },
-    "class_type": "Gemini_Flash",
-    "_meta": {
-      "title": "Gemini flash"
-    }
-  },
   "584": {
     "inputs": {
       "state": false,
@@ -658,7 +641,7 @@
         0
       ],
       "input_on_state": [
-        "583",
+        "586",
         0
       ]
     },
@@ -674,6 +657,29 @@
     "class_type": "Text Multiline (Code Compatible)",
     "_meta": {
       "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "586": {
+    "inputs": {
+      "prompt": [
+        "585",
+        0
+      ],
+      "safety_settings": "BLOCK_NONE",
+      "response_type": "text",
+      "model": "gemini-1.5-flash-002",
+      "api_key": "",
+      "proxy": "",
+      "system_instruction": "",
+      "error_fallback_value": "",
+      "image_1": [
+        "518",
+        0
+      ]
+    },
+    "class_type": "Ask_Gemini",
+    "_meta": {
+      "title": "Ask Gemini"
     }
   }
 }
