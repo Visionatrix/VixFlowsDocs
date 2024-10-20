@@ -132,7 +132,7 @@
   "224": {
     "inputs": {
       "text": [
-        "441",
+        "490",
         0
       ],
       "max_frames": 8,
@@ -597,8 +597,7 @@
       "text_c": [
         "488",
         0
-      ],
-      "result": "Smiling character in a White Shirt，Smile，looking at viewer, Asian"
+      ]
     },
     "class_type": "StringFunction|pysssss",
     "_meta": {
@@ -617,8 +616,7 @@
       "text_c": [
         "489",
         0
-      ],
-      "result": "Smiling character in a White Shirt，Smile，looking at viewer, Asian, Female"
+      ]
     },
     "class_type": "StringFunction|pysssss",
     "_meta": {
@@ -685,7 +683,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/AllYourLife",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"sketch\", \"video\"]",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -779,6 +777,23 @@
     "class_type": "Text Dictionary Get",
     "_meta": {
       "title": "Text Dictionary Get"
+    }
+  },
+  "490": {
+    "inputs": {
+      "text": [
+        "441",
+        0
+      ],
+      "find": "Neutral",
+      "replace": [
+        "417",
+        0
+      ]
+    },
+    "class_type": "Text Find and Replace",
+    "_meta": {
+      "title": "Text Find and Replace(if LLM is dumb)"
     }
   }
 }
