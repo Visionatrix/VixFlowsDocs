@@ -209,7 +209,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face;order=1"
+      "title": "input;Person's face;order=1;custom_id=person_face1"
     }
   },
   "33": {
@@ -219,7 +219,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face;order=2"
+      "title": "input;Person's face;order=2;custom_id=person_face2"
     }
   },
   "59": {
@@ -573,7 +573,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_2/",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -683,7 +683,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face;order=3;optional"
+      "title": "input;Person's face;order=3;optional;custom_id=person_face3"
     }
   },
   "241": {
@@ -693,7 +693,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face;order=4;optional"
+      "title": "input;Person's face;order=4;optional;custom_id=person_face4"
     }
   },
   "242": {

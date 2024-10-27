@@ -311,7 +311,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_1/",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"cartoon\"]",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -329,7 +329,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face;order=1"
+      "title": "input;Person's face;order=1;custom_id=person_face"
     }
   },
   "101": {

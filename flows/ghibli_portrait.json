@@ -219,7 +219,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/GhibliPortrait/",
       "license": "",
       "tags": "[\"anime\", \"portrait\"]",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -237,7 +237,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face pose; optional;advanced;order=2"
+      "title": "input;Person's face pose; optional;advanced;order=2;custom_id=person_pose"
     }
   },
   "389": {
@@ -247,7 +247,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face;order=1"
+      "title": "input;Person's face;order=1;custom_id=person_face"
     }
   },
   "391": {

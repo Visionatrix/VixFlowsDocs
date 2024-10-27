@@ -309,7 +309,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/HumanFaceDetailer/",
       "license": "",
       "tags": "[\"portrait\", \"postprocess\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[]"
     },
     "class_type": "VixUiWorkflowMetadata",
@@ -324,7 +324,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Image with people;order=1"
+      "title": "input;Image with people;order=1;custom_id=person_image"
     }
   },
   "284": {

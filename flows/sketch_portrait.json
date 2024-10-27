@@ -238,7 +238,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SketchPortrait/",
       "license": "",
       "tags": "[\"anime\", \"sketch\", \"portrait\"]",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -256,7 +256,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face;order=1"
+      "title": "input;Person's face;order=1;custom_id=person_face"
     }
   },
   "396": {
@@ -266,7 +266,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face pose; optional;advanced;order=2"
+      "title": "input;Person's face pose; optional;advanced;order=2;custom_id=person_pose"
     }
   },
   "397": {

@@ -40,7 +40,7 @@ UI as inputs, for example:
 -   input files (file)
 
 For that you will need to attach our custom nodes as adapters to your
-nodes receiving these inputs that are will be filled by the user from
+nodes receiving these inputs that will be filled by the user from
 the Visionatrix UI.
 
 As example, you can have a look at our [list of worklows](https://github.com/Visionatrix/VixFlowsDocs/tree/main/flows)
@@ -59,8 +59,7 @@ adopted to the new format.
 Alternatively, Visionatrix supports other Nodes mapping as an input
 param via node title string separated by semicolon.
 
-> The nodes titles starting with `input;` keyword are considered as
-> Visionatrix input param.
+> The nodes titles starting with `input;` keyword are considered input parameters to Visionatrix.
 
 The parameters list:
 
@@ -71,10 +70,6 @@ The parameters list:
 -   `advanced` - if present, the advanced field is set to True
 -   `order=1` - the order of the input param in the UI
 -   `custom_id=custom_name` - the custom id of the input param
-
-!!! note
-
-    `order` is very important for files if workflow accepts more than 1 file.
 
 ---
 
@@ -96,8 +91,7 @@ that you can use as example:
 
 ## 3. Map the models for automatic download
 
-Visionatrix simplifies and automates the process of downloading the
-models.
+Visionatrix simplifies and automates the process of downloading the models.
 
 As the third step of the migration, you need to map the models that are used in your workflow (see [models-mapping](./vix_workflows.md#automatic-models-mapping)).
 
@@ -107,7 +101,7 @@ As the third step of the migration, you need to map the models that are used in 
 
 The last step is to build the list of available flows in the Visionatrix
 UI. Follow the steps described in
-[options.py](https://github.com/Visionatrix/Visionatrix/blob/main/visionatrix/options.py#L56-L59)
+[options.py](https://github.com/Visionatrix/Visionatrix/blob/c93e8153bfe3e1bf55dddca65ee899edb7319cc7/visionatrix/options.py#L51-L67)
 file for `FLOWS_URL` and `MODELS_CATALOG_URL` to enable Visionatrix
 local workflows development mode:
 

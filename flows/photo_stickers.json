@@ -935,7 +935,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face;order=1"
+      "title": "input;Person's face;order=1;custom_id=person_face"
     }
   },
   "359": {
@@ -948,7 +948,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.0.0"
+      "version": "1.0.1"
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {

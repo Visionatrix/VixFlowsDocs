@@ -149,7 +149,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face;order=1"
+      "title": "input;Person's face;order=1;custom_id=person_face"
     }
   },
   "44": {
@@ -159,7 +159,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face pose; optional;advanced;order=2"
+      "title": "input;Person's face pose; optional;advanced;order=2;custom_id=person_pose"
     }
   },
   "46": {
@@ -172,7 +172,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/VintagePortrait/",
       "license": "",
       "tags": "[\"portrait\"]",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -190,7 +190,7 @@
       "optional": false,
       "advanced": false,
       "order": 2,
-      "custom_id": "",
+      "custom_id": "prompt",
       "hidden": false,
       "translatable": true
     },

@@ -189,7 +189,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face pose; optional;advanced;order=3"
+      "title": "input;Person's face pose;optional;advanced;order=3;custom_id=person_pose"
     }
   },
   "387": {
@@ -199,7 +199,7 @@
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Person's face;order=1"
+      "title": "input;Person's face;order=1;custom_id=person_face"
     }
   },
   "388": {
@@ -212,7 +212,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MemojiPortrait/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
