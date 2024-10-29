@@ -158,12 +158,12 @@
   },
   "283": {
     "inputs": {
-      "value": 5,
+      "value": 4.5,
       "display_name": "Prompt strength",
       "optional": true,
       "advanced": true,
-      "min": 3,
-      "max": 6.5,
+      "min": 2.5,
+      "max": 6,
       "step": 0.1,
       "order": 10,
       "custom_id": "prompt_strength",
