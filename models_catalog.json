@@ -501,6 +501,18 @@
       }
     ]
   },
+  "Proteus-v06": {
+    "save_path": "checkpoints/Proteus-v0.6.safetensors",
+    "url": "https://huggingface.co/dataautogpt3/Proteus-v0.6/resolve/main/Proteus-v0.6.safetensors",
+    "homepage": "https://huggingface.co/dataautogpt3/Proteus-v0.6",
+    "hash": "8c4b5d3be05b1136b69bd61ab6c06f43bc3279614d6325a4622e665ef4dcfd88",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:Proteus))(?=.*(?i:v0\\.6)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ]
+  },
   "SD3-Medium": {
     "save_path": "checkpoints/sd3_medium_incl_clips_t5xxlfp16.safetensors",
     "url": "https://huggingface.co/stabilityai/stable-diffusion-3-medium/resolve/main/sd3_medium_incl_clips_t5xxlfp16.safetensors",
