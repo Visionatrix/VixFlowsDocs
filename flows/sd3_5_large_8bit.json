@@ -6,8 +6,8 @@
         0
       ],
       "clip": [
-        "252",
-        1
+        "285",
+        0
       ]
     },
     "class_type": "CLIPTextEncode",
@@ -19,8 +19,8 @@
     "inputs": {
       "text": "",
       "clip": [
-        "252",
-        1
+        "285",
+        0
       ]
     },
     "class_type": "CLIPTextEncode",
@@ -52,7 +52,7 @@
         0
       ],
       "vae": [
-        "252",
+        "286",
         2
       ]
     },
@@ -61,28 +61,22 @@
       "title": "VAE Decode"
     }
   },
-  "252": {
-    "inputs": {
-      "ckpt_name": "sd3_medium_incl_clips_t5xxlfp16.safetensors"
-    },
-    "class_type": "CheckpointLoaderSimple",
-    "_meta": {
-      "title": "Load Checkpoint"
-    }
-  },
   "271": {
     "inputs": {
       "seed": 696689572470178,
-      "steps": 28,
+      "steps": [
+        "284",
+        0
+      ],
       "cfg": [
         "283",
         0
       ],
-      "sampler_name": "dpmpp_2m",
+      "sampler_name": "euler",
       "scheduler": "sgm_uniform",
       "denoise": 1,
       "model": [
-        "279",
+        "286",
         0
       ],
       "positive": [
@@ -105,7 +99,7 @@
   },
   "273": {
     "inputs": {
-      "filename_prefix": "sd3/comfy_",
+      "filename_prefix": "sd35/comfy_",
       "images": [
         "231",
         0
@@ -113,33 +107,20 @@
     },
     "class_type": "SaveImage",
     "_meta": {
-      "title": "@Datou"
-    }
-  },
-  "279": {
-    "inputs": {
-      "shift": 3,
-      "model": [
-        "252",
-        0
-      ]
-    },
-    "class_type": "ModelSamplingSD3",
-    "_meta": {
-      "title": "ModelSamplingSD3"
+      "title": "@ComfyOrg"
     }
   },
   "280": {
     "inputs": {
-      "name": "sd3_medium",
-      "display_name": "SD3 Medium",
-      "description": "Simple one model flow for testing purposes",
-      "author": "Datou",
-      "homepage": "https://openart.ai/workflows/datou/sd3-basic-workflow/7Udt2JZ3Mwqf1if9EqWt",
-      "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SD3_Medium/",
+      "name": "sd3_5_large_8bit",
+      "display_name": "SD3.5 Large (Small)",
+      "description": "Analogue of Flux model, but from StabilityAI (FP8 precision)",
+      "author": " Comfy-Org",
+      "homepage": "",
+      "documentation": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.1",
+      "version": "1.0.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -177,12 +158,12 @@
   },
   "283": {
     "inputs": {
-      "value": 3.5,
+      "value": 5,
       "display_name": "Prompt strength",
       "optional": true,
       "advanced": true,
       "min": 3,
-      "max": 5,
+      "max": 6.5,
       "step": 0.1,
       "order": 10,
       "custom_id": "prompt_strength",
@@ -191,6 +172,44 @@
     "class_type": "VixUiRangeFloat",
     "_meta": {
       "title": "VixUI-RangeFloat"
+    }
+  },
+  "284": {
+    "inputs": {
+      "value": 20,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 20,
+      "max": 60,
+      "step": 1,
+      "order": 98,
+      "custom_id": "steps_count",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "285": {
+    "inputs": {
+      "clip_name1": "clip_l.safetensors",
+      "clip_name2": "clip_g.safetensors",
+      "clip_name3": "t5xxl_fp16.safetensors"
+    },
+    "class_type": "TripleCLIPLoader",
+    "_meta": {
+      "title": "TripleCLIPLoader"
+    }
+  },
+  "286": {
+    "inputs": {
+      "ckpt_name": "sd3.5_large_fp8_scaled.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
     }
   }
 }

@@ -526,6 +526,18 @@
     ],
     "gated": true
   },
+  "SD3.5-Large-FP8": {
+    "save_path": "checkpoints/sd3.5_large_fp8_scaled.safetensors",
+    "url": "https://huggingface.co/Comfy-Org/stable-diffusion-3.5-fp8/resolve/main/sd3.5_large_fp8_scaled.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
+    "hash": "5ad94d6f951556b1ab6b75930fd4effbafaf3130fe9df440e7f2d05a220dd1be",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sd3\\.5))(?=.*(?i:large))(?=.*(?i:fp8)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ]
+  },
   "NetaArt_XL_1.0": {
     "save_path": "checkpoints/neta_art_xl_v10.safetensors",
     "url": "https://huggingface.co/neta-art/neta-art-xl-1.0/resolve/main/neta_art_xl_v10.safetensors",
@@ -693,6 +705,18 @@
     "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors",
     "homepage": "https://huggingface.co/comfyanonymous/flux_text_encoders",
     "hash": "660c6f5b1abae9dc498ac2d21e1347d2abdb0cf6c0c0c8576cd796491d9a6cdd"
+  },
+  "CLIP-CLIP_G": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:clip_g))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "save_path": "clip/clip_g.safetensors",
+    "url": "https://huggingface.co/Comfy-Org/stable-diffusion-3.5-fp8/resolve/main/text_encoders/clip_g.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/stable-diffusion-3-medium",
+    "hash": "ec310df2af79c318e24d20511b601a591ca8cd4f1fce1d8dff822a356bcdb1f4"
   },
   "FLUX-CLIP-T5XXL-FP16": {
     "regexes": [
