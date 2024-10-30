@@ -1,0 +1,75 @@
+{
+    "test_time": "2024/10/30",
+    "flows": [
+        {
+            "flow_name": "vintage_portrait",
+            "flow_display_name": "Vintage Portrait",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 24.778695378000066
+                }
+            ]
+        },
+        {
+            "flow_name": "sketch_portrait",
+            "flow_display_name": "Sketch Portrait",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 4.521032172500782
+                }
+            ]
+        },
+        {
+            "flow_name": "comicu_portrait",
+            "flow_display_name": "ComicU Portrait",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 4.562507274999916
+                }
+            ]
+        },
+        {
+            "flow_name": "ghibli_portrait",
+            "flow_display_name": "Ghibli Portrait",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 3.834766102499543
+                }
+            ]
+        },
+        {
+            "flow_name": "memoji_portrait",
+            "flow_display_name": "Memoji Portrait",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 4.041554220500984
+                }
+            ]
+        },
+        {
+            "flow_name": "photomaker_1",
+            "flow_display_name": "Photo from 1 image",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 13.371751250000216
+                }
+            ]
+        },
+        {
+            "flow_name": "photo_stickers",
+            "flow_display_name": "Photo Stickers",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 30.663720302
+                }
+            ]
+        }
+    ]
+}

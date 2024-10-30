@@ -1,0 +1,107 @@
+{
+    "test_time": "2024/10/30",
+    "flows": [
+        {
+            "flow_name": "sdxl_lighting",
+            "flow_display_name": "SDXL Lighting",
+            "test_cases": [
+                {
+                    "test_case": "4_steps",
+                    "avg_exec_time": 1.0135960430000068
+                },
+                {
+                    "test_case": "8_steps",
+                    "avg_exec_time": 1.6067451349999828
+                }
+            ]
+        },
+        {
+            "flow_name": "juggernaut_lite",
+            "flow_display_name": "Juggernaut Lite",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 9.145627011499982
+                }
+            ]
+        },
+        {
+            "flow_name": "juggernaut_xl",
+            "flow_display_name": "Juggernaut XL",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 14.332617500999731
+                },
+                {
+                    "test_case": "fast_run",
+                    "avg_exec_time": 5.972090246999869
+                }
+            ]
+        },
+        {
+            "flow_name": "colorful_xl",
+            "flow_display_name": "Colorful XL",
+            "test_cases": [
+                {
+                    "test_case": "fast_run_30steps",
+                    "avg_exec_time": 1.8740914960001192
+                },
+                {
+                    "test_case": "fast_run_60steps",
+                    "avg_exec_time": 3.4643939574998512
+                },
+                {
+                    "test_case": "usual_run_30steps",
+                    "avg_exec_time": 4.858703175999835
+                },
+                {
+                    "test_case": "usual_run_60steps",
+                    "avg_exec_time": 9.327643501500006
+                }
+            ]
+        },
+        {
+            "flow_name": "mobius_xl",
+            "flow_display_name": "Mobius XL",
+            "test_cases": [
+                {
+                    "test_case": "fast_run_30steps",
+                    "avg_exec_time": 6.8147885490000135
+                },
+                {
+                    "test_case": "usual_run_30steps",
+                    "avg_exec_time": 16.864699924999968
+                }
+            ]
+        },
+        {
+            "flow_name": "playground_2_5_aesthetic",
+            "flow_display_name": "Aesthetic images",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "avg_exec_time": 14.4642576870001
+                },
+                {
+                    "test_case": "fast_run",
+                    "avg_exec_time": 6.240726997000365
+                }
+            ]
+        },
+        {
+            "flow_name": "playground_2_5_prometheus",
+            "flow_display_name": "Prometheus model",
+            "test_cases": [
+                {
+                    "test_case": "25steps",
+                    "avg_exec_time": 8.490300532999981
+                },
+                {
+                    "test_case": "50steps",
+                    "avg_exec_time": 16.41794778350004
+                }
+            ]
+        }
+    ]
+}
