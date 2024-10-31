@@ -31,6 +31,7 @@ jobs:
         run: |
           python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
           python3 -m pip install "src_visionatrix/."
+          python3 -m visionatrix install
 
       - name: Get list of changed flow files
         id: changed_files
