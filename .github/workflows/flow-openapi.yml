@@ -11,7 +11,7 @@ concurrency:
 
 permissions:
   contents: read
-  issues: write
+  pull-requests: write
 
 jobs:
   flow-openapi:
@@ -55,8 +55,13 @@ jobs:
       - name: Get list of changed flow files
         id: changed_files
         run: |
-          git fetch origin ${{ github.base_ref }} --depth=1
-          git diff --name-only --diff-filter=AM origin/${{ github.base_ref }}...HEAD > changed_files_am.txt
+          # Add the base repository as a new remote
+          git remote add base https://github.com/${{ github.event.pull_request.base.repo.full_name }}.git
+          # Fetch the base branch from the base repository
+          git fetch base ${{ github.event.pull_request.base.ref }} --depth=1
+          # Get the list of changed files between the PR and the base branch
+          git diff --name-only --diff-filter=AM base/${{ github.event.pull_request.base.ref }}...HEAD > changed_files_am.txt
+          # Filter for changes in 'flows/' directory
           grep '^flows/' changed_files_am.txt > flows_changed_files_am.txt || true
 
       - name: Show changed flow files
@@ -80,7 +85,7 @@ jobs:
             VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix install-flow --file="$file"
             flow_name=$(basename "$file")
             openapi_file="flows_openapi/$flow_name"
-            python3 -m visionatrix openapi --only-flows --file="$openapi_file"
+            VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix openapi --only-flows --installed --file="$openapi_file"
             rm -f "vix_flows/$flow_name"
           done < flows_changed_files_am.txt
 
@@ -91,14 +96,9 @@ jobs:
           name: OpenAPI Specs
           path: flows_openapi/
 
-      - name: Post comment on PR with artifact link
+      - name: Comment on PR with artifact link
         if: steps.check_flows.outputs.flows_changed == 'true'
-        uses: actions/github-script@v6
+        uses: thollander/actions-comment-pull-request@v3
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: ${{ github.event.pull_request.number }},
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '✅ The generated OpenAPI specifications are available as artifacts in the [Actions tab](${{ github.run_url }}). Please download the "OpenAPI Specs" artifact to review them.'
-            })
+          message: |
+            ✅ The generated OpenAPI specifications are available as artifacts in the [Actions tab](${{ github.run_url }}). Please download the "OpenAPI Specs" artifact to review them.
