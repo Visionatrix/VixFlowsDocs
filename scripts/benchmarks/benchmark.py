@@ -47,9 +47,9 @@ class TestCase(BaseModel):
         {},
         description="A set of input parameters to pass to the flow during the task creation.",
     )
-    input_files: list[str] = Field(
-        [],
-        description="List of file paths to pass to the flow during the task creation",
+    input_files: dict[str, str | Path] = Field(
+        {},
+        description="A set of input files to pass to the flow during the task creation.",
     )
     warm_up: bool = Field(
         WARMUP,
@@ -204,7 +204,7 @@ TEST_CASES_PORTRAITS = [
             TestCase(
                 name="default",
                 input_params={"prompt": "hero portrait"},
-                input_files=["man.png"],
+                input_files={"person_face": "man.png"},
             ),
         ],
     ),
@@ -214,7 +214,7 @@ TEST_CASES_PORTRAITS = [
             TestCase(
                 name="default",
                 input_params={"prompt": "hero portrait"},
-                input_files=["man.png"],
+                input_files={"person_face": "man.png"},
             ),
         ],
     ),
@@ -224,7 +224,7 @@ TEST_CASES_PORTRAITS = [
             TestCase(
                 name="default",
                 input_params={"prompt": "hero portrait"},
-                input_files=["man.png"],
+                input_files={"person_face": "man.png"},
             ),
         ],
     ),
@@ -234,7 +234,7 @@ TEST_CASES_PORTRAITS = [
             TestCase(
                 name="default",
                 input_params={"prompt": "hero portrait"},
-                input_files=["man.png"],
+                input_files={"person_face": "man.png"},
             ),
         ],
     ),
@@ -244,7 +244,7 @@ TEST_CASES_PORTRAITS = [
             TestCase(
                 name="default",
                 input_params={"prompt": "man, portrait, close up"},
-                input_files=["man.png"],
+                input_files={"person_face": "man.png"},
             ),
         ],
     ),
@@ -254,7 +254,7 @@ TEST_CASES_PORTRAITS = [
             TestCase(
                 name="default",
                 input_params={"prompt": "portrait of a man"},
-                input_files=["man.png"],
+                input_files={"person_face": "man.png"},
             ),
         ],
     ),
@@ -263,7 +263,7 @@ TEST_CASES_PORTRAITS = [
         test_cases=[
             TestCase(
                 name="default",
-                input_files=["man.png"],
+                input_files={"person_face": "man.png"},
             ),
         ],
     ),
@@ -304,7 +304,7 @@ TEST_CASES_OTHER = [
         test_cases=[
             TestCase(
                 name="1024x1024",
-                input_files=["man.png"],
+                input_files={"input_image": "man.png"},
             ),
         ],
     ),
@@ -313,7 +313,7 @@ TEST_CASES_OTHER = [
         test_cases=[
             TestCase(
                 name="1024x1024",
-                input_files=["man.png"],
+                input_files={"input_image": "man.png"},
             ),
         ],
     ),
@@ -323,7 +323,7 @@ TEST_CASES_OTHER = [
             TestCase(
                 name="1MPx1.5",
                 input_params={"scale_factor": 1.5},
-                input_files=["man.png"],
+                input_files={"image_to_upscale": "man.png"},
             ),
         ],
     ),
@@ -514,15 +514,15 @@ async def wait_for_installation_to_complete(
 
 
 async def create_task(
-    flow_name: str, input_params: dict, count: int, input_files: list[str] = None
+    flow_name: str, input_params: dict, count: int, input_files: dict | None = None
 ) -> list[int]:
-    files_to_upload = []
+    files_to_upload = {}
     if input_files:
-        # Load files from the "input_files" directory
-        for file_name in input_files:
+        # Load _ from the "input_files" directory
+        for param_id, file_name in input_files.items():
             file_path = os.path.join("input_files", file_name)
             try:
-                files_to_upload.append(("files", open(file_path, "rb")))
+                files_to_upload[param_id] = open(file_path, "rb")
             except FileNotFoundError:
                 print(f"File {file_name} not found in the input_files directory.")
                 return []
@@ -530,12 +530,13 @@ async def create_task(
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             form_data = {
-                "name": flow_name,
                 "count": count,
-                "input_params": json.dumps(input_params),
+                **input_params,
             }
             response = await client.put(
-                f"{SERVER_URL}/api/tasks/create", data=form_data, files=files_to_upload
+                f"{SERVER_URL}/api/tasks/create/{flow_name}",
+                data=form_data,
+                files=files_to_upload,
             )
             if response.status_code == 200:
                 return response.json().get("tasks_ids", [])
@@ -547,8 +548,8 @@ async def create_task(
             print(f"An error occurred during task creation: {exc.request.url!r}: {exc}")
         finally:
             # Close file handlers
-            for _, file in files_to_upload:
-                file.close()
+            for file_handle in files_to_upload.values():
+                file_handle.close()
 
     return []
 
