@@ -12,9 +12,6 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: true  # Necessary for pushing changes
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -59,7 +56,7 @@ jobs:
           while read file; do
             echo "Processing $file"
             # Install and check the flow
-            python3 -m visionatrix install-flow --file="$file"
+            VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix install-flow --file="$file"
             # Generate OpenAPI spec
             flow_name=$(basename "$file")
             openapi_file="flows_openapi/$flow_name"
@@ -68,18 +65,21 @@ jobs:
             rm -f "vix_flows/$flow_name"
           done < flows_changed_files_am.txt
 
-      - name: Commit and push OpenAPI specs to PR branch
+      - name: Upload OpenAPI specs as artifact
         if: steps.check_flows.outputs.flows_changed == 'true'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config user.name "${{ github.actor }}"
-          git config user.email "${{ github.actor }}@users.noreply.github.com"
-          git add flows_openapi/
-          # Check if there are changes to commit
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "Add generated OpenAPI specs for flows"
-            git push origin HEAD:${{ github.head_ref }}
-          fi
+        uses: actions/upload-artifact@v3
+        with:
+          name: OpenAPI Specs
+          path: flows_openapi/
+
+      - name: Post comment on PR with artifact link
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: ${{ github.event.pull_request.number }},
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '✅ The generated OpenAPI specifications are available as artifacts in the [Actions tab](${{ github.run_url }}). Please download the "OpenAPI Specs" artifact to review them.'
+            })
