@@ -1,0 +1,84 @@
+name: Flows OpenAPI Specs
+
+on:
+  pull_request:
+    paths:
+      - 'flows/**'
+
+jobs:
+  flow-openapi:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true  # Necessary for pushing changes
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Checkout Visionatrix
+        uses: actions/checkout@v4
+        with:
+          path: src_visionatrix
+          repository: Visionatrix/Visionatrix
+
+      - name: Install Visionatrix
+        run: |
+          python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install "src_visionatrix/."
+
+      - name: Get list of changed flow files
+        id: changed_files
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          git diff --name-only --diff-filter=AM origin/${{ github.base_ref }}...HEAD > changed_files_am.txt
+          grep '^flows/' changed_files_am.txt > flows_changed_files_am.txt || true
+
+      - name: Show changed flow files
+        run: cat flows_changed_files_am.txt
+
+      - name: Check if any flows were changed
+        id: check_flows
+        run: |
+          if [ -s flows_changed_files_am.txt ]; then
+            echo "flows_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "flows_changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Install, check, and generate OpenAPI specs for flows
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        run: |
+          mkdir -p flows_openapi
+          while read file; do
+            echo "Processing $file"
+            # Install and check the flow
+            python3 -m visionatrix install-flow --file="$file"
+            # Generate OpenAPI spec
+            flow_name=$(basename "$file")
+            openapi_file="flows_openapi/$flow_name"
+            python3 -m visionatrix openapi --only-flows --file="$openapi_file"
+            # Delete the file in vix_flows/
+            rm -f "vix_flows/$flow_name"
+          done < flows_changed_files_am.txt
+
+      - name: Commit and push OpenAPI specs to PR branch
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git add flows_openapi/
+          # Check if there are changes to commit
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Add generated OpenAPI specs for flows"
+            git push origin HEAD:${{ github.head_ref }}
+          fi
