@@ -7,7 +7,7 @@ on:
 
 jobs:
   flow-openapi:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22
 
     steps:
       - name: Check out repository
@@ -30,7 +30,7 @@ jobs:
         run: |
           sudo DEBIAN_FRONTEND=noninteractive apt-get update
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y postgresql postgresql-contrib
-          sudo pg_ctlcluster 16 main start
+          sudo pg_ctlcluster 14 main start
           sudo -u postgres psql -c "CREATE USER vix_user WITH PASSWORD 'vix_password';"
           sudo -u postgres psql -c "CREATE DATABASE vix_db OWNER vix_user;"
           sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE vix_db TO vix_user;"
