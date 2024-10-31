@@ -5,6 +5,14 @@ on:
     paths:
       - 'flows/**'
 
+concurrency:
+  group: flow_openapi-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   flow-openapi:
     runs-on: ubuntu-22.04
