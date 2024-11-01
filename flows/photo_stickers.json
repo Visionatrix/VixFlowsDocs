@@ -948,7 +948,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.0.1"
+      "version": "1.0.2"
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {

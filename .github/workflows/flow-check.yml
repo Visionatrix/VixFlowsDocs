@@ -89,34 +89,37 @@ jobs:
         if: steps.check_flows.outputs.flows_changed == 'true'
         run: npm install -g redoc-cli
 
-      - name: Install, check, and generate OpenAPI specs and HTML docs for flows
+      - name: Install modified flows
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        run: |
+          while read file; do
+            echo "Installing $file"
+            VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix install-flow --file="$file"
+          done < flows_changed_files_am.txt
+
+      - name: Generate OpenAPI specs for all installed flows
         if: steps.check_flows.outputs.flows_changed == 'true'
         run: |
           mkdir -p flows_openapi
+          openapi_file="flows_openapi/all_flows_openapi.json"
+          VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix openapi --only-flows --installed --file="$openapi_file"
+
+      - name: Generate HTML documentation for OpenAPI specs
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        run: |
           mkdir -p flows_docs
-          while read file; do
-            echo "Processing $file"
-            # Install and check the flow
-            VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix install-flow --file="$file"
-            flow_name=$(basename "$file")
-            openapi_file="flows_openapi/$flow_name"
-            VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix openapi --only-flows --installed --file="$openapi_file"
-            # Generate HTML documentation using Redoc
-            html_file="flows_docs/${flow_name%.json}.html"
-            npx redoc-cli bundle "$openapi_file" -o "$html_file"
-            rm -f "vix_flows/$flow_name"
-          done < flows_changed_files_am.txt
+          npx redoc-cli bundle flows_openapi/all_flows_openapi.json -o flows_docs/all_flows_openapi.html
 
       - name: Upload OpenAPI specs artifact
         if: steps.check_flows.outputs.flows_changed == 'true'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: OpenAPI Specs
-          path: flows_openapi/
+          path: flows_openapi/all_flows_openapi.json
 
       - name: Upload HTML documentation artifact
         if: steps.check_flows.outputs.flows_changed == 'true'
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: OpenAPI Docs
-          path: flows_docs/
+          path: flows_docs/all_flows_openapi.html
