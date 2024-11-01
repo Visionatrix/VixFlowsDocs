@@ -3,6 +3,8 @@ name: Models Catalog
 on:
   workflow_dispatch:
   pull_request:
+    paths:
+      - 'models_catalog.json'
   schedule:
     - cron: '0 0 * * *'  # This will run once a day at midnight UTC
 
