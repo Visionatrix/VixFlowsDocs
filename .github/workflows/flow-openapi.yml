@@ -29,6 +29,30 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Checkout Visionatrix
+        uses: actions/checkout@v4
+        with:
+          path: src_visionatrix
+          repository: Visionatrix/Visionatrix
+
+      - name: Install PostgreSQL
+        run: |
+          sudo DEBIAN_FRONTEND=noninteractive apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y postgresql postgresql-contrib
+          sudo pg_ctlcluster 14 main start
+          sudo -u postgres psql -c "CREATE USER vix_user WITH PASSWORD 'vix_password';"
+          sudo -u postgres psql -c "CREATE DATABASE vix_db OWNER vix_user;"
+          sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE vix_db TO vix_user;"
+
+      - name: Set DATABASE_URI environment variable
+        run: echo "DATABASE_URI=postgresql+psycopg://vix_user:vix_password@localhost:5432/vix_db" >> $GITHUB_ENV
+
+      - name: Install Visionatrix
+        run: |
+          python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install "src_visionatrix/.[pgsql]"
+          python3 -m visionatrix install
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
