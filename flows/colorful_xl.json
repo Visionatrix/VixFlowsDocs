@@ -235,7 +235,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Colorful_XL/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "2.1.2",
+      "version": "2.1.1",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
