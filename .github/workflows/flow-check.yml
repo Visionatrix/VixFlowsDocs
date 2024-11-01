@@ -1,0 +1,122 @@
+name: Flow Checker
+
+on:
+  pull_request:
+    paths:
+      - 'flows/**'
+
+permissions:
+  contents: read
+
+jobs:
+  flow-openapi:
+    runs-on: ubuntu-22.04
+    env:
+      DATABASE_URI: postgresql+psycopg://vix_user:vix_password@localhost:5432/vix_db
+
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: vix_user
+          POSTGRES_PASSWORD: vix_password
+          POSTGRES_DB: vix_db
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Get list of changed flow files
+        run: |
+          # Add the base repository as a new remote
+          git remote add base https://github.com/${{ github.event.pull_request.base.repo.full_name }}.git
+          # Fetch the base branch from the base repository
+          git fetch base ${{ github.event.pull_request.base.ref }} --depth=1
+          # Get the list of changed files between the PR and the base branch
+          git diff --name-only --diff-filter=AM base/${{ github.event.pull_request.base.ref }}...HEAD > changed_files_am.txt
+          # Filter for changes in 'flows/' directory
+          grep '^flows/' changed_files_am.txt > flows_changed_files_am.txt || true
+
+      - name: Show changed flow files
+        run: cat flows_changed_files_am.txt
+
+      - name: Check if any flows were changed
+        id: check_flows
+        run: |
+          if [ -s flows_changed_files_am.txt ]; then
+            echo "flows_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "flows_changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Set up Python
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Checkout Visionatrix
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        uses: actions/checkout@v4
+        with:
+          path: src_visionatrix
+          repository: Visionatrix/Visionatrix
+
+      - name: Install Visionatrix
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        run: |
+          python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install "src_visionatrix/.[pgsql]"
+          python3 -m visionatrix install
+
+      - name: Set up Node.js
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install redoc-cli
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        run: npm install -g redoc-cli
+
+      - name: Install, check, and generate OpenAPI specs and HTML docs for flows
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        run: |
+          mkdir -p flows_openapi
+          mkdir -p flows_docs
+          while read file; do
+            echo "Processing $file"
+            # Install and check the flow
+            VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix install-flow --file="$file"
+            flow_name=$(basename "$file")
+            openapi_file="flows_openapi/$flow_name"
+            VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix openapi --only-flows --installed --file="$openapi_file"
+            # Generate HTML documentation using Redoc
+            html_file="flows_docs/${flow_name%.json}.html"
+            npx redoc-cli bundle "$openapi_file" -o "$html_file"
+            rm -f "vix_flows/$flow_name"
+          done < flows_changed_files_am.txt
+
+      - name: Upload OpenAPI specs artifact
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        uses: actions/upload-artifact@v3
+        with:
+          name: OpenAPI Specs
+          path: flows_openapi/
+
+      - name: Upload HTML documentation artifact
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        uses: actions/upload-artifact@v3
+        with:
+          name: OpenAPI Docs
+          path: flows_docs/
