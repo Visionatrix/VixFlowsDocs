@@ -24,18 +24,45 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Get list of changed flow files
+        id: changed_files
+        run: |
+          # Add the base repository as a new remote
+          git remote add base https://github.com/${{ github.event.pull_request.base.repo.full_name }}.git
+          # Fetch the base branch from the base repository
+          git fetch base ${{ github.event.pull_request.base.ref }} --depth=1
+          # Get the list of changed files between the PR and the base branch
+          git diff --name-only --diff-filter=AM base/${{ github.event.pull_request.base.ref }}...HEAD > changed_files_am.txt
+          # Filter for changes in 'flows/' directory
+          grep '^flows/' changed_files_am.txt > flows_changed_files_am.txt || true
+
+      - name: Show changed flow files
+        run: cat flows_changed_files_am.txt
+
+      - name: Check if any flows were changed
+        id: check_flows
+        run: |
+          if [ -s flows_changed_files_am.txt ]; then
+            echo "flows_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "flows_changed=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Set up Python
+        if: steps.check_flows.outputs.flows_changed == 'true'
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
       - name: Checkout Visionatrix
+        if: steps.check_flows.outputs.flows_changed == 'true'
         uses: actions/checkout@v4
         with:
           path: src_visionatrix
           repository: Visionatrix/Visionatrix
 
       - name: Install PostgreSQL
+        if: steps.check_flows.outputs.flows_changed == 'true'
         run: |
           sudo DEBIAN_FRONTEND=noninteractive apt-get update
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y postgresql postgresql-contrib
@@ -45,50 +72,60 @@ jobs:
           sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE vix_db TO vix_user;"
 
       - name: Set DATABASE_URI environment variable
+        if: steps.check_flows.outputs.flows_changed == 'true'
         run: echo "DATABASE_URI=postgresql+psycopg://vix_user:vix_password@localhost:5432/vix_db" >> $GITHUB_ENV
 
       - name: Install Visionatrix
+        if: steps.check_flows.outputs.flows_changed == 'true'
         run: |
           python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
           python3 -m pip install "src_visionatrix/.[pgsql]"
           python3 -m visionatrix install
 
       - name: Set up Node.js
+        if: steps.check_flows.outputs.flows_changed == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Install redoc-cli
+        if: steps.check_flows.outputs.flows_changed == 'true'
         run: npm install -g redoc-cli
 
       - name: Install, check, and generate OpenAPI specs and HTML docs for flows
+        if: steps.check_flows.outputs.flows_changed == 'true'
         run: |
           mkdir -p flows_openapi
           mkdir -p flows_docs
-          for file in flows/*; do
+          while read file; do
             echo "Processing $file"
+            # Install and check the flow
             VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix install-flow --file="$file"
             flow_name=$(basename "$file")
             openapi_file="flows_openapi/$flow_name"
             VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix openapi --only-flows --installed --file="$openapi_file"
+            # Generate HTML documentation using Redoc
             html_file="flows_docs/${flow_name%.json}.html"
             npx redoc-cli bundle "$openapi_file" -o "$html_file"
-          done
+            rm -f "vix_flows/$flow_name"
+          done < flows_changed_files_am.txt
 
       - name: Upload OpenAPI specs artifact
+        if: steps.check_flows.outputs.flows_changed == 'true'
         uses: actions/upload-artifact@v3
         with:
           name: OpenAPI Specs
           path: flows_openapi/
 
       - name: Upload HTML documentation artifact
+        if: steps.check_flows.outputs.flows_changed == 'true'
         uses: actions/upload-artifact@v3
         with:
           name: OpenAPI Docs
           path: flows_docs/
 
-      - name: Dispatch event to main repository
-        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository
+      - name: Dispatch comment event
+        if: github.event_name == 'pull_request' && steps.check_flows.outputs.flows_changed == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.PAT_FOR_DISPATCH }}
         run: |
