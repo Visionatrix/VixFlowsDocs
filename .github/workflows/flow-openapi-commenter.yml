@@ -1,0 +1,62 @@
+name: Flows OpenAPI Specs Commenter
+
+on:
+  workflow_run:
+    workflows: ["Flows OpenAPI Specs"]
+    types:
+      - completed
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  actions: read
+
+jobs:
+  comment-on-pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    steps:
+      - name: Check if PR includes changes to 'flows/**'
+        id: check_flows
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const pr = context.event.workflow_run.pull_requests[0];
+            if (!pr) {
+              core.setOutput('flows_changed', 'false');
+              return;
+            }
+            const prNumber = pr.number;
+            const changedFiles = await github.paginate(
+              github.rest.pulls.listFiles, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: prNumber,
+                per_page: 100
+              }
+            );
+            const hasFlowChanges = changedFiles.some(file => file.filename.startsWith('flows/'));
+            core.setOutput('flows_changed', hasFlowChanges.toString());
+            core.setOutput('pr_number', prNumber.toString());
+
+      - name: Comment on PR with artifact links and instructions
+        if: steps.check_flows.outputs.flows_changed == 'true'
+        uses: thollander/actions-comment-pull-request@v3
+        with:
+          message: |
+            ✅ **OpenAPI Specifications and Documentation Generated**
+
+            **Instructions:**
+
+            - **Reviewers:**
+              - Download the **OpenAPI Docs** artifact from the [Actions tab](../../actions).
+              - Extract the artifact and open the HTML files in your web browser to review the documentation.
+
+            - **Contributors:**
+              - Download the **OpenAPI Specs** artifact from the [Actions tab](../../actions).
+              - Extract the artifact.
+              - Add the JSON files to the `flows_openapi/` directory in your PR.
+              - Commit and push the changes to update your PR.
+
+          pr_number: ${{ steps.check_flows.outputs.pr_number }}

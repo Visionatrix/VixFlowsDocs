@@ -5,13 +5,8 @@ on:
     paths:
       - 'flows/**'
 
-concurrency:
-  group: flow_openapi-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
-
 permissions:
   contents: read
-  pull-requests: write
 
 jobs:
   flow-openapi:
@@ -22,11 +17,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          python3 -m pip install redoc-cli
 
       - name: Checkout Visionatrix
         uses: actions/checkout@v4
@@ -76,29 +76,34 @@ jobs:
             echo "flows_changed=false" >> $GITHUB_OUTPUT
           fi
 
-      - name: Install, check, and generate OpenAPI specs for flows
+      - name: Install, check, and generate OpenAPI specs and HTML docs for flows
         if: steps.check_flows.outputs.flows_changed == 'true'
         run: |
           mkdir -p flows_openapi
+          mkdir -p flows_docs
           while read file; do
             echo "Processing $file"
+            # Install and check the flow
             VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix install-flow --file="$file"
             flow_name=$(basename "$file")
             openapi_file="flows_openapi/$flow_name"
             VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix openapi --only-flows --installed --file="$openapi_file"
+            # Generate HTML documentation using Redoc
+            html_file="flows_docs/${flow_name%.json}.html"
+            npx redoc-cli bundle "$openapi_file" -o "$html_file"
             rm -f "vix_flows/$flow_name"
           done < flows_changed_files_am.txt
 
-      - name: Upload OpenAPI specs as artifact
+      - name: Upload OpenAPI specs artifact (JSON files)
         if: steps.check_flows.outputs.flows_changed == 'true'
         uses: actions/upload-artifact@v3
         with:
           name: OpenAPI Specs
           path: flows_openapi/
 
-      - name: Comment on PR with artifact link
+      - name: Upload HTML documentation artifact
         if: steps.check_flows.outputs.flows_changed == 'true'
-        uses: thollander/actions-comment-pull-request@v3
+        uses: actions/upload-artifact@v3
         with:
-          message: |
-            ✅ The generated OpenAPI specifications are available as artifacts in the [Actions tab](${{ github.run_url }}). Please download the "OpenAPI Specs" artifact to review them.
+          name: OpenAPI Docs
+          path: flows_docs/
