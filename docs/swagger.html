@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Swagger UI</title>
+    <title>Visionatrix API Documentation</title>
     <link rel="stylesheet" type="text/css" href="swagger-ui/swagger-ui.css">
     <style>
         html {
@@ -28,8 +28,18 @@
     <script src="swagger-ui/swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
     <script>
         window.onload = () => {
+            const urls = [
+                {
+                    url: "https://raw.githubusercontent.com/Visionatrix/Visionatrix/main/openapi.json",
+                    name: "Visionatrix API"
+                },
+                {
+                    url: "openapi/openapi-flows.json",
+                    name: "Visionatrix Flows API"
+                }
+            ];
             window.ui = SwaggerUIBundle({
-                url: "https://raw.githubusercontent.com/Visionatrix/Visionatrix/main/openapi.json",
+                urls: urls,
                 dom_id: '#swagger-ui',
                 presets: [
                     SwaggerUIBundle.presets.apis,

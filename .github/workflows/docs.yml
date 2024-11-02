@@ -11,11 +11,29 @@ permissions:
 jobs:
   build_push_docs:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URI: postgresql+psycopg://vix_user:vix_password@localhost:5432/vix_db
+
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: vix_user
+          POSTGRES_PASSWORD: vix_password
+          POSTGRES_DB: vix_db
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
 
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
@@ -29,6 +47,25 @@ jobs:
           unzip v5.17.14.zip -d swagger-ui
           mv swagger-ui/swagger-ui-5.17.14/dist/ docs/swagger-ui
           rm -rf v5.17.14.zip
+
+      - name: Checkout Visionatrix
+        uses: actions/checkout@v4
+        with:
+          path: src_visionatrix
+          repository: Visionatrix/Visionatrix
+
+      - name: Install Visionatrix
+        run: |
+          python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+          python3 -m pip install "src_visionatrix/.[pgsql]"
+          python3 -m visionatrix install
+
+      - name: Install all flows and generate OpenAPI specs
+        run: |
+          VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix install-flow --file=./flows
+          mkdir -p openapi
+          openapi_file="openapi/openapi-flows.json"
+          VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix openapi --only-flows --installed --file="$openapi_file"
 
       - name: Build flows for each version
         run: |
@@ -60,6 +97,7 @@ jobs:
           rsync -av "models_catalog.json" "${docroot}/"
           rsync -av "docs/swagger-ui/" "${docroot}/swagger-ui/"
           rsync -av "docs/swagger.html" "${docroot}/swagger.html"
+          rsync -av "openapi/" "${docroot}/openapi/"
           pushd "${docroot}"
           git init
           git remote add deploy "https://token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
