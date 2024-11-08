@@ -18,6 +18,10 @@ Flows Developing:
   - [Gated Models](FlowsDeveloping/gated_models.md)
   - [ComfyUI to Vix Workflows Migration](FlowsDeveloping/comfyui_vix_migration.md)
 
+Integrations Manual:
+
+  - [Getting Started](IntegrationsManual/getting_started.md)
+
 Common information:
 
 - [FAQ](faq.md)
