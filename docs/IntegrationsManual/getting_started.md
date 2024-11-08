@@ -33,7 +33,7 @@ Visionatrix *currently* supports **Basic Authentication** only. Depending on the
 
 For the purposes of this guide, we will assume that authentication is required.
 
-By default, we use admin as both the username and password in our development setups for **SERVER mode** when testing Visionatrix. Replace these with your actual credentials if they are different.
+By default, we use `admin` as both the username and password in our development setups for **SERVER mode** when testing Visionatrix. Replace these with your actual credentials if they are different.
 
 ## Task Lifecycle
 
@@ -44,12 +44,15 @@ The typical lifecycle of a task in Visionatrix involves the following steps:
    - For the **SDXL Lighting** (`sdxl_lighting`) flow, required parameters are:
      - `prompt` (string): The text prompt for image generation.
      - `steps_number` (string): The number of steps to use.
+   - **Optional Parameters**:
+     - `negative_prompt` (string): The "negative" text prompt for image generation.
+     - `seed` (integer): The seed for random number generation. If not specified, a random seed will be used.
 
    - For the **Remove Background (Birefnet)** (`remove_background_birefnet`) flow, required parameters are:
-       - `input_image` (file): The image file from which to remove the background.
+     - `input_image` (file): The image file from which to remove the background.
 
    - **Other Parameters**:
-       - There are additional optional parameters such as `webhook_url`, `webhook_headers`, `translate`, `group_scope`, etc. These parameters are not covered in this beginner guide.
+     - There are additional optional parameters such as `webhook_url`, `webhook_headers`, `translate`, `group_scope`, etc. These parameters are not covered in this beginner guide.
 
 2. **Checking Task Progress**: After creating a task, you can check its progress using the `/api/tasks/progress/{task_id}` endpoint. The response includes details such as the task's `progress`, `error` (if any), and a list of `outputs`.
 
@@ -69,10 +72,9 @@ The typical lifecycle of a task in Visionatrix involves the following steps:
 
 !!! note
 
-    We are currently in progress of automatic creation of OpenAPI specifications for the flows: [Flows API](https://visionatrix.github.io/VixFlowsDocs/swagger.html?urls.primaryName=Visionatrix+Flows+API)
+    We are currently in the process of automatically creating OpenAPI specifications for the flows: [Flows API](https://visionatrix.github.io/VixFlowsDocs/swagger.html?urls.primaryName=Visionatrix+Flows+API).
 
-    You can take easy take a look for Flows parameters there.
-
+    You can easily take a look at the flow parameters there.
 
 ## Full Working Examples in Python
 
@@ -101,9 +103,9 @@ def create_sdxl_lighting_task():
     params = {
         'prompt': 'A beautiful sunset over the mountains',
         'steps_number': '8 steps',
-        # Negative_prompt is optional;
-        # 'negative_prompt': '',
-        # Seed is optional; if not specified, a random seed will be used
+        # 'negative_prompt' is optional
+        # 'negative_prompt': 'blurry, low resolution',
+        # 'seed' is optional; if not specified, a random seed will be used
         # 'seed': '12345',
     }
 
@@ -314,8 +316,9 @@ if __name__ == "__main__":
 
 **Notes**:
 
-- Replace `base_url` with your actual Visionatrix server URL if different.
-- For the second example, replace `input_image_path` with the path to your input image file.
+- Replace `base_url` with your actual Visionatrix server URL if it's different.
+- For the second example, replace `input_image_path` with the path to your input image file. Ensure that the file exists at the specified path.
+- When creating a task, the API expects a `PUT` request with `multipart/form-data`. Therefore, even if you are not uploading any files (as in the `sdxl_lighting` flow), you should use `files=params` to ensure the request uses the correct content type.
 - These scripts include basic error handling and polling logic.
 - The `check_task_progress` function polls the task progress every 5 seconds. Adjust the sleep time as needed.
 - The `retrieve_task_results` function uses the `outputs` obtained from the `check_task_progress` function, avoiding an additional call to the server.
