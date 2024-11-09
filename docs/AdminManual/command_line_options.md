@@ -44,13 +44,20 @@ python3 -m visionatrix [--verbose=LEVEL] run [options]
 
 - `--port=PORT`: Port to listen on (DEFAULT or SERVER mode).
 - `--server=SERVER_ADDRESS`: Address of Vix Server (WORKER mode).
-- `--mode {WORKER,SERVER}`: VIX special operating mode. Choices: `WORKER`, `SERVER`
+- `--mode {DEFAULT,WORKER,SERVER}`: Visionatrix operating mode.
+
+    Choices: [DEFAULT](WorkingModes/working_modes.md#default), [WORKER](WorkingModes/working_modes.md#worker), [SERVER](WorkingModes/working_modes.md#server)
+
 - `--ui [UI_DIR]`: Enable WebUI (DEFAULT or SERVER mode).
     - If `--ui` is provided **without** a value, the default UI is enabled.
     - If `--ui` is provided **with** a directory, it specifies the UI directory.
 - `--tasks_files_dir=FILES_DIR`: Directory for input/output files. Default: `vix_task_files`
 - `--disable-device-detection`: Disable automatic device detection.
-- `--verbose [LEVEL]`: Set the logging level. Choices: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`. Default: `INFO` or the value of the `LOG_LEVEL` environment variable.
+- `--verbose [LEVEL]`: Set the logging level.
+
+    Choices: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`.
+
+    Default: `INFO` or the value of the `LOG_LEVEL` environment variable.
 
     !!! note
 
@@ -346,9 +353,3 @@ python3 -m visionatrix [--verbose=LEVEL] openapi [options]
 ```shell
 python3 -m visionatrix openapi --available --file=my_openapi.json
 ```
-
----
-
-By following this guide, you can customize Visionatrix and ComfyUI to suit your specific needs. Remember that while most ComfyUI options are supported, some are intentionally excluded to maintain compatibility and stability within Visionatrix.
-
----

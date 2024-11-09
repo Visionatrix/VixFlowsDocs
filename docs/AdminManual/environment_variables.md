@@ -309,9 +309,3 @@ python3 -m visionatrix run --backend_dir=/path/to/backend --flows_dir=/path/to/f
 ```
 
 In this example, the directories are specified via command-line arguments, which will override any environment variables or settings in the `.env` file.
-
----
-
-By ensuring that these environment variables are correctly set, you can customize Visionatrix to suit your specific deployment needs. Remember that command-line arguments take precedence over environment variables, which in turn take precedence over default values.
-
----
