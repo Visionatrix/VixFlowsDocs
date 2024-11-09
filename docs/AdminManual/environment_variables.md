@@ -4,7 +4,7 @@ title: Environment Variables
 
 # Environment Variables
 
-In addition to usual way of setting environment variables they can be set via a `.env` file, as Visionatrix uses the [python-dotenv](https://pypi.org/project/python-dotenv/) package to load variables from a `.env` file.
+In addition to the usual ways of setting environment variables, they can be set via a `.env` file. Visionatrix uses the [python-dotenv](https://pypi.org/project/python-dotenv/) package to load variables from a `.env` file.
 
 Additionally, some variables can also be specified via command-line arguments, which take precedence over environment variables.
 
@@ -22,12 +22,12 @@ VARIABLE_NAME=value
 
 ### BACKEND_DIR
 
-- **Description**: Directory for the backend (folder containing ComfyUI). The path can be absolute or relative.
+- **Description**: Directory for the folder containing ComfyUI. The path can be absolute or relative.
 - **Default**: `./vix_backend`
 
     !!! note
 
-        Command-line argument `--backend_dir=BACKEND_DIR` takes precedence over the environment variable.
+        The command-line argument `--backend_dir=BACKEND_DIR` takes precedence over the environment variable.
 
 ### FLOWS_DIR
 
@@ -36,7 +36,7 @@ VARIABLE_NAME=value
 
     !!! note
 
-        Command-line argument `--flows_dir=FLOWS_DIR` takes precedence over the environment variable.
+        The command-line argument `--flows_dir=FLOWS_DIR` takes precedence over the environment variable.
 
 ### MODELS_DIR
 
@@ -45,7 +45,7 @@ VARIABLE_NAME=value
 
     !!! note
 
-        Command-line argument `--models_dir=MODELS_DIR` takes precedence over the environment variable.
+        The command-line argument `--models_dir=MODELS_DIR` takes precedence over the environment variable.
 
 ### TASKS_FILES_DIR
 
@@ -54,7 +54,7 @@ VARIABLE_NAME=value
 
     !!! note
 
-        Command-line argument `--tasks_files_dir=FILES_DIR` takes precedence over the environment variable.
+        The command-line argument `--tasks_files_dir=FILES_DIR` takes precedence over the environment variable.
 
 ### UI_DIR
 
@@ -67,19 +67,29 @@ VARIABLE_NAME=value
           - `--ui` (enables the User Interface using the default frontend), or
           - `--ui=/path/to/frontend` (specifies the path to a custom frontend).
 
-        Command-line argument take precedence over the environment variable.
+        Command-line arguments take precedence over the environment variable.
 
 ### VIX_MODE
 
 - **Description**: Determines the working mode of Visionatrix.
-  - `DEFAULT`: Storage and delivery of tasks (Server) + tasks processing (Worker), authentication is disabled.
-  - `SERVER`: Only storage and management of tasks, authentication is enabled, requires PostgreSQL database.
-  - `WORKER`: Only processing tasks for the Server (client consuming mode, no backend).
+  - `DEFAULT`: Storage and delivery of tasks (Server) + task processing (Worker).
+
+    !!! note
+
+        Authentication is disabled in this mode.
+
+  - `SERVER`: Only storage and management of tasks.
+
+    !!! note
+
+        Authentication is enabled. Requires a PostgreSQL database.
+
+  - `WORKER`: Only processes tasks from the Server (client consuming mode, no backend).
 - **Default**: `DEFAULT`
 
     !!! note
 
-        Command-line Argument `--mode=` take precedence over the environment variable.
+        The command-line argument `--mode=` takes precedence over the environment variable.
 
 Please refer to the [Working Modes](WorkingModes/working_modes.md) documentation for more details.
 
@@ -89,13 +99,21 @@ Please refer to the [Working Modes](WorkingModes/working_modes.md) documentation
 
 #### VIX_HOST
 
-- **Description**: Address to bind in the `DEFAULT` or `SERVER` mode.
+- **Description**: Address to bind to in the `DEFAULT` or `SERVER` mode.
 - **Default**: `127.0.0.1` (binds to the local interface)
+
+    !!! note
+
+        The command-line argument `--host=HOST` takes precedence over the environment variable.
 
 #### VIX_PORT
 
 - **Description**: Port to bind to in the `DEFAULT` or `SERVER` mode.
 - **Default**: `8288`
+
+    !!! note
+
+        The command-line argument `--port=PORT` takes precedence over the environment variable.
 
 #### VIX_SERVER_WORKERS
 
@@ -104,7 +122,7 @@ Please refer to the [Working Modes](WorkingModes/working_modes.md) documentation
 
 #### VIX_SERVER_FULL_MODELS
 
-- **Description**: Flag that determines whether full models rather than dummy models should be stored in SERVER mode. Useful when both the Server and Workers are on the same machine, or when the `MODELS_DIR` is shared between the Server and Workers.
+- **Description**: Flag that determines whether full models rather than dummy models should be stored in `SERVER` mode. Useful when both the Server and Workers are on the same machine, or when the `MODELS_DIR` is shared between the Server and Workers.
 - **Default**: `0` (disabled)
 - **Set to**: `1` to enable.
 
@@ -114,7 +132,7 @@ Please refer to the [Working Modes](WorkingModes/working_modes.md) documentation
 
     !!! warning
 
-        SQLite is not supported in the `SERVER` mode.
+        SQLite is **not supported** in the `SERVER` mode.
 
 - **Default**: `sqlite:///./tasks_history.db`
   - For SQLite: If the path is relative, it is relative to the current directory.
@@ -127,34 +145,37 @@ When running in `WORKER` mode, the following variables are relevant:
 #### VIX_SERVER
 
 - **Description**: The full URL of the Server to connect to when running in `WORKER` mode in the [Worker to Server](WorkingModes/working_modes.md#worker-to-server) configuration.
+- **Default**: Empty string (must be set in `WORKER` mode if not using `DATABASE_URI`)
 
-!!! warning
+    !!! warning
 
-    If `VIX_SERVER` is set, the Worker will communicate with the Server via the network; `DATABASE_URI` will be ignored.
+        If `VIX_SERVER` is set, the Worker will communicate with the Server via the network; `DATABASE_URI` will be ignored.
 
-    You **required** to specify `VIX_SERVER` **OR** `DATABASE_URI` for Worker, so it can fetch tasks to proceed.
+        You are **required** to specify either `VIX_SERVER` **or** `DATABASE_URI` for the Worker, so it can fetch tasks to process.
 
 #### DATABASE_URI
 
-- **Description**: In `WORKER` mode it is only used for [Worker to Database-FS](WorkingModes/working_modes.md#worker-to-database-fs) configuration.
+- **Description**: In `WORKER` mode, it is used only for the [Worker to Database-FS](WorkingModes/working_modes.md#worker-to-database-fs) configuration.
+- **Default**: `sqlite:///./tasks_history.db`
+  - **Note**: For Workers connecting directly to a PostgreSQL database, use the appropriate `DATABASE_URI`.
 
 #### WORKER_AUTH
 
 - **Description**: Authentication credentials for the Worker when connecting to the Server. Format: `USER_ID:PASSWORD`
 - **Default**: `admin:admin`
 
-!!! note
+    !!! note
 
-    This is only applicable for the **Worker to Server** configuration.
+        This is only applicable for the **Worker to Server** configuration.
 
 #### WORKER_NET_TIMEOUT
 
 - **Description**: Network timeout in seconds for the Worker when communicating with the Server.
 - **Default**: `15.0`
 
-!!! note
+    !!! note
 
-    This is only applicable for the **Worker to Server** configuration.
+        This is only applicable for the **Worker to Server** configuration.
 
 ### Other Variables
 
@@ -197,26 +218,30 @@ When running in `WORKER` mode, the following variables are relevant:
 
 #### MAX_PARALLEL_DOWNLOADS
 
-- **Description**: Maximum number of parallel downloads allowed during flow installation.
+- **Description**: Maximum number of parallel downloads allowed during workflow installation.
 - **Default**: `2`
 
 #### MAX_GIT_CLONE_ATTEMPTS
 
-- **Description**: Maximum number of attempts to perform `git clone` during the first installation or updates.
+- **Description**: Maximum number of attempts to perform `git clone` operations during installation or updates.
 - **Default**: `3`
 
 #### NODES_TIMING
 
-- **Description**: If set to `1`, the execution time of each node will be logged.
+- **Description**: If set to `1`, the execution time of each workflow node will be logged for performance analysis.
 - **Default**: `0` (disabled)
 - **Set to**: `1` to enable.
 
-### CORS_ORIGINS
+#### GPU_MEM_TRACKING
 
-- **Description**: A comma-separated list of origins that are allowed to make Cross-Origin Resource Sharing (CORS) requests to the server. This is necessary when the frontend and backend are hosted on different domains or ports. By specifying allowed origins, you enable the frontend applications running on those origins to interact with the Visionatrix backend.
+- **Description**: If set to `1`, logs the maximum GPU memory consumption for each flow.
+- **Default**: `0` (disabled)
+- **Set to**: `1` to enable.
 
+#### CORS_ORIGINS
+
+- **Description**: A comma-separated list of origins that are allowed to make Cross-Origin Resource Sharing (CORS) requests to the server. This is necessary when the frontend and backend are hosted on different domains or ports. By specifying allowed origins, you enable frontend applications running on those origins to interact with the Visionatrix backend.
 - **Default**: Empty string (CORS is disabled; only same-origin requests are allowed).
-
 - **Example**:
 
     ```ini
@@ -229,7 +254,9 @@ When running in `WORKER` mode, the following variables are relevant:
     - `http://192.168.1.132:3000`
     - `http://192.168.1.132:8288`
 
-- **Note**: This setting is important when developing or deploying the frontend separately from the backend, especially during development when the frontend might be served by a development server on a different port.
+    !!! note
+
+        This setting is important when developing or deploying the frontend separately from the backend, especially during development when the frontend might be served by a development server on a different port.
 
 ## Examples
 
@@ -263,6 +290,7 @@ On Linux or macOS:
 export VIX_MODE=WORKER
 export VIX_SERVER=http://server_address:8000
 export WORKER_AUTH=worker_user:worker_password
+export GPU_MEM_TRACKING=1
 ```
 
 On Windows Command Prompt:
@@ -270,7 +298,8 @@ On Windows Command Prompt:
 ```cmd
 set VIX_MODE=WORKER
 set VIX_SERVER=http://server_address:8000
-set WORKER_AUTH=username:userpassword
+set WORKER_AUTH=worker_user:worker_password
+set GPU_MEM_TRACKING=1
 ```
 
 ### Starting Visionatrix with Command-Line Arguments
