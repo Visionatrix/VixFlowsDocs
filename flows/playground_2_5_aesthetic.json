@@ -295,7 +295,7 @@
     },
     "class_type": "SDXLAspectRatioSelector",
     "_meta": {
-      "title": "input;Aspect Ratio;optional;advanced;custom_id=aspect_ratio"
+      "title": "input;Aspect Ratio;optional;advanced;order=20;custom_id=aspect_ratio"
     }
   },
   "282": {

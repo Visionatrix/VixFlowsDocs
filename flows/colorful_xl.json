@@ -149,7 +149,7 @@
     },
     "class_type": "SDXLAspectRatioSelector",
     "_meta": {
-      "title": "input;Aspect Ratio;optional;advanced"
+      "title": "input;Aspect Ratio;optional;advanced;order=20"
     }
   },
   "297": {
