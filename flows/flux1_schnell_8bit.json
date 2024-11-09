@@ -193,7 +193,7 @@
     },
     "class_type": "SDXLAspectRatioSelector",
     "_meta": {
-      "title": "input;Aspect Ratio;optional;advanced;order=2"
+      "title": "input;Aspect Ratio;optional;advanced;order=2;custom_id=aspect_ratio"
     }
   },
   "28": {
@@ -206,7 +206,7 @@
       "documentation": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
       "license": "",
       "tags": "[\"general\", \"lighting\", \"simple\"]",
-      "version": "1.0.3",
+      "version": "1.0.4",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,

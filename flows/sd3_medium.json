@@ -139,7 +139,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SD3_Medium/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -172,7 +172,7 @@
     },
     "class_type": "SDXLAspectRatioSelector",
     "_meta": {
-      "title": "input;Aspect Ratio;optional;advanced;order=2"
+      "title": "input;Aspect Ratio;optional;advanced;order=2;custom_id=aspect_ratio"
     }
   },
   "283": {
