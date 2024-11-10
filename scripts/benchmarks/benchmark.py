@@ -958,10 +958,16 @@ async def generate_results_summary_json(results_summary: dict):
                 with open(metadata_file, "r") as f:
                     metadata = json.load(f)
                     summary = metadata.get("summary", {})
+                    task_results = metadata.get("task_results", [])
+                    max_memory_usages = [
+                        i.get("execution_details", {}).get("max_memory_usage", -2)
+                        for i in task_results
+                    ]
                     flow_data["test_cases"].append(
                         {
                             "test_case": test_case_name,
                             "avg_exec_time": summary.get("avg_exec_time"),
+                            "avg_max_memory_usage": statistics.mean(max_memory_usages),
                         }
                     )
             else:

@@ -226,15 +226,9 @@ When running in `WORKER` mode, the following variables are relevant:
 - **Description**: Maximum number of attempts to perform `git clone` operations during installation or updates.
 - **Default**: `3`
 
-#### NODES_TIMING
+#### VIX_PROFILE_EXECUTION
 
-- **Description**: If set to `1`, the execution time of each workflow node will be logged for performance analysis.
-- **Default**: `0` (disabled)
-- **Set to**: `1` to enable.
-
-#### GPU_MEM_TRACKING
-
-- **Description**: If set to `1`, logs the maximum GPU memory consumption for each flow.
+- **Description**: If set to `1`, enables detailed profiling of task execution, including execution time and GPU memory usage for each node in the workflow. The profiling data is stored in the `execution_details` field of the task details and can be used for performance analysis.
 - **Default**: `0` (disabled)
 - **Set to**: `1` to enable.
 
@@ -280,6 +274,9 @@ VIX_SERVER_FULL_MODELS=1
 # Specify the host and port to bind to
 VIX_HOST=0.0.0.0
 VIX_PORT=8000
+
+# Enable detailed profiling of task execution
+VIX_PROFILE_EXECUTION=1
 ```
 
 ### Setting Variables in the Environment
@@ -290,7 +287,7 @@ On Linux or macOS:
 export VIX_MODE=WORKER
 export VIX_SERVER=http://server_address:8000
 export WORKER_AUTH=worker_user:worker_password
-export GPU_MEM_TRACKING=1
+export VIX_PROFILE_EXECUTION=1
 ```
 
 On Windows Command Prompt:
@@ -299,7 +296,7 @@ On Windows Command Prompt:
 set VIX_MODE=WORKER
 set VIX_SERVER=http://server_address:8000
 set WORKER_AUTH=worker_user:worker_password
-set GPU_MEM_TRACKING=1
+set VIX_PROFILE_EXECUTION=1
 ```
 
 ### Starting Visionatrix with Command-Line Arguments

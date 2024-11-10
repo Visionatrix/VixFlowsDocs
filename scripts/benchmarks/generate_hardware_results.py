@@ -41,6 +41,9 @@ def generate_hardware_results_table():
                                     "avg_exec_time": round(
                                         test_case["avg_exec_time"], 1
                                     ),
+                                    "avg_max_memory_usage": int(
+                                        test_case.get("avg_max_memory_usage", -1)
+                                    ),
                                     "hardware_desc": hardware_desc,
                                     "test_time": results_data[
                                         "test_time"
@@ -59,15 +62,21 @@ def generate_hardware_results_table():
         )
 
         table_md += f"## {flow_to_display_name[flow_name]}\n\n"
-        table_md += "| Test Case  |  Avg Execution Time (s) | Hardware Description | Test Time |\n"
-        table_md += "| ---------- | :---------------------: | -------------------- | --------- |\n"
+        table_md += "| Test Case  |  Avg Execution Time (s) | Hardware Description | Test Time | GPU Memory |\n"
+        table_md += "| ---------- | :---------------------: | -------------------- | --------- | ---------- |\n"
 
         for test_case in sorted_test_cases:
-            table_md += (
-                f"| {test_case['test_case']} | {test_case['avg_exec_time']} | "
-                f"{test_case['hardware_desc']} | {test_case['test_time']} |\n"
-            )
-
+            if test_case["avg_max_memory_usage"] < 0:
+                table_md += (
+                    f"| {test_case['test_case']} | {test_case['avg_exec_time']} | "
+                    f"{test_case['hardware_desc']} | {test_case['test_time']}\n"
+                )
+            else:
+                table_md += (
+                    f"| {test_case['test_case']} | {test_case['avg_exec_time']} | "
+                    f"{test_case['hardware_desc']} | {test_case['test_time']} | "
+                    f"{test_case['avg_max_memory_usage']} MB\n"
+                )
         table_md += "\n"  # Add spacing between flow groups
 
     table_md = table_md[:-1] if table_md.endswith("\n\n") else table_md
