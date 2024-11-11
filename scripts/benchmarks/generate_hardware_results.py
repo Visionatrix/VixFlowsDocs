@@ -35,19 +35,36 @@ def generate_hardware_results_table():
                             results_by_flow[flow_name] = []
 
                         for test_case in flow["test_cases"]:
+                            disable_smart_memory = test_case.get("disable_smart_memory")
+                            if disable_smart_memory is True:
+                                smart_memory_str = "No"
+                            elif disable_smart_memory is False:
+                                smart_memory_str = "Yes"
+                            else:
+                                smart_memory_str = ""
+
+                            avg_max_memory_usage = test_case.get(
+                                "avg_max_memory_usage", -1
+                            )
+                            if avg_max_memory_usage >= 0:
+                                avg_max_memory_usage_str = (
+                                    f"{int(avg_max_memory_usage)} MB"
+                                )
+                            else:
+                                avg_max_memory_usage_str = ""
+
                             results_by_flow[flow_name].append(
                                 {
                                     "test_case": test_case["test_case"],
                                     "avg_exec_time": round(
                                         test_case["avg_exec_time"], 1
                                     ),
-                                    "avg_max_memory_usage": int(
-                                        test_case.get("avg_max_memory_usage", -1)
-                                    ),
+                                    "avg_max_memory_usage": avg_max_memory_usage,
+                                    "avg_max_memory_usage_str": avg_max_memory_usage_str,
+                                    "vram_state": test_case.get("vram_state", ""),
+                                    "disable_smart_memory": smart_memory_str,
                                     "hardware_desc": hardware_desc,
-                                    "test_time": results_data[
-                                        "test_time"
-                                    ],  # Adding test_time from metadata
+                                    "test_time": results_data["test_time"],
                                 }
                             )
 
@@ -62,29 +79,25 @@ def generate_hardware_results_table():
         )
 
         table_md += f"## {flow_to_display_name[flow_name]}\n\n"
-        table_md += "| Test Case  |  Avg Execution Time (s) | Hardware Description | Test Time | GPU Memory |\n"
-        table_md += "| ---------- | :---------------------: | -------------------- | --------- | ---------- |\n"
+        table_md += "| Test Case  |  Avg Execution Time (s) | Hardware | Test Time | VRAM State | Smart Memory | GPU Memory |\n"
+        table_md += "| ---------- | :---------------------: | -------- | --------- | :--------: | :----------: | ---------- |\n"
 
         for test_case in sorted_test_cases:
-            if test_case["avg_max_memory_usage"] < 0:
-                table_md += (
-                    f"| {test_case['test_case']} | {test_case['avg_exec_time']} | "
-                    f"{test_case['hardware_desc']} | {test_case['test_time']}\n"
-                )
-            else:
-                table_md += (
-                    f"| {test_case['test_case']} | {test_case['avg_exec_time']} | "
-                    f"{test_case['hardware_desc']} | {test_case['test_time']} | "
-                    f"{test_case['avg_max_memory_usage']} MB\n"
-                )
+            table_md += (
+                f"| {test_case['test_case']} | {test_case['avg_exec_time']} | "
+                f"{test_case['hardware_desc']} | {test_case['test_time']} | {test_case['vram_state']} | {test_case['disable_smart_memory']} | "
+                f"{test_case['avg_max_memory_usage_str']} |\n"
+            )
         table_md += "\n"  # Add spacing between flow groups
 
     table_md = table_md[:-1] if table_md.endswith("\n\n") else table_md
     # Save the table to a Markdown file
-    with open(Path("../../docs/hardware_results.md"), "w") as f:
+    output_path = Path("../../docs/hardware_results.md")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(output_path, "w") as f:
         f.write(table_md)
 
-    print("Hardware test results table generated at docs/hardware_results.md")
+    print(f"Hardware test results table generated at {output_path}")
 
 
 if __name__ == "__main__":

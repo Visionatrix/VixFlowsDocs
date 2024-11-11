@@ -18,12 +18,9 @@ SERVER_URL = os.environ.get("SERVER_URL", "http://127.0.0.1:8288")
 REMOVE_RESULTS_FROM_VISIONATRIX = int(os.environ.get("REMOVE_RESULTS", "1"))
 DEFAULT_NUMBER_OF_TEST_CASE_RUNS = int(os.environ.get("COUNT", "2"))
 HARDWARE = os.environ.get("HARDWARE", "YOUR_CPU-YOUR_GPU").strip("\"'")
-WARMUP = bool(int(os.environ.get("WARMUP", "1")))
 FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "1800"))
 TEST_START_TIME = datetime.now()
-RESULTS_DIR = Path("results").joinpath(
-    f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}"
-)
+RESULTS_DIR: Path
 
 USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", ""), os.getenv("USER_PASSWORD", "")
 BASIC_AUTH = (
@@ -52,10 +49,6 @@ class TestCase(BaseModel):
     input_files: dict[str, str | Path] = Field(
         {},
         description="A set of input files to pass to the flow during the task creation.",
-    )
-    warm_up: bool = Field(
-        WARMUP,
-        description="If set to True, the warm-up run will be executed before test start.",
     )
     count: int = Field(
         DEFAULT_NUMBER_OF_TEST_CASE_RUNS,
@@ -377,6 +370,8 @@ validate_flows_test_cases(
 
 async def select_test_flow_suite():
     global SELECTED_TEST_FLOW_SUITE
+    global RESULTS_DIR
+
     print("Please select the test suite you want to run:")
     print("1. SDXL Suite")
     print("2. PORTRAITS Suite")
@@ -404,6 +399,12 @@ async def select_test_flow_suite():
     else:
         print("Invalid selection. Please restart and select a valid suite.")
         exit(1)
+
+    # Set RESULTS_DIR based on the selected suite
+    suite_identifier = get_suite_identifier()
+    RESULTS_DIR = Path("results").joinpath(
+        f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_identifier}"
+    )
 
 
 async def is_server_online() -> bool:
@@ -524,7 +525,7 @@ async def create_task(
 ) -> list[int]:
     files_to_upload = {}
     if input_files:
-        # Load _ from the "input_files" directory
+        # Load from the "input_files" directory
         for param_id, file_name in input_files.items():
             file_path = os.path.join("input_files", file_name)
             try:
@@ -598,7 +599,7 @@ async def get_task_progress(task_id: int, poll_interval: int = 5) -> dict:
                                 f"Task `{task_data['name']}` with id={task_id}, progress: {rounded_task_progress}%"
                             )
                             previous_progress = progress
-                    max_read_timeout_count = 20
+                        max_read_timeout_count = 20
                 await asyncio.sleep(poll_interval)
             except httpx.ReadTimeout:
                 max_read_timeout_count -= 1
@@ -620,16 +621,6 @@ async def run_test_case(
     results_summary: dict,
     test_semaphore: asyncio.Semaphore,
 ):
-    # Check if results for this test case already exist on disk
-    flow_test_case_dir = os.path.join(RESULTS_DIR, f"{flow_name}__{test_case.name}")
-    metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
-
-    if os.path.exists(metadata_file):
-        print(
-            f"Results for flow '{flow_name}', test case '{test_case.name}' already exist. Skipping."
-        )
-        return
-
     # Use the test_semaphore to limit concurrent tests
     async with test_semaphore:
         global FIRST_TEST_FLAG
@@ -645,31 +636,70 @@ async def run_test_case(
 
         input_params = test_case.input_params
         input_files = test_case.input_files
-        if test_case.warm_up:
-            print("Warming up...")
-            warmup_task_id = await create_task(
-                flow_name, input_params, 1, input_files, warm_up=True
-            )
-            if not warmup_task_id:
-                print(
-                    f"Failed to create warmup task for flow '{flow_name}', test case: {test_case.name}"
-                )
-                return
-            r = await get_task_progress(warmup_task_id[0])
-            if r.get("error", ""):
-                print(
-                    f"Failed to finish warmup task for flow '{flow_name}', test case: {test_case.name}"
-                    f"\nError: {r['error']}"
-                )
-                return
-            if REMOVE_RESULTS_FROM_VISIONATRIX:
-                await delete_task(warmup_task_id[0])
-            if PAUSE_INTERVAL_AFTER_WARMUP:
-                print(
-                    f"Pausing for {PAUSE_INTERVAL_AFTER_WARMUP} seconds after warmup."
-                )
-                await asyncio.sleep(PAUSE_INTERVAL_AFTER_WARMUP)
 
+        # Check if results already exist for this test case
+        flow_results = results_summary.setdefault(flow_name, {})
+        test_case_results = flow_results.setdefault(test_case.name, set())
+
+        # Load existing results for this test case
+        flow_test_case_dir = os.path.join(RESULTS_DIR, f"{flow_name}__{test_case.name}")
+        metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
+        existing_configurations = set()
+        if os.path.exists(metadata_file):
+            with open(metadata_file, "r") as f:
+                metadata = json.load(f)
+                existing_configurations.update(metadata["results"].keys())
+
+        test_case_results.update(existing_configurations)
+
+        print("Warming up...")
+        warmup_task_id = await create_task(
+            flow_name, input_params, 1, input_files, warm_up=True
+        )
+        if not warmup_task_id:
+            print(
+                f"Failed to create warmup task for flow '{flow_name}', test case: {test_case.name}"
+            )
+            return
+        r = await get_task_progress(warmup_task_id[0])
+        if r.get("error", ""):
+            print(
+                f"Failed to finish warmup task for flow '{flow_name}', test case: {test_case.name}"
+                f"\nError: {r['error']}"
+            )
+            return
+        if REMOVE_RESULTS_FROM_VISIONATRIX:
+            await delete_task(warmup_task_id[0])
+        if PAUSE_INTERVAL_AFTER_WARMUP:
+            print(f"Pausing for {PAUSE_INTERVAL_AFTER_WARMUP} seconds after warmup.")
+            await asyncio.sleep(PAUSE_INTERVAL_AFTER_WARMUP)
+
+        # Extract 'vram_state' and 'disable_smart_memory' from execution_details
+        execution_details = r.get("execution_details")
+        if execution_details:
+            vram_state = execution_details.get("vram_state", "unknown_vram_state")
+            disable_smart_memory = execution_details.get(
+                "disable_smart_memory", "unknown"
+            )
+        else:
+            print(
+                f"Execution details not found for flow '{flow_name}', test case '{test_case.name}'"
+            )
+            vram_state = "unknown_vram_state"
+            disable_smart_memory = "unknown"
+
+        configuration_key = f"{vram_state}_disable_smart_memory_{disable_smart_memory}"
+
+        # Check if results for this configuration already exist
+        if configuration_key in test_case_results:
+            print(
+                f"Results for flow '{flow_name}', test case '{test_case.name}', configuration '{configuration_key}' already exist. Skipping."
+            )
+            return
+        else:
+            test_case_results.add(configuration_key)
+
+        # Proceed to run the actual test
         # Create tasks, passing input files if present
         task_ids = await create_task(
             flow_name, input_params, test_case.count, input_files, warm_up=False
@@ -684,26 +714,16 @@ async def run_test_case(
         task_progress_coroutines = [get_task_progress(task_id) for task_id in task_ids]
         task_results = await asyncio.gather(*task_progress_coroutines)
 
-        # Save the flow_comfy from the first task that has it
-        for result in task_results:
-            if "flow_comfy" in result:
-                await save_flow_comfy(flow_name, test_case.name, result["flow_comfy"])
-                break  # No need to check further once saved
-
         # Save results and capture summary
         summary = await save_results(
-            flow_name, test_case.name, test_case, task_results
-        )  # noqa
+            flow_name,
+            test_case.name,
+            test_case,
+            task_results,
+            vram_state,
+            disable_smart_memory,
+        )
         if summary:
-            results_summary[flow_name].append(
-                {
-                    "test_case": test_case.name,
-                    "avg_exec_time": summary["avg_exec_time"],
-                    "min_exec_time": summary["min_exec_time"],
-                    "max_exec_time": summary["max_exec_time"],
-                }
-            )
-
             # Save the updated results summary after each test case
             await generate_results_summary_json(results_summary)
 
@@ -718,19 +738,7 @@ async def process_flow(
 
     # Initialize the flow in the results summary if not already present
     if flow_name not in results_summary:
-        results_summary[flow_name] = []
-
-    # Check if all test cases for this flow have already been completed
-    completed_test_cases = {tc["test_case"] for tc in results_summary[flow_name]}
-    remaining_test_cases = [
-        tc for tc in flow_test.test_cases if tc.name not in completed_test_cases
-    ]
-
-    if not remaining_test_cases:
-        print(
-            f"All test cases for flow '{flow_name}' have already been completed. Skipping."
-        )
-        return
+        results_summary[flow_name] = {}
 
     # Check if the flow is installed
     if not await is_flow_installed(flow_name):
@@ -745,30 +753,34 @@ async def process_flow(
     else:
         print(f"Flow '{flow_name}' is already installed.")
 
-    # As soon as the flow is installed, start testing remaining test cases
-    for test_case in remaining_test_cases:
+    for test_case in flow_test.test_cases:
         await run_test_case(flow_name, test_case, results_summary, test_semaphore)
 
 
 async def load_results_summary() -> dict:
-    # Determine the suite identifier to locate the correct summary file
-    suite_identifier = get_suite_identifier()
-    summary_file = os.path.join(
-        RESULTS_DIR,
-        f"summary-{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_identifier}.json",
-    )
+    # Initialize empty results summary
+    results_summary = {}
 
-    if os.path.exists(summary_file):
-        with open(summary_file, "r") as f:
-            data = json.load(f)
-            # Convert the loaded data into the required format
-            results_summary = {
-                flow["flow_name"]: flow["test_cases"] for flow in data.get("flows", [])
-            }
-            print(f"Loaded existing results summary from {summary_file}")
-            return results_summary
-    else:
-        return {}
+    # Load existing results for the selected test suite
+    for flow_test in SELECTED_TEST_FLOW_SUITE:
+        flow_name = flow_test.flow_name
+        flow_results = results_summary.setdefault(flow_name, {})
+        for test_case in flow_test.test_cases:
+            test_case_name = test_case.name
+            test_case_results = flow_results.setdefault(test_case_name, set())
+
+            flow_test_case_dir = os.path.join(
+                RESULTS_DIR, f"{flow_name}__{test_case_name}"
+            )
+            metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
+
+            if os.path.exists(metadata_file):
+                with open(metadata_file, "r") as f:
+                    metadata = json.load(f)
+                    existing_configurations = set(metadata["results"].keys())
+                    test_case_results.update(existing_configurations)
+
+    return results_summary
 
 
 async def benchmarker():
@@ -799,9 +811,17 @@ async def benchmarker():
 
     await asyncio.gather(*flow_tasks)
 
+    # Generate results summary after all tests are done
+    await generate_results_summary_json(results_summary)
+
 
 async def save_results(
-    flow_name: str, test_case_name: str, test_case: TestCase, task_results: list
+    flow_name: str,
+    test_case_name: str,
+    test_case: TestCase,
+    task_results: list,
+    vram_state: str,
+    disable_smart_memory: typing.Union[bool, str],
 ):
     # Ensure results directory exists
     os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -829,23 +849,36 @@ async def save_results(
         "avg_exec_time": statistics.mean(execution_times),
     }
 
-    # Save metadata (task results) without flow_comfy
+    # Load existing metadata if available
     metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
+    if os.path.exists(metadata_file):
+        with open(metadata_file, "r") as f:
+            metadata = json.load(f)
+    else:
+        metadata = {
+            "flow_name": flow_name,
+            "test_case": test_case.model_dump(),
+            "results": {},
+        }
 
+    # Remove 'flow_comfy' from task results
     for task in task_results:
         task.pop("flow_comfy", None)  # We saved it in a separate file
 
-    metadata = {
-        "flow_name": flow_name,
-        "test_case": test_case.model_dump(),
-        "summary": summary,  # Add the summary before task_results
+    # Update the results for the current configuration
+    configuration_key = f"{vram_state}_disable_smart_memory_{disable_smart_memory}"
+    metadata["results"][configuration_key] = {
+        "summary": summary,
         "task_results": task_results,
     }
 
+    # Save updated metadata
     with open(metadata_file, "w") as f:
         json.dump(metadata, f, indent=4)
 
-    print(f"Results saved to {flow_test_case_dir}")
+    print(
+        f"Results saved to {flow_test_case_dir} for configuration '{configuration_key}'"
+    )
 
     # Save outputs for each task
     for task in task_results:
@@ -857,11 +890,23 @@ async def save_results(
                     output_data = await get_task_results(task_id, node_id)
                     if output_data:
                         await save_output(
-                            flow_test_case_dir, task_id, node_id, output_data
+                            flow_test_case_dir,
+                            task_id,
+                            node_id,
+                            output_data,
+                            configuration_key=configuration_key,
                         )
 
             if REMOVE_RESULTS_FROM_VISIONATRIX:
                 await delete_task(task_id)
+
+    # Save the flow_comfy from the first task that has it
+    for result in task_results:
+        if "flow_comfy" in result:
+            await save_flow_comfy(
+                flow_name, test_case_name, result["flow_comfy"], configuration_key
+            )
+            break  # No need to check further once saved
 
     return summary
 
@@ -882,10 +927,14 @@ async def delete_task(task_id: int) -> None:
             )
 
 
-async def save_flow_comfy(flow_name: str, test_case_name: str, flow_comfy: dict):
+async def save_flow_comfy(
+    flow_name: str, test_case_name: str, flow_comfy: dict, configuration_key: str
+):
     flow_test_case_dir = os.path.join(RESULTS_DIR, f"{flow_name}__{test_case_name}")
     os.makedirs(flow_test_case_dir, exist_ok=True)
-    flow_comfy_file = os.path.join(flow_test_case_dir, "flow_comfy.json")
+    flow_comfy_file = os.path.join(
+        flow_test_case_dir, f"flow_comfy_{configuration_key}.json"
+    )
     with open(flow_comfy_file, "w") as f:
         json.dump(flow_comfy, f, indent=4)
 
@@ -914,15 +963,19 @@ async def save_output(
     task_id: int,
     node_id: int,
     output_data: bytes,
+    configuration_key: str,
     file_extension: str = "png",
 ):
     # Create the output file path, appending file extension
     output_file = os.path.join(
-        flow_test_case_dir, f"result__task_{task_id}_node_{node_id}.{file_extension}"
+        flow_test_case_dir,
+        f"result__task_{task_id}_node_{node_id}_{configuration_key}.{file_extension}",
     )
     with open(output_file, "wb") as f:
         f.write(output_data)  # Write binary data to the file
-    print(f"Output saved for task {task_id}, node {node_id} to {output_file}")
+    print(
+        f"Output saved for task {task_id}, node {node_id}, configuration '{configuration_key}' to {output_file}"
+    )
 
 
 def get_suite_identifier() -> str:
@@ -936,7 +989,8 @@ def get_suite_identifier() -> str:
         return "FLUX"
     elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_HEAVY:
         return "HEAVY"
-    raise RuntimeError("Unknown TEST SUITE")
+    else:
+        raise RuntimeError("Unknown TEST SUITE")
 
 
 async def generate_results_summary_json(results_summary: dict):
@@ -954,7 +1008,7 @@ async def generate_results_summary_json(results_summary: dict):
 
     flows_display_names = await get_flow_display_names()
 
-    # Instead of relying on in-memory data, read results from disk
+    # Use results from the current run (results_summary)
     for flow_name in results_summary.keys():
         flow_data = {
             "flow_name": flow_name,
@@ -963,8 +1017,8 @@ async def generate_results_summary_json(results_summary: dict):
         }
 
         # Read test case results from the corresponding directories
-        for test_case_entry in results_summary[flow_name]:
-            test_case_name = test_case_entry["test_case"]
+        flow_test_cases = results_summary[flow_name]
+        for test_case_name in flow_test_cases.keys():
             flow_test_case_dir = os.path.join(
                 RESULTS_DIR, f"{flow_name}__{test_case_name}"
             )
@@ -973,26 +1027,39 @@ async def generate_results_summary_json(results_summary: dict):
             if os.path.exists(metadata_file):
                 with open(metadata_file, "r") as f:
                     metadata = json.load(f)
-                    summary = metadata.get("summary", {})
-                    task_results = metadata.get("task_results", [])
-                    max_memory_usages = [
-                        details.get("max_memory_usage")
-                        for details in (
-                            result.get("execution_details") for result in task_results
+                    results = metadata.get("results", {})
+                    for configuration_key, config_results in results.items():
+                        summary = config_results.get("summary", {})
+                        task_results = config_results.get("task_results", [])
+                        max_memory_usages = [
+                            details.get("max_memory_usage")
+                            for details in (
+                                result.get("execution_details")
+                                for result in task_results
+                            )
+                            if details and details.get("max_memory_usage") is not None
+                        ]
+                        # Parse configuration_key
+                        parts = configuration_key.split("_disable_smart_memory_")
+                        if len(parts) == 2:
+                            vram_state, disable_smart_memory_str = parts
+                            disable_smart_memory = disable_smart_memory_str == "True"
+                        else:
+                            vram_state = configuration_key
+                            disable_smart_memory = None
+                        flow_data["test_cases"].append(
+                            {
+                                "test_case": test_case_name,
+                                "vram_state": vram_state,
+                                "disable_smart_memory": disable_smart_memory,
+                                "avg_exec_time": summary.get("avg_exec_time"),
+                                "avg_max_memory_usage": (
+                                    statistics.mean(max_memory_usages)
+                                    if max_memory_usages
+                                    else None
+                                ),
+                            }
                         )
-                        if details and details.get("max_memory_usage") is not None
-                    ]
-                    flow_data["test_cases"].append(
-                        {
-                            "test_case": test_case_name,
-                            "avg_exec_time": summary.get("avg_exec_time"),
-                            "avg_max_memory_usage": (
-                                statistics.mean(max_memory_usages)
-                                if max_memory_usages
-                                else None
-                            ),
-                        }
-                    )
             else:
                 print(
                     f"Warning: Metadata file for flow '{flow_name}', test case '{test_case_name}' not found."

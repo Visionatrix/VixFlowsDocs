@@ -6,3 +6,4 @@ mkdocs-material[imaging]
 requests
 huggingface_hub
 httpx
+pydantic
