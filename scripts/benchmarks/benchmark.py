@@ -653,26 +653,32 @@ async def run_test_case(
             print(f"Pausing for {PAUSE_INTERVAL_AFTER_WARMUP} seconds after warmup.")
             await asyncio.sleep(PAUSE_INTERVAL_AFTER_WARMUP)
 
-        # Extract 'vram_state' from execution_details
+        # Extract 'vram_state' and 'disable_smart_memory' from execution_details
         execution_details = r.get("execution_details")
-        if execution_details and "vram_state" in execution_details:
-            vram_state = execution_details["vram_state"]
+        if execution_details:
+            vram_state = execution_details.get("vram_state", "unknown_vram_state")
+            disable_smart_memory = execution_details.get(
+                "disable_smart_memory", "unknown"
+            )
         else:
             print(
-                f"vram_state not found in execution details for flow '{flow_name}', test case '{test_case.name}'"
+                f"Execution details not found for flow '{flow_name}', test case '{test_case.name}'"
             )
             vram_state = "unknown_vram_state"
+            disable_smart_memory = "unknown"
 
-        # Check if results for this flow_name, test_case.name, and vram_state already exist
+        configuration_key = f"{vram_state}_disable_smart_memory_{disable_smart_memory}"
+
+        # Check if results for this flow_name, test_case.name, and configuration already exist
         flow_results = results_summary.setdefault(flow_name, {})
         test_case_results = flow_results.setdefault(test_case.name, set())
-        if vram_state in test_case_results:
+        if configuration_key in test_case_results:
             print(
-                f"Results for flow '{flow_name}', test case '{test_case.name}', vram_state '{vram_state}' already exist. Skipping."
+                f"Results for flow '{flow_name}', test case '{test_case.name}', configuration '{configuration_key}' already exist. Skipping."
             )
             return
         else:
-            test_case_results.add(vram_state)
+            test_case_results.add(configuration_key)
 
         # Proceed to run the actual test
         # Create tasks, passing input files if present
@@ -691,7 +697,12 @@ async def run_test_case(
 
         # Save results and capture summary
         summary = await save_results(
-            flow_name, test_case.name, test_case, task_results, vram_state
+            flow_name,
+            test_case.name,
+            test_case,
+            task_results,
+            vram_state,
+            disable_smart_memory,
         )
         if summary:
             # Save the updated results summary after each test case
@@ -728,27 +739,25 @@ async def process_flow(
 
 
 async def load_results_summary() -> dict:
-    # Determine the suite identifier to locate the correct summary file
-    suite_identifier = get_suite_identifier()
-    summary_file = os.path.join(
-        RESULTS_DIR,
-        f"summary-{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_identifier}.json",
-    )
-
     results_summary = {}
-    if os.path.exists(summary_file):
-        with open(summary_file, "r") as f:
-            data = json.load(f)
-            # Convert the loaded data into the required format
-            for flow in data.get("flows", []):
-                flow_name = flow["flow_name"]
-                flow_results = results_summary.setdefault(flow_name, {})
-                for test_case_entry in flow.get("test_cases", []):
-                    test_case_name = test_case_entry["test_case"]
-                    vram_state = test_case_entry["vram_state"]
+
+    # For each flow_test_case_dir in RESULTS_DIR
+    if not RESULTS_DIR.exists():
+        return results_summary
+
+    for flow_test_case_dir in os.listdir(RESULTS_DIR):
+        full_path = os.path.join(RESULTS_DIR, flow_test_case_dir)
+        if os.path.isdir(full_path):
+            metadata_file = os.path.join(full_path, "metadata.json")
+            if os.path.exists(metadata_file):
+                with open(metadata_file, "r") as f:
+                    metadata = json.load(f)
+                    flow_name = metadata["flow_name"]
+                    test_case_name = metadata["test_case"]["name"]
+                    flow_results = results_summary.setdefault(flow_name, {})
                     test_case_results = flow_results.setdefault(test_case_name, set())
-                    test_case_results.add(vram_state)
-            print(f"Loaded existing results summary from {summary_file}")
+                    for configuration_key in metadata["results"].keys():
+                        test_case_results.add(configuration_key)
     return results_summary
 
 
@@ -787,6 +796,7 @@ async def save_results(
     test_case: TestCase,
     task_results: list,
     vram_state: str,
+    disable_smart_memory: typing.Union[bool, str],
 ):
     # Ensure results directory exists
     os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -830,14 +840,20 @@ async def save_results(
     for task in task_results:
         task.pop("flow_comfy", None)  # We saved it in a separate file
 
-    # Update the results for the current 'vram_state'
-    metadata["results"][vram_state] = {"summary": summary, "task_results": task_results}
+    # Update the results for the current configuration
+    configuration_key = f"{vram_state}_disable_smart_memory_{disable_smart_memory}"
+    metadata["results"][configuration_key] = {
+        "summary": summary,
+        "task_results": task_results,
+    }
 
     # Save updated metadata
     with open(metadata_file, "w") as f:
         json.dump(metadata, f, indent=4)
 
-    print(f"Results saved to {flow_test_case_dir} for vram_state '{vram_state}'")
+    print(
+        f"Results saved to {flow_test_case_dir} for configuration '{configuration_key}'"
+    )
 
     # Save outputs for each task
     for task in task_results:
@@ -853,7 +869,7 @@ async def save_results(
                             task_id,
                             node_id,
                             output_data,
-                            vram_state=vram_state,
+                            configuration_key=configuration_key,
                         )
 
             if REMOVE_RESULTS_FROM_VISIONATRIX:
@@ -863,7 +879,7 @@ async def save_results(
     for result in task_results:
         if "flow_comfy" in result:
             await save_flow_comfy(
-                flow_name, test_case_name, result["flow_comfy"], vram_state
+                flow_name, test_case_name, result["flow_comfy"], configuration_key
             )
             break  # No need to check further once saved
 
@@ -887,11 +903,13 @@ async def delete_task(task_id: int) -> None:
 
 
 async def save_flow_comfy(
-    flow_name: str, test_case_name: str, flow_comfy: dict, vram_state: str
+    flow_name: str, test_case_name: str, flow_comfy: dict, configuration_key: str
 ):
     flow_test_case_dir = os.path.join(RESULTS_DIR, f"{flow_name}__{test_case_name}")
     os.makedirs(flow_test_case_dir, exist_ok=True)
-    flow_comfy_file = os.path.join(flow_test_case_dir, f"flow_comfy_{vram_state}.json")
+    flow_comfy_file = os.path.join(
+        flow_test_case_dir, f"flow_comfy_{configuration_key}.json"
+    )
     with open(flow_comfy_file, "w") as f:
         json.dump(flow_comfy, f, indent=4)
 
@@ -920,26 +938,34 @@ async def save_output(
     task_id: int,
     node_id: int,
     output_data: bytes,
-    vram_state: str,
+    configuration_key: str,
     file_extension: str = "png",
 ):
     # Create the output file path, appending file extension
     output_file = os.path.join(
         flow_test_case_dir,
-        f"result__task_{task_id}_node_{node_id}_{vram_state}.{file_extension}",
+        f"result__task_{task_id}_node_{node_id}_{configuration_key}.{file_extension}",
     )
     with open(output_file, "wb") as f:
         f.write(output_data)  # Write binary data to the file
     print(
-        f"Output saved for task {task_id}, node {node_id}, vram_state '{vram_state}' to {output_file}"
+        f"Output saved for task {task_id}, node {node_id}, configuration '{configuration_key}' to {output_file}"
     )
 
 
 def get_suite_identifier() -> str:
     if SELECTED_TEST_FLOW_SUITE == TEST_CASES_SDXL:
         return "SDXL"
-    # Include other suite identifiers here
-    raise RuntimeError("Unknown TEST SUITE")
+    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_PORTRAITS:
+        return "PORTRAITS"
+    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_OTHER:
+        return "OTHER"
+    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_FLUX:
+        return "FLUX"
+    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_HEAVY:
+        return "HEAVY"
+    else:
+        raise RuntimeError("Unknown TEST SUITE")
 
 
 async def generate_results_summary_json(results_summary: dict):
@@ -977,9 +1003,9 @@ async def generate_results_summary_json(results_summary: dict):
                 with open(metadata_file, "r") as f:
                     metadata = json.load(f)
                     results = metadata.get("results", {})
-                    for vram_state, vram_results in results.items():
-                        summary = vram_results.get("summary", {})
-                        task_results = vram_results.get("task_results", [])
+                    for configuration_key, config_results in results.items():
+                        summary = config_results.get("summary", {})
+                        task_results = config_results.get("task_results", [])
                         max_memory_usages = [
                             details.get("max_memory_usage")
                             for details in (
@@ -988,10 +1014,19 @@ async def generate_results_summary_json(results_summary: dict):
                             )
                             if details and details.get("max_memory_usage") is not None
                         ]
+                        # Parse configuration_key
+                        parts = configuration_key.split("_disable_smart_memory_")
+                        if len(parts) == 2:
+                            vram_state, disable_smart_memory_str = parts
+                            disable_smart_memory = disable_smart_memory_str == "True"
+                        else:
+                            vram_state = configuration_key
+                            disable_smart_memory = None
                         flow_data["test_cases"].append(
                             {
                                 "test_case": test_case_name,
                                 "vram_state": vram_state,
+                                "disable_smart_memory": disable_smart_memory,
                                 "avg_exec_time": summary.get("avg_exec_time"),
                                 "avg_max_memory_usage": (
                                     statistics.mean(max_memory_usages)
