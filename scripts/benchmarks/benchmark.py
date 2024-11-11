@@ -33,6 +33,8 @@ if BASIC_AUTH:
     print("Using authentication for connect")
 PAUSE_INTERVAL = int(os.environ.get("PAUSE_INTERVAL", "0"))
 PAUSE_INTERVAL_AFTER_WARMUP = int(os.environ.get("PAUSE_INTERVAL_AFTER_WARMUP", "0"))
+UNLOAD_MODELS_BEFORE_WARMUP = os.environ.get("UNLOAD_MODELS_BEFORE_WARMUP", "1")
+EXECUTION_PROFILER = True
 
 FIRST_TEST_FLAG = True
 SELECTED_TEST_FLOW_SUITE = []
@@ -514,7 +516,11 @@ async def wait_for_installation_to_complete(
 
 
 async def create_task(
-    flow_name: str, input_params: dict, count: int, input_files: dict | None = None
+    flow_name: str,
+    input_params: dict,
+    count: int,
+    input_files: dict | None = None,
+    warm_up=False,
 ) -> list[int]:
     files_to_upload = {}
     if input_files:
@@ -537,6 +543,14 @@ async def create_task(
                 f"{SERVER_URL}/api/tasks/create/{flow_name}",
                 data=form_data,
                 files=files_to_upload,
+                headers={
+                    "X-WORKER-EXECUTION-PROFILER": (
+                        "0" if warm_up else str(int(EXECUTION_PROFILER))
+                    ),
+                    "X-WORKER-UNLOAD-MODELS": (
+                        UNLOAD_MODELS_BEFORE_WARMUP if warm_up else "0"
+                    ),
+                },
             )
             if response.status_code == 200:
                 return response.json().get("tasks_ids", [])
@@ -633,7 +647,9 @@ async def run_test_case(
         input_files = test_case.input_files
         if test_case.warm_up:
             print("Warming up...")
-            warmup_task_id = await create_task(flow_name, input_params, 1, input_files)
+            warmup_task_id = await create_task(
+                flow_name, input_params, 1, input_files, warm_up=True
+            )
             if not warmup_task_id:
                 print(
                     f"Failed to create warmup task for flow '{flow_name}', test case: {test_case.name}"
@@ -656,7 +672,7 @@ async def run_test_case(
 
         # Create tasks, passing input files if present
         task_ids = await create_task(
-            flow_name, input_params, test_case.count, input_files
+            flow_name, input_params, test_case.count, input_files, warm_up=False
         )
         if not task_ids:
             print(
@@ -958,10 +974,23 @@ async def generate_results_summary_json(results_summary: dict):
                 with open(metadata_file, "r") as f:
                     metadata = json.load(f)
                     summary = metadata.get("summary", {})
+                    task_results = metadata.get("task_results", [])
+                    max_memory_usages = [
+                        details.get("max_memory_usage")
+                        for details in (
+                            result.get("execution_details") for result in task_results
+                        )
+                        if details and details.get("max_memory_usage") is not None
+                    ]
                     flow_data["test_cases"].append(
                         {
                             "test_case": test_case_name,
                             "avg_exec_time": summary.get("avg_exec_time"),
+                            "avg_max_memory_usage": (
+                                statistics.mean(max_memory_usages)
+                                if max_memory_usages
+                                else None
+                            ),
                         }
                     )
             else:

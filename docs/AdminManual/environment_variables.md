@@ -226,18 +226,6 @@ When running in `WORKER` mode, the following variables are relevant:
 - **Description**: Maximum number of attempts to perform `git clone` operations during installation or updates.
 - **Default**: `3`
 
-#### NODES_TIMING
-
-- **Description**: If set to `1`, the execution time of each workflow node will be logged for performance analysis.
-- **Default**: `0` (disabled)
-- **Set to**: `1` to enable.
-
-#### GPU_MEM_TRACKING
-
-- **Description**: If set to `1`, logs the maximum GPU memory consumption for each flow.
-- **Default**: `0` (disabled)
-- **Set to**: `1` to enable.
-
 #### CORS_ORIGINS
 
 - **Description**: A comma-separated list of origins that are allowed to make Cross-Origin Resource Sharing (CORS) requests to the server. This is necessary when the frontend and backend are hosted on different domains or ports. By specifying allowed origins, you enable frontend applications running on those origins to interact with the Visionatrix backend.
@@ -290,7 +278,6 @@ On Linux or macOS:
 export VIX_MODE=WORKER
 export VIX_SERVER=http://server_address:8000
 export WORKER_AUTH=worker_user:worker_password
-export GPU_MEM_TRACKING=1
 ```
 
 On Windows Command Prompt:
@@ -299,7 +286,6 @@ On Windows Command Prompt:
 set VIX_MODE=WORKER
 set VIX_SERVER=http://server_address:8000
 set WORKER_AUTH=worker_user:worker_password
-set GPU_MEM_TRACKING=1
 ```
 
 ### Starting Visionatrix with Command-Line Arguments
