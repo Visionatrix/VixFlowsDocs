@@ -37,7 +37,7 @@ def generate_hardware_results_table():
                         for test_case in flow["test_cases"]:
                             disable_smart_memory = test_case.get("disable_smart_memory")
                             if disable_smart_memory is True:
-                                smart_memory_str = "Noe"
+                                smart_memory_str = "No"
                             elif disable_smart_memory is False:
                                 smart_memory_str = "Yes"
                             else:

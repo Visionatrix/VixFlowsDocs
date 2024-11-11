@@ -20,9 +20,7 @@ DEFAULT_NUMBER_OF_TEST_CASE_RUNS = int(os.environ.get("COUNT", "2"))
 HARDWARE = os.environ.get("HARDWARE", "YOUR_CPU-YOUR_GPU").strip("\"'")
 FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "1800"))
 TEST_START_TIME = datetime.now()
-RESULTS_DIR = Path("results").joinpath(
-    f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}"
-)
+RESULTS_DIR: Path
 
 USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", ""), os.getenv("USER_PASSWORD", "")
 BASIC_AUTH = (
@@ -372,6 +370,8 @@ validate_flows_test_cases(
 
 async def select_test_flow_suite():
     global SELECTED_TEST_FLOW_SUITE
+    global RESULTS_DIR
+
     print("Please select the test suite you want to run:")
     print("1. SDXL Suite")
     print("2. PORTRAITS Suite")
@@ -399,6 +399,12 @@ async def select_test_flow_suite():
     else:
         print("Invalid selection. Please restart and select a valid suite.")
         exit(1)
+
+    # Set RESULTS_DIR based on the selected suite
+    suite_identifier = get_suite_identifier()
+    RESULTS_DIR = Path("results").joinpath(
+        f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_identifier}"
+    )
 
 
 async def is_server_online() -> bool:
@@ -631,6 +637,21 @@ async def run_test_case(
         input_params = test_case.input_params
         input_files = test_case.input_files
 
+        # Check if results already exist for this test case
+        flow_results = results_summary.setdefault(flow_name, {})
+        test_case_results = flow_results.setdefault(test_case.name, set())
+
+        # Load existing results for this test case
+        flow_test_case_dir = os.path.join(RESULTS_DIR, f"{flow_name}__{test_case.name}")
+        metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
+        existing_configurations = set()
+        if os.path.exists(metadata_file):
+            with open(metadata_file, "r") as f:
+                metadata = json.load(f)
+                existing_configurations.update(metadata["results"].keys())
+
+        test_case_results.update(existing_configurations)
+
         print("Warming up...")
         warmup_task_id = await create_task(
             flow_name, input_params, 1, input_files, warm_up=True
@@ -669,9 +690,7 @@ async def run_test_case(
 
         configuration_key = f"{vram_state}_disable_smart_memory_{disable_smart_memory}"
 
-        # Check if results for this flow_name, test_case.name, and configuration already exist
-        flow_results = results_summary.setdefault(flow_name, {})
-        test_case_results = flow_results.setdefault(test_case.name, set())
+        # Check if results for this configuration already exist
         if configuration_key in test_case_results:
             print(
                 f"Results for flow '{flow_name}', test case '{test_case.name}', configuration '{configuration_key}' already exist. Skipping."
@@ -739,25 +758,28 @@ async def process_flow(
 
 
 async def load_results_summary() -> dict:
+    # Initialize empty results summary
     results_summary = {}
 
-    # For each flow_test_case_dir in RESULTS_DIR
-    if not RESULTS_DIR.exists():
-        return results_summary
+    # Load existing results for the selected test suite
+    for flow_test in SELECTED_TEST_FLOW_SUITE:
+        flow_name = flow_test.flow_name
+        flow_results = results_summary.setdefault(flow_name, {})
+        for test_case in flow_test.test_cases:
+            test_case_name = test_case.name
+            test_case_results = flow_results.setdefault(test_case_name, set())
 
-    for flow_test_case_dir in os.listdir(RESULTS_DIR):
-        full_path = os.path.join(RESULTS_DIR, flow_test_case_dir)
-        if os.path.isdir(full_path):
-            metadata_file = os.path.join(full_path, "metadata.json")
+            flow_test_case_dir = os.path.join(
+                RESULTS_DIR, f"{flow_name}__{test_case_name}"
+            )
+            metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
+
             if os.path.exists(metadata_file):
                 with open(metadata_file, "r") as f:
                     metadata = json.load(f)
-                    flow_name = metadata["flow_name"]
-                    test_case_name = metadata["test_case"]["name"]
-                    flow_results = results_summary.setdefault(flow_name, {})
-                    test_case_results = flow_results.setdefault(test_case_name, set())
-                    for configuration_key in metadata["results"].keys():
-                        test_case_results.add(configuration_key)
+                    existing_configurations = set(metadata["results"].keys())
+                    test_case_results.update(existing_configurations)
+
     return results_summary
 
 
@@ -788,6 +810,9 @@ async def benchmarker():
         flow_tasks.append(flow_task)
 
     await asyncio.gather(*flow_tasks)
+
+    # Generate results summary after all tests are done
+    await generate_results_summary_json(results_summary)
 
 
 async def save_results(
@@ -983,7 +1008,7 @@ async def generate_results_summary_json(results_summary: dict):
 
     flows_display_names = await get_flow_display_names()
 
-    # Instead of relying on in-memory data, read results from disk
+    # Use results from the current run (results_summary)
     for flow_name in results_summary.keys():
         flow_data = {
             "flow_name": flow_name,

@@ -40,7 +40,9 @@ cd VixFlowsDocs && pip install -r requirements.txt
 
 ## Running the Benchmark Script
 
-You can then run the script with the default parameters. The working directory doesn't matter because the script uses relative paths from its own location.
+The benchmark script is located in the `scripts/benchmarks` directory.
+
+You can run the script with the default parameters. The working directory doesn't matter because the script uses relative paths from its own location.
 
 If your Visionatrix instance does not have authentication enabled (for example, it's running in `DEFAULT` mode), simply run the script:
 
@@ -48,19 +50,49 @@ If your Visionatrix instance does not have authentication enabled (for example, 
 python3 scripts/benchmarks/benchmark.py
 ```
 
-The script will offer you options for what you want to test; just enter the number of your choice.
+The script will prompt you to select the test suite you want to run. Enter the number corresponding to your choice:
+
+```
+Please select the test suite you want to run:
+1. SDXL Suite
+2. PORTRAITS Suite
+3. OTHER Suite
+4. FLUX Suite
+5. HEAVY(24GB+ VRAM) Suite
+Enter the number of the suite (1/2/3/4/5):
+```
 
 !!! note
 
-    The script will automatically install the flows from the test set. It will also start testing as soon as the first flow is installed and will install the next one in parallel.
+    The script will automatically install the flows from the selected test suite if they are not already installed. It will start testing as soon as the first flow is installed and will install the next flows in parallel.
 
-    This will not significantly affect performance (unless your Visionatrix is running in `DEFAULT` mode).
+    This should not significantly affect performance (unless your Visionatrix is running in `DEFAULT` mode).
 
-Upon completion of the tests, a folder with results will appear in the `results` directory. The most important file is the JSON file located at the root of this folder.
+Upon completion of the tests, a folder with results will appear in the `results` directory, named with the date, hardware, and test suite. For example:
 
-You should set the environment variable `HARDWARE` in the format "CPU-GraphicCard" or, after testing is complete, rename the results file (replace "YOUR_CPU" and "YOUR_GPU" with your own hardware specifications).
+```
+results/2024-11-11-EPYC_75F3-4090-SDXL/
+```
 
-If you want to add your results to the documentation, simply open a pull request with this file in the `hardware_results` folder.
+Inside this folder, you will find the summary JSON file (e.g., `summary-2024-11-11-EPYC_75F3-4090-SDXL.json`) and the detailed results for each flow and test case.
+
+The `benchmark.py` script supports resuming interrupted tests. If you run the script again for the same test suite, it will skip tests that have already been completed.
+
+You should set the environment variable `HARDWARE` in the format `"CPU-GPU"` before running the script. If you forget to set it, you can rename the results folder and summary file after the tests are complete to include your hardware specifications.
+
+If you want to add your results to the documentation, copy the summary JSON file to the `hardware_results` folder and open a pull request with this file.
+
+## Generating Hardware Results Table
+
+After running the benchmark and collecting results, you can generate a Markdown table summarizing the hardware test results using the `generate_hardware_results.py` script located in the `scripts/benchmarks` directory.
+
+Run the script to generate the `hardware_results.md` file:
+
+```bash
+python3 scripts/benchmarks/generate_hardware_results.py
+```
+
+This script will traverse the `results` directory, process the summary JSON files, and generate a Markdown table saved as `hardware_results.md`.
 
 # Supported Environment Variables
 
@@ -86,21 +118,21 @@ Example usage along with `SERVER_URL`:
 SERVER_URL="http://192.168.1.10:8288" USER_NAME="admin" USER_PASSWORD="admin" python3 scripts/benchmarks/benchmark.py
 ```
 
-The `COUNT` variable controls the number of tasks created for each flow. By default, it is set to `2`. You can set it to `1`, `3`, `4`, etc. The higher the number, the more accurate the hardware test will be.
+The `COUNT` variable controls the number of tasks created for each test case. By default, it is set to `2`. You can set it to `1`, `3`, `4`, etc. The higher the number, the more accurate the hardware test will be.
 
-Also supported is the `REMOVE_RESULTS` variable. By default, it is `1`, but you can set it to `0` if you don't want the tasks created during testing to be deleted.
+Another supported variable is `REMOVE_RESULTS`. By default, it is `1`, which means that the tasks created during testing will be deleted from Visionatrix after completion. You can set it to `0` if you don't want the tasks to be deleted.
 
-If you have a slow internet connection and not all flows from your selected test set are installed, you might want to set a custom value for the `FLOW_INSTALL_TIMEOUT` variable.
+If you have a slow internet connection and not all flows from your selected test suite are installed, you might want to set a custom value for the `FLOW_INSTALL_TIMEOUT` variable.
 
 By default, it is set to 1800 seconds (30 minutes). If the flow does not download within this time, the script will produce an error (but this does not cancel the flow installation, and eventually it will be installed on the server).
 
-The last variables are `PAUSE_INTERVAL` (default value `0`) and `PAUSE_INTERVAL_AFTER_WARMUP` (default value `0`).
+The variables `PAUSE_INTERVAL` (default value `0`) and `PAUSE_INTERVAL_AFTER_WARMUP` (default value `0`) control the pause time between tests.
 
-- The `PAUSE_INTERVAL` variable defines the pause time between test sets (this might be useful if, during tests, your device heats up and you want to prevent overheating).
+- The `PAUSE_INTERVAL` variable defines the pause time in seconds between test cases (this might be useful if, during tests, your device heats up and you want to prevent overheating).
 
-- The `PAUSE_INTERVAL_AFTER_WARMUP` variable is slightly more useful. It defines the interval of time to wait after the first test run, during which the models from the flow are loaded into memory. This is useful on laptops or devices with insufficient cooling. It is only beneficial if you do not set the `WARMUP` variable to `0`.
+- The `PAUSE_INTERVAL_AFTER_WARMUP` variable defines the interval of time to wait after the warm-up run. During the warm-up, models are loaded into memory. This pause can be useful on laptops or devices with insufficient cooling.
 
-Theoretically, to measure speed closer to production, measurements with `WARMUP` set to `0` will be more accurate. However, we conduct testing without changing the `WARMUP` value, which is `1` by default.
+The `UNLOAD_MODELS_BEFORE_WARMUP` variable controls whether models are unloaded from memory before the warm-up run. By default, it is set to `1`. Setting it to `0` will skip unloading models before the warm-up.
 
 # Conclusion
 
