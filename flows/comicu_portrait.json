@@ -207,7 +207,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/ComicuPortrait/",
       "license": "",
       "tags": "[\"anime\", \"portrait\"]",
-      "version": "2.0.2",
+      "version": "2.0.3",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -322,7 +322,7 @@
       "optional": true,
       "advanced": true,
       "order": 10,
-      "custom_id": "",
+      "custom_id": "prompt",
       "hidden": false,
       "translatable": true
     },
