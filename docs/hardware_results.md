@@ -1,9 +1,5 @@
 # Hardware Benchmark Results Graphs
 
-Below are the interactive bar charts for each test suite and test case.
-
-Click on the legend items to toggle visibility.
-
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <script>

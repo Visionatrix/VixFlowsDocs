@@ -89,11 +89,7 @@ TEST_CASES_SDXL = [
         flow_name="sdxl_lighting",
         test_cases=[
             TestCase(
-                name="4_steps",
-                input_params={"prompt": "green apple", "steps_number": "4 steps"},
-            ),
-            TestCase(
-                name="8_steps",
+                name="lighting",
                 input_params={"prompt": "green apple", "steps_number": "8 steps"},
             ),
         ],
@@ -101,7 +97,7 @@ TEST_CASES_SDXL = [
     FlowTest(
         flow_name="juggernaut_lite",
         test_cases=[
-            TestCase(name="default", input_params={"prompt": "green apple"}),
+            TestCase(name="lighting", input_params={"prompt": "green apple"}),
         ],
     ),
     FlowTest(
@@ -109,11 +105,19 @@ TEST_CASES_SDXL = [
         test_cases=[
             TestCase(
                 name="default",
-                input_params={"prompt": "green apple", "fast_run": False},
+                input_params={
+                    "prompt": "green apple",
+                    "fast_run": False,
+                    "steps_count": 45,
+                },
             ),
             TestCase(
                 name="fast_run",
-                input_params={"prompt": "green apple", "fast_run": True},
+                input_params={
+                    "prompt": "green apple",
+                    "fast_run": True,
+                    "steps_count": 45,
+                },
             ),
         ],
     ),
@@ -121,35 +125,19 @@ TEST_CASES_SDXL = [
         flow_name="colorful_xl",
         test_cases=[
             TestCase(
-                name="fast_run_30steps",
+                name="fast_run",
                 input_params={
                     "prompt": "green apple",
-                    "steps_count": 30,
                     "fast_run": True,
+                    "steps_count": 45,
                 },
             ),
             TestCase(
-                name="fast_run_60steps",
+                name="default",
                 input_params={
                     "prompt": "green apple",
-                    "steps_count": 60,
-                    "fast_run": True,
-                },
-            ),
-            TestCase(
-                name="usual_run_30steps",
-                input_params={
-                    "prompt": "green apple",
-                    "steps_count": 30,
                     "fast_run": False,
-                },
-            ),
-            TestCase(
-                name="usual_run_60steps",
-                input_params={
-                    "prompt": "green apple",
-                    "steps_count": 60,
-                    "fast_run": False,
+                    "steps_count": 45,
                 },
             ),
         ],
@@ -158,12 +146,20 @@ TEST_CASES_SDXL = [
         flow_name="mobius_xl",
         test_cases=[
             TestCase(
-                name="fast_run_30steps",
-                input_params={"prompt": "green apple", "fast_run": True},
+                name="fast_run",
+                input_params={
+                    "prompt": "green apple",
+                    "fast_run": True,
+                    "steps_count": 45,
+                },
             ),
             TestCase(
-                name="usual_run_30steps",
-                input_params={"prompt": "green apple", "fast_run": False},
+                name="default",
+                input_params={
+                    "prompt": "green apple",
+                    "fast_run": False,
+                    "steps_count": 45,
+                },
             ),
         ],
     ),
@@ -172,11 +168,19 @@ TEST_CASES_SDXL = [
         test_cases=[
             TestCase(
                 name="default",
-                input_params={"prompt": "green apple", "fast_run": False},
+                input_params={
+                    "prompt": "green apple",
+                    "fast_run": False,
+                    "steps_count": 45,
+                },
             ),
             TestCase(
                 name="fast_run",
-                input_params={"prompt": "green apple", "fast_run": True},
+                input_params={
+                    "prompt": "green apple",
+                    "fast_run": True,
+                    "steps_count": 45,
+                },
             ),
         ],
     ),
@@ -184,12 +188,8 @@ TEST_CASES_SDXL = [
         flow_name="playground_2_5_prometheus",
         test_cases=[
             TestCase(
-                name="25steps",
-                input_params={"prompt": "green apple", "steps_count": 25},
-            ),
-            TestCase(
-                name="50steps",
-                input_params={"prompt": "green apple", "steps_count": 50},
+                name="default",
+                input_params={"prompt": "green apple", "steps_count": 45},
             ),
         ],
     ),
@@ -284,23 +284,10 @@ TEST_CASES_OTHER = [
         ],
     ),
     FlowTest(
-        flow_name="hunyuan_dit",
-        test_cases=[
-            TestCase(
-                name="20steps",
-                input_params={"prompt": "green apple", "steps_count": 20},
-            ),
-            TestCase(
-                name="40steps",
-                input_params={"prompt": "green apple", "steps_count": 40},
-            ),
-        ],
-    ),
-    FlowTest(
         flow_name="remove_background_birefnet",
         test_cases=[
             TestCase(
-                name="1024x1024",
+                name="Remove Background",
                 input_files={"input_image": "man.png"},
             ),
         ],
@@ -309,7 +296,7 @@ TEST_CASES_OTHER = [
         flow_name="remove_background_bria",
         test_cases=[
             TestCase(
-                name="1024x1024",
+                name="Remove Background",
                 input_files={"input_image": "man.png"},
             ),
         ],
@@ -318,31 +305,36 @@ TEST_CASES_OTHER = [
         flow_name="supir_upscaler",
         test_cases=[
             TestCase(
-                name="1MPx1.5",
+                name="1.5x Scale",
                 input_params={"scale_factor": 1.5},
                 input_files={"image_to_upscale": "man.png"},
             ),
         ],
     ),
 ]
-TEST_CASES_FLUX = [
+TEST_CASES_DIT = [
+    FlowTest(
+        flow_name="hunyuan_dit",
+        test_cases=[
+            TestCase(
+                name="default",
+                input_params={"prompt": "green apple", "steps_count": 45},
+            ),
+        ],
+    ),
     FlowTest(
         flow_name="flux1_dev_8bit",
         test_cases=[
             TestCase(
-                name="20steps",
-                input_params={"prompt": "green apple", "steps_count": 20},
-            ),
-            TestCase(
-                name="40steps",
-                input_params={"prompt": "green apple", "steps_count": 40},
+                name="default",
+                input_params={"prompt": "green apple", "steps_count": 45},
             ),
         ],
     ),
     FlowTest(
         flow_name="flux1_schnell_8bit",
         test_cases=[
-            TestCase(name="default", input_params={"prompt": "green apple"}),
+            TestCase(name="lighting", input_params={"prompt": "green apple"}),
         ],
     ),
 ]
@@ -351,12 +343,8 @@ TEST_CASES_HEAVY = [
         flow_name="flux1_dev",
         test_cases=[
             TestCase(
-                name="20steps",
-                input_params={"prompt": "green apple", "steps_count": 20},
-            ),
-            TestCase(
-                name="40steps",
-                input_params={"prompt": "green apple", "steps_count": 40},
+                name="default",
+                input_params={"prompt": "green apple", "steps_count": 45},
             ),
         ],
     ),
@@ -365,7 +353,7 @@ validate_flows_test_cases(
     TEST_CASES_SDXL
     + TEST_CASES_PORTRAITS
     + TEST_CASES_OTHER
-    + TEST_CASES_FLUX
+    + TEST_CASES_DIT
     + TEST_CASES_HEAVY
 )
 
@@ -378,7 +366,7 @@ async def select_test_flow_suite():
     print("1. SDXL Suite")
     print("2. PORTRAITS Suite")
     print("3. OTHER Suite")
-    print("4. FLUX Suite")
+    print("4. DiT(FLUX, ..) Suite")
     print("5. HEAVY(24GB+ VRAM) Suite")
 
     user_choice = input("Enter the number of the suite (1/2/3/4/5): ")
@@ -393,8 +381,8 @@ async def select_test_flow_suite():
         SELECTED_TEST_FLOW_SUITE = TEST_CASES_OTHER
         print("Selected OTHER Suite.")
     elif user_choice == "4":
-        SELECTED_TEST_FLOW_SUITE = TEST_CASES_FLUX
-        print("Selected FLUX Suite.")
+        SELECTED_TEST_FLOW_SUITE = TEST_CASES_DIT
+        print("Selected DIT Suite.")
     elif user_choice == "5":
         SELECTED_TEST_FLOW_SUITE = TEST_CASES_HEAVY
         print("Selected HEAVY Suite.")
@@ -1005,8 +993,8 @@ def get_suite_identifier() -> str:
         return "PORTRAITS"
     elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_OTHER:
         return "OTHER"
-    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_FLUX:
-        return "FLUX"
+    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_DIT:
+        return "DIT"
     elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_HEAVY:
         return "HEAVY"
     else:

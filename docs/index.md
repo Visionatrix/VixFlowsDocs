@@ -27,6 +27,7 @@ Common information:
 - [FAQ](faq.md)
 - [Hardware FAQ](hardware_faq.md)
 - [Hardware Results](hardware_results.md)
+- [Hardware Results (Raw)](hardware_results_raw.md)
 
 Specialized stuff:
 
