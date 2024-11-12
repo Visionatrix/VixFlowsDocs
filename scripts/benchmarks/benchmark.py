@@ -21,6 +21,8 @@ HARDWARE = os.environ.get("HARDWARE", "YOUR_CPU-YOUR_GPU").strip("\"'")
 FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "1800"))
 TEST_START_TIME = datetime.now()
 RESULTS_DIR: Path
+VRAM_STATE = os.environ.get("VRAM_STATE", "")  # override autodetect
+DISABLE_SMART_MEMORY = os.environ.get("DISABLE_SMART_MEMORY", "")  # override autodetect
 
 USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", ""), os.getenv("USER_PASSWORD", "")
 BASIC_AUTH = (
@@ -652,6 +654,17 @@ async def run_test_case(
 
         test_case_results.update(existing_configurations)
 
+        if VRAM_STATE and DISABLE_SMART_MEMORY:
+            configuration_key = (
+                f"{VRAM_STATE}_disable_smart_memory_{bool(int(DISABLE_SMART_MEMORY))}"
+            )
+            # Check if results for this configuration already exist
+            if configuration_key in test_case_results:
+                print(
+                    f"Results for flow '{flow_name}', test case '{test_case.name}', configuration '{configuration_key}' already exist. Skipping."
+                )
+                return
+
         print("Warming up...")
         warmup_task_id = await create_task(
             flow_name, input_params, 1, input_files, warm_up=True
@@ -677,9 +690,16 @@ async def run_test_case(
         # Extract 'vram_state' and 'disable_smart_memory' from execution_details
         execution_details = r.get("execution_details")
         if execution_details:
-            vram_state = execution_details.get("vram_state", "unknown_vram_state")
+            vram_state = (
+                VRAM_STATE
+                if VRAM_STATE
+                else execution_details.get("vram_state", "unknown_vram_state")
+            )
             disable_smart_memory = execution_details.get(
                 "disable_smart_memory", "unknown"
+            )
+            disable_smart_memory = (
+                DISABLE_SMART_MEMORY if DISABLE_SMART_MEMORY else disable_smart_memory
             )
         else:
             print(
@@ -1060,10 +1080,6 @@ async def generate_results_summary_json(results_summary: dict):
                                 ),
                             }
                         )
-            else:
-                print(
-                    f"Warning: Metadata file for flow '{flow_name}', test case '{test_case_name}' not found."
-                )
 
         results_data["flows"].append(flow_data)
 
