@@ -103,7 +103,8 @@ scripts/visionatrix
 tasks_history.db
 /flows.zip
 flows_publish
-docs/hardware_results.md
+docs/hardware_results_raw.md
 site/
 scripts/benchmarks/results/
 src_visionatrix
+plotly_data/

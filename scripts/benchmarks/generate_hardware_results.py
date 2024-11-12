@@ -106,8 +106,8 @@ def generate_plotly_data():
         "SDXL": set(),
         "PORTRAITS": set(),
         "OTHER": set(),
-        "HEAVY": set(),
         "DIT": set(),
+        "HEAVY": set(),
     }
 
     for root, _, files in os.walk(HARDWARE_RESULTS_DIR):

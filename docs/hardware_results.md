@@ -4,8 +4,6 @@ Below are the interactive bar charts for each test suite and test case.
 
 Click on the legend items to toggle visibility.
 
-View the same data in a detailed, non-graphical format: [Hardware Benchmark Results](./hardware_results_raw.md)
-
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <script>
@@ -23,20 +21,18 @@ fetch('/plotly_data/plotly_data_index.json')
         // Create a container for all the graphs
         const graphsContainer = document.createElement('div');
         graphsContainer.style.marginTop = '40px';
-
-        // Append the graphs container at the end of the main content area
         mainContent.appendChild(graphsContainer);
 
         suites.forEach(suite => {
+            // Centered Suite Header
             const suiteHeader = document.createElement('h1');
             suiteHeader.textContent = `Test Suite: ${suite}`;
+            suiteHeader.style.textAlign = 'center';
             graphsContainer.appendChild(suiteHeader);
 
             const testCases = indexData[suite];
             testCases.forEach(testCase => {
                 const testCaseHeader = document.createElement('h2');
-                testCaseHeader.textContent = `Test Case: ${testCase}`;
-                graphsContainer.appendChild(testCaseHeader);
 
                 const containerId = `chart-container-${suite}-${testCase}`;
                 const containerDiv = document.createElement('div');
@@ -64,7 +60,8 @@ fetch('/plotly_data/plotly_data_index.json')
                         Object.entries(groupedData).forEach(([flowDisplayName, items]) => {
                             const sortedItems = items.sort((a, b) => b.avg_exec_time - a.avg_exec_time);
 
-                            const y = sortedItems.map(item => `${item.hardware_desc}`);
+                            // Use Unicode line separator for a new line
+                            const y = sortedItems.map(item => `${item.hardware_desc}<br>\u2003${item.test_time}\u2003`);
                             const x = sortedItems.map(item => item.avg_exec_time);
                             const hoverText = sortedItems.map(item => `Test Time: ${item.test_time}`);
 
