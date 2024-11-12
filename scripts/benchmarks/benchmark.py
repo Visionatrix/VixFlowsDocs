@@ -16,8 +16,8 @@ os.chdir(Path(__file__).parent)
 
 SERVER_URL = os.environ.get("SERVER_URL", "http://127.0.0.1:8288")
 REMOVE_RESULTS_FROM_VISIONATRIX = int(os.environ.get("REMOVE_RESULTS", "1"))
-DEFAULT_NUMBER_OF_TEST_CASE_RUNS = int(os.environ.get("COUNT", "1"))
-HARDWARE = os.environ.get("HARDWARE", "9950X-7900XTX").strip("\"'")
+DEFAULT_NUMBER_OF_TEST_CASE_RUNS = int(os.environ.get("COUNT", "2"))
+HARDWARE = os.environ.get("HARDWARE", "YOUR_CPU-YOUR_GPU").strip("\"'")
 FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "1800"))
 TEST_START_TIME = datetime.now()
 RESULTS_DIR: Path
@@ -33,7 +33,7 @@ BASIC_AUTH = (
 if BASIC_AUTH:
     print("Using authentication for connect")
 PAUSE_INTERVAL = int(os.environ.get("PAUSE_INTERVAL", "0"))
-PAUSE_INTERVAL_AFTER_WARMUP = int(os.environ.get("PAUSE_INTERVAL_AFTER_WARMUP", "15"))
+PAUSE_INTERVAL_AFTER_WARMUP = int(os.environ.get("PAUSE_INTERVAL_AFTER_WARMUP", "0"))
 UNLOAD_MODELS_BEFORE_WARMUP = os.environ.get("UNLOAD_MODELS_BEFORE_WARMUP", "1")
 EXECUTION_PROFILER = True
 
@@ -416,7 +416,7 @@ async def get_installed_flows() -> list:
     if INSTALLED_FLOWS_CACHE:
         return INSTALLED_FLOWS_CACHE
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
-        response = await client.get(f"{SERVER_URL}/api/flows/installed")
+        response = await client.get(f"{SERVER_URL}/api/flows/installed", timeout=60)
         response.raise_for_status()
         INSTALLED_FLOWS_CACHE = response.json()
         return INSTALLED_FLOWS_CACHE
@@ -544,6 +544,7 @@ async def create_task(
                         UNLOAD_MODELS_BEFORE_WARMUP if warm_up else "0"
                     ),
                 },
+                timeout=60,
             )
             if response.status_code == 200:
                 return response.json().get("tasks_ids", [])
