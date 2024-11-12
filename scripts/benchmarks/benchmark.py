@@ -16,22 +16,24 @@ os.chdir(Path(__file__).parent)
 
 SERVER_URL = os.environ.get("SERVER_URL", "http://127.0.0.1:8288")
 REMOVE_RESULTS_FROM_VISIONATRIX = int(os.environ.get("REMOVE_RESULTS", "1"))
-DEFAULT_NUMBER_OF_TEST_CASE_RUNS = int(os.environ.get("COUNT", "2"))
-HARDWARE = os.environ.get("HARDWARE", "YOUR_CPU-YOUR_GPU").strip("\"'")
+DEFAULT_NUMBER_OF_TEST_CASE_RUNS = int(os.environ.get("COUNT", "1"))
+HARDWARE = os.environ.get("HARDWARE", "9950X-7900XTX").strip("\"'")
 FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "1800"))
 TEST_START_TIME = datetime.now()
 RESULTS_DIR: Path
 VRAM_STATE = os.environ.get("VRAM_STATE", "")  # override autodetect
 DISABLE_SMART_MEMORY = os.environ.get("DISABLE_SMART_MEMORY", "")  # override autodetect
 
-USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", ""), os.getenv("USER_PASSWORD", "")
+USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", "admin"), os.getenv(
+    "USER_PASSWORD", "admin"
+)
 BASIC_AUTH = (
     httpx.BasicAuth(USER_NAME, USER_PASSWORD) if USER_NAME and USER_PASSWORD else None
 )
 if BASIC_AUTH:
     print("Using authentication for connect")
 PAUSE_INTERVAL = int(os.environ.get("PAUSE_INTERVAL", "0"))
-PAUSE_INTERVAL_AFTER_WARMUP = int(os.environ.get("PAUSE_INTERVAL_AFTER_WARMUP", "0"))
+PAUSE_INTERVAL_AFTER_WARMUP = int(os.environ.get("PAUSE_INTERVAL_AFTER_WARMUP", "15"))
 UNLOAD_MODELS_BEFORE_WARMUP = os.environ.get("UNLOAD_MODELS_BEFORE_WARMUP", "1")
 EXECUTION_PROFILER = True
 

@@ -14,13 +14,11 @@ fetch('/plotly_data/plotly_data_index.json')
             return;
         }
 
-        // Create a container for all the graphs
         const graphsContainer = document.createElement('div');
         graphsContainer.style.marginTop = '40px';
         mainContent.appendChild(graphsContainer);
 
         suites.forEach(suite => {
-            // Centered Suite Header
             const suiteHeader = document.createElement('h1');
             suiteHeader.textContent = `Test Suite: ${suite}`;
             suiteHeader.style.textAlign = 'center';
@@ -28,14 +26,25 @@ fetch('/plotly_data/plotly_data_index.json')
 
             const testCases = indexData[suite];
             testCases.forEach(testCase => {
-                const testCaseHeader = document.createElement('h2');
-
                 const containerId = `chart-container-${suite}-${testCase}`;
                 const containerDiv = document.createElement('div');
                 containerDiv.id = containerId;
                 containerDiv.style.marginBottom = '40px';
+
+                // Checkbox for toggling disable_smart_memory results
+                const toggleCheckbox = document.createElement('input');
+                toggleCheckbox.type = 'checkbox';
+                toggleCheckbox.id = `toggle-smart-memory-${suite}-${testCase}`;
+                toggleCheckbox.style.margin = '10px';
+                const toggleLabel = document.createElement('label');
+                toggleLabel.textContent = 'Show Disable Smart Memory Results';
+                toggleLabel.htmlFor = toggleCheckbox.id;
+
+                graphsContainer.appendChild(toggleLabel);
+                graphsContainer.appendChild(toggleCheckbox);
                 graphsContainer.appendChild(containerDiv);
 
+                // Load data and create the chart
                 fetch(`/plotly_data/${suite}_${testCase}.json`)
                     .then(response => {
                         if (!response.ok) throw new Error('Data not found');
@@ -52,37 +61,56 @@ fetch('/plotly_data/plotly_data_index.json')
                             return acc;
                         }, {});
 
-                        // Create a horizontal bar chart for each flow_display_name
-                        Object.entries(groupedData).forEach(([flowDisplayName, items]) => {
-                            const sortedItems = items.sort((a, b) => b.avg_exec_time - a.avg_exec_time);
+                        function updateChart() {
+                            const showDisableSmartMemory = toggleCheckbox.checked;
+                            const filteredTraces = [];
 
-                            // Use Unicode line separator for a new line
-                            const y = sortedItems.map(item => `${item.hardware_desc}<br>\u2003${item.test_time}\u2003`);
-                            const x = sortedItems.map(item => item.avg_exec_time);
-                            const hoverText = sortedItems.map(item => `Test Time: ${item.test_time}`);
+                            // Create traces based on the checkbox state
+                            Object.entries(groupedData).forEach(([flowDisplayName, items]) => {
+                                const filteredItems = items.filter(item =>
+                                    showDisableSmartMemory
+                                        ? item.disable_smart_memory === true
+                                        : item.disable_smart_memory !== true
+                                );
 
-                            const trace = {
-                                y: y,
-                                x: x,
-                                type: 'bar',
-                                orientation: 'h',
-                                name: flowDisplayName,
-                                text: hoverText,
-                                hoverinfo: 'text+x'
+                                if (filteredItems.length > 0) {
+                                    const sortedItems = filteredItems.sort((a, b) => b.avg_exec_time - a.avg_exec_time);
+                                    const y = sortedItems.map(item => `${item.hardware_desc}<br>\u2003${item.test_time}\u2003`);
+                                    const x = sortedItems.map(item => item.avg_exec_time);
+                                    const hoverText = sortedItems.map(item => `Test Time: ${item.test_time}`);
+
+                                    const trace = {
+                                        y: y,
+                                        x: x,
+                                        type: 'bar',
+                                        orientation: 'h',
+                                        name: flowDisplayName,
+                                        text: hoverText,
+                                        hoverinfo: 'text+x',
+                                        showlegend: true
+                                    };
+
+                                    filteredTraces.push(trace);
+                                }
+                            });
+
+                            const layout = {
+                                title: `${suite} - ${testCase}`,
+                                yaxis: { title: '', automargin: true },
+                                xaxis: { title: 'Avg Execution Time (s)' },
+                                barmode: 'group',
+                                hovermode: 'closest',
+                                showlegend: true
                             };
 
-                            traces.push(trace);
-                        });
+                            Plotly.react(containerId, filteredTraces, layout);
+                        }
 
-                        const layout = {
-                            title: `Average Execution Time (${suite} - ${testCase})`,
-                            yaxis: { title: '', automargin: true },
-                            xaxis: { title: 'Avg Execution Time (s)' },
-                            barmode: 'group',
-                            hovermode: 'closest'
-                        };
+                        // Initial chart rendering
+                        updateChart();
 
-                        Plotly.newPlot(containerId, traces, layout);
+                        // Update chart when the checkbox is toggled
+                        toggleCheckbox.addEventListener('change', updateChart);
                     })
                     .catch(error => console.warn(`No data found for ${suite} - ${testCase}:`, error));
             });

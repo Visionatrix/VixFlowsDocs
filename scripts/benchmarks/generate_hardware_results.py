@@ -145,6 +145,9 @@ def generate_plotly_data():
                                     "avg_exec_time": test_case["avg_exec_time"],
                                     "hardware_desc": hardware_desc,
                                     "test_time": results_data["test_time"],
+                                    "disable_smart_memory": test_case.get(
+                                        "disable_smart_memory", False
+                                    ),
                                 }
                             )
 
@@ -166,9 +169,20 @@ def generate_plotly_data():
     # Save the index of available test cases for each suite
     index_output_path = OUTPUT_JSON_DIR / "plotly_data_index.json"
     suite_index = {key: list(value) for key, value in suite_index.items()}
+    if "OTHER" in suite_index and suite_index["OTHER"]:
+        suite_index["OTHER"] = sorted(suite_index["OTHER"], key=custom_sort_other)
     with open(index_output_path, "w") as f:
         json.dump(suite_index, f, indent=2)
     print(f"Plotly data index generated at {index_output_path}")
+
+
+def custom_sort_other(test_case_name):
+    predefined_order = ["one_pass", "two_pass", "three_pass"]
+    if test_case_name in predefined_order:
+        # Return index of predefined order with a negative priority to place them first
+        return 0, predefined_order.index(test_case_name)
+    # For other test cases, return them with a positive priority to sort alphabetically after predefined ones
+    return 1, test_case_name.lower()
 
 
 if __name__ == "__main__":

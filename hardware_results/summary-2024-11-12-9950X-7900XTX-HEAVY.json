@@ -1,0 +1,25 @@
+{
+    "test_time": "2024/11/12",
+    "flows": [
+        {
+            "flow_name": "flux1_dev",
+            "flow_display_name": "Flux",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 100.7448446189992,
+                    "avg_max_memory_usage": 18709.75
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 108.28676724900288,
+                    "avg_max_memory_usage": 18713.25
+                }
+            ]
+        }
+    ]
+}
