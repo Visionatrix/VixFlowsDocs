@@ -21,8 +21,7 @@ HARDWARE = os.environ.get("HARDWARE", "YOUR_CPU-YOUR_GPU").strip("\"'")
 FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "1800"))
 TEST_START_TIME = datetime.now()
 RESULTS_DIR: Path
-VRAM_STATE = os.environ.get("VRAM_STATE", "")  # override autodetect
-DISABLE_SMART_MEMORY = os.environ.get("DISABLE_SMART_MEMORY", "")  # override autodetect
+SELECTED_WORKER: dict
 
 USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", "admin"), os.getenv(
     "USER_PASSWORD", "admin"
@@ -31,7 +30,7 @@ BASIC_AUTH = (
     httpx.BasicAuth(USER_NAME, USER_PASSWORD) if USER_NAME and USER_PASSWORD else None
 )
 if BASIC_AUTH:
-    print("Using authentication for connect")
+    print(f"Using authentication for connect, user: '{USER_NAME}'")
 PAUSE_INTERVAL = int(os.environ.get("PAUSE_INTERVAL", "0"))
 PAUSE_INTERVAL_AFTER_WARMUP = int(os.environ.get("PAUSE_INTERVAL_AFTER_WARMUP", "0"))
 UNLOAD_MODELS_BEFORE_WARMUP = os.environ.get("UNLOAD_MODELS_BEFORE_WARMUP", "1")
@@ -517,8 +516,8 @@ async def create_task(
     flow_name: str,
     input_params: dict,
     count: int,
-    input_files: dict | None = None,
-    warm_up=False,
+    input_files: dict | None,
+    warm_up: bool,
 ) -> list[int]:
     files_to_upload = {}
     if input_files:
@@ -548,6 +547,7 @@ async def create_task(
                     "X-WORKER-UNLOAD-MODELS": (
                         UNLOAD_MODELS_BEFORE_WARMUP if warm_up else "0"
                     ),
+                    "X-WORKER-ID": SELECTED_WORKER["worker_id"],
                 },
                 timeout=60,
             )
@@ -651,20 +651,18 @@ async def run_test_case(
 
         test_case_results.update(existing_configurations)
 
-        if VRAM_STATE and DISABLE_SMART_MEMORY:
-            configuration_key = (
-                f"{VRAM_STATE}_disable_smart_memory_{bool(int(DISABLE_SMART_MEMORY))}"
+        worker_engine_details = SELECTED_WORKER["engine_details"]
+        configuration_key = f"{worker_engine_details['vram_state']}_disable_smart_memory_{worker_engine_details['disable_smart_memory']}"
+        # Check if results for this configuration already exist
+        if configuration_key in test_case_results:
+            print(
+                f"Results for flow '{flow_name}', test case '{test_case.name}', configuration '{configuration_key}' already exist. Skipping."
             )
-            # Check if results for this configuration already exist
-            if configuration_key in test_case_results:
-                print(
-                    f"Results for flow '{flow_name}', test case '{test_case.name}', configuration '{configuration_key}' already exist. Skipping."
-                )
-                return
+            return
 
-        print("Warming up...")
+        print(f"Warming up... (flow_name={flow_name}, test_case={test_case.name})")
         warmup_task_id = await create_task(
-            flow_name, input_params, 1, input_files, warm_up=True
+            flow_name, input_params, 1, input_files, True
         )
         if not warmup_task_id:
             print(
@@ -684,42 +682,10 @@ async def run_test_case(
             print(f"Pausing for {PAUSE_INTERVAL_AFTER_WARMUP} seconds after warmup.")
             await asyncio.sleep(PAUSE_INTERVAL_AFTER_WARMUP)
 
-        # Extract 'vram_state' and 'disable_smart_memory' from execution_details
-        execution_details = r.get("execution_details")
-        if execution_details:
-            vram_state = (
-                VRAM_STATE
-                if VRAM_STATE
-                else execution_details.get("vram_state", "unknown_vram_state")
-            )
-            disable_smart_memory = execution_details.get(
-                "disable_smart_memory", "unknown"
-            )
-            disable_smart_memory = (
-                DISABLE_SMART_MEMORY if DISABLE_SMART_MEMORY else disable_smart_memory
-            )
-        else:
-            print(
-                f"Execution details not found for flow '{flow_name}', test case '{test_case.name}'"
-            )
-            vram_state = "unknown_vram_state"
-            disable_smart_memory = "unknown"
-
-        configuration_key = f"{vram_state}_disable_smart_memory_{disable_smart_memory}"
-
-        # Check if results for this configuration already exist
-        if configuration_key in test_case_results:
-            print(
-                f"Results for flow '{flow_name}', test case '{test_case.name}', configuration '{configuration_key}' already exist. Skipping."
-            )
-            return
-        else:
-            test_case_results.add(configuration_key)
-
         # Proceed to run the actual test
         # Create tasks, passing input files if present
         task_ids = await create_task(
-            flow_name, input_params, test_case.count, input_files, warm_up=False
+            flow_name, input_params, test_case.count, input_files, False
         )
         if not task_ids:
             print(
@@ -737,8 +703,8 @@ async def run_test_case(
             test_case.name,
             test_case,
             task_results,
-            vram_state,
-            disable_smart_memory,
+            worker_engine_details["vram_state"],
+            worker_engine_details["disable_smart_memory"],
         )
         if summary:
             # Save the updated results summary after each test case
@@ -804,13 +770,15 @@ async def load_results_summary() -> dict:
 
 
 async def benchmarker():
-    # Ask the user which suites to run
-    await select_test_flow_suite()
-
     # Check if the server is online
     if not await is_server_online():
         print("Cannot proceed as the server is down.")
         return
+
+    await select_worker()
+
+    # Ask the user which suites to run
+    await select_test_flow_suite()
 
     # Semaphores to control concurrency
     installation_semaphore = asyncio.Semaphore(1)  # Only 1 flow installation at a time
@@ -1086,6 +1054,54 @@ async def generate_results_summary_json(results_summary: dict, suite_identifier:
         json.dump(results_data, f, indent=4)
 
     print(f"Test results summary saved to {summary_file}")
+
+
+async def get_available_workers() -> list[dict]:
+    """
+    Fetch the list of available workers from the server.
+    Returns a list of worker details with 'worker_id'.
+    """
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
+        try:
+            response = await client.get(f"{SERVER_URL}/api/workers/info", timeout=60)
+            response.raise_for_status()
+            return response.json()
+        except httpx.RequestError as exc:
+            print(
+                f"An error occurred while fetching workers: {exc.request.url!r}: {exc}"
+            )
+            return []
+
+
+async def select_worker():
+    global SELECTED_WORKER
+
+    workers = await get_available_workers()
+    if not workers:
+        print("No available workers found.")
+        exit(1)
+
+    if len(workers) == 1:
+        selected_worker_id = workers[0]["worker_id"]
+        print(f"Only one worker available. Auto-selecting: '{selected_worker_id}'")
+        SELECTED_WORKER = workers[0]
+        return
+
+    print("Available workers:")
+    for i, worker in enumerate(workers):
+        print(f"{i + 1}. '{worker['worker_id']}'")
+
+    while True:
+        try:
+            choice = int(input("Select a worker by number: ")) - 1
+            if 0 <= choice < len(workers):
+                selected_worker_id = workers[choice]["worker_id"]
+                print(f"Selected worker: '{selected_worker_id}'")
+                SELECTED_WORKER = workers[choice]
+            else:
+                print("Invalid selection. Please try again.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
 
 
 if __name__ == "__main__":
