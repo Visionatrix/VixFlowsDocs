@@ -39,6 +39,7 @@ EXECUTION_PROFILER = True
 
 FIRST_TEST_FLAG = True
 SELECTED_TEST_FLOW_SUITE = []
+SELECTED_TEST_FLOW_SUITES = []
 INSTALLED_FLOWS_CACHE = []
 
 
@@ -361,42 +362,46 @@ validate_flows_test_cases(
 
 
 async def select_test_flow_suite():
-    global SELECTED_TEST_FLOW_SUITE
-    global RESULTS_DIR
+    global SELECTED_TEST_FLOW_SUITES  # Now a list of tuples (suite_name, suite_test_cases)
 
-    print("Please select the test suite you want to run:")
+    print("Please select the test suites you want to run:")
     print("1. SDXL Suite")
     print("2. PORTRAITS Suite")
     print("3. OTHER Suite")
     print("4. DiT(FLUX, ..) Suite")
     print("5. HEAVY(24GB+ VRAM) Suite")
 
-    user_choice = input("Enter the number of the suite (1/2/3/4/5): ")
-
-    if user_choice == "1":
-        SELECTED_TEST_FLOW_SUITE = TEST_CASES_SDXL
-        print("Selected SDXL Suite.")
-    elif user_choice == "2":
-        SELECTED_TEST_FLOW_SUITE = TEST_CASES_PORTRAITS
-        print("Selected PORTRAITS Suite.")
-    elif user_choice == "3":
-        SELECTED_TEST_FLOW_SUITE = TEST_CASES_OTHER
-        print("Selected OTHER Suite.")
-    elif user_choice == "4":
-        SELECTED_TEST_FLOW_SUITE = TEST_CASES_DIT
-        print("Selected DIT Suite.")
-    elif user_choice == "5":
-        SELECTED_TEST_FLOW_SUITE = TEST_CASES_HEAVY
-        print("Selected HEAVY Suite.")
-    else:
-        print("Invalid selection. Please restart and select a valid suite.")
-        exit(1)
-
-    # Set RESULTS_DIR based on the selected suite
-    suite_identifier = get_suite_identifier()
-    RESULTS_DIR = Path("results").joinpath(
-        f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_identifier}"
+    user_choice = input(
+        "Enter the numbers of the suites to run, separated by commas (e.g., 1,3,5): "
     )
+
+    selected_numbers = [num.strip() for num in user_choice.split(",")]
+    SELECTED_TEST_FLOW_SUITES = []
+
+    for num in selected_numbers:
+        if num == "1":
+            SELECTED_TEST_FLOW_SUITES.append(("SDXL", TEST_CASES_SDXL))
+            print("Selected SDXL Suite.")
+        elif num == "2":
+            SELECTED_TEST_FLOW_SUITES.append(("PORTRAITS", TEST_CASES_PORTRAITS))
+            print("Selected PORTRAITS Suite.")
+        elif num == "3":
+            SELECTED_TEST_FLOW_SUITES.append(("OTHER", TEST_CASES_OTHER))
+            print("Selected OTHER Suite.")
+        elif num == "4":
+            SELECTED_TEST_FLOW_SUITES.append(("DIT", TEST_CASES_DIT))
+            print("Selected DIT Suite.")
+        elif num == "5":
+            SELECTED_TEST_FLOW_SUITES.append(("HEAVY", TEST_CASES_HEAVY))
+            print("Selected HEAVY Suite.")
+        else:
+            print(f"Invalid selection '{num}'. Skipping.")
+
+    if not SELECTED_TEST_FLOW_SUITES:
+        print(
+            "No valid suites selected. Please restart and select at least one valid suite."
+        )
+        exit(1)
 
 
 async def is_server_online() -> bool:
@@ -613,6 +618,7 @@ async def run_test_case(
     test_case: TestCase,
     results_summary: dict,
     test_semaphore: asyncio.Semaphore,
+    suite_identifier: str,
 ):
     # Use the test_semaphore to limit concurrent tests
     async with test_semaphore:
@@ -736,7 +742,7 @@ async def run_test_case(
         )
         if summary:
             # Save the updated results summary after each test case
-            await generate_results_summary_json(results_summary)
+            await generate_results_summary_json(results_summary, suite_identifier)
 
 
 async def process_flow(
@@ -744,6 +750,7 @@ async def process_flow(
     results_summary: dict,
     installation_semaphore: asyncio.Semaphore,
     test_semaphore: asyncio.Semaphore,
+    suite_identifier: str,
 ):
     flow_name = flow_test.flow_name
 
@@ -765,7 +772,9 @@ async def process_flow(
         print(f"Flow '{flow_name}' is already installed.")
 
     for test_case in flow_test.test_cases:
-        await run_test_case(flow_name, test_case, results_summary, test_semaphore)
+        await run_test_case(
+            flow_name, test_case, results_summary, test_semaphore, suite_identifier
+        )
 
 
 async def load_results_summary() -> dict:
@@ -795,7 +804,7 @@ async def load_results_summary() -> dict:
 
 
 async def benchmarker():
-    # Ask the user which suite to run
+    # Ask the user which suites to run
     await select_test_flow_suite()
 
     # Check if the server is online
@@ -807,23 +816,38 @@ async def benchmarker():
     installation_semaphore = asyncio.Semaphore(1)  # Only 1 flow installation at a time
     test_semaphore = asyncio.Semaphore(1)  # Only 1 test runs at a time
 
-    # Load existing results if available
-    results_summary = await load_results_summary()
+    for suite_name, suite_test_cases in SELECTED_TEST_FLOW_SUITES:
+        global RESULTS_DIR, SELECTED_TEST_FLOW_SUITE
+        SELECTED_TEST_FLOW_SUITE = suite_test_cases
 
-    flow_tasks = []
-
-    for flow_test in SELECTED_TEST_FLOW_SUITE:
-        flow_task = asyncio.create_task(
-            process_flow(
-                flow_test, results_summary, installation_semaphore, test_semaphore
-            )
+        # Set RESULTS_DIR based on the selected suite
+        RESULTS_DIR = Path("results").joinpath(
+            f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_name}"
         )
-        flow_tasks.append(flow_task)
 
-    await asyncio.gather(*flow_tasks)
+        print(f"\nRunning test suite: {suite_name}\n")
 
-    # Generate results summary after all tests are done
-    await generate_results_summary_json(results_summary)
+        # Load existing results if available
+        results_summary = await load_results_summary()
+
+        flow_tasks = []
+
+        for flow_test in SELECTED_TEST_FLOW_SUITE:
+            flow_task = asyncio.create_task(
+                process_flow(
+                    flow_test,
+                    results_summary,
+                    installation_semaphore,
+                    test_semaphore,
+                    suite_name,
+                )
+            )
+            flow_tasks.append(flow_task)
+
+        await asyncio.gather(*flow_tasks)
+
+        # Generate results summary after each suite is done
+        await generate_results_summary_json(results_summary, suite_name)
 
 
 async def save_results(
@@ -989,24 +1013,7 @@ async def save_output(
     )
 
 
-def get_suite_identifier() -> str:
-    if SELECTED_TEST_FLOW_SUITE == TEST_CASES_SDXL:
-        return "SDXL"
-    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_PORTRAITS:
-        return "PORTRAITS"
-    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_OTHER:
-        return "OTHER"
-    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_DIT:
-        return "DIT"
-    elif SELECTED_TEST_FLOW_SUITE == TEST_CASES_HEAVY:
-        return "HEAVY"
-    else:
-        raise RuntimeError("Unknown TEST SUITE")
-
-
-async def generate_results_summary_json(results_summary: dict):
-    suite_identifier = get_suite_identifier()
-
+async def generate_results_summary_json(results_summary: dict, suite_identifier: str):
     summary_file = os.path.join(
         RESULTS_DIR,
         f"summary-{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_identifier}.json",

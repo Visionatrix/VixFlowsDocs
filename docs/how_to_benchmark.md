@@ -50,16 +50,16 @@ If your Visionatrix instance does not have authentication enabled (for example, 
 python3 scripts/benchmarks/benchmark.py
 ```
 
-The script will prompt you to select the test suite you want to run. Enter the number corresponding to your choice:
+The script will prompt you to select the test suite(s) you want to run. Enter the number corresponding to your choice:
 
 ```
-Please select the test suite you want to run:
+Please select the test suites you want to run:
 1. SDXL Suite
 2. PORTRAITS Suite
 3. OTHER Suite
 4. FLUX Suite
 5. HEAVY(24GB+ VRAM) Suite
-Enter the number of the suite (1/2/3/4/5):
+Enter the numbers of the suites to run, separated by commas (e.g., 1,3,5):
 ```
 
 !!! note
