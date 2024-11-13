@@ -27,7 +27,7 @@ title: Worker to Database-FS Mode
 3. Install Python, Git, and essential build tools:
 
     ```bash
-    sudo apt update && apt install -y wget curl python3-venv python3-pip build-essential git
+    sudo apt update && sudo apt install -y wget curl python3-venv python3-pip build-essential git
     ```
 
 4. Install and start PostgreSQL:
@@ -57,6 +57,29 @@ title: Worker to Database-FS Mode
     sudo -u postgres psql -c "CREATE DATABASE vix_db OWNER vix_user;"
     sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE vix_db TO vix_user;"
     ```
+
+    !!! warning
+
+        If you encounter the following error during Visionatrix startup:
+
+        ```password authentication failed for user "vix_user"```
+
+        <details>
+          This means you need to enable password authentication for the `vix_user`.
+
+
+          Edit `pg_hba.conf` file (typically located at `/etc/postgresql/XX/main/pg_hba.conf`) by adding following:
+
+          ```
+          host    all             vix_user        127.0.0.1/32            md5
+          ```
+
+          Then, restart PostgreSQL:
+
+          ```bash
+          sudo systemctl restart postgresql
+          ```
+        </details>
 
 6. Install Visionatrix:
 
