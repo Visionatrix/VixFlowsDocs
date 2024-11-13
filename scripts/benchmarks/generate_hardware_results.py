@@ -83,9 +83,10 @@ def generate_hardware_results_table():
         table_md += "| :---: | :----------------: | -------- | --------- | :-----------------------: | :--------: |\n"
 
         for test_case in sorted_test_cases:
+            vram_state = str(test_case["vram_state"]).removesuffix("_VRAM")
             table_md += (
                 f"| {test_case['test_case']} | {test_case['avg_exec_time']} | "
-                f"{test_case['hardware_desc']} | {test_case['test_time']} | {str(test_case['vram_state']).removesuffix("_VRAM")}<br>{test_case['disable_smart_memory']} | "
+                f"{test_case['hardware_desc']} | {test_case['test_time']} | {vram_state}<br>{test_case['disable_smart_memory']} | "
                 f"{test_case['avg_max_memory_usage_str']} |\n"
             )
         table_md += "\n"  # Add spacing between flow groups
