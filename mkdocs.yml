@@ -114,7 +114,7 @@ plugins:
   - git-revision-date-localized:
       enable_creation_date: true
       exclude:
-        - hardware_results.md
+        - hardware_results_raw.md
   - search
   - social
 
