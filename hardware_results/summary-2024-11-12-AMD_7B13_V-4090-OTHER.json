@@ -1,0 +1,113 @@
+{
+    "test_time": "2024/11/12",
+    "flows": [
+        {
+            "flow_name": "stable_cascade",
+            "flow_display_name": "Stable Cascade",
+            "test_cases": [
+                {
+                    "test_case": "one_pass",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 7.650729689747095,
+                    "avg_max_memory_usage": 11962.48
+                },
+                {
+                    "test_case": "one_pass",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 12.242263447958976,
+                    "avg_max_memory_usage": 6963.07
+                },
+                {
+                    "test_case": "two_pass",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 18.57446958590299,
+                    "avg_max_memory_usage": 10613.02
+                },
+                {
+                    "test_case": "two_pass",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 24.18006369145587,
+                    "avg_max_memory_usage": 7081.51
+                },
+                {
+                    "test_case": "three_pass",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 33.09612711612135,
+                    "avg_max_memory_usage": 10633.89
+                },
+                {
+                    "test_case": "three_pass",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 40.93897475767881,
+                    "avg_max_memory_usage": 7207.79
+                }
+            ]
+        },
+        {
+            "flow_name": "remove_background_birefnet",
+            "flow_display_name": "Remove background (BiRefNet)",
+            "test_cases": [
+                {
+                    "test_case": "Remove Background",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 0.4508532555773854,
+                    "avg_max_memory_usage": 3195.98
+                },
+                {
+                    "test_case": "Remove Background",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 0.42200900008901954,
+                    "avg_max_memory_usage": 3195.98
+                }
+            ]
+        },
+        {
+            "flow_name": "remove_background_bria",
+            "flow_display_name": "Remove background (Bria)",
+            "test_cases": [
+                {
+                    "test_case": "Remove Background",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 0.29290176508948207,
+                    "avg_max_memory_usage": 954.43
+                },
+                {
+                    "test_case": "Remove Background",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 0.28534775553271174,
+                    "avg_max_memory_usage": 954.43
+                }
+            ]
+        },
+        {
+            "flow_name": "supir_upscaler",
+            "flow_display_name": "SUPIR Upscaler",
+            "test_cases": [
+                {
+                    "test_case": "1.5x Scale",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 89.78693066025153,
+                    "avg_max_memory_usage": 8601.43
+                },
+                {
+                    "test_case": "1.5x Scale",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 91.51659206626937,
+                    "avg_max_memory_usage": 8601.43
+                }
+            ]
+        }
+    ]
+}

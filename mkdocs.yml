@@ -54,6 +54,7 @@ nav:
   - FAQ: faq.md
   - Hardware FAQ: hardware_faq.md
   - Hardware Results: hardware_results.md
+  - Hardware Results (Raw): hardware_results_raw.md
   - How To Benchmark: how_to_benchmark.md
   - Swagger API: swagger.html
 
@@ -112,9 +113,10 @@ theme:
 plugins:
   - git-revision-date-localized:
       enable_creation_date: true
+      exclude:
+        - hardware_results_raw.md
   - search
   - social
-
 
 validation:
   anchors: warn
