@@ -7,7 +7,7 @@ os.chdir(Path(__file__).parent)
 # Directory where the `summary-date-HARDWARE-SUITE.json` files are stored
 HARDWARE_RESULTS_DIR = Path("../../hardware_results")
 PATTERN = r"summary-\d{4}-\d{2}-\d{2}-(.*?)-(SDXL|PORTRAITS|OTHER|DIT|HEAVY)\.json"
-OUTPUT_JSON_DIR = Path("../../docs/plotly_data")
+OUTPUT_JSON_DIR = Path("../../docs/hardware_results/plotly_data")
 
 
 def generate_hardware_results_table():

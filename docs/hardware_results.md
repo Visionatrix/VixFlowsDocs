@@ -3,7 +3,7 @@
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
 <script>
-fetch('/plotly_data/plotly_data_index.json')
+fetch('./plotly_data/plotly_data_index.json')
     .then(response => response.json())
     .then(indexData => {
         const suites = Object.keys(indexData);
@@ -45,7 +45,7 @@ fetch('/plotly_data/plotly_data_index.json')
                 graphsContainer.appendChild(containerDiv);
 
                 // Load data and create the chart
-                fetch(`/plotly_data/${suite}_${testCase}.json`)
+                fetch(`./plotly_data/${suite}_${testCase}.json`)
                     .then(response => {
                         if (!response.ok) throw new Error('Data not found');
                         return response.json();

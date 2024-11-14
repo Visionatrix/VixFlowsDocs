@@ -97,7 +97,6 @@ jobs:
           rsync -av "models_catalog.json" "${docroot}/"
           rsync -av "docs/swagger-ui/" "${docroot}/swagger-ui/"
           rsync -av "docs/swagger.html" "${docroot}/swagger.html"
-          rsync -av "docs/plotly_data" "${docroot}/"
           rsync -av "openapi/" "${docroot}/openapi/"
           pushd "${docroot}"
           git init
