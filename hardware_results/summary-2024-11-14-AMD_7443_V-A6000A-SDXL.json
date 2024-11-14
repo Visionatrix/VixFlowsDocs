@@ -1,0 +1,201 @@
+{
+    "test_time": "2024/11/14",
+    "flows": [
+        {
+            "flow_name": "sdxl_lighting",
+            "flow_display_name": "SDXL Lighting",
+            "test_cases": [
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 1.4353750904997469,
+                    "avg_max_memory_usage": 8907.5
+                },
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 3.1219969865001076,
+                    "avg_max_memory_usage": 5155.91
+                }
+            ]
+        },
+        {
+            "flow_name": "juggernaut_lite",
+            "flow_display_name": "Juggernaut Lite",
+            "test_cases": [
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 8.824538114999768,
+                    "avg_max_memory_usage": 8837.615000000002
+                },
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 9.746160020500156,
+                    "avg_max_memory_usage": 5267.91
+                }
+            ]
+        },
+        {
+            "flow_name": "juggernaut_xl",
+            "flow_display_name": "Juggernaut XL",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 8.015287725500002,
+                    "avg_max_memory_usage": 8810.79
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 9.402879812499577,
+                    "avg_max_memory_usage": 5267.67
+                },
+                {
+                    "test_case": "fast_run",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 3.454580871500184,
+                    "avg_max_memory_usage": 8810.79
+                },
+                {
+                    "test_case": "fast_run",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 4.604047900500063,
+                    "avg_max_memory_usage": 5267.67
+                }
+            ]
+        },
+        {
+            "flow_name": "colorful_xl",
+            "flow_display_name": "Colorful XL",
+            "test_cases": [
+                {
+                    "test_case": "fast_run",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 2.3413626915000805,
+                    "avg_max_memory_usage": 8907.5
+                },
+                {
+                    "test_case": "fast_run",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 3.4781141794996984,
+                    "avg_max_memory_usage": 5155.91
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 6.285102563999999,
+                    "avg_max_memory_usage": 8907.5
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 7.456107228499604,
+                    "avg_max_memory_usage": 5155.91
+                }
+            ]
+        },
+        {
+            "flow_name": "mobius_xl",
+            "flow_display_name": "Mobius XL",
+            "test_cases": [
+                {
+                    "test_case": "fast_run",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 3.7658223075002297,
+                    "avg_max_memory_usage": 8904.5
+                },
+                {
+                    "test_case": "fast_run",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 5.003260385999965,
+                    "avg_max_memory_usage": 5309.76
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 9.08106426900008,
+                    "avg_max_memory_usage": 8904.5
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 10.116875512499973,
+                    "avg_max_memory_usage": 5311.26
+                }
+            ]
+        },
+        {
+            "flow_name": "playground_2_5_aesthetic",
+            "flow_display_name": "Aesthetic images",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 8.220995721999998,
+                    "avg_max_memory_usage": 8828.99
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 9.343053464499917,
+                    "avg_max_memory_usage": 5302.07
+                },
+                {
+                    "test_case": "fast_run",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 3.477764389499953,
+                    "avg_max_memory_usage": 8828.99
+                },
+                {
+                    "test_case": "fast_run",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 4.789016637999794,
+                    "avg_max_memory_usage": 5302.08
+                }
+            ]
+        },
+        {
+            "flow_name": "playground_2_5_prometheus",
+            "flow_display_name": "Prometheus model",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 8.128455234500052,
+                    "avg_max_memory_usage": 8904.5
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 9.802501984999708,
+                    "avg_max_memory_usage": 5309.76
+                }
+            ]
+        }
+    ]
+}

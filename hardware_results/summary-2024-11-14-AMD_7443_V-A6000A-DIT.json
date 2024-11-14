@@ -1,0 +1,65 @@
+{
+    "test_time": "2024/11/14",
+    "flows": [
+        {
+            "flow_name": "hunyuan_dit",
+            "flow_display_name": "HunyuanDiT",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 16.392150645999664,
+                    "avg_max_memory_usage": 9102.48
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 17.187979135500427,
+                    "avg_max_memory_usage": 3704.36
+                }
+            ]
+        },
+        {
+            "flow_name": "flux1_dev_8bit",
+            "flow_display_name": "Flux (Small)",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 35.94579384250028,
+                    "avg_max_memory_usage": 18636.46
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 41.11461017299962,
+                    "avg_max_memory_usage": 12119.25
+                }
+            ]
+        },
+        {
+            "flow_name": "flux1_schnell_8bit",
+            "flow_display_name": "Flux Lighting (Small)",
+            "test_cases": [
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 3.4734472229997664,
+                    "avg_max_memory_usage": 18626.29
+                },
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 8.766540273999908,
+                    "avg_max_memory_usage": 12109.46
+                }
+            ]
+        }
+    ]
+}
