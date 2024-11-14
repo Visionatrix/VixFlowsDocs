@@ -79,6 +79,13 @@ title: Worker to Database-FS Mode
           ```bash
           sudo systemctl restart postgresql
           ```
+
+          or
+
+          ```bash
+          sudo service postgresql restart
+          ```
+
         </details>
 
 6. Install Visionatrix:
