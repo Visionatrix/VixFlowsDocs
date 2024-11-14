@@ -1,5 +1,5 @@
 {
-    "test_time": "2024/11/12",
+    "test_time": "2024/11/14",
     "flows": [
         {
             "flow_name": "flux1_dev",
@@ -9,15 +9,15 @@
                     "test_case": "default",
                     "vram_state": "NORMAL_VRAM",
                     "disable_smart_memory": false,
-                    "avg_exec_time": 32.63024325110018,
-                    "avg_max_memory_usage": 22530.16
+                    "avg_exec_time": 31.09228802099824,
+                    "avg_max_memory_usage": 22609.19
                 },
                 {
                     "test_case": "default",
                     "vram_state": "NORMAL_VRAM",
                     "disable_smart_memory": true,
-                    "avg_exec_time": 46.30495349038392,
-                    "avg_max_memory_usage": 22530.16
+                    "avg_exec_time": 43.03578952513635,
+                    "avg_max_memory_usage": 22609.19
                 }
             ]
         }
