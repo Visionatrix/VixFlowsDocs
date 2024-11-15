@@ -65,7 +65,7 @@ jobs:
           VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix install-flow --file=./flows
           mkdir -p openapi
           openapi_file="openapi/openapi-flows.json"
-          VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix openapi --only-flows --installed --file="$openapi_file"
+          VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix openapi --flows="*" --exclude-base --file="$openapi_file"
 
       - name: Build flows for each version
         run: |
