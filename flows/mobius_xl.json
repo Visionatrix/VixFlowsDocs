@@ -11,7 +11,10 @@
   "27": {
     "inputs": {
       "seed": 1,
-      "steps": 50,
+      "steps": [
+        "299",
+        0
+      ],
       "cfg": [
         "297",
         0
@@ -190,7 +193,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Mobius_XL/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -318,6 +321,24 @@
       "order": 99,
       "custom_id": "batch_size",
       "hidden": true
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "299": {
+    "inputs": {
+      "value": 50,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 20,
+      "max": 60,
+      "step": 1,
+      "order": 97,
+      "custom_id": "steps_count",
+      "hidden": false
     },
     "class_type": "VixUiRangeInt",
     "_meta": {
