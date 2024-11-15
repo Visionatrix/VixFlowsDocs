@@ -20,7 +20,10 @@
   "27": {
     "inputs": {
       "seed": 376336750880278,
-      "steps": 50,
+      "steps": [
+        "282",
+        0
+      ],
       "cfg": [
         "280",
         0
@@ -188,7 +191,10 @@
   "270": {
     "inputs": {
       "model_type": "SDXL",
-      "steps": 20,
+      "steps": [
+        "283",
+        0
+      ],
       "denoise": 1
     },
     "class_type": "AlignYourStepsScheduler",
@@ -231,7 +237,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Juggernaut_XL/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -322,6 +328,40 @@
     "class_type": "VixUiCheckboxLogic",
     "_meta": {
       "title": "VixUI-CheckboxLogic"
+    }
+  },
+  "282": {
+    "inputs": {
+      "value": 50,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 30,
+      "max": 60,
+      "step": 1,
+      "order": 97,
+      "custom_id": "steps_count",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "283": {
+    "inputs": {
+      "python_expression": "a//3",
+      "print_to_console": "False",
+      "a": [
+        "282",
+        0
+      ],
+      "b": 0,
+      "c": 0
+    },
+    "class_type": "Evaluate Integers",
+    "_meta": {
+      "title": "Evaluate Integers"
     }
   }
 }
