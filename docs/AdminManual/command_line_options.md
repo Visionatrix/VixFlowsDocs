@@ -340,16 +340,33 @@ python3 -m visionatrix [--verbose=LEVEL] openapi [options]
 ### Options
 
 - `--file=FILENAME`: Filename to save. Default: `openapi.json`.
-- `--available`: Include specs for 'available' flows.
-- `--installed`: Include specs for 'installed' flows.
 - `--indentation=SIZE`: Indentation size. Default: `2`.
-- `--only-flows`: Only include specs for flows.
+- `--flows=FLOWS`: Flows to include in OpenAPI specs (comma-separated list or `*`).
+    - If `--flows` is `*`, include all endpoints and all installed flows.
+    - If `--flows` is specified but empty (e.g., `--flows=""`), do not include any flows.
+    - If `--flows` is a comma-separated list of flow names (e.g., `--flows=flow1,flow2`), include those flows.
+- `--skip-not-installed`: Skip flows that are not installed. Default: `True`.
+- `--exclude-base`: Exclude base application endpoints from OpenAPI specs.
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
 - `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
 - `--models_dir=MODELS_DIR`: Directory for the models. Default: `vix_models`
 
-### Example
+### Examples
+
+#### Generate OpenAPI Specs for All Endpoints and All Installed Flows
 
 ```shell
-python3 -m visionatrix openapi --available --file=my_openapi.json
+python3 -m visionatrix openapi --flows="*" --file=my_openapi.json
+```
+
+#### Generate OpenAPI Specs for Specific Flows Only
+
+```shell
+python3 -m visionatrix openapi --flows=flow1,flow2 --exclude-base --file=my_openapi.json
+```
+
+#### Generate OpenAPI Specs Without Any Flows
+
+```shell
+python3 -m visionatrix openapi --file=my_openapi.json
 ```
