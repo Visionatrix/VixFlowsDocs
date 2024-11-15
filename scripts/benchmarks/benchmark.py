@@ -110,7 +110,6 @@ TEST_CASES_SDXL = [
                 input_params={
                     "prompt": "green apple",
                     "fast_run": False,
-                    "steps_count": 45,
                 },
             ),
             TestCase(
@@ -118,7 +117,6 @@ TEST_CASES_SDXL = [
                 input_params={
                     "prompt": "green apple",
                     "fast_run": True,
-                    "steps_count": 45,
                 },
             ),
         ],
@@ -152,7 +150,6 @@ TEST_CASES_SDXL = [
                 input_params={
                     "prompt": "green apple",
                     "fast_run": True,
-                    "steps_count": 45,
                 },
             ),
             TestCase(
@@ -160,7 +157,6 @@ TEST_CASES_SDXL = [
                 input_params={
                     "prompt": "green apple",
                     "fast_run": False,
-                    "steps_count": 45,
                 },
             ),
         ],
@@ -173,7 +169,6 @@ TEST_CASES_SDXL = [
                 input_params={
                     "prompt": "green apple",
                     "fast_run": False,
-                    "steps_count": 45,
                 },
             ),
             TestCase(
@@ -181,7 +176,6 @@ TEST_CASES_SDXL = [
                 input_params={
                     "prompt": "green apple",
                     "fast_run": True,
-                    "steps_count": 45,
                 },
             ),
         ],
@@ -1098,6 +1092,7 @@ async def select_worker():
                 selected_worker_id = workers[choice]["worker_id"]
                 print(f"Selected worker: '{selected_worker_id}'")
                 SELECTED_WORKER = workers[choice]
+                return
             else:
                 print("Invalid selection. Please try again.")
         except ValueError:
