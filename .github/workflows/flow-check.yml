@@ -102,7 +102,7 @@ jobs:
         run: |
           mkdir -p flows_openapi
           openapi_file="flows_openapi/all_flows_openapi.json"
-          VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix openapi --only-flows --installed --file="$openapi_file"
+          VIX_MODE=SERVER VIX_SERVER_FULL_MODELS=0 python3 -m visionatrix openapi --flows="*" --exclude-base --file="$openapi_file"
 
       - name: Generate HTML documentation for OpenAPI specs
         if: steps.check_flows.outputs.flows_changed == 'true'
