@@ -193,7 +193,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Mobius_XL/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.3",
+      "version": "1.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
