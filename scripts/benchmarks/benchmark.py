@@ -400,7 +400,7 @@ async def select_test_flow_suite():
 async def is_server_online() -> bool:
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
-            response = await client.get(f"{SERVER_URL}/api/flows/installed")
+            response = await client.get(f"{SERVER_URL}/vapi/flows/installed")
             response.raise_for_status()  # Ensure server responds correctly
             return True
         except (httpx.RequestError, httpx.HTTPStatusError):
@@ -414,7 +414,7 @@ async def get_installed_flows() -> list:
     if INSTALLED_FLOWS_CACHE:
         return INSTALLED_FLOWS_CACHE
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
-        response = await client.get(f"{SERVER_URL}/api/flows/installed", timeout=60)
+        response = await client.get(f"{SERVER_URL}/vapi/flows/installed", timeout=60)
         response.raise_for_status()
         INSTALLED_FLOWS_CACHE = response.json()
         return INSTALLED_FLOWS_CACHE
@@ -435,7 +435,7 @@ async def install_flow(flow_name: str) -> bool:
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             response = await client.post(
-                f"{SERVER_URL}/api/flows/flow", params={"name": flow_name}
+                f"{SERVER_URL}/vapi/flows/flow", params={"name": flow_name}
             )
             if response.status_code == 204:
                 print(f"Successfully started the installation of flow '{flow_name}'.")
@@ -462,7 +462,7 @@ async def wait_for_installation_to_complete(
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         while elapsed_time < timeout:
             try:
-                response = await client.get(f"{SERVER_URL}/api/flows/install-progress")
+                response = await client.get(f"{SERVER_URL}/vapi/flows/install-progress")
                 response.raise_for_status()
                 install_progress = response.json()
 
@@ -531,7 +531,7 @@ async def create_task(
                 **input_params,
             }
             response = await client.put(
-                f"{SERVER_URL}/api/tasks/create/{flow_name}",
+                f"{SERVER_URL}/vapi/tasks/create/{flow_name}",
                 data=form_data,
                 files=files_to_upload,
                 headers={
@@ -568,7 +568,7 @@ async def get_task_progress(task_id: int, poll_interval: int = 5) -> dict:
         while True:
             try:
                 response = await client.get(
-                    f"{SERVER_URL}/api/tasks/progress/{task_id}"
+                    f"{SERVER_URL}/vapi/tasks/progress/{task_id}"
                 )
                 if response.status_code == 200:
                     task_data = response.json()
@@ -912,7 +912,7 @@ async def delete_task(task_id: int) -> None:
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             response = await client.delete(
-                f"{SERVER_URL}/api/tasks/task", params={"task_id": task_id}
+                f"{SERVER_URL}/vapi/tasks/task", params={"task_id": task_id}
             )
             if response.status_code != 204:
                 print(
@@ -940,7 +940,7 @@ async def get_task_results(task_id: int, node_id: int) -> bytes:
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             response = await client.get(
-                f"{SERVER_URL}/api/tasks/results",
+                f"{SERVER_URL}/vapi/tasks/results",
                 params={"task_id": task_id, "node_id": node_id},
             )
             if response.status_code == 200:
@@ -1057,7 +1057,7 @@ async def get_available_workers() -> list[dict]:
     """
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
-            response = await client.get(f"{SERVER_URL}/api/workers/info", timeout=60)
+            response = await client.get(f"{SERVER_URL}/vapi/workers/info", timeout=60)
             response.raise_for_status()
             return response.json()
         except httpx.RequestError as exc:
