@@ -39,7 +39,7 @@ By default, we use `admin` as both the username and password in our development 
 
 The typical lifecycle of a task in Visionatrix involves the following steps:
 
-1. **Creating a Task**: You send a `PUT` request to the `/api/tasks/create/{name}` endpoint, where `{name}` is the ID of the flow you want to use. The request must use `multipart/form-data` and include the necessary parameters for the flow.
+1. **Creating a Task**: You send a `PUT` request to the `/vapi/tasks/create/{name}` endpoint, where `{name}` is the ID of the flow you want to use. The request must use `multipart/form-data` and include the necessary parameters for the flow.
 
    - For the **SDXL Lighting** (`sdxl_lighting`) flow, required parameters are:
      - `prompt` (string): The text prompt for image generation.
@@ -54,7 +54,7 @@ The typical lifecycle of a task in Visionatrix involves the following steps:
    - **Other Parameters**:
      - There are additional optional parameters such as `webhook_url`, `webhook_headers`, `translate`, `group_scope`, etc. These parameters are not covered in this beginner guide.
 
-2. **Checking Task Progress**: After creating a task, you can check its progress using the `/api/tasks/progress/{task_id}` endpoint. The response includes details such as the task's `progress`, `error` (if any), and a list of `outputs`.
+2. **Checking Task Progress**: After creating a task, you can check its progress using the `/vapi/tasks/progress/{task_id}` endpoint. The response includes details such as the task's `progress`, `error` (if any), and a list of `outputs`.
 
    - **Progress Values**:
      - `0.0`: Task is queued and has not started yet.
@@ -65,9 +65,9 @@ The typical lifecycle of a task in Visionatrix involves the following steps:
      - If the `error` field is not empty, the task has encountered an error.
      - You can retry the task or investigate the issue based on the error message.
 
-3. **Retrieving Task Results**: Once a task is completed (`progress` reaches `100.0`), you can retrieve the results using the `/api/tasks/results` endpoint. The `outputs` from the task details contain a list of output nodes, each with a `comfy_node_id`. You should iterate over all the outputs to retrieve all results.
+3. **Retrieving Task Results**: Once a task is completed (`progress` reaches `100.0`), you can retrieve the results using the `/vapi/tasks/results` endpoint. The `outputs` from the task details contain a list of output nodes, each with a `comfy_node_id`. You should iterate over all the outputs to retrieve all results.
 
-   - To retrieve each result, you send a `GET` request to `/api/tasks/results` with the `task_id` and `node_id` (which is the `comfy_node_id` from the outputs).
+   - To retrieve each result, you send a `GET` request to `/vapi/tasks/results` with the `task_id` and `node_id` (which is the `comfy_node_id` from the outputs).
    - The result files can then be saved locally. The format of the result file depends on the flow and the output node's type.
 
 !!! note
@@ -114,7 +114,7 @@ def create_sdxl_lighting_task():
 
     # Create the task
     response = httpx.put(
-        f"{base_url}/api/tasks/create/sdxl_lighting",
+        f"{base_url}/vapi/tasks/create/sdxl_lighting",
         auth=(username, password),
         files=files
     )
@@ -137,7 +137,7 @@ def create_sdxl_lighting_task():
 def check_task_progress(task_id):
     while True:
         response = httpx.get(
-            f"{base_url}/api/tasks/progress/{task_id}",
+            f"{base_url}/vapi/tasks/progress/{task_id}",
             auth=(username, password)
         )
 
@@ -172,7 +172,7 @@ def retrieve_task_results(task_id, outputs):
                     'node_id': node_id
                 }
                 result_response = httpx.get(
-                    f"{base_url}/api/tasks/results",
+                    f"{base_url}/vapi/tasks/results",
                     auth=(username, password),
                     params=params
                 )
@@ -224,7 +224,7 @@ def create_remove_background_task():
 
         # Create the task
         response = httpx.put(
-            f"{base_url}/api/tasks/create/remove_background_birefnet",
+            f"{base_url}/vapi/tasks/create/remove_background_birefnet",
             auth=(username, password),
             files=files
         )
@@ -247,7 +247,7 @@ def create_remove_background_task():
 def check_task_progress(task_id):
     while True:
         response = httpx.get(
-            f"{base_url}/api/tasks/progress/{task_id}",
+            f"{base_url}/vapi/tasks/progress/{task_id}",
             auth=(username, password)
         )
 
@@ -282,7 +282,7 @@ def retrieve_task_results(task_id, outputs):
                     'node_id': node_id
                 }
                 result_response = httpx.get(
-                    f"{base_url}/api/tasks/results",
+                    f"{base_url}/vapi/tasks/results",
                     auth=(username, password),
                     params=params
                 )
