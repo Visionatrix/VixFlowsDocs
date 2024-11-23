@@ -20,7 +20,6 @@ The following options can be specified for the `install`, `update`, `install-flo
 
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
 - `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
-- `--models_dir=MODELS_DIR`: Directory for the models. Default: `vix_models`
 
 ## The `run` Command
 
@@ -65,7 +64,6 @@ python3 -m visionatrix [--verbose=LEVEL] run [options]
 
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
 - `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
-- `--models_dir=MODELS_DIR`: Directory for the models. Default: `vix_models`
 
 #### ComfyUI Options
 
@@ -195,7 +193,6 @@ python3 -m visionatrix [--verbose=LEVEL] install [options]
 
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
 - `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
-- `--models_dir=MODELS_DIR`: Directory for the models. Default: `vix_models`
 
 ### Example
 
@@ -203,7 +200,7 @@ python3 -m visionatrix [--verbose=LEVEL] install [options]
 python3 -m visionatrix install
 ```
 
-During installation, you will be prompted to confirm whether to clear models, flows, and backend folders.
+During installation, you will be prompted to confirm whether to clear flows and backend folders.
 
 ## The `update` Command
 
@@ -219,7 +216,6 @@ python3 -m visionatrix [--verbose=LEVEL] update [options]
 
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
 - `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
-- `--models_dir=MODELS_DIR`: Directory for the models. Default: `vix_models`
 
 ### Example
 
@@ -251,7 +247,6 @@ Additional options:
 
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
 - `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
-- `--models_dir=MODELS_DIR`: Directory for the models. Default: `vix_models`
 
 ### Examples
 
@@ -319,7 +314,6 @@ python3 -m visionatrix [--verbose=LEVEL] orphan-models [options]
 - `--include-useful-models`: Include orphaned models that can be used in future flows for removal.
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
 - `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
-- `--models_dir=MODELS_DIR`: Directory for the models. Default: `vix_models`
 
 ### Example
 
@@ -349,7 +343,6 @@ python3 -m visionatrix [--verbose=LEVEL] openapi [options]
 - `--exclude-base`: Exclude base application endpoints from OpenAPI specs.
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
 - `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
-- `--models_dir=MODELS_DIR`: Directory for the models. Default: `vix_models`
 
 ### Examples
 
