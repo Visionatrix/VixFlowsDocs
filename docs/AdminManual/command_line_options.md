@@ -16,10 +16,9 @@ Below are the command-line options related to Visionatrix and ComfyUI.
 
 ## Common Options for Multiple Commands
 
-The following options can be specified for the `install`, `update`, `install-flow`, `orphan-models`, and `openapi` commands:
+The following option can be specified for the `install`, `update`, `install-flow`, `orphan-models`, and `openapi` commands:
 
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
-- `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
 
 ## The `run` Command
 
@@ -63,7 +62,6 @@ python3 -m visionatrix [--verbose=LEVEL] run [options]
         **Note:** The `--verbose` option should be specified **before** any command (e.g., `run`, `install`, `update`).
 
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
-- `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
 
 #### ComfyUI Options
 
@@ -192,7 +190,6 @@ python3 -m visionatrix [--verbose=LEVEL] install [options]
 ### Options
 
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
-- `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
 
 ### Example
 
@@ -215,7 +212,6 @@ python3 -m visionatrix [--verbose=LEVEL] update [options]
 ### Options
 
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
-- `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
 
 ### Example
 
@@ -246,7 +242,6 @@ You must specify one of the following options:
 Additional options:
 
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
-- `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
 
 ### Examples
 
@@ -313,7 +308,6 @@ python3 -m visionatrix [--verbose=LEVEL] orphan-models [options]
 - `--dry-run`: Perform cleaning without actually removing models.
 - `--include-useful-models`: Include orphaned models that can be used in future flows for removal.
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
-- `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
 
 ### Example
 
@@ -342,7 +336,6 @@ python3 -m visionatrix [--verbose=LEVEL] openapi [options]
 - `--skip-not-installed`: Skip flows that are not installed. Default: `True`.
 - `--exclude-base`: Exclude base application endpoints from OpenAPI specs.
 - `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
-- `--flows_dir=FLOWS_DIR`: Directory for the flows. Default: `vix_flows`
 
 ### Examples
 
