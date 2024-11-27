@@ -29,15 +29,6 @@ VARIABLE_NAME=value
 
         The command-line argument `--backend_dir=BACKEND_DIR` takes precedence over the environment variable.
 
-### FLOWS_DIR
-
-- **Description**: Directory for storing flows. The path can be absolute or relative.
-- **Default**: `./vix_flows`
-
-    !!! note
-
-        The command-line argument `--flows_dir=FLOWS_DIR` takes precedence over the environment variable.
-
 ### TASKS_FILES_DIR
 
 - **Description**: Directory for input/output files. The path can be absolute or relative.
@@ -282,7 +273,7 @@ set WORKER_AUTH=worker_user:worker_password
 ### Starting Visionatrix with Command-Line Arguments
 
 ```bash
-python3 -m visionatrix run --backend_dir=/path/to/backend --flows_dir=/path/to/flows --tasks_files_dir=/path/to/tasks_files --ui
+python3 -m visionatrix run --backend_dir=/path/to/backend --tasks_files_dir=/path/to/tasks_files --ui
 ```
 
 In this example, the directories are specified via command-line arguments, which will override any environment variables or settings in the `.env` file.
