@@ -79,10 +79,17 @@ jobs:
               git checkout --track "$branch"
             fi
             version=$(echo "$branch" | sed -E 's/origin\/version-([0-9\.]+)/\1/')
+
+            # Create versioned flows ZIP
             zip -r "flows_publish/flows-$version.zip" flows
+
+            # Create versioned models_catalog.json
+            cp models_catalog.json "flows_publish/models_catalog-$version.json"
           done
+
           git checkout main
           zip -r flows_publish/flows.zip flows
+          cp models_catalog.json "flows_publish/models_catalog.json"
 
       - name: Build and push Docs
         run: |
