@@ -18,11 +18,11 @@ Below are the command-line options related to Visionatrix and ComfyUI.
 
 The following option can be specified for the `install`, `update`, `install-flow`, `orphan-models`, and `openapi` commands:
 
-- `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
+- `--comfy_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
 
 ## The `run` Command
 
-Starts the ComfyUI and Visionatrix backends.
+Starts the Visionatrix.
 
 ### Syntax
 
@@ -61,7 +61,7 @@ python3 -m visionatrix [--verbose=LEVEL] run [options]
 
         **Note:** The `--verbose` option should be specified **before** any command (e.g., `run`, `install`, `update`).
 
-- `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
+- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
 
 #### ComfyUI Options
 
@@ -189,7 +189,7 @@ python3 -m visionatrix [--verbose=LEVEL] install [options]
 
 ### Options
 
-- `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
+- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
 
 ### Example
 
@@ -197,7 +197,7 @@ python3 -m visionatrix [--verbose=LEVEL] install [options]
 python3 -m visionatrix install
 ```
 
-During installation, you will be prompted to confirm whether to clear flows and backend folders.
+During installation, you will be prompted to confirm whether to clear flows and ComfyUI folder.
 
 ## The `update` Command
 
@@ -211,7 +211,7 @@ python3 -m visionatrix [--verbose=LEVEL] update [options]
 
 ### Options
 
-- `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
+- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
 
 ### Example
 
@@ -241,7 +241,7 @@ You must specify one of the following options:
 
 Additional options:
 
-- `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
+- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
 
 ### Examples
 
@@ -307,7 +307,7 @@ python3 -m visionatrix [--verbose=LEVEL] orphan-models [options]
 - `--no-confirm`: Do not ask for confirmation for each model.
 - `--dry-run`: Perform cleaning without actually removing models.
 - `--include-useful-models`: Include orphaned models that can be used in future flows for removal.
-- `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
+- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
 
 ### Example
 
@@ -335,7 +335,7 @@ python3 -m visionatrix [--verbose=LEVEL] openapi [options]
     - If `--flows` is a comma-separated list of flow names (e.g., `--flows=flow1,flow2`), include those flows.
 - `--skip-not-installed`: Skip flows that are not installed. Default: `True`.
 - `--exclude-base`: Exclude base application endpoints from OpenAPI specs.
-- `--backend_dir=BACKEND_DIR`: Directory for the folder with ComfyUI. Default: `vix_backend`
+- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
 
 ### Examples
 
