@@ -7,7 +7,7 @@ title: FAQ
 Yes, you can install your Nodes there and run ComfyUI separately. You
 can also tell Visionatrix to use ComfyUI installed in a different path.
 See the
-[\--backend_dir](AdminManual/command_line_options.md#common-options-for-multiple-commands)
+[\--comfyui_dir](AdminManual/command_line_options.md#common-options-for-multiple-commands)
 parameter.
 
 ---

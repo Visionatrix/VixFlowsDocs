@@ -20,14 +20,14 @@ VARIABLE_NAME=value
 
 ## General Variables
 
-### BACKEND_DIR
+### COMFYUI_DIR
 
 - **Description**: Directory for the folder containing ComfyUI. The path can be absolute or relative.
-- **Default**: `./vix_backend`
+- **Default**: `./ComfyUI`
 
     !!! note
 
-        The command-line argument `--backend_dir=BACKEND_DIR` takes precedence over the environment variable.
+        The command-line argument `--comfyui_dir=COMFYUI_DIR` takes precedence over the environment variable.
 
 ### TASKS_FILES_DIR
 
@@ -273,7 +273,7 @@ set WORKER_AUTH=worker_user:worker_password
 ### Starting Visionatrix with Command-Line Arguments
 
 ```bash
-python3 -m visionatrix run --backend_dir=/path/to/backend --tasks_files_dir=/path/to/tasks_files --ui
+python3 -m visionatrix run --comfyui_dir=/path/to/comfyui --tasks_files_dir=/path/to/tasks_files --ui
 ```
 
 In this example, the directories are specified via command-line arguments, which will override any environment variables or settings in the `.env` file.
