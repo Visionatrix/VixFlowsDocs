@@ -101,7 +101,6 @@ jobs:
           docroot=`mktemp -d`
           rsync -av "site/" "${docroot}/"
           rsync -av "flows_publish/" "${docroot}/"
-          rsync -av "models_catalog.json" "${docroot}/"
           rsync -av "docs/swagger-ui/" "${docroot}/swagger-ui/"
           rsync -av "docs/swagger.html" "${docroot}/swagger.html"
           rsync -av "openapi/" "${docroot}/openapi/"
