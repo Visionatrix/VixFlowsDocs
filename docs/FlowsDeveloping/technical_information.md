@@ -40,6 +40,8 @@ The main reason many components are missing is that they are quite
 difficult to install, and we believe that an easy installation process
 is more important in most cases.
 
+---
+
 ## Workflows Storage
 
 All public flows are located in the [VixFlowsDocs](https://github.com/Visionatrix/VixFlowsDocs) repository.
@@ -76,7 +78,7 @@ FLOWS_URL=https://visionatrix.github.io/VixFlowsDocs/
 
 **You can specify multiple URLs or paths to flow archives by separating them with semicolons `;`.**
 
-When element in the **FLOWS_URL** ends with `/`, Visionatrix fetches an archive with flows appropriate for its version:
+When an element in the **FLOWS_URL** ends with `/`, Visionatrix fetches an archive with flows appropriate for its version:
 
 - For development versions, it fetches `flows.zip`.
 - For release versions, it fetches `flows-X.Y.zip`, where `X.Y` matches the major and minor Visionatrix version numbers.
@@ -121,3 +123,85 @@ When element in the **FLOWS_URL** ends with `/`, Visionatrix fetches an archive 
     - If a URL ends with `/`, Visionatrix automatically appends the appropriate `flows.zip` or `flows-X.Y.zip` based on its version.
 
     - If a URL points directly to an archive (e.g., `https://example.com/custom_flows.zip`), Visionatrix will use that specific file.
+
+---
+
+## Models Storage
+
+All public models catalogs are located in the [VixFlowsDocs](https://github.com/Visionatrix/VixFlowsDocs) repository.
+
+Similar to workflows, the repository consists of a development branch **main** and a set of branches **version-X.Y**:
+
+-   version-0.5
+-   version-0.6
+-   ...
+-   version-1.0
+-   version-1.1
+-   main
+
+The models catalogs are available in the root of the documentation and have the following form:
+
+-   models_catalog-0.5.json
+-   models_catalog-0.6.json
+-   ...
+-   models_catalog-1.0.json
+-   models_catalog-1.1.json
+-   models_catalog.json
+
+The development version of Visionatrix fetches the `models_catalog.json` by default.
+
+Release versions of Visionatrix fetch the models catalog for their version.
+
+### Configuring Models Catalog Sources
+
+The `MODELS_CATALOG_URL` variable in Visionatrix has the default value of:
+
+```ini
+MODELS_CATALOG_URL=https://visionatrix.github.io/VixFlowsDocs/
+```
+
+**You can specify multiple URLs or paths to catalogs by separating them with semicolons `;`.**
+
+When an element in the **MODELS_CATALOG_URL** ends with `/`, Visionatrix fetches the catalog appropriate for its version:
+
+- For development versions, it fetches `models_catalog.json`.
+- For release versions, it fetches `models_catalog-X.Y.json`, where `X.Y` matches the major and minor Visionatrix version numbers.
+
+#### Examples
+
+1. **Default Configuration**:
+
+    ```ini
+    MODELS_CATALOG_URL=https://visionatrix.github.io/VixFlowsDocs/
+    ```
+
+    Visionatrix will fetch the models catalog from the repository corresponding to its version.
+
+2. **Custom Models Catalog Sources**:
+
+    ```ini
+    MODELS_CATALOG_URL=https://visionatrix.github.io/VixFlowsDocs/;https://example.com/custom_models_catalog.json;/local/path/models_catalog.json
+    ```
+
+    Visionatrix will fetch models catalogs from:
+
+    - The official repository.
+    - A custom online catalog at `https://example.com/custom_models_catalog.json`.
+    - A local catalog at `/local/path/models_catalog.json`.
+
+#### Models Merging and Versioning
+
+- When multiple models have the same name across different sources, Visionatrix will:
+
+    - Prefer the model from the source listed later in the `MODELS_CATALOG_URL` variable.
+    - Allow custom catalogs to override or supplement default models.
+
+#### Notes
+
+- **Local Paths**: You can specify local paths to models catalogs, which is useful during development or when working offline.
+
+- **URL Endings**:
+
+    - If a URL ends with `/`, Visionatrix automatically appends the appropriate `models_catalog.json` or `models_catalog-X.Y.json` based on its version.
+
+    - If a URL points directly to a catalog (e.g., `https://example.com/custom_models_catalog.json`), Visionatrix will use that specific file.
