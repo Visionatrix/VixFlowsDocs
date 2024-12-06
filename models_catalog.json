@@ -1035,5 +1035,19 @@
     "url": "https://huggingface.co/hr16/DWPose-TorchScript-BatchSize5/resolve/main/dw-ll_ucoco_384_bs5.torchscript.pt",
     "homepage": "https://github.com/Megvii-BaseDetection/YOLOX",
     "hash": "d86a0b2b59fddc0901a7076e9f59c9f8602602133ed72511c693fd11eea23d91"
+  },
+  "FLUX-1-Fill-Dev": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:fluxToolsFill_fillDev\\.safetensors|flux1\\-fill\\-dev\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev/resolve/main/flux1-fill-dev.safetensors",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev",
+    "hash": "03e289f530df51d014f48e675a9ffa2141bc003259bf5f25d75b957e920a41ca",
+    "types": [
+      "diffusion_models"
+    ],
+    "gated": true
   }
 }
