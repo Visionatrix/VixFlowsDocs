@@ -688,8 +688,11 @@ class ModelCatalogEditor(QWidget):
             QMessageBox.warning(
                 self,
                 "Validation Error",
-                f"The input_value regex does not match the following filenames:\n\n{'\n'.join(invalid_filenames)}\n\n"
-                "Please adjust the regex or filenames to proceed.",
+                (
+                    f"The input_value regex does not match the following filenames:\n\n"
+                    + "\n".join(invalid_filenames)
+                    + "\n\nPlease adjust the regex or filenames to proceed."
+                ),
             )
             return
 
