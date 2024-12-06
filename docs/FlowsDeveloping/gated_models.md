@@ -2,41 +2,35 @@
 title: Gated Models
 ---
 
-It often happens that the model you are using is not available for
-download without authentication. These are referred to as [Gated Models](https://huggingface.co/docs/hub/models-gated).
+Sometimes, the model you want to use requires authentication to access it. These are referred to as [Gated Models](https://huggingface.co/docs/hub/models-gated).
 
-Flows with such models have a separate mark in the Visionatrix UI.
+Flows with such models are distinctly marked in the Visionatrix UI.
 
-To be able to install such a flow, you need to specify an `Access Token`
+To install such a flow, you need to provide an `Access Token` for HuggingFace or an `API Key` for CivitAI.
 
-!!! note
+### HuggingFace Token
 
-    Currently, only HuggingFace Access Tokens are supported.
+Steps to access gated models from HuggingFace:
 
+1. Register on [HuggingFace](https://huggingface.co) if you are not already registered.
+2. Generate an access token in the settings of HuggingFace (click on your icon → Settings → Access Tokens).
+3. Click `Set Permissions` for the token after generation and select `Read access to contents of all public gated repos you can access`.
+4. Enter this access token in the Visionatrix settings.
+5. Gain access to the model on your account by visiting its page (you can click on the model from the Visionatrix UI) and filling out the required form.
 
-Steps to Access Gated Models:
+### CivitAI API Key
 
-1.  Register on [HuggingFace](https://huggingface.co) if you are not
-    already registered
-2.  Gain access to the model on your account by going to its page (you
-    can click on the model from Visionatrix UI) and filling out the form
-3.  Generate an access token in the settings of HuggingFace (click on
-    your icon -\> settings -\> access tokens)
-4.  Click on `Set Permissions` of the token after generation and select
-    `Read access to contents of all public gated repos you can access`
-5.  Go to the Visionatrix settings and enter this access token
+Steps to access gated models from CivitAI:
 
-Alternatively, you can set an environment variable named `HF_AUTH_TOKEN`
-with the token value, but this requires setting up the environment
-variable for each worker if you have many of them.
+1. Register on [CivitAI](https://civitai.com) if you are not already registered.
+2. Create an API key in the settings of CivitAI (click on your icon → Add API Key).
+3. Enter this API key in the Visionatrix settings.
+4. Gain access to the model on your account by visiting its page (you can click on the model from the Visionatrix UI) and filling out the required form.
 
-#### I'm a user and want to connect my own worker to process flows with closed models.
+#### Connecting a Worker to Process Flows with Gated Models
 
-As user's workers cannot receive global access tokens from the server
-to avoid leaks, you have two options:
+If you want to connect your own worker to process flows with gated models, note that user workers cannot receive global access tokens from the server to prevent leaks. You have two options:
 
-1.  Download the model yourself and place it in the folder specified in
-    `models_catalog.json` under the `save_path` key.
-2.  Set the `HF_AUTH_TOKEN` environment variable with your own public
-    access token, and the worker will be able to install flows with
-    gated models.
+1. Download the model yourself and place it in the folder specified in `models_catalog.json` under the `filename` or `types` keys.
+2. Set the `HF_AUTH_TOKEN` environment variable with your own public access token. The worker will then be able to install flows with gated models from HuggingFace.
+3. For CivitAI, set the environment variable `CA_API_KEY`.

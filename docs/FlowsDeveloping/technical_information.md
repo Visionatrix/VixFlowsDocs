@@ -33,6 +33,7 @@ Visionatrix by default install and update these nodes:
 > -   [ComfyUI-PhotoMaker-Plus](https://github.com/Visionatrix/ComfyUI-PhotoMaker-Plus)
 > -   [ComfyUI-VideoHelperSuite](https://github.com/Visionatrix/ComfyUI-VideoHelperSuite)
 > -   [ComfyUI-Frame-Interpolation](https://github.com/Visionatrix/ComfyUI-Frame-Interpolation)
+> -   [ComfyUI-KJNodes](https://github.com/Visionatrix/ComfyUI-KJNodes)
 
 We are gradually expanding the list.
 

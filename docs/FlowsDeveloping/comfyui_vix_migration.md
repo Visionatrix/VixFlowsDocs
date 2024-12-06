@@ -93,7 +93,7 @@ that you can use as example:
 
 Visionatrix simplifies and automates the process of downloading the models.
 
-As the third step of the migration, you need to map the models that are used in your workflow (see [models-mapping](./vix_workflows.md#automatic-models-mapping)).
+You need to ensure that models used in workflow are known to Visionatrix, see [models catalog](./models_catalog.md)
 
 ---
 
