@@ -21,6 +21,7 @@ from PySide6.QtWidgets import (
     QMessageBox,
     QPlainTextEdit,
     QPushButton,
+    QSizePolicy,
     QVBoxLayout,
     QWidget,
 )
@@ -413,7 +414,6 @@ class ModelCatalogEditor(QWidget):
         self.huggingface_token = tokens.get("huggingface_auth_token", None)
         self.civitai_token = tokens.get("civitai_auth_token", None)
 
-        # Initialize logs
         log_init_message = []
         if self.huggingface_token:
             log_init_message.append("HuggingFace token found.")
@@ -425,93 +425,69 @@ class ModelCatalogEditor(QWidget):
         else:
             log_init_message.append("CivitAI token not found.")
 
-        print("\n".join(log_init_message))  # Prints to stdout for debugging
+        print("\n".join(log_init_message))
 
         self.setWindowTitle("Model Catalog Editor")
-        self.resize(1024, 900)
 
-        # Initialize the UI components
+        # Main layout
         main_layout = QVBoxLayout()
 
-        form_layout = QFormLayout()
+        # Form layout using QGridLayout
+        form_layout = QGridLayout()
 
-        # Initialize filename variables
-        self.filename = ""
-        self.second_filename = ""
-        self.current_model_type = None  # To store the model_type from files_found
+        # Helper function to create a stretching QLineEdit
+        def create_stretching_line_edit(placeholder_text):
+            line_edit = QLineEdit()
+            line_edit.setPlaceholderText(placeholder_text)
+            line_edit.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+            return line_edit
 
         # URL
-        self.url_edit = QLineEdit()
-        self.url_edit.setPlaceholderText("Enter model URL")
-        form_layout.addRow("URL:", self.url_edit)
+        self.url_edit = create_stretching_line_edit("Enter model URL")
+        form_layout.addWidget(QLabel("URL:"), 0, 0)
+        form_layout.addWidget(self.url_edit, 0, 1)
 
         # Process Button
         self.process_button = QPushButton("Process")
         self.process_button.clicked.connect(self.process_url)
-        form_layout.addRow("", self.process_button)
+        form_layout.addWidget(self.process_button, 1, 1)
 
         # Download URL
-        self.download_url_edit = QLineEdit()
-        self.download_url_edit.setPlaceholderText("Download URL")
-        form_layout.addRow("Download URL:", self.download_url_edit)
+        self.download_url_edit = create_stretching_line_edit("Download URL")
+        form_layout.addWidget(QLabel("Download URL:"), 2, 0)
+        form_layout.addWidget(self.download_url_edit, 2, 1)
 
         # Homepage
-        self.homepage_edit = QLineEdit()
-        self.homepage_edit.setPlaceholderText("Enter homepage URL")
-        form_layout.addRow("Homepage:", self.homepage_edit)
+        self.homepage_edit = create_stretching_line_edit("Enter homepage URL")
+        form_layout.addWidget(QLabel("Homepage:"), 3, 0)
+        form_layout.addWidget(self.homepage_edit, 3, 1)
 
-        # Filenames layout
-        filename_layout = QHBoxLayout()
-
-        # First filename (HuggingFace Filename)
-        self.filename_edit = QLineEdit()
-        self.filename_edit.setPlaceholderText("HuggingFace Filename")
+        # HuggingFace Filename
+        self.filename_edit = create_stretching_line_edit("HuggingFace Filename")
         self.filename_edit.setReadOnly(True)
-        self.filename_edit.setMinimumWidth(300)
-        self.filename_edit.setMaximumWidth(400)
-        first_filename_layout = QFormLayout()
-        first_filename_layout.addRow("HugFace name: ", self.filename_edit)
+        form_layout.addWidget(QLabel("HugFace name:"), 4, 0)
+        form_layout.addWidget(self.filename_edit, 4, 1)
 
-        # Second filename (CivitAI Filename)
-        self.second_filename_label = QLabel()
-        self.second_filename_label.setText("")  # Initially empty
-        self.second_filename_label.setWordWrap(True)
-        self.second_filename_label.setMinimumWidth(300)
-        self.second_filename_label.setMaximumWidth(400)
-        self.second_filename_label.setStyleSheet(
-            "border: 1px solid gray; padding: 2px;"
-        )
-        second_filename_layout = QFormLayout()
-        second_filename_layout.addRow("CivitAI name:", self.second_filename_label)
-
-        filename_layout.addLayout(first_filename_layout)
-        filename_layout.addSpacing(200)
-        filename_layout.addLayout(second_filename_layout)
-
-        form_layout.addRow(filename_layout)
+        # CivitAI Filename
+        self.second_filename_label = create_stretching_line_edit("CivitAI Filename")
+        self.second_filename_label.setReadOnly(True)
+        form_layout.addWidget(QLabel("CivitAI name:"), 5, 0)
+        form_layout.addWidget(self.second_filename_label, 5, 1)
 
         # Overridden Filename
-        self.overridden_filename_edit = QLineEdit()
-        self.overridden_filename_edit.setPlaceholderText("Enter overridden filename")
-        self.overridden_filename_edit.textChanged.connect(self.update_input_value_regex)
-        form_layout.addRow("Force Filename:", self.overridden_filename_edit)
+        self.overridden_filename_edit = create_stretching_line_edit(
+            "Enter overridden filename"
+        )
+        form_layout.addWidget(QLabel("Force Filename:"), 6, 0)
+        form_layout.addWidget(self.overridden_filename_edit, 6, 1)
 
         # Hash
-        self.hash_edit = QLineEdit()
-        self.hash_edit.setPlaceholderText("Enter SHA256 hash")
-        form_layout.addRow("Hash:", self.hash_edit)
+        self.hash_edit = create_stretching_line_edit("Enter SHA256 hash")
+        form_layout.addWidget(QLabel("Hash:"), 7, 0)
+        form_layout.addWidget(self.hash_edit, 7, 1)
 
         # Types (multiselect in two columns)
         self.types_group = QGroupBox()
-        self.types_group.setTitle("Types:")  # Add the title to the group box
-        self.types_group.setStyleSheet(
-            """
-            QGroupBox {
-                margin-left: 108px;  /* Adjust this value to match the alignment */
-            }
-        """
-        )
-
         self.types_layout = QGridLayout()
 
         types = [
@@ -535,7 +511,7 @@ class ModelCatalogEditor(QWidget):
             "hypernetworks",
         ]
 
-        self.type_checkboxes = {}  # Dictionary to keep references to checkboxes
+        self.type_checkboxes = {}
         num_columns = 2
         for index, type_name in enumerate(types):
             checkbox = QCheckBox(type_name)
@@ -545,66 +521,47 @@ class ModelCatalogEditor(QWidget):
             self.types_layout.addWidget(checkbox, row, col)
 
         self.types_group.setLayout(self.types_layout)
-        form_layout.addRow(self.types_group)
+        form_layout.addWidget(QLabel("Types:"), 8, 0)
+        form_layout.addWidget(self.types_group, 8, 1)
 
-        # Gated
-        gated_layout = QHBoxLayout()
-        gated_layout.addStretch()  # Add a spacer to push the checkbox to the right
-
-        self.gated_checkbox = QCheckBox("Gated (requires token to download)")
-        gated_layout.addWidget(self.gated_checkbox)
-
-        form_layout.addRow(gated_layout)
+        # Gated checkbox
+        self.gated_checkbox = QCheckBox()
+        form_layout.addWidget(QLabel("Gated model:"), 9, 0)
+        form_layout.addWidget(self.gated_checkbox, 9, 1)
 
         # Regexes
-        regexes_layout = QFormLayout()
+        regexes_layout = QGridLayout()
+        self.class_type_edit = create_stretching_line_edit("Enter class_type regex")
+        regexes_layout.addWidget(QLabel("class_type:"), 0, 0)
+        regexes_layout.addWidget(self.class_type_edit, 0, 1)
 
-        self.class_type_edit = QLineEdit()
-        self.class_type_edit.setPlaceholderText("Enter class_type regex")
-        regexes_layout.addRow("class_type:", self.class_type_edit)
+        self.input_name_edit = create_stretching_line_edit("Enter input_name regex")
+        regexes_layout.addWidget(QLabel("input_name:"), 1, 0)
+        regexes_layout.addWidget(self.input_name_edit, 1, 1)
 
-        self.input_name_edit = QLineEdit()
-        self.input_name_edit.setPlaceholderText("Enter input_name regex")
-        regexes_layout.addRow("input_name:", self.input_name_edit)
+        self.input_value_edit = create_stretching_line_edit(
+            "Enter input_value regex (required)"
+        )
+        regexes_layout.addWidget(QLabel("input_value:"), 2, 0)
+        regexes_layout.addWidget(self.input_value_edit, 2, 1)
 
-        self.input_value_edit = QLineEdit()
-        self.input_value_edit.setPlaceholderText("Enter input_value regex (required)")
-        regexes_layout.addRow("input_value:", self.input_value_edit)
+        form_layout.addWidget(QLabel("Regexes:"), 10, 0)
+        form_layout.addLayout(regexes_layout, 10, 1)
 
-        form_layout.addRow(QLabel("Regexes:"), regexes_layout)
-
-        # Buttons
-        button_layout = QHBoxLayout()
+        # Add the Save button directly to the grid layout
         self.save_button = QPushButton("Save")
         self.save_button.clicked.connect(self.save_model)
-        self.clear_button = QPushButton("Clear")
-        self.clear_button.clicked.connect(self.clear_full_form)
-        button_layout.addWidget(self.save_button)
-        button_layout.addWidget(self.clear_button)
+        form_layout.addWidget(self.save_button, 11, 1)
 
         main_layout.addLayout(form_layout)
-        main_layout.addLayout(button_layout)
 
-        # Log Widget Group Box
-        log_group = QGroupBox("Log")
+        # Log Widget
+        log_group = QGroupBox("Logs")
         log_layout = QVBoxLayout()
-
         self.log_widget = QPlainTextEdit()
         self.log_widget.setReadOnly(True)
         self.log_widget.setPlaceholderText("Logs will appear here...")
-        self.log_widget.setStyleSheet(
-            """
-            QPlainTextEdit {
-                border: 1px solid #ccc;
-                background-color: #343434;
-                padding: 5px;
-                font-family: Consolas, monospace;
-                font-size: 12px;
-            }
-        """
-        )
         log_layout.addWidget(self.log_widget)
-
         log_group.setLayout(log_layout)
         main_layout.addWidget(log_group)
 
