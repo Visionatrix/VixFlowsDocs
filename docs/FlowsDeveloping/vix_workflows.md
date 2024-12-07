@@ -30,13 +30,11 @@ file.
 By default, it is taken and updated from the Visionatrix repository on
 GitHub, in case you add a new flow and need to add new model mappings
 you can change its path using an environment variable to a local file
-path.
+path or add additional places from where to fetch it.
 
 !!! note
 
-    We hope that after you add something locally, you will open a pull
-    request so that the community can benefit from it.
-
+    UI for easily adding models without going into too much detail, you can find it on this [documentation page](./models_catalog.md).
 
 The file structure consists of a set of objects, each describing a
 ComfyUI Node class that loads or uses a model.
@@ -83,10 +81,11 @@ Together, `types` and `filename` should provide enough information to correctly 
 
 ### "filename"
 
-Overrides the default file name for the model. This is particularly useful when:
+Overrides the default file name for the model.
 
-- The model is hosted on platforms like "CivitAI" where the name cannot be determined from the URL without starting the download.
-- The model has a generic name (e.g., `"model.safetensors"`) that could conflict with others. Using a unique name avoids such conflicts.
+This is particularly useful when the model has a generic name (e.g., `"model.safetensors"`) that could conflict with others.
+
+Using a unique name avoids such conflicts.
 
 ### "url"
 
