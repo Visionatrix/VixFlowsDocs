@@ -1049,5 +1049,32 @@
       "diffusion_models"
     ],
     "gated": true
+  },
+  "FLUX-1-Turbo-Alpha": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:alimama\\-creative\\-FLUX\\.1\\-Turbo\\-Alpha\\.safetensors|FLUX\\.1\\-Turbo\\-Alpha\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/alimama-creative/FLUX.1-Turbo-Alpha/resolve/main/diffusion_pytorch_model.safetensors",
+    "homepage": "https://huggingface.co/alimama-creative/FLUX.1-Turbo-Alpha",
+    "hash": "77f7523a5e9c3da6cfc730c6b07461129fa52997ea06168e9ed5312228aa0bff",
+    "filename": "alimama-creative-FLUX.1-Turbo-Alpha.safetensors",
+    "types": [
+      "loras"
+    ]
+  },
+  "Shou-Xin": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?shou_xin\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Datou1111/shou_xin/resolve/main/shou_xin.safetensors",
+    "homepage": "https://huggingface.co/Datou1111/shou_xin",
+    "hash": "e59714179016388dee044952d92a733f5cdf462d815be67fe87259e88fdb4703",
+    "types": [
+      "loras"
+    ]
   }
 }
