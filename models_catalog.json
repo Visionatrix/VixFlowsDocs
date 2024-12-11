@@ -304,7 +304,8 @@
     "homepage": "https://huggingface.co/TencentARC/PhotoMaker",
     "hash": "529d503fa378bfb3a74e3384ab2064d7269d59f0638324555d22067c31e275bc",
     "types": [
-      "photomaker"
+      "photomaker",
+      "loras"
     ]
   },
   "Photomaker-v2": {
@@ -1075,6 +1076,20 @@
     "hash": "e59714179016388dee044952d92a733f5cdf462d815be67fe87259e88fdb4703",
     "types": [
       "loras"
+    ]
+  },
+  "FLUX-1-Dev-FP8-CLIPS": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?flux1\\-dev\\-fp8\\.safetensors$",
+        "class_name": "CheckpointLoaderSimple"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/flux1-dev",
+    "hash": "8e91b68084b53a7fc44ed2a3756d821e355ac1a7b6fe29be760c1db532f3d88a",
+    "types": [
+      "checkpoints"
     ]
   }
 }

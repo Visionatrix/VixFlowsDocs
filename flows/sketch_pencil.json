@@ -1,0 +1,273 @@
+{
+  "6": {
+    "inputs": {
+      "text": [
+        "67",
+        0
+      ],
+      "clip": [
+        "59",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "31",
+        0
+      ],
+      "vae": [
+        "66",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "flux/img_",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "27": {
+    "inputs": {
+      "width": [
+        "43",
+        1
+      ],
+      "height": [
+        "43",
+        2
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "EmptySD3LatentImage"
+    }
+  },
+  "31": {
+    "inputs": {
+      "seed": 72828767665929,
+      "steps": 12,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "59",
+        0
+      ],
+      "positive": [
+        "35",
+        0
+      ],
+      "negative": [
+        "60",
+        0
+      ],
+      "latent_image": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "35": {
+    "inputs": {
+      "guidance": 3.5,
+      "conditioning": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "43": {
+    "inputs": {
+      "aspect_ratio": "3:4"
+    },
+    "class_type": "SDXLAspectRatioSelector",
+    "_meta": {
+      "title": "SDXL Aspect Ratio"
+    }
+  },
+  "59": {
+    "inputs": {
+      "lora_name": "shou_xin.safetensors",
+      "strength_model": [
+        "71",
+        0
+      ],
+      "strength_clip": 1,
+      "model": [
+        "62",
+        0
+      ],
+      "clip": [
+        "62",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "60": {
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "62": {
+    "inputs": {
+      "lora_name": "alimama-creative-FLUX.1-Turbo-Alpha.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "66",
+        0
+      ],
+      "clip": [
+        "66",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "66": {
+    "inputs": {
+      "ckpt_name": "flux1-dev-fp8.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "67": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "false",
+      "text_a": [
+        "69",
+        0
+      ],
+      "text_b": [
+        "70",
+        0
+      ],
+      "text_c": [
+        "72",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "68": {
+    "inputs": {
+      "name": "sketch_pencil",
+      "display_name": "Pencil Sketch",
+      "description": "Drawing an image in sketch style",
+      "author": "Datou",
+      "homepage": "https://openart.ai/workflows/datou/pencil-sketch/jNotO6649m9OxqVzJeBx",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"general\", \"sketch\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "69": {
+    "inputs": {
+      "text": "a monochromatic pencil sketch of a ragdoll cat, blue eyes, impressionism, negative space",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 10,
+      "custom_id": "prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "70": {
+    "inputs": {
+      "text": "shou_xin"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "71": {
+    "inputs": {
+      "value": 1,
+      "display_name": "Pencil LoRa strength",
+      "optional": true,
+      "advanced": true,
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "order": 92,
+      "custom_id": "pencil_lora_strength",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "72": {
+    "inputs": {
+      "text": "minimalist"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
+    }
+  }
+}
