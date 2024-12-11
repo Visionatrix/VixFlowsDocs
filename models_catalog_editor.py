@@ -463,13 +463,13 @@ class ModelCatalogEditor(QWidget):
 
         # HuggingFace Filename
         self.filename_hg = create_stretching_line_edit("HuggingFace Filename")
-        self.filename_hg.setReadOnly(True)
+        self.filename_hg.textChanged.connect(self.update_input_value_regex)
         form_layout.addWidget(QLabel("HugFace name:"), 4, 0)
         form_layout.addWidget(self.filename_hg, 4, 1)
 
         # CivitAI Filename
         self.filename_ca = create_stretching_line_edit("CivitAI Filename")
-        self.filename_ca.setReadOnly(True)
+        self.filename_ca.textChanged.connect(self.update_input_value_regex)
         form_layout.addWidget(QLabel("CivitAI name:"), 5, 0)
         form_layout.addWidget(self.filename_ca, 5, 1)
 
