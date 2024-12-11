@@ -1,0 +1,290 @@
+[
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 16.392150645999664,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 17.187979135500427,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 35.94579384250028,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 41.11461017299962,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 6.680076757499592,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 7.63096035100034,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 11.150575496500096,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 19.247648187999857,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 23.449968829499994,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 24.24873737550024,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 50.58446633700032,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 54.97914067599959,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 52.80612202600241,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 53.17938312700426,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 82.374799797999,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 84.83121225800278,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 12.648681637831032,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 13.313142335042357,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 27.226201404817402,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 33.58113077003509,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 11.362189421500261,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 12.871194539000044,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 23.23410449100038,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 32.0012865435001,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 35.31675852066837,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 36.17310791858472,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 63.23743019509129,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 72.30312645062804,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 13.37656391749988,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 14.588292321500376,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 22.682685041500008,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev_8bit",
+    "flow_display_name": "Flux (Small)",
+    "test_case": "default",
+    "avg_exec_time": 30.610729924001134,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  }
+]
