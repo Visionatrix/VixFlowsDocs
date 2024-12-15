@@ -1,0 +1,146 @@
+[
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 3.4734472229997664,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 8.766540273999908,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 1.230559091500254,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 8.91949563549997,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 5.1084252294999715,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 9.103866466,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 7.994934017002379,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 10.806438235995302,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 2.7081887796521187,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 8.910525837913156,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 2.385539685000367,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 10.618866132499988,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 6.114454451948404,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 15.092821656027809,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 2.419112047499766,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell_8bit",
+    "flow_display_name": "Flux Lighting (Small)",
+    "test_case": "lighting",
+    "avg_exec_time": 10.702993157498895,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  }
+]

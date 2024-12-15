@@ -1,0 +1,290 @@
+[
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.1640341914999226,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 2.654509752499962,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 7.34655246750026,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 7.928426230999321,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.3666261155158281,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 3.276894262060523,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.055868146009743,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 10.68293602578342,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.4353750904997469,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 3.1219969865001076,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 8.824538114999768,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.746160020500156,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.2438622140002735,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 2.3451831509996737,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.504536576999953,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.743625934999727,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.6885255925008096,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 2.9901438660008353,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 13.491965931999403,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 11.486479182499352,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.6151904099970125,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 2.6294726570013154,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.056999969001481,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.257298860000446,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.2944041129999277,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 5.003562125999906,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 10.604395697499967,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 12.614971664999757,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 2.3191745784133673,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 4.640981238568202,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 17.720679365564138,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 17.577880332712084,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  }
+]

@@ -1,0 +1,1010 @@
+[
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 14.829867784500266,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 18.643825204500445,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.0278555289999076,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 5.390238154499912,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.185875770999928,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 5.5952924045000145,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.0051846770002157,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 5.114221583500239,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 2.6451510690001214,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 8.385007555000357,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 5.990895165500206,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 9.856662996000523,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 29.66601065000009,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 40.94470475699973,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 15.772796624499733,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 17.71433836799997,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.102608756499876,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.693166632000157,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.167648033000205,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.72423884050022,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 2.8102954640000917,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.312586250500317,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 2.918976058499993,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.413124385500396,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 7.503137139999808,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 9.966406816000017,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 25.421067732999973,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 29.977339733999997,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 18.57236434350034,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 19.98002816600001,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.5669685719999507,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.850144255499799,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.6246416609999415,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.689989095500096,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.061304451000069,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.1644927995002945,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.048207803000196,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.300427647000106,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 8.983659901500232,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 11.057270641500054,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 27.033818035999957,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 29.323186969999824,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 24.015147068999795,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 25.657861901003344,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.54628838699864,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 5.709262201002275,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.511623727998085,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 5.6513896500036935,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.849614246002602,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.926165631004551,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.049019156998838,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 5.1248918600031175,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 13.270152465000137,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 15.260244114004308,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 35.279841142000805,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 37.162132105993805,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 23.705397673498737,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 21.198286657999233,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 5.906618547999642,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.8509773944997505,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 6.028229467499841,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.9660513914996045,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 5.646546740500526,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.801921085999311,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 5.560297247499875,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.653790360500352,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 11.364749699499953,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 8.716491090999625,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 39.02265182449992,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 32.69833093300076,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 32.30203047930263,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 42.146348317852244,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 8.694516646908596,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 11.534465848002583,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 8.954638500930741,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 11.264037081506103,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 7.385641196509823,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 12.498950256966054,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 8.152311584213749,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 11.67487314203754,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 14.12935519614257,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 17.34622622607276,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 58.656572041800246,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 71.29286514502019,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 12.902809204500045,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 15.903002890999687,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 2.629406933000155,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.596138332000464,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 2.7031646034999994,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.655108603999906,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 2.3461147885000173,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.385994349499924,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 2.3142338870000003,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.339993170500293,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 5.165366936000282,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 8.654136928500066,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 24.369237839499874,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 28.982552901999497,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 19.69930377881974,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 21.223556370474398,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 6.5958737367764115,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_portrait",
+    "flow_display_name": "Sketch Portrait",
+    "test_case": "default",
+    "avg_exec_time": 8.712923786602914,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 7.0058507565408945,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "comicu_portrait",
+    "flow_display_name": "ComicU Portrait",
+    "test_case": "default",
+    "avg_exec_time": 8.598718845285475,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 7.486135525628924,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 7.389428116381168,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 6.719376386143267,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "memoji_portrait",
+    "flow_display_name": "Memoji Portrait",
+    "test_case": "default",
+    "avg_exec_time": 7.494103931821883,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 6.197352696210146,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 8.829316129907966,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 41.1086902115494,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 41.6789493849501,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  }
+]
