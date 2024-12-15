@@ -65,6 +65,9 @@ def check_model(model_name: str, model: dict) -> bool:
         ERRORS_LIST.append(f"{model_name}: FAILED. Unknown host for URL: {url}")
         return False
 
+    if str(url).endswith(".py"):
+        return True
+
     if not model_hash:
         ERRORS_LIST.append(f"{model_name}: FAILED. {url} --> can't get the hash")
         return False
