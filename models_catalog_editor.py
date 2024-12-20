@@ -96,8 +96,31 @@ def get_auth_tokens():
     return tokens
 
 
+def get_file_size(url, huggingface_token=None, civitai_token=None):
+    try:
+        headers = {}
+        if "huggingface.co" in url and huggingface_token:
+            headers["Authorization"] = f"Bearer {huggingface_token}"
+        if "civitai.com" in url and civitai_token:
+            headers["Authorization"] = f"Bearer {civitai_token}"
+
+        # Use GET with stream=True and check Content-Length
+        response = requests.get(
+            url, headers=headers, stream=True, allow_redirects=True, timeout=10
+        )
+        response.raise_for_status()
+        file_size = response.headers.get("Content-Length")
+        if file_size:
+            return int(file_size)
+        else:
+            print(f"No Content-Length header for URL: {url}")
+            return None
+    except Exception as e:
+        print(f"Error fetching file size for URL: {url}. Error: {e}")
+        return None
+
+
 class URLWorker(QObject):
-    # Define signals
     finished = Signal()
     url_corrected = Signal(str)
     homepage_extracted = Signal(str)
@@ -108,6 +131,7 @@ class URLWorker(QObject):
     status_update = Signal(str, bool)
     files_found = Signal(list, str)  # list of files, model_type
     model_type_found = Signal(str)
+    file_size_found = Signal(str)
 
     def __init__(self, url, huggingface_token=None, civitai_token=None):
         super().__init__()
@@ -249,19 +273,18 @@ class URLWorker(QObject):
             self.status_update.emit(f"Extracted homepage: {homepage}", False)
             self.homepage_extracted.emit(homepage)
 
-        # Get default filename
+        # Default filename
         default_filename = self.get_default_filename(corrected_url)
         if default_filename:
             self.status_update.emit(f"Default filename: {default_filename}", False)
             self.default_filename_found.emit(default_filename)
 
-        # Fetch hash for HuggingFace models
+        # Fetch hash for HuggingFace
         if "huggingface.co" in corrected_url:
             model_hash = self.prefill_hash_from_huggingface(corrected_url)
             if model_hash:
                 self.status_update.emit(f"Fetched hash: {model_hash}", False)
                 self.hash_fetched.emit(model_hash)
-                # Search CivitAI by hash
                 self.search_civitai_by_hash(model_hash)
             else:
                 self.status_update.emit("Hash not found", True)
@@ -269,13 +292,22 @@ class URLWorker(QObject):
         else:
             self.hash_fetched.emit("")
 
-        # Check if gated
+        # Check gated
         gated = check_gated(corrected_url, status_update_func=self.status_update.emit)
         self.gated_checked.emit(gated)
         if gated:
             self.status_update.emit("Model is gated (requires token)", True)
         else:
             self.status_update.emit("Model is not gated", False)
+
+        # Get file size
+        file_size = get_file_size(
+            corrected_url, self.huggingface_token, self.civitai_token
+        )
+        if file_size is not None:
+            self.file_size_found.emit(str(file_size))
+        else:
+            self.status_update.emit("No file size found for this URL.", True)
 
     def extract_huggingface_homepage(self, url):
         try:
@@ -294,10 +326,13 @@ class URLWorker(QObject):
             headers = {}
             if "huggingface.co" in url and self.huggingface_token:
                 headers["Authorization"] = f"Bearer {self.huggingface_token}"
-            response = requests.head(url, headers=headers, allow_redirects=True)
-            if "Content-Disposition" in response.headers:
-                cd = response.headers["Content-Disposition"]
-
+            response = requests.get(
+                url, headers=headers, stream=True, allow_redirects=True, timeout=10
+            )
+            response.raise_for_status()
+            # Try to parse filename from Content-Disposition if available
+            cd = response.headers.get("Content-Disposition")
+            if cd:
                 if "filename*=" in cd:
                     match = re.search(
                         r"filename\*\s*=\s*[^']*'[^']*'([^;]+)", cd, re.IGNORECASE
@@ -324,7 +359,9 @@ class URLWorker(QObject):
             headers = {}
             if self.huggingface_token:
                 headers["Authorization"] = f"Bearer {self.huggingface_token}"
-            response = requests.head(url, headers=headers, allow_redirects=False)
+            response = requests.get(
+                url, headers=headers, stream=True, allow_redirects=False, timeout=10
+            )
             if response.status_code in (200, 302):
                 etag = response.headers.get("x-linked-etag")
                 if etag:
@@ -348,8 +385,7 @@ class URLWorker(QObject):
                 headers["Authorization"] = f"Bearer {self.civitai_token}"
             response = requests.get(api_url, headers=headers)
             if response.status_code == 200:
-                metadata = response.json()
-                return metadata
+                return response.json()
             else:
                 self.status_update.emit(
                     f"Failed to fetch metadata. Status code: {response.status_code}",
@@ -379,6 +415,19 @@ class URLWorker(QObject):
                         self.status_update.emit(
                             f"Found filename on CivitAI: {civitai_filename}", False
                         )
+
+                    # Try to fetch file size
+                    download_url = data["files"][0].get("downloadUrl", "")
+                    if download_url:
+                        size = get_file_size(
+                            download_url, self.huggingface_token, self.civitai_token
+                        )
+                        if size is not None:
+                            self.file_size_found.emit(str(size))
+                        else:
+                            self.status_update.emit(
+                                "No file size found from CivitAI file URL.", True
+                            )
                 else:
                     self.status_update.emit("No files found in CivitAI data", True)
 
@@ -486,7 +535,12 @@ class ModelCatalogEditor(QWidget):
         form_layout.addWidget(QLabel("Hash:"), 7, 0)
         form_layout.addWidget(self.hash_edit, 7, 1)
 
-        # Types (multiselect in two columns)
+        # File Size
+        self.file_size_edit = create_stretching_line_edit("File size in bytes")
+        form_layout.addWidget(QLabel("File Size:"), 8, 0)
+        form_layout.addWidget(self.file_size_edit, 8, 1)
+
+        # Types (multiselect)
         self.types_group = QGroupBox()
         self.types_layout = QGridLayout()
 
@@ -521,13 +575,13 @@ class ModelCatalogEditor(QWidget):
             self.types_layout.addWidget(checkbox, row, col)
 
         self.types_group.setLayout(self.types_layout)
-        form_layout.addWidget(QLabel("Types:"), 8, 0)
-        form_layout.addWidget(self.types_group, 8, 1)
+        form_layout.addWidget(QLabel("Types:"), 9, 0)
+        form_layout.addWidget(self.types_group, 9, 1)
 
         # Gated checkbox
         self.gated_checkbox = QCheckBox()
-        form_layout.addWidget(QLabel("Gated model:"), 9, 0)
-        form_layout.addWidget(self.gated_checkbox, 9, 1)
+        form_layout.addWidget(QLabel("Gated model:"), 10, 0)
+        form_layout.addWidget(self.gated_checkbox, 10, 1)
 
         # Regexes
         regexes_layout = QGridLayout()
@@ -545,13 +599,13 @@ class ModelCatalogEditor(QWidget):
         regexes_layout.addWidget(QLabel("input_value:"), 2, 0)
         regexes_layout.addWidget(self.input_value_edit, 2, 1)
 
-        form_layout.addWidget(QLabel("Regexes:"), 10, 0)
-        form_layout.addLayout(regexes_layout, 10, 1)
+        form_layout.addWidget(QLabel("Regexes:"), 11, 0)
+        form_layout.addLayout(regexes_layout, 11, 1)
 
-        # Add the Save button directly to the grid layout
+        # Save button
         self.save_button = QPushButton("Save")
         self.save_button.clicked.connect(self.save_model)
-        form_layout.addWidget(self.save_button, 11, 1)
+        form_layout.addWidget(self.save_button, 12, 1)
 
         main_layout.addLayout(form_layout)
 
@@ -580,14 +634,11 @@ class ModelCatalogEditor(QWidget):
                     )
                     self.models_catalog = {}
 
-        # Thread and Worker
         self.thread = None
         self.worker = None
+        self.current_model_type = None
 
     def save_model(self):
-        """
-        Gather data from the form, validate, and save the new model entry to models_catalog.json.
-        """
         # Gather data from fields
         homepage = self.homepage_edit.text().strip()
         url = self.download_url_edit.text().strip()
@@ -595,21 +646,19 @@ class ModelCatalogEditor(QWidget):
         second_filename = self.filename_ca.text().strip()
         overridden_filename = self.overridden_filename.text().strip()
         model_hash = self.hash_edit.text().strip()
+        file_size = self.file_size_edit.text().strip()
         gated = self.gated_checkbox.isChecked()
 
-        # Get selected types
         types = [
             type_name
             for type_name, checkbox in self.type_checkboxes.items()
             if checkbox.isChecked()
         ]
 
-        # Regexes
         class_type = self.class_type_edit.text().strip()
         input_name = self.input_name_edit.text().strip()
         input_value = self.input_value_edit.text().strip()
 
-        # Validation
         if not url:
             QMessageBox.warning(self, "Validation Error", "Download URL is required.")
             return
@@ -621,6 +670,13 @@ class ModelCatalogEditor(QWidget):
         if not input_value:
             QMessageBox.warning(
                 self, "Validation Error", "input_value in regexes is required."
+            )
+            return
+
+        # Validate file size must be provided and numeric
+        if not file_size or not file_size.isdigit():
+            QMessageBox.warning(
+                self, "Validation Error", "File size must be provided and be numeric."
             )
             return
 
@@ -637,7 +693,6 @@ class ModelCatalogEditor(QWidget):
         invalid_filenames = [
             fname for fname in filenames if not input_value_pattern.search(fname)
         ]
-
         if invalid_filenames:
             QMessageBox.warning(
                 self,
@@ -650,7 +705,6 @@ class ModelCatalogEditor(QWidget):
             )
             return
 
-        # Prepare regexes
         regexes = [{}]
         if class_type:
             regexes[0]["class_type"] = class_type
@@ -659,12 +713,12 @@ class ModelCatalogEditor(QWidget):
         if input_value:
             regexes[0]["input_value"] = input_value
 
-        # Prepare the model entry
         model_entry = {
             "regexes": regexes,
             "url": url,
             "homepage": homepage,
             "hash": model_hash,
+            "file_size": int(file_size),
         }
 
         if overridden_filename:
@@ -713,12 +767,10 @@ class ModelCatalogEditor(QWidget):
             )
             return
 
-        # Get a unique model key
         model_key = self.get_model_key()
         if not model_key:
             return
 
-        # Update models_catalog
         self.models_catalog[model_key] = model_entry
 
         # Save to models_catalog.json
@@ -726,8 +778,6 @@ class ModelCatalogEditor(QWidget):
             json.dump(self.models_catalog, f, indent=2, ensure_ascii=False)
 
         QMessageBox.information(self, "Success", "Model entry saved successfully.")
-
-        # Clear the form
         self.clear_full_form()
 
     def get_model_key(self):
@@ -797,9 +847,8 @@ class ModelCatalogEditor(QWidget):
         self.worker.gated_checked.connect(self.handle_gated_checked)
         self.worker.status_update.connect(self.append_log)
         self.worker.files_found.connect(self.handle_files_found)
-        self.worker.model_type_found.connect(
-            self.handle_model_type_found
-        )  # Connect the signal
+        self.worker.model_type_found.connect(self.handle_model_type_found)
+        self.worker.file_size_found.connect(self.handle_file_size_found)
 
         self.thread.finished.connect(lambda: self.process_button.setEnabled(True))
         self.thread.finished.connect(lambda: self.url_edit.setEnabled(True))
@@ -819,6 +868,9 @@ class ModelCatalogEditor(QWidget):
     def handle_second_filename_found(self, second_filename):
         self.filename_ca.setText(second_filename)
         self.update_input_value_regex()
+
+    def handle_file_size_found(self, file_size):
+        self.file_size_edit.setText(file_size)
 
     def update_input_value_regex(self):
         # Combine filenames into a set to remove duplicates
@@ -890,11 +942,7 @@ class ModelCatalogEditor(QWidget):
         for file in valid_files:
             name = file.get("name", "Unnamed file")
             file_type = file.get("type", "Unknown type")
-            metadata = file.get("metadata", {})
-            size = metadata.get("size", "Unknown size")
-            fp = metadata.get("fp", "Unknown FP")
-
-            description = f"{name} (Type: {file_type}, Size: {size}, FP: {fp})"
+            description = f"{name} (Type: {file_type})"
             file_descriptions.append(description)
 
         # Let the user select a file if multiple are valid
@@ -942,7 +990,14 @@ class ModelCatalogEditor(QWidget):
         else:
             self.append_log("No hash found.", True)
 
-        # Set type based on model_type and file_type
+        # Fetch file size using get_file_size
+        size = get_file_size(download_url, self.huggingface_token, self.civitai_token)
+        if size is not None:
+            self.file_size_edit.setText(str(size))
+            self.append_log(f"Set file size: {size}", False)
+        else:
+            self.append_log("No file size found for selected file.", True)
+
         types_value = determine_types(self.current_model_type, file_type)
         if types_value and types_value in self.type_checkboxes:
             self.type_checkboxes[types_value].setChecked(True)
@@ -994,6 +1049,7 @@ class ModelCatalogEditor(QWidget):
         self.filename_ca.clear()
         self.overridden_filename.clear()
         self.hash_edit.clear()
+        self.file_size_edit.clear()
         self.gated_checkbox.setChecked(False)
         self.class_type_edit.clear()
         self.input_name_edit.clear()

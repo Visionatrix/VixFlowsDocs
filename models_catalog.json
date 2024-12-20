@@ -12,7 +12,8 @@
     "types": [
       "controlnet"
     ],
-    "filename": "instantid-controlnet.safetensors"
+    "filename": "instantid-controlnet.safetensors",
+    "file_size": 2502139136
   },
   "InstantID-IP-Adapter": {
     "regexes": [
@@ -26,7 +27,8 @@
     "types": [
       "instantid"
     ],
-    "filename": "instantid-ip-adapter.bin"
+    "filename": "instantid-ip-adapter.bin",
+    "file_size": 1691134141
   },
   "Lora-Canny-Rank256": {
     "regexes": [
@@ -40,7 +42,8 @@
     "hash": "21f79f7368eff07f57bcd507ca91c0fc89070d7da182960ff24ed1d58310c3a7",
     "types": [
       "controlnet"
-    ]
+    ],
+    "file_size": 774450192
   },
   "Lora-Depth-Rank256": {
     "regexes": [
@@ -54,7 +57,8 @@
     "hash": "559d2468951bf254c13bacd9c5d05d01ad67b060f6a73e8131d26ebf459c1c79",
     "types": [
       "controlnet"
-    ]
+    ],
+    "file_size": 774445779
   },
   "Lora-Recolor-Rank256": {
     "regexes": [
@@ -68,7 +72,8 @@
     "hash": "b0bf3c163b6f578b3a73e9cf61c3e4219ae9c2a06903663205d1251cf2498925",
     "types": [
       "controlnet"
-    ]
+    ],
+    "file_size": 774446618
   },
   "Lora-Sketch-Rank256": {
     "regexes": [
@@ -82,7 +87,8 @@
     "hash": "cf741a672fc3f753956260cb16101250f16c3c5bb3690a3d736bef66eafa7515",
     "types": [
       "controlnet"
-    ]
+    ],
+    "file_size": 774454911
   },
   "OpenPose-XL2-1.0": {
     "regexes": [
@@ -96,7 +102,8 @@
     "hash": "8afa079285bf9384eaf8f6322884cb4f24bbe405da490f91f5540d3bff585e75",
     "types": [
       "controlnet"
-    ]
+    ],
+    "file_size": 774423024
   },
   "StickersRedmond": {
     "regexes": [
@@ -110,7 +117,8 @@
     "hash": "927a840722d1ac9103223c09da55cc3ae750300e1c0e22a15ffcf460ac6f8a56",
     "types": [
       "loras"
-    ]
+    ],
+    "file_size": 170540036
   },
   "DreamShaperXL_Lightning": {
     "regexes": [
@@ -124,7 +132,8 @@
     "hash": "fdbe56354b8f876b736f24d3ad867ecd4140c019f57642ec8ddd878088d44f64",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6939220250
   },
   "The-Simplest": {
     "regexes": [
@@ -138,7 +147,8 @@
     "hash": "ec43d26e93173195bf6873be6ad829ec3c4de3f2a1f5d7f3a31e83b5bdd6c6ea",
     "types": [
       "loras"
-    ]
+    ],
+    "file_size": 456504156
   },
   "PE-PencilDrawing": {
     "regexes": [
@@ -153,7 +163,8 @@
     "types": [
       "loras"
     ],
-    "filename": "PE_PencilDrawing.safetensors"
+    "filename": "PE_PencilDrawing.safetensors",
+    "file_size": 228453876
   },
   "animagine-xl-3.1": {
     "regexes": [
@@ -167,7 +178,8 @@
     "hash": "e3c47aedb06418c6c331443cd89f2b3b3b34b7ed2102a3d4c4408a8d35aad6b0",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6938325776
   },
   "StudioGhibli.Redmond": {
     "regexes": [
@@ -181,7 +193,8 @@
     "hash": "516fe22303b8a24f800a0a24a8f4c864121411b7261206c406183c1103b7bf37",
     "types": [
       "loras"
-    ]
+    ],
+    "file_size": 228450868
   },
   "Juggernaut_RunDiffusionPhoto2_Lightning_4Steps": {
     "regexes": [
@@ -195,7 +208,8 @@
     "hash": "c8df560d2992ac04299412be6a36fa53a4e7a1b74f27b94867ad3f84f4b425a5",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 7105348284
   },
   "JuggernautXL_v8RunDiffusion": {
     "regexes": [
@@ -209,7 +223,8 @@
     "hash": "aeb7e9e6897a1e58b10494bd989d001e3d4bc9b634633cd7b559838f612c2867",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 7105348592
   },
   "JuggernautXL_v9RunDiffusionPhoto2": {
     "regexes": [
@@ -223,7 +238,8 @@
     "hash": "c9e3e68f89b8e38689e1097d4be4573cf308de4e3fd044c64ca697bdb4aa8bca",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 7105348188
   },
   "Juggernaut_X_RunDiffusion_NSFW": {
     "regexes": [
@@ -237,7 +253,8 @@
     "hash": "d91d35736d8f2be038f760a9b0009a771ecf0a417e9b38c244a84ea4cb9c0c45",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 7105348672
   },
   "SDXL_lightning_8step_lora": {
     "regexes": [
@@ -251,7 +268,8 @@
     "hash": "5aa30d94cdf7950a8b53a693682650ee061eddb128c5435a8f88defea73b2ac6",
     "types": [
       "loras"
-    ]
+    ],
+    "file_size": 393854592
   },
   "SDXL-VAE": {
     "regexes": [
@@ -265,7 +283,8 @@
     "hash": "63aeecb90ff7bc1c115395962d3e803571385b61938377bc7089b36e81e92e2e",
     "types": [
       "vae"
-    ]
+    ],
+    "file_size": 334641164
   },
   "add-detail-XL": {
     "regexes": [
@@ -279,7 +298,8 @@
     "hash": "0d9bd1b873a7863e128b4672e3e245838858f71469a3cec58123c16c06f83bd7",
     "types": [
       "loras"
-    ]
+    ],
+    "file_size": 228452344
   },
   "4x-UltraSharp": {
     "regexes": [
@@ -292,7 +312,8 @@
     "hash": "a5812231fc936b42af08a5edba784195495d303d5b3248c24489ef0c4021fe01",
     "types": [
       "upscale_models"
-    ]
+    ],
+    "file_size": 66961958
   },
   "Photomaker-v1": {
     "regexes": [
@@ -306,7 +327,8 @@
     "types": [
       "photomaker",
       "loras"
-    ]
+    ],
+    "file_size": 934103417
   },
   "Photomaker-v2": {
     "regexes": [
@@ -319,7 +341,8 @@
     "hash": "0eeac57d7e09b95cee670a18e0d939ff303dd6f76d317c950bf584c6c9bdb8f5",
     "types": [
       "photomaker"
-    ]
+    ],
+    "file_size": 1799993138
   },
   "AlbedobaseXL_v13": {
     "regexes": [
@@ -332,7 +355,8 @@
     "hash": "a40d817f46acc25c88ee0b6f6efa474004cea3fa1868e09a13192342c5bf4df9",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6939221198
   },
   "Playground-v2.5-1024px-aesthetic": {
     "regexes": [
@@ -345,7 +369,8 @@
     "hash": "bcaa7dd6780974f000b17b5a6c63e6f867a75c51ffa85c67d6b196882c69b992",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6938040576
   },
   "EpicRealism_naturalSinRC1VAE": {
     "regexes": [
@@ -358,7 +383,8 @@
     "hash": "84d76a0328ee5a1a2a1d466ba7478ab59183e3fea385441528aa4c5d567fd43e",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 2132625612
   },
   "SDXL_lightning_4step": {
     "regexes": [
@@ -372,7 +398,8 @@
     "hash": "e0d996ee0013e79d9d3561f50fcafb9a17e3ff07b780358e3b66d67932c4d490",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6938040682
   },
   "SDXL_lightning_8step": {
     "regexes": [
@@ -386,7 +413,8 @@
     "hash": "43f0501ac4ffcef84f3fc32a47779f24c181647fa97ef7f5ec4428107d732ae9",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6938040682
   },
   "Stable_Cascade_stage_b": {
     "regexes": [
@@ -399,7 +427,8 @@
     "hash": "6c218dc948575e3b14b03dffe2014d7870ac505005770ce3abdc28e920a03c05",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 4552331265
   },
   "Stable_Cascade_stage_c": {
     "regexes": [
@@ -412,7 +441,8 @@
     "hash": "088ddf1e444abf399007b2da2bac87791df165c69f477994f6b3c745a20904b0",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 9224575566
   },
   "SUPIR": {
     "regexes": [
@@ -425,7 +455,8 @@
     "hash": "d7f418398bb024d0d3c779c4ee4e9f171eb072306093f5bcfb2bf096aa2738f8",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 5329810432
   },
   "RealESRGAN_x2plus": {
     "regexes": [
@@ -438,7 +469,8 @@
     "hash": "49fafd45f8fd7aa8d31ab2a22d14d91b536c34494a5cfe31eb5d89c2fa266abb",
     "types": [
       "upscale_models"
-    ]
+    ],
+    "file_size": 67061725
   },
   "LEOSAMs-HelloWorld-XL-5.0-GPT4V": {
     "regexes": [
@@ -452,7 +484,8 @@
     "types": [
       "checkpoints"
     ],
-    "filename": "leosamsHelloworldXL_helloworldXL50GPT4V.safetensors"
+    "filename": "leosamsHelloworldXL_helloworldXL50GPT4V.safetensors",
+    "file_size": 6938040682
   },
   "LEOSAMs-HelloWorld-XL-6.0": {
     "regexes": [
@@ -466,7 +499,8 @@
     "types": [
       "checkpoints"
     ],
-    "filename": "leosamsHelloworldXL_helloworldXL60.safetensors"
+    "filename": "leosamsHelloworldXL_helloworldXL60.safetensors",
+    "file_size": 6938040706
   },
   "Shinkawa-Youji-XL-LoRA": {
     "regexes": [
@@ -481,7 +515,8 @@
     "types": [
       "loras"
     ],
-    "filename": "shinkawa_youji_xl_v1f.safetensors"
+    "filename": "shinkawa_youji_xl_v1f.safetensors",
+    "file_size": 340768396
   },
   "CinematicRedmond": {
     "regexes": [
@@ -494,7 +529,8 @@
     "hash": "40b693cfe5831e8097290bb56ee93d7b2ecc644010b1dc78f803cbdbddb6f87e",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6938050122
   },
   "Memoji-PixpiAI": {
     "regexes": [
@@ -509,7 +545,8 @@
     "types": [
       "loras"
     ],
-    "filename": "memoji_1024-000005.safetensors"
+    "filename": "memoji_1024-000005.safetensors",
+    "file_size": 228550668
   },
   "Colorful_XL_v7.2": {
     "url": "https://huggingface.co/AI-Art-Collab/colorfulxl_v72/resolve/main/colorfulxl_v72-000024.safetensors",
@@ -524,7 +561,8 @@
     "types": [
       "checkpoints"
     ],
-    "filename": "colorfulxl_v72.safetensors"
+    "filename": "colorfulxl_v72.safetensors",
+    "file_size": 6938040752
   },
   "Colorful_XL_v7.3": {
     "url": "https://huggingface.co/AI-Art-Collab/colorfulxl_v73/resolve/main/colorfulxl_v73-000004.safetensors",
@@ -539,7 +577,8 @@
     "types": [
       "checkpoints"
     ],
-    "filename": "colorfulxl_v73.safetensors"
+    "filename": "colorfulxl_v73.safetensors",
+    "file_size": 6938040752
   },
   "Mobius": {
     "url": "https://huggingface.co/Corcelio/mobius/resolve/main/mobius-fp16.safetensors",
@@ -553,7 +592,8 @@
     ],
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6938040400
   },
   "Prometheus": {
     "url": "https://huggingface.co/dataautogpt3/PrometheusV1/resolve/main/Prometheus.safetensors",
@@ -568,7 +608,8 @@
     "types": [
       "checkpoints"
     ],
-    "filename": "prometheus_v10.safetensors"
+    "filename": "prometheus_v10.safetensors",
+    "file_size": 6938084280
   },
   "Proteus-v06": {
     "url": "https://huggingface.co/dataautogpt3/Proteus-v0.6/resolve/main/Proteus-v0.6.safetensors",
@@ -582,7 +623,8 @@
     ],
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6938049138
   },
   "SD3-Medium": {
     "url": "https://huggingface.co/stabilityai/stable-diffusion-3-medium/resolve/main/sd3_medium_incl_clips_t5xxlfp16.safetensors",
@@ -597,7 +639,8 @@
     "gated": true,
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 15761074532
   },
   "SD3.5-Large-FP8": {
     "url": "https://huggingface.co/Comfy-Org/stable-diffusion-3.5-fp8/resolve/main/sd3.5_large_fp8_scaled.safetensors",
@@ -611,7 +654,8 @@
     ],
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 14934922866
   },
   "NetaArt_XL_1.0": {
     "url": "https://huggingface.co/neta-art/neta-art-xl-1.0/resolve/main/neta_art_xl_v10.safetensors",
@@ -625,7 +669,8 @@
     ],
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6938073562
   },
   "CN-anytest_v4-marged": {
     "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/CN-anytest_v4-marged/CN-anytest_v4-marged.safetensors",
@@ -639,7 +684,8 @@
     ],
     "types": [
       "controlnet"
-    ]
+    ],
+    "file_size": 2502139104
   },
   "CLIP-ViT-H-14-laion2B-s32B-b79K": {
     "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors",
@@ -654,7 +700,8 @@
     "types": [
       "clip_vision"
     ],
-    "filename": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
+    "filename": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors",
+    "file_size": 2528373448
   },
   "CLIP-ViT-bigG-14-laion2B-39B-b160k": {
     "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors",
@@ -669,7 +716,8 @@
     "types": [
       "clip_vision"
     ],
-    "filename": "CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors"
+    "filename": "CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors",
+    "file_size": 3689912664
   },
   "ip-adapter_sdxl_vit-h": {
     "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl_vit-h.safetensors",
@@ -683,7 +731,8 @@
     ],
     "types": [
       "ipadapter"
-    ]
+    ],
+    "file_size": 698391064
   },
   "ip-adapter_sdxl": {
     "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl.safetensors",
@@ -697,7 +746,8 @@
     ],
     "types": [
       "ipadapter"
-    ]
+    ],
+    "file_size": 702585376
   },
   "ip-adapter-plus_sdxl_vit_h": {
     "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus_sdxl_vit-h.safetensors",
@@ -711,7 +761,8 @@
     ],
     "types": [
       "ipadapter"
-    ]
+    ],
+    "file_size": 847517512
   },
   "ip-adapter-plus_face_sdxl_vit_h": {
     "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus-face_sdxl_vit-h.safetensors",
@@ -725,7 +776,8 @@
     ],
     "types": [
       "ipadapter"
-    ]
+    ],
+    "file_size": 847517512
   },
   "ip-adapter-pulid": {
     "url": "https://huggingface.co/huchenlei/ipadapter_pulid/resolve/main/ip-adapter_pulid_sdxl_fp16.safetensors",
@@ -739,7 +791,8 @@
     ],
     "types": [
       "pulid"
-    ]
+    ],
+    "file_size": 791372856
   },
   "baulab-lora-smiling": {
     "regexes": [
@@ -754,7 +807,8 @@
     "types": [
       "loras"
     ],
-    "filename": "sliders/smiling.pt"
+    "filename": "sliders/smiling.pt",
+    "file_size": 9146507
   },
   "baulab-lora-cartoon-style": {
     "regexes": [
@@ -769,7 +823,8 @@
     "types": [
       "loras"
     ],
-    "filename": "sliders/cartoon_style.pt"
+    "filename": "sliders/cartoon_style.pt",
+    "file_size": 9146507
   },
   "baulab-lora-professional": {
     "regexes": [
@@ -784,7 +839,8 @@
     "types": [
       "loras"
     ],
-    "filename": "sliders/professional.pt"
+    "filename": "sliders/professional.pt",
+    "file_size": 9151707
   },
   "FLUX-VAE": {
     "regexes": [
@@ -798,7 +854,8 @@
     "hash": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38",
     "types": [
       "vae"
-    ]
+    ],
+    "file_size": 335304388
   },
   "FLUX-CLIP-CLIP_L": {
     "regexes": [
@@ -813,7 +870,8 @@
     "types": [
       "text_encoders",
       "clip"
-    ]
+    ],
+    "file_size": 246144152
   },
   "CLIP-CLIP_G": {
     "regexes": [
@@ -828,7 +886,8 @@
     "types": [
       "text_encoders",
       "clip"
-    ]
+    ],
+    "file_size": 1389382176
   },
   "FLUX-CLIP-T5XXL-FP16": {
     "regexes": [
@@ -843,7 +902,8 @@
     "types": [
       "text_encoders",
       "clip"
-    ]
+    ],
+    "file_size": 9787841024
   },
   "FLUX-CLIP-T5XXL-FP8": {
     "regexes": [
@@ -858,7 +918,8 @@
     "types": [
       "text_encoders",
       "clip"
-    ]
+    ],
+    "file_size": 4893934904
   },
   "FLUX-1-Schnell": {
     "regexes": [
@@ -873,7 +934,8 @@
     "types": [
       "diffusion_models",
       "unet"
-    ]
+    ],
+    "file_size": 23782506688
   },
   "FLUX-1-Schnell-FP8": {
     "regexes": [
@@ -889,7 +951,8 @@
       "diffusion_models",
       "unet"
     ],
-    "filename": "flux1-schnell-fp8.safetensors"
+    "filename": "flux1-schnell-fp8.safetensors",
+    "file_size": 11891329784
   },
   "FLUX-1-Dev": {
     "regexes": [
@@ -904,7 +967,8 @@
     "types": [
       "diffusion_models",
       "unet"
-    ]
+    ],
+    "file_size": 23802932552
   },
   "FLUX-1-Dev-FP8": {
     "regexes": [
@@ -919,7 +983,8 @@
     "types": [
       "diffusion_models",
       "unet"
-    ]
+    ],
+    "file_size": 11901525888
   },
   "Flux-RealismLora": {
     "regexes": [
@@ -933,7 +998,8 @@
     "hash": "379e73dccfb57822ee3b12f374e141ce1c79a13b7ff19da4219ef2a2a610038e",
     "types": [
       "loras"
-    ]
+    ],
+    "file_size": 22433528
   },
   "HunyuanDiT": {
     "regexes": [
@@ -947,7 +1013,8 @@
     "hash": "4fb84f84079cda457d171b3c6b15d1be95b5a3e5d9825703951a99ddf92d1787",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 8240228270
   },
   "RealVisXL_V5.0_fp16": {
     "regexes": [
@@ -961,7 +1028,8 @@
     "hash": "6a35a7855770ae9820a3c931d4964c3817b6d9e3c6f9c4dabb5b3a94e5643b80",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6938065488
   },
   "RealVisXL_V5.0_Lightning_fp16": {
     "regexes": [
@@ -975,7 +1043,8 @@
     "hash": "fabcadd9330dcc4f9702063428d40b9d4d07168d8acefc819b8d1d9db466b3ec",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 6938065512
   },
   "Rife-47": {
     "regexes": [
@@ -987,7 +1056,8 @@
     "filename": "custom_nodes/ComfyUI-Frame-Interpolation/ckpts/rife/rife47.pth",
     "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/video/rife/rife47.pth",
     "homepage": "https://www.svp-team.com/wiki/RIFE_AI_interpolation",
-    "hash": "6a8a825ab2750558bdd20dcced386fd82b7222c7ba58c11d3b611d9c44f1be63"
+    "hash": "6a8a825ab2750558bdd20dcced386fd82b7222c7ba58c11d3b611d9c44f1be63",
+    "file_size": 21344827
   },
   "Rife-49": {
     "regexes": [
@@ -999,7 +1069,8 @@
     "filename": "custom_nodes/ComfyUI-Frame-Interpolation/ckpts/rife/rife49.pth",
     "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/video/rife/rife49.pth",
     "homepage": "https://www.svp-team.com/wiki/RIFE_AI_interpolation",
-    "hash": "e55fd00f3cc184e3c65961f4bb827a9da022e78eed36b055242c0ac30000d533"
+    "hash": "e55fd00f3cc184e3c65961f4bb827a9da022e78eed36b055242c0ac30000d533",
+    "file_size": 21345274
   },
   "Yolox_l.pt": {
     "regexes": [
@@ -1011,7 +1082,8 @@
     "filename": "custom_nodes/comfyui_controlnet_aux/ckpts/hr16/yolox-onnx/yolox_l.torchscript.pt",
     "url": "https://huggingface.co/hr16/yolox-onnx/resolve/main/yolox_l.torchscript.pt",
     "homepage": "https://github.com/Megvii-BaseDetection/YOLOX",
-    "hash": "80bc14b13c260c24b3014cd42c02994bf52296ab8fa2d80a60b6afe08c93ef42"
+    "hash": "80bc14b13c260c24b3014cd42c02994bf52296ab8fa2d80a60b6afe08c93ef42",
+    "file_size": 217697649
   },
   "Yolox_l.onnx": {
     "regexes": [
@@ -1023,7 +1095,8 @@
     "filename": "custom_nodes/comfyui_controlnet_aux/ckpts/hr16/yolox-onnx/yolox_l.onnx",
     "url": "https://huggingface.co/yzd-v/DWPose/resolve/main/yolox_l.onnx",
     "homepage": "https://github.com/Megvii-BaseDetection/YOLOX",
-    "hash": "7860ae79de6c89a3c1eb72ae9a2756c0ccfbe04b7791bb5880afabd97855a411"
+    "hash": "7860ae79de6c89a3c1eb72ae9a2756c0ccfbe04b7791bb5880afabd97855a411",
+    "file_size": 216746733
   },
   "DW-ll_ucoco_384_bs5": {
     "regexes": [
@@ -1035,7 +1108,8 @@
     "filename": "custom_nodes/comfyui_controlnet_aux/ckpts/hr16/DWPose-TorchScript-BatchSize5/dw-ll_ucoco_384_bs5.torchscript.pt",
     "url": "https://huggingface.co/hr16/DWPose-TorchScript-BatchSize5/resolve/main/dw-ll_ucoco_384_bs5.torchscript.pt",
     "homepage": "https://github.com/Megvii-BaseDetection/YOLOX",
-    "hash": "d86a0b2b59fddc0901a7076e9f59c9f8602602133ed72511c693fd11eea23d91"
+    "hash": "d86a0b2b59fddc0901a7076e9f59c9f8602602133ed72511c693fd11eea23d91",
+    "file_size": 135059124
   },
   "FLUX-1-Fill-Dev": {
     "regexes": [
@@ -1049,7 +1123,8 @@
     "types": [
       "diffusion_models"
     ],
-    "gated": true
+    "gated": true,
+    "file_size": 23804922408
   },
   "FLUX-1-Turbo-Alpha": {
     "regexes": [
@@ -1063,7 +1138,8 @@
     "filename": "alimama-creative-FLUX.1-Turbo-Alpha.safetensors",
     "types": [
       "loras"
-    ]
+    ],
+    "file_size": 694082424
   },
   "Shou-Xin": {
     "regexes": [
@@ -1076,7 +1152,8 @@
     "hash": "e59714179016388dee044952d92a733f5cdf462d815be67fe87259e88fdb4703",
     "types": [
       "loras"
-    ]
+    ],
+    "file_size": 171969400
   },
   "FLUX-1-Dev-FP8-CLIPS": {
     "regexes": [
@@ -1090,6 +1167,7 @@
     "hash": "8e91b68084b53a7fc44ed2a3756d821e355ac1a7b6fe29be760c1db532f3d88a",
     "types": [
       "checkpoints"
-    ]
+    ],
+    "file_size": 17246524772
   }
 }
