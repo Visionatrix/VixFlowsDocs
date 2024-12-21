@@ -194,8 +194,7 @@
         0
       ],
       "text_b": "/ img/",
-      "text_c": "",
-      "result": "portrait of a beautiful man"
+      "text_c": ""
     },
     "class_type": "StringFunction|pysssss",
     "_meta": {
@@ -500,49 +499,10 @@
       "title": "Text Multiline"
     }
   },
-  "220": {
-    "inputs": {},
-    "class_type": "BRIA_RMBG_ModelLoader_Zho",
-    "_meta": {
-      "title": "🧹BRIA_RMBG Model Loader"
-    }
-  },
-  "221": {
-    "inputs": {
-      "rmbgmodel": [
-        "220",
-        0
-      ],
-      "image": [
-        "211",
-        0
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
-    }
-  },
-  "222": {
-    "inputs": {
-      "rmbgmodel": [
-        "220",
-        0
-      ],
-      "image": [
-        "209",
-        0
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
-    }
-  },
   "223": {
     "inputs": {
       "image": [
-        "222",
+        "256",
         0
       ]
     },
@@ -554,7 +514,7 @@
   "224": {
     "inputs": {
       "image": [
-        "221",
+        "255",
         0
       ]
     },
@@ -573,7 +533,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_2/",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -714,26 +674,10 @@
       "title": "Auto Crop Faces"
     }
   },
-  "243": {
-    "inputs": {
-      "rmbgmodel": [
-        "220",
-        0
-      ],
-      "image": [
-        "242",
-        0
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
-    }
-  },
   "244": {
     "inputs": {
       "image": [
-        "243",
+        "257",
         0
       ]
     },
@@ -760,26 +704,10 @@
       "title": "Auto Crop Faces"
     }
   },
-  "248": {
-    "inputs": {
-      "rmbgmodel": [
-        "220",
-        0
-      ],
-      "image": [
-        "247",
-        0
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
-    }
-  },
   "249": {
     "inputs": {
       "image": [
-        "248",
+        "258",
         0
       ]
     },
@@ -811,6 +739,86 @@
     "class_type": "ImageBatchMultiple+",
     "_meta": {
       "title": "🔧 Images Batch Multiple"
+    }
+  },
+  "255": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "211",
+        0
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
+    }
+  },
+  "256": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "209",
+        0
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
+    }
+  },
+  "257": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "209",
+        0
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
+    }
+  },
+  "258": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "247",
+        0
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
     }
   }
 }

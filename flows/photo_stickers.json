@@ -3,7 +3,7 @@
     "inputs": {
       "filename_prefix": "240_10",
       "images": [
-        "338",
+        "377",
         0
       ]
     },
@@ -136,7 +136,7 @@
     "inputs": {
       "filename_prefix": "240_79",
       "images": [
-        "276",
+        "378",
         0
       ]
     },
@@ -149,7 +149,7 @@
     "inputs": {
       "filename_prefix": "240_80",
       "images": [
-        "290",
+        "379",
         0
       ]
     },
@@ -162,7 +162,7 @@
     "inputs": {
       "filename_prefix": "240_82",
       "images": [
-        "318",
+        "380",
         0
       ]
     },
@@ -201,29 +201,6 @@
     "class_type": "CLIPTextEncode",
     "_meta": {
       "title": "CLIP Text Encode (Prompt)"
-    }
-  },
-  "275": {
-    "inputs": {},
-    "class_type": "BRIA_RMBG_ModelLoader_Zho",
-    "_meta": {
-      "title": "🧹BRIA_RMBG Model Loader"
-    }
-  },
-  "276": {
-    "inputs": {
-      "rmbgmodel": [
-        "275",
-        0
-      ],
-      "image": [
-        "343",
-        0
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
     }
   },
   "280": {
@@ -301,29 +278,6 @@
       "title": "CLIP Text Encode (Prompt)"
     }
   },
-  "289": {
-    "inputs": {},
-    "class_type": "BRIA_RMBG_ModelLoader_Zho",
-    "_meta": {
-      "title": "🧹BRIA_RMBG Model Loader"
-    }
-  },
-  "290": {
-    "inputs": {
-      "rmbgmodel": [
-        "289",
-        0
-      ],
-      "image": [
-        "344",
-        0
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
-    }
-  },
   "294": {
     "inputs": {
       "weight": 1,
@@ -397,29 +351,6 @@
     "class_type": "CLIPTextEncode",
     "_meta": {
       "title": "CLIP Text Encode (Prompt)"
-    }
-  },
-  "317": {
-    "inputs": {},
-    "class_type": "BRIA_RMBG_ModelLoader_Zho",
-    "_meta": {
-      "title": "🧹BRIA_RMBG Model Loader"
-    }
-  },
-  "318": {
-    "inputs": {
-      "rmbgmodel": [
-        "317",
-        0
-      ],
-      "image": [
-        "346",
-        0
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
     }
   },
   "322": {
@@ -535,29 +466,6 @@
     "class_type": "CLIPTextEncode",
     "_meta": {
       "title": "CLIP Text Encode (Prompt)"
-    }
-  },
-  "338": {
-    "inputs": {
-      "rmbgmodel": [
-        "339",
-        0
-      ],
-      "image": [
-        "341",
-        0
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
-    }
-  },
-  "339": {
-    "inputs": {},
-    "class_type": "BRIA_RMBG_ModelLoader_Zho",
-    "_meta": {
-      "title": "🧹BRIA_RMBG Model Loader"
     }
   },
   "340": {
@@ -948,7 +856,11 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.0.1"
+      "version": "1.0.2",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -963,7 +875,8 @@
       "optional": false,
       "advanced": false,
       "order": 2,
-      "custom_id": "gender"
+      "custom_id": "gender",
+      "hidden": false
     },
     "class_type": "VixUiList",
     "_meta": {
@@ -1176,6 +1089,86 @@
     "class_type": "Text Multiline (Code Compatible)",
     "_meta": {
       "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "377": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "341",
+        0
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
+    }
+  },
+  "378": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "343",
+        0
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
+    }
+  },
+  "379": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "344",
+        0
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
+    }
+  },
+  "380": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "346",
+        0
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
     }
   }
 }

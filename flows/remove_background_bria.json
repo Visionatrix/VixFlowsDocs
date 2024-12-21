@@ -1,17 +1,4 @@
 {
-  "298": {
-    "inputs": {
-      "filename_prefix": "",
-      "images": [
-        "317",
-        0
-      ]
-    },
-    "class_type": "SaveImage",
-    "_meta": {
-      "title": "Save Image"
-    }
-  },
   "311": {
     "inputs": {
       "name": "remove_background_bria",
@@ -22,10 +9,11 @@
       "documentation": "",
       "license": "",
       "tags": "[\"background\", \"postprocess\"]",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "requires": "[]",
       "is_seed_supported": false,
-      "is_count_supported": false
+      "is_count_supported": false,
+      "is_translations_supported": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -41,7 +29,40 @@
       "title": "WF_SUBFLOWS"
     }
   },
-  "315": {
+  "318": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "320",
+        0
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
+    }
+  },
+  "319": {
+    "inputs": {
+      "filename_prefix": "",
+      "images": [
+        "318",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "320": {
     "inputs": {
       "image": "",
       "upload": "image"
@@ -49,29 +70,6 @@
     "class_type": "LoadImage",
     "_meta": {
       "title": "input;Input image;order=1;custom_id=input_image"
-    }
-  },
-  "316": {
-    "inputs": {},
-    "class_type": "BRIA_RMBG_ModelLoader_Zho",
-    "_meta": {
-      "title": "🧹BRIA_RMBG Model Loader"
-    }
-  },
-  "317": {
-    "inputs": {
-      "rmbgmodel": [
-        "316",
-        0
-      ],
-      "image": [
-        "315",
-        0
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
     }
   }
 }

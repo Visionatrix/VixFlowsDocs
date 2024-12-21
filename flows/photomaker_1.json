@@ -266,33 +266,10 @@
       "title": "Save Image"
     }
   },
-  "78": {
-    "inputs": {},
-    "class_type": "BRIA_RMBG_ModelLoader_Zho",
-    "_meta": {
-      "title": "🧹BRIA_RMBG Model Loader"
-    }
-  },
-  "79": {
-    "inputs": {
-      "rmbgmodel": [
-        "78",
-        0
-      ],
-      "image": [
-        "100",
-        0
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
-    }
-  },
   "97": {
     "inputs": {
       "image": [
-        "79",
+        "132",
         0
       ]
     },
@@ -311,7 +288,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_1/",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"cartoon\"]",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -599,6 +576,26 @@
     "class_type": "Text Dictionary New",
     "_meta": {
       "title": "Text Dictionary New"
+    }
+  },
+  "132": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "100",
+        0
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
     }
   }
 }

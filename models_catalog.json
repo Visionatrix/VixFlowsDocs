@@ -18,17 +18,18 @@
   "InstantID-IP-Adapter": {
     "regexes": [
       {
-        "class_name": "InstantIDModelLoader"
+        "class_name": "InstantIDModelLoader",
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:ip\\-adapter\\.bin|instantIDSDXL_controlInstantIdSdxl\\.safetensors|instantid\\-ip\\-adapter\\.bin)$"
       }
     ],
     "url": "https://huggingface.co/InstantX/InstantID/resolve/main/ip-adapter.bin",
     "homepage": "https://huggingface.co/InstantX/InstantID",
     "hash": "02b3618e36d803784166660520098089a81388e61a93ef8002aa79a5b1c546e1",
+    "file_size": 1691134141,
+    "filename": "instantid-ip-adapter.bin",
     "types": [
       "instantid"
-    ],
-    "filename": "instantid-ip-adapter.bin",
-    "file_size": 1691134141
+    ]
   },
   "Lora-Canny-Rank256": {
     "regexes": [
@@ -447,7 +448,8 @@
   "SUPIR": {
     "regexes": [
       {
-        "class_name": "SUPIR_model_loader_v2"
+        "class_name": "SUPIR_model_loader_v2",
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?SUPIR-v0Q\\.ckpt"
       }
     ],
     "url": "https://huggingface.co/camenduru/SUPIR/resolve/main/SUPIR-v0Q.ckpt",
@@ -1169,5 +1171,19 @@
       "checkpoints"
     ],
     "file_size": 17246524772
+  },
+  "RMBG-1.4": {
+    "regexes": [
+      {
+        "class_name": "LayerMask: RmBgUltra V2"
+      }
+    ],
+    "url": "https://huggingface.co/andrey18106/visionatrix_models/resolve/main/RMBG-1.4/model.pth",
+    "homepage": "https://huggingface.co/briaai/RMBG-1.4",
+    "hash": "893c16c340b1ddafc93e78457a4d94190da9b7179149f8574284c83caebf5e8c",
+    "types": [
+      "rmbg"
+    ],
+    "file_size": 176718373
   }
 }

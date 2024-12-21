@@ -383,33 +383,10 @@
       "title": "Auto Crop Faces"
     }
   },
-  "403": {
-    "inputs": {},
-    "class_type": "BRIA_RMBG_ModelLoader_Zho",
-    "_meta": {
-      "title": "🧹BRIA_RMBG Model Loader"
-    }
-  },
-  "404": {
-    "inputs": {
-      "rmbgmodel": [
-        "403",
-        0
-      ],
-      "image": [
-        "400",
-        0
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
-    }
-  },
   "405": {
     "inputs": {
       "image": [
-        "404",
+        "491",
         0
       ]
     },
@@ -683,7 +660,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/AllYourLife",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"sketch\", \"video\"]",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -794,6 +771,26 @@
     "class_type": "Text Find and Replace",
     "_meta": {
       "title": "Text Find and Replace(if LLM is dumb)"
+    }
+  },
+  "491": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "400",
+        0
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
     }
   }
 }

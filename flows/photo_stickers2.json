@@ -194,22 +194,6 @@
       "title": "Empty Latent Image"
     }
   },
-  "376": {
-    "inputs": {
-      "rmbgmodel": [
-        "531",
-        0
-      ],
-      "image": [
-        "378",
-        5
-      ]
-    },
-    "class_type": "BRIA_RMBG_Zho",
-    "_meta": {
-      "title": "🧹BRIA RMBG"
-    }
-  },
   "378": {
     "inputs": {
       "seed": 1,
@@ -376,13 +360,6 @@
       "title": "Save Image"
     }
   },
-  "531": {
-    "inputs": {},
-    "class_type": "BRIA_RMBG_ModelLoader_Zho",
-    "_meta": {
-      "title": "🧹BRIA_RMBG Model Loader"
-    }
-  },
   "539": {
     "inputs": {
       "lora_01": "StudioGhibli.Redmond-StdGBRRedmAF-StudioGhibli.safetensors",
@@ -521,7 +498,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.1.3",
+      "version": "1.1.4",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -537,7 +514,7 @@
       "batch_index": 0,
       "length": 1,
       "image": [
-        "376",
+        "587",
         0
       ]
     },
@@ -551,7 +528,7 @@
       "batch_index": 1,
       "length": 1,
       "image": [
-        "376",
+        "587",
         0
       ]
     },
@@ -565,7 +542,7 @@
       "batch_index": 2,
       "length": 1,
       "image": [
-        "376",
+        "587",
         0
       ]
     },
@@ -579,7 +556,7 @@
       "batch_index": 3,
       "length": 1,
       "image": [
-        "376",
+        "587",
         0
       ]
     },
@@ -680,6 +657,26 @@
     "class_type": "Ask_Gemini",
     "_meta": {
       "title": "Ask Gemini"
+    }
+  },
+  "587": {
+    "inputs": {
+      "detail_method": "GuidedFilter",
+      "detail_erode": 6,
+      "detail_dilate": 6,
+      "black_point": 0.01,
+      "white_point": 0.99,
+      "process_detail": false,
+      "device": "cpu",
+      "max_megapixels": 2,
+      "image": [
+        "378",
+        5
+      ]
+    },
+    "class_type": "LayerMask: RmBgUltra V2",
+    "_meta": {
+      "title": "LayerMask: RmBgUltra V2"
     }
   }
 }

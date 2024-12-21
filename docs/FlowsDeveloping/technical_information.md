@@ -8,7 +8,6 @@ Visionatrix by default install and update these nodes:
 
 > -   [comfyui-art-venture](https://github.com/Visionatrix/comfyui-art-venture)
 > -   [ComfyUI-AutoCropFaces](https://github.com/Visionatrix/ComfyUI-AutoCropFaces)
-> -   [ComfyUI-BRIA_AI-RMBG](https://github.com/Visionatrix/ComfyUI-BRIA_AI-RMBG)
 > -   [ComfyUI-BiRefNet](https://github.com/Visionatrix/ComfyUI-BiRefNet)
 > -   [ComfyUI-Custom-Scripts](https://github.com/Visionatrix/ComfyUI-Custom-Scripts)
 > -   [ComfyUI-Impact-Pack](https://github.com/Visionatrix/ComfyUI-Impact-Pack)
@@ -34,6 +33,8 @@ Visionatrix by default install and update these nodes:
 > -   [ComfyUI-VideoHelperSuite](https://github.com/Visionatrix/ComfyUI-VideoHelperSuite)
 > -   [ComfyUI-Frame-Interpolation](https://github.com/Visionatrix/ComfyUI-Frame-Interpolation)
 > -   [ComfyUI-KJNodes](https://github.com/Visionatrix/ComfyUI-KJNodes)
+> -   [ComfyUI_LayerStyle](https://github.com/Visionatrix/ComfyUI_LayerStyle)
+> -   [ComfyUI-Easy-Use](https://github.com/Visionatrix/ComfyUI-Easy-Use)
 
 We are gradually expanding the list.
 
