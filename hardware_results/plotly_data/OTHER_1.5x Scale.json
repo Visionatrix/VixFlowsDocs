@@ -1,0 +1,146 @@
+[
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 110.595605874998,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 111.21841237899935,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 78.30061087950025,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 78.05095978449981,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 149.41041060793214,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 150.2803424145095,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 79.24480493449983,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 76.28598258249986,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 83.36178512549941,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 99.03587262899964,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 90.64099942600001,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 91.30304586049942,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 83.73186931852251,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 78.96476963441819,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 86.81861082750015,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1.5x Scale",
+    "avg_exec_time": 87.12791221850011,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 7.553781107550458,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 8.68384823400047,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 6.3152798610001355,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 11.012963107500127,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 11.300416783429682,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 16.859620484523475,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 7.353712903999849,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 10.415989179000007,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 14.652565253500143,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 10.246857439999076,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 5.447323595499938,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 12.147728592500243,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 8.008138653822243,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 10.96274639107287,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 7.12670709650024,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "one_pass",
+    "avg_exec_time": 13.290131196999937,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  }
+]

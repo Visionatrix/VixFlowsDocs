@@ -1,0 +1,578 @@
+[
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.468638834999865,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.96992644150032,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 1.8852817829999822,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.5266009694996683,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.86852866549998,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.417102052500013,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.4700249615000303,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.361290400000144,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.0472649661824107,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.129265559837222,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.2693642750382423,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.3934698905795813,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.12727489694953,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 5.051333817653358,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.325910002924502,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 5.287863158620894,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.454580871500184,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.604047900500063,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.3413626915000805,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.4781141794996984,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.7658223075002297,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 5.003260385999965,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.477764389499953,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.789016637999794,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.383933866999996,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 5.203316417499991,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.0030098374998033,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.8244456960005664,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.634777214499991,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 5.579832377999992,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.378341051000007,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 5.215647547999652,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.6490195870001116,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.986181164999834,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.673080429998663,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 5.150005919999785,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.3606741345001865,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 6.572245105999173,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.526657719499781,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.77022609550022,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 5.825797239998792,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 6.559921063999354,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.5817234050009574,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.5280661180004245,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 6.787732955002866,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 7.564172491001955,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 5.900696111999423,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 6.842005854996387,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.7523681665002186,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.497681451000062,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.155552363999959,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.1016282555006,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.3667301739999402,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 5.425168932500128,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 2.840517362499895,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 4.994449462499688,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 6.543327579274774,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_xl",
+    "flow_display_name": "Juggernaut XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 8.30758939543739,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 3.766045356867835,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "colorful_xl",
+    "flow_display_name": "Colorful XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 5.458173559978604,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 8.556704584741965,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "mobius_xl",
+    "flow_display_name": "Mobius XL",
+    "test_case": "fast_run",
+    "avg_exec_time": 11.806962227914482,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 6.730675692437217,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "fast_run",
+    "avg_exec_time": 8.424151927465573,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  }
+]

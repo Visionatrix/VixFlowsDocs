@@ -1,0 +1,290 @@
+[
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.30490954099877854,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.3120897610060638,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.2002814089973981,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.20308273899718188,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.35030683299987686,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.3539636215000428,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.2232642265000777,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.22703270100055306,
+    "hardware_desc": "Xeon_8470-H100",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.6984047465957701,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.7762449434958398,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.29085020907223225,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.29985802597366273,
+    "hardware_desc": "AMD_7352-4000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.43361371050013986,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.43474886649937616,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.2202996579999308,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.22085397300043041,
+    "hardware_desc": "AMD_7443-6000A",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.5123170680008116,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.530506023500493,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.30984629550039244,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.30167861849986366,
+    "hardware_desc": "AMD_7J13-A100-40",
+    "test_time": "2024/11/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.3780417769999076,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.3770943599997736,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.15097691999994822,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.15274922150001657,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2024/11/12",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.3908415772020817,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.35926643665879965,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.18741474021226168,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.18792031705379486,
+    "hardware_desc": "AMD_3975WX-4090",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.45152302099972985,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.4490927294996254,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.23872475550001582,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_bria",
+    "flow_display_name": "Remove background (Bria)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.2538020179999876,
+    "hardware_desc": "Xeon_8452Y-L40S",
+    "test_time": "2024/11/14",
+    "disable_smart_memory": true
+  }
+]
