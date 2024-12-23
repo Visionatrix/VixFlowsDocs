@@ -894,18 +894,16 @@
   "FLUX-CLIP-T5XXL-FP16": {
     "regexes": [
       {
-        "input_value": "^(?=.*(?i:t5xxl_fp16))(?=.*(?i:safetensors)).*",
-        "input_name": "^(?!.*(?i:lora)).*"
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:t5xxl_fp16\\.safetensors|stableDiffusion3SD3_textEncoderT5XXLFP16\\.safetensors)$"
       }
     ],
     "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors",
     "homepage": "https://huggingface.co/comfyanonymous/flux_text_encoders",
     "hash": "6e480b09fae049a72d2a8c5fbccb8d3e92febeb233bbe9dfe7256958a9167635",
+    "file_size": 9787841024,
     "types": [
-      "text_encoders",
-      "clip"
-    ],
-    "file_size": 9787841024
+      "text_encoders"
+    ]
   },
   "FLUX-CLIP-T5XXL-FP8": {
     "regexes": [
@@ -1185,5 +1183,33 @@
       "rmbg"
     ],
     "file_size": 176718373
+  },
+  "LTX-Video-2b-0.9": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?ltx\\-video\\-2b\\-v0\\.9\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltx-video-2b-v0.9.safetensors",
+    "homepage": "https://huggingface.co/Lightricks/LTX-Video",
+    "hash": "45369c2ae94e3949b127ef99ca9fe173b077f1ca0fecf8185e4115afcbc09581",
+    "file_size": 9370442108,
+    "types": [
+      "checkpoints"
+    ]
+  },
+  "LTX-Video-2b-0.9.1": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:ltx\\-video\\-2b\\-v0\\.9\\.1\\.safetensors|lightricksLTXV_2b091\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltx-video-2b-v0.9.1.safetensors",
+    "homepage": "https://huggingface.co/Lightricks/LTX-Video",
+    "hash": "a23200896c5eddf215c7cb9517820c5763a2b054eb62ba86cbce6b871a4577e3",
+    "file_size": 5716863844,
+    "types": [
+      "checkpoints"
+    ]
   }
 }
