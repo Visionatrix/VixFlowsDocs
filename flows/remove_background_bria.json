@@ -5,7 +5,7 @@
       "display_name": "Remove background (Bria)",
       "description": "Foregrounding (non-commercial)",
       "author": "bigcat88",
-      "homepage": "https://huggingface.co/briaai/RMBG-1.4",
+      "homepage": "https://huggingface.co/briaai/RMBG-2.0",
       "documentation": "",
       "license": "",
       "tags": "[\"background\", \"postprocess\"]",

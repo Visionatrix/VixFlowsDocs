@@ -41,7 +41,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"background\", \"postprocess\"]",
-      "version": "1.1.0",
+      "version": "2.0.0",
       "requires": "[]",
       "is_seed_supported": false,
       "is_count_supported": false,
@@ -70,7 +70,7 @@
   },
   "24": {
     "inputs": {
-      "model": "BiRefNet-ep480.pth",
+      "model": "General.safetensors",
       "device": "AUTO",
       "use_weight": false
     },
