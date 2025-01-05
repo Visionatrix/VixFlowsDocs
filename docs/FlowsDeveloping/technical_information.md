@@ -8,7 +8,7 @@ Visionatrix by default install and update these nodes:
 
 > -   [comfyui-art-venture](https://github.com/Visionatrix/comfyui-art-venture)
 > -   [ComfyUI-AutoCropFaces](https://github.com/Visionatrix/ComfyUI-AutoCropFaces)
-> -   [ComfyUI-BiRefNet](https://github.com/Visionatrix/ComfyUI-BiRefNet)
+> -   [ComfyUI_BiRefNet_ll](https://github.com/Visionatrix/ComfyUI_BiRefNet_ll)
 > -   [ComfyUI-Custom-Scripts](https://github.com/Visionatrix/ComfyUI-Custom-Scripts)
 > -   [ComfyUI-Impact-Pack](https://github.com/Visionatrix/ComfyUI-Impact-Pack)
 > -   [comfyui-ollama](https://github.com/Visionatrix/comfyui-ollama)
