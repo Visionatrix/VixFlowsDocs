@@ -1242,5 +1242,19 @@
     "types": [
       "birefnet"
     ]
+  },
+  "BiRefNet-1": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?BiRefNet\\-ep480\\.pth$"
+      }
+    ],
+    "url": "https://huggingface.co/ViperYX/BiRefNet/resolve/main/BiRefNet-ep480.pth",
+    "homepage": "https://huggingface.co/ViperYX/BiRefNet",
+    "hash": "367a738b27e0556e703991e8160fe6b5217bec6c158a72a890d131dd11ba74f6",
+    "file_size": 848968257,
+    "types": [
+      "birefnet"
+    ]
   }
 }
