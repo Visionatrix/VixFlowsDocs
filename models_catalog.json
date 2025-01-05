@@ -1170,19 +1170,20 @@
     ],
     "file_size": 17246524772
   },
-  "RMBG-1.4": {
+  "BRIA-RMBG-2": {
     "regexes": [
       {
-        "class_name": "LayerMask: RmBgUltra V2"
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?bria\\-rmbg\\-2\\.safetensors$"
       }
     ],
-    "url": "https://huggingface.co/andrey18106/visionatrix_models/resolve/main/RMBG-1.4/model.pth",
-    "homepage": "https://huggingface.co/briaai/RMBG-1.4",
-    "hash": "893c16c340b1ddafc93e78457a4d94190da9b7179149f8574284c83caebf5e8c",
+    "url": "https://huggingface.co/briaai/RMBG-2.0/resolve/main/model.safetensors",
+    "homepage": "https://huggingface.co/briaai/RMBG-2.0",
+    "hash": "566ed80c3d95f87ada6864d4cbe2290a1c5eb1c7bb0b123e984f60f76b02c3a7",
+    "file_size": 884878856,
+    "filename": "bria-rmbg-2.safetensors",
     "types": [
-      "rmbg"
-    ],
-    "file_size": 176718373
+      "birefnet"
+    ]
   },
   "LTX-Video-2b-0.9": {
     "regexes": [
@@ -1210,6 +1211,36 @@
     "file_size": 5716863844,
     "types": [
       "checkpoints"
+    ]
+  },
+  "BiRefNet-General": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?General\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/ZhengPeng7/BiRefNet/resolve/main/model.safetensors",
+    "homepage": "https://huggingface.co/ZhengPeng7/BiRefNet",
+    "hash": "77277264c0e8c74149d3ff2fade4fd8176965b7108f3c5fc3b8c9c811edb4519",
+    "file_size": 884878856,
+    "filename": "General.safetensors",
+    "types": [
+      "birefnet"
+    ]
+  },
+  "BiRefNet-General-Lite": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?General\\-Lite\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/ZhengPeng7/BiRefNet_lite/resolve/main/model.safetensors",
+    "homepage": "https://huggingface.co/ZhengPeng7/BiRefNet_lite",
+    "hash": "4417d89795250e698c3cb0ae8df15743810065f646f48a694fdfa7ca052d0815",
+    "file_size": 177634392,
+    "filename": "General-Lite.safetensors",
+    "types": [
+      "birefnet"
     ]
   }
 }

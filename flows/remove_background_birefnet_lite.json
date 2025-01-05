@@ -1,7 +1,7 @@
 {
   "2": {
     "inputs": {
-      "image": "",
+      "image": "161_312_00001.png",
       "upload": "image"
     },
     "class_type": "LoadImage",
@@ -24,7 +24,7 @@
   },
   "15": {
     "inputs": {
-      "text": "[\n  {\n    \"display_name\": \"Remove background (BiRefNet)\"\n,    \"type\": \"image\"\n  }\n]"
+      "text": "[\n  {\n    \"display_name\": \"Remove background (BiRefNet Lite)\"\n,    \"type\": \"image\"\n  }\n]"
     },
     "class_type": "Text Multiline (Code Compatible)",
     "_meta": {
@@ -33,8 +33,8 @@
   },
   "16": {
     "inputs": {
-      "name": "remove_background_birefnet",
-      "display_name": "Remove background (BiRefNet)",
+      "name": "remove_background_birefnet_lite",
+      "display_name": "Remove background (BiRefNet Lite)",
       "description": "Foregrounding (commercial use)",
       "author": "bigcat88",
       "homepage": "https://github.com/zhengpeng7/birefnet",
@@ -70,7 +70,7 @@
   },
   "24": {
     "inputs": {
-      "model": "General.safetensors",
+      "model": "General-Lite.safetensors",
       "device": "AUTO",
       "use_weight": false
     },
