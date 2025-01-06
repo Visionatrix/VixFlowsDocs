@@ -162,6 +162,7 @@
       "pix_fmt": "yuv420p",
       "crf": 19,
       "save_metadata": true,
+      "trim_to_audio": false,
       "pingpong": false,
       "save_output": true,
       "images": [
@@ -383,18 +384,6 @@
       "title": "Auto Crop Faces"
     }
   },
-  "405": {
-    "inputs": {
-      "image": [
-        "491",
-        0
-      ]
-    },
-    "class_type": "SplitImageWithAlpha",
-    "_meta": {
-      "title": "Split Image with Alpha"
-    }
-  },
   "406": {
     "inputs": {
       "weight": 1,
@@ -458,7 +447,7 @@
   },
   "417": {
     "inputs": {
-      "text": "\"0\" :\"Three months old,litte girl，baby:2，kawaii,very short hair\",\n\"1\" :\"5-year-old,cute kid,girl\",\n\"2\" :\"16-year-old,young girl,long hair\",\n\"3\" :\"26-year-old,woman,long hair\",\n\"4\" :\"44-year-old,old woman\",\n\"5\" :\"64-year-old,old woman,gray hair\",\n\"6\" :\"84-year-old,old woman,wrinkles,white hair\",\n\"7\" :\"104-year-old,very old woman,wrinkles:2,white hair\","
+      "text": "\"0\" :\"6-year,litte girl，kawaii:2,short hair\",\n\"1\" :\"10-year-old,cute kid,girl\",\n\"2\" :\"16-year-old,young girl,long hair\",\n\"3\" :\"26-year-old,woman,long hair\",\n\"4\" :\"44-year-old,old woman\",\n\"5\" :\"64-year-old,old woman,gray hair\",\n\"6\" :\"84-year-old,old woman,wrinkles,white hair\",\n\"7\" :\"104-year-old,very old woman,wrinkles:2,white hair\","
     },
     "class_type": "Text Multiline (Code Compatible)",
     "_meta": {
@@ -467,7 +456,7 @@
   },
   "418": {
     "inputs": {
-      "text": "\"0\" :\"Three months old,litte boy，baby:2,kawaii,very short hair\",\n\"1\" :\"5-year-old,cute boy,short hair\",\n\"2\" :\"16-year-old,handsome man\",\n\"3\" :\"26-year-old,handsome man\",\n\"4\" :\"44-year-old,old man\",\n\"5\" :\"64-year-old,old man,gray hair\",\n\"6\" :\"84-year-old,old man,wrinkles,white hair\",\n\"7\" :\"104-year-old,very old man,wrinkles:2,bald,white hair\","
+      "text": "\"0\" :\"6-year,litte boy,kawaii:2,very short hair\",\n\"1\" :\"10-year-old,cute boy,short hair\",\n\"2\" :\"16-year-old,handsome man\",\n\"3\" :\"26-year-old,handsome man\",\n\"4\" :\"44-year-old,old man\",\n\"5\" :\"64-year-old,old man,gray hair\",\n\"6\" :\"84-year-old,old man,wrinkles,white hair\",\n\"7\" :\"104-year-old,very old man,wrinkles:2,bald,white hair\","
     },
     "class_type": "Text Multiline",
     "_meta": {
@@ -607,7 +596,7 @@
       "height": 1024,
       "crop": "center",
       "image": [
-        "405",
+        "400",
         0
       ]
     },
@@ -660,7 +649,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/AllYourLife",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"sketch\", \"video\"]",
-      "version": "1.0.3",
+      "version": "1.1.0",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -771,26 +760,6 @@
     "class_type": "Text Find and Replace",
     "_meta": {
       "title": "Text Find and Replace(if LLM is dumb)"
-    }
-  },
-  "491": {
-    "inputs": {
-      "detail_method": "GuidedFilter",
-      "detail_erode": 6,
-      "detail_dilate": 6,
-      "black_point": 0.01,
-      "white_point": 0.99,
-      "process_detail": false,
-      "device": "cpu",
-      "max_megapixels": 2,
-      "image": [
-        "400",
-        0
-      ]
-    },
-    "class_type": "LayerMask: RmBgUltra V2",
-    "_meta": {
-      "title": "LayerMask: RmBgUltra V2"
     }
   }
 }
