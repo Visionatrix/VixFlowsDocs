@@ -269,7 +269,7 @@
   "97": {
     "inputs": {
       "image": [
-        "132",
+        "133",
         0
       ]
     },
@@ -288,7 +288,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_1/",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"cartoon\"]",
-      "version": "1.0.3",
+      "version": "1.1.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -578,24 +578,22 @@
       "title": "Text Dictionary New"
     }
   },
-  "132": {
+  "133": {
     "inputs": {
-      "detail_method": "GuidedFilter",
-      "detail_erode": 6,
-      "detail_dilate": 6,
-      "black_point": 0.01,
-      "white_point": 0.99,
-      "process_detail": false,
-      "device": "cpu",
-      "max_megapixels": 2,
+      "number_of_faces": 1,
+      "scale_factor": 4.3,
+      "shift_factor": 0.45,
+      "start_index": 0,
+      "max_faces_per_image": 50,
+      "aspect_ratio": "1:1",
       "image": [
         "100",
         0
       ]
     },
-    "class_type": "LayerMask: RmBgUltra V2",
+    "class_type": "AutoCropFaces",
     "_meta": {
-      "title": "LayerMask: RmBgUltra V2"
+      "title": "Auto Crop Faces"
     }
   }
 }

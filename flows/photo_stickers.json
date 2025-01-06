@@ -3,7 +3,7 @@
     "inputs": {
       "filename_prefix": "240_10",
       "images": [
-        "377",
+        "383",
         0
       ]
     },
@@ -136,7 +136,7 @@
     "inputs": {
       "filename_prefix": "240_79",
       "images": [
-        "378",
+        "381",
         0
       ]
     },
@@ -149,7 +149,7 @@
     "inputs": {
       "filename_prefix": "240_80",
       "images": [
-        "379",
+        "384",
         0
       ]
     },
@@ -162,7 +162,7 @@
     "inputs": {
       "filename_prefix": "240_82",
       "images": [
-        "380",
+        "385",
         0
       ]
     },
@@ -856,7 +856,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.0.2",
+      "version": "1.1.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -1091,84 +1091,79 @@
       "title": "Text Multiline (Code Compatible)"
     }
   },
-  "377": {
+  "381": {
     "inputs": {
-      "detail_method": "GuidedFilter",
-      "detail_erode": 6,
-      "detail_dilate": 6,
-      "black_point": 0.01,
-      "white_point": 0.99,
-      "process_detail": false,
-      "device": "cpu",
-      "max_megapixels": 2,
-      "image": [
-        "341",
+      "model": [
+        "382",
         0
-      ]
-    },
-    "class_type": "LayerMask: RmBgUltra V2",
-    "_meta": {
-      "title": "LayerMask: RmBgUltra V2"
-    }
-  },
-  "378": {
-    "inputs": {
-      "detail_method": "GuidedFilter",
-      "detail_erode": 6,
-      "detail_dilate": 6,
-      "black_point": 0.01,
-      "white_point": 0.99,
-      "process_detail": false,
-      "device": "cpu",
-      "max_megapixels": 2,
-      "image": [
+      ],
+      "images": [
         "343",
         0
       ]
     },
-    "class_type": "LayerMask: RmBgUltra V2",
+    "class_type": "RembgByBiRefNet",
     "_meta": {
-      "title": "LayerMask: RmBgUltra V2"
+      "title": "RembgByBiRefNet"
     }
   },
-  "379": {
+  "382": {
     "inputs": {
-      "detail_method": "GuidedFilter",
-      "detail_erode": 6,
-      "detail_dilate": 6,
-      "black_point": 0.01,
-      "white_point": 0.99,
-      "process_detail": false,
-      "device": "cpu",
-      "max_megapixels": 2,
-      "image": [
+      "model": "General.safetensors",
+      "device": "AUTO",
+      "use_weight": false
+    },
+    "class_type": "LoadRembgByBiRefNetModel",
+    "_meta": {
+      "title": "LoadRembgByBiRefNetModel"
+    }
+  },
+  "383": {
+    "inputs": {
+      "model": [
+        "382",
+        0
+      ],
+      "images": [
+        "341",
+        0
+      ]
+    },
+    "class_type": "RembgByBiRefNet",
+    "_meta": {
+      "title": "RembgByBiRefNet"
+    }
+  },
+  "384": {
+    "inputs": {
+      "model": [
+        "382",
+        0
+      ],
+      "images": [
         "344",
         0
       ]
     },
-    "class_type": "LayerMask: RmBgUltra V2",
+    "class_type": "RembgByBiRefNet",
     "_meta": {
-      "title": "LayerMask: RmBgUltra V2"
+      "title": "RembgByBiRefNet"
     }
   },
-  "380": {
+  "385": {
     "inputs": {
-      "detail_method": "GuidedFilter",
-      "detail_erode": 6,
-      "detail_dilate": 6,
-      "black_point": 0.01,
-      "white_point": 0.99,
-      "process_detail": false,
-      "device": "cpu",
-      "max_megapixels": 2,
-      "image": [
+      "model": [
+        "382",
+        0
+      ],
+      "images": [
         "346",
         0
       ]
     },
-    "class_type": "LayerMask: RmBgUltra V2",
+    "class_type": "RembgByBiRefNet",
     "_meta": {
-      "title": "LayerMask: RmBgUltra V2"
+      "title": "RembgByBiRefNet"
     }
   }
 }
