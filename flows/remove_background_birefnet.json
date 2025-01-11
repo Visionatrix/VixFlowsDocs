@@ -45,7 +45,8 @@
       "requires": "[]",
       "is_seed_supported": false,
       "is_count_supported": false,
-      "is_translations_supported": false
+      "is_translations_supported": false,
+      "is_macos_supported": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {

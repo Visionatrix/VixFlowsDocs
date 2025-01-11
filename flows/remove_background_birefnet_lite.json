@@ -1,7 +1,7 @@
 {
   "2": {
     "inputs": {
-      "image": "161_312_00001.png",
+      "image": "",
       "upload": "image"
     },
     "class_type": "LoadImage",
@@ -41,11 +41,12 @@
       "documentation": "",
       "license": "",
       "tags": "[\"background\", \"postprocess\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[]",
       "is_seed_supported": false,
       "is_count_supported": false,
-      "is_translations_supported": false
+      "is_translations_supported": false,
+      "is_macos_supported": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
