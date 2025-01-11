@@ -120,11 +120,13 @@
       "documentation": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
-      "is_translations_supported": true
+      "is_translations_supported": true,
+      "is_macos_supported": false,
+      "required_memory_gb": 12
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {

@@ -235,11 +235,13 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Colorful_XL/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "2.1.2",
+      "version": "2.1.3",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
-      "is_translations_supported": true
+      "is_translations_supported": true,
+      "is_macos_supported": true,
+      "required_memory_gb": 6
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {

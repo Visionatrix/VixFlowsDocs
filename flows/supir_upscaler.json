@@ -326,7 +326,9 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SupirUpscaler/",
       "license": "",
       "tags": "[\"upscaler\", \"postprocess\"]",
-      "version": "1.0.0"
+      "version": "1.0.1",
+      "is_macos_supported": true,
+      "required_memory_gb": 12
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {

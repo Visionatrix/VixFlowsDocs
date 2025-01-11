@@ -283,11 +283,13 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Outpaint/",
       "license": "",
       "tags": "[\"redraw\", \"postprocess\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
-      "is_translations_supported": false
+      "is_translations_supported": false,
+      "is_macos_supported": true,
+      "required_memory_gb": 12
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
