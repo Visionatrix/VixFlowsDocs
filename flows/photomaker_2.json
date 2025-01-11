@@ -509,11 +509,13 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_2/",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
-      "is_translations_supported": true
+      "is_translations_supported": true,
+      "is_macos_supported": true,
+      "required_memory_gb": 8
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {

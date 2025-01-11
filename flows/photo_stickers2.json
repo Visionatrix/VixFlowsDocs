@@ -498,12 +498,13 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
-      "is_macos_supported": false
+      "is_macos_supported": false,
+      "required_memory_gb": 16
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {

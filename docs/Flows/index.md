@@ -10,7 +10,6 @@
 - [Mobius XL](Mobius_XL.md)
 - [SDXL Lighting](SDXL_Lighting.md)
 - [Hunyuan DiT](HunyuanDiT.md)
-- [SD3 Medium](SD3_Medium.md)
 - [Stable Cascade](Stable_Cascade.md)
 - [Playground 2.5 Prometheus](Playground_2_5_prometheus.md)
 - [Playground 2.5 Aesthetic](Playground_2_5_aesthetic.md)
