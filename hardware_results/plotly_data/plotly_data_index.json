@@ -1,0 +1,24 @@
+{
+  "SDXL": [
+    "lighting",
+    "fast_run",
+    "default"
+  ],
+  "PORTRAITS": [
+    "default"
+  ],
+  "OTHER": [
+    "one_pass",
+    "two_pass",
+    "three_pass",
+    "1.5x Scale",
+    "Remove Background"
+  ],
+  "DIT": [
+    "default",
+    "lighting"
+  ],
+  "HEAVY": [
+    "default"
+  ]
+}
