@@ -564,6 +564,7 @@ class ModelCatalogEditor(QWidget):
             "embeddings",
             "hypernetworks",
             "birefnet",
+            "style_models",
         ]
 
         self.type_checkboxes = {}
