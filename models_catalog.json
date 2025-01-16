@@ -1285,7 +1285,7 @@
       "diffusion_models"
     ]
   },
-  "Hunyuan-video-vae": {
+  "Hunyuan-Video-VAE": {
     "regexes": [
       {
         "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?hunyuan_video_vae_bf16\\.safetensors$"
@@ -1298,5 +1298,79 @@
     "types": [
       "vae"
     ]
+  },
+  "IPAdapter-Pulid-Flux1": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?pulid_flux_v0\\.9\\.1\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/guozinan/PuLID/resolve/main/pulid_flux_v0.9.1.safetensors",
+    "homepage": "https://huggingface.co/guozinan/PuLID",
+    "hash": "92c41c3af322b02e58e1b32842e4601e08c8f16ec1fe80089dbe957df510f51d",
+    "file_size": 1142099520,
+    "types": [
+      "pulid"
+    ]
+  },
+  "CLIP-Vision-patch14_384": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?sigclip_vision_patch14_384\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/sigclip_vision_384/resolve/main/sigclip_vision_patch14_384.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/sigclip_vision_384",
+    "hash": "1fee501deabac72f0ed17610307d7131e3e9d1e838d0363aa3c2b97a6e03fb33",
+    "file_size": 856505640,
+    "types": [
+      "clip_vision"
+    ]
+  },
+  "Flux1-Depth-Dev-Lora": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?flux1\\-depth\\-dev\\-lora\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev-lora/resolve/main/flux1-depth-dev-lora.safetensors",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev-lora",
+    "hash": "1938b38ea0fdd98080fa3e48beb2bedfbc7ad102d8b65e6614de704a46d8b907",
+    "file_size": 1244440512,
+    "types": [
+      "loras"
+    ],
+    "gated": true
+  },
+  "Flux1-Lora-PencilBox": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?pencilbox\\.safetensors$"
+      }
+    ],
+    "url": "https://civitai.com/api/download/models/1161306",
+    "homepage": "https://civitai.com/models/1035390",
+    "hash": "4E606BFF0E116455745B90A87ABB77CA3942C1DCBCE6C718C48AAE19BECA5D03",
+    "file_size": 153285728,
+    "filename": "pencilbox.safetensors",
+    "types": [
+      "loras"
+    ],
+    "gated": true
+  },
+  "Flux1-Style-Redux": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?flux1\\-redux\\-dev\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev/resolve/main/flux1-redux-dev.safetensors",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev",
+    "hash": "a1b3bdcb4bdc58ce04874b9ca776d61fc3e914bb6beab41efb63e4e2694dca45",
+    "file_size": 129063232,
+    "types": [
+      "style_models"
+    ],
+    "gated": true
   }
 }
