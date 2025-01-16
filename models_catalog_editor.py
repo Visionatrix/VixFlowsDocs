@@ -564,6 +564,7 @@ class ModelCatalogEditor(QWidget):
             "embeddings",
             "hypernetworks",
             "birefnet",
+            "style_models",
         ]
 
         self.type_checkboxes = {}
@@ -982,6 +983,13 @@ class ModelCatalogEditor(QWidget):
             self.filename_ca.setText(filename)
             self.update_input_value_regex()
             self.append_log(f"Set CivitAI filename: {filename}", False)
+
+            # If the original URL is from civitai, also prefill the "Force filename" field.
+            if "civitai.com" in self.url_edit.text().lower():
+                self.overridden_filename.setText(filename)
+                self.append_log(
+                    f"For CivitAI link, 'Force filename' set to: {filename}", False
+                )
         else:
             self.append_log("No filename found.", True)
 

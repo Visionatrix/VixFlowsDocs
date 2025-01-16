@@ -514,7 +514,7 @@
       ],
       "debug": "enable",
       "url": "http://127.0.0.1:11434",
-      "model": "llava:7b-v1.6-vicuna-fp16",
+      "model": "llava:7b-v1.6-vicuna-q8_0",
       "keep_alive": 0,
       "format": "json",
       "seed": 735649772,
