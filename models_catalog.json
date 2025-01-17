@@ -628,21 +628,20 @@
     ],
     "file_size": 6938049138
   },
-  "SD3-Medium": {
-    "url": "https://huggingface.co/stabilityai/stable-diffusion-3-medium/resolve/main/sd3_medium_incl_clips_t5xxlfp16.safetensors",
-    "homepage": "https://huggingface.co/stabilityai/stable-diffusion-3-medium",
-    "hash": "69a950c5d143ce782a7423c532c8a12b75da6a37b0e6f26a322acf4e76208912",
+  "SD3.5-Medium": {
     "regexes": [
       {
-        "input_value": "^(?=.*(?i:sd3))(?=.*(?i:medium))(?=.*(?i:fp16)).*",
-        "input_name": "^(?!.*(?i:lora)).*"
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:sd3\\.5_medium\\.safetensors|stableDiffusion35_medium\\.safetensors)$"
       }
     ],
-    "gated": true,
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium/resolve/main/sd3.5_medium.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium",
+    "hash": "11fe06e22364b823dfeedc275912336b932b32a293a0b2f35ffac071990cc4de",
+    "file_size": 5107104286,
     "types": [
       "checkpoints"
     ],
-    "file_size": 15761074532
+    "gated": true
   },
   "SD3.5-Large-FP8": {
     "url": "https://huggingface.co/Comfy-Org/stable-diffusion-3.5-fp8/resolve/main/sd3.5_large_fp8_scaled.safetensors",

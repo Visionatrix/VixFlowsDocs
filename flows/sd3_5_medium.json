@@ -17,7 +17,10 @@
   },
   "71": {
     "inputs": {
-      "text": "",
+      "text": [
+        "287",
+        0
+      ],
       "clip": [
         "285",
         0
@@ -72,7 +75,7 @@
         "283",
         0
       ],
-      "sampler_name": "euler",
+      "sampler_name": "dpmpp_2m",
       "scheduler": "sgm_uniform",
       "denoise": 1,
       "model": [
@@ -84,7 +87,7 @@
         0
       ],
       "negative": [
-        "71",
+        "288",
         0
       ],
       "latent_image": [
@@ -112,21 +115,21 @@
   },
   "280": {
     "inputs": {
-      "name": "sd3_5_large_8bit",
-      "display_name": "SD3.5 Large (Small)",
-      "description": "Analogue of Flux model, but from StabilityAI (FP8 precision)",
+      "name": "sd3_5_medium",
+      "display_name": "SD3.5 Medium",
+      "description": "Analogue of Flux model, but from StabilityAI",
       "author": " Comfy-Org",
       "homepage": "",
-      "documentation": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
+      "documentation": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.2",
+      "version": "1.0.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 12
+      "required_memory_gb": 8
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -207,11 +210,83 @@
   },
   "286": {
     "inputs": {
-      "ckpt_name": "sd3.5_large_fp8_scaled.safetensors"
+      "ckpt_name": "sd3.5_medium.safetensors"
     },
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
       "title": "Load Checkpoint"
+    }
+  },
+  "287": {
+    "inputs": {
+      "text": "ugly",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 25,
+      "custom_id": "negative_prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "288": {
+    "inputs": {
+      "conditioning_1": [
+        "289",
+        0
+      ],
+      "conditioning_2": [
+        "290",
+        0
+      ]
+    },
+    "class_type": "ConditioningCombine",
+    "_meta": {
+      "title": "Conditioning (Combine)"
+    }
+  },
+  "289": {
+    "inputs": {
+      "start": 0.2,
+      "end": 1,
+      "conditioning": [
+        "291",
+        0
+      ]
+    },
+    "class_type": "ConditioningSetTimestepRange",
+    "_meta": {
+      "title": "ConditioningSetTimestepRange"
+    }
+  },
+  "290": {
+    "inputs": {
+      "start": 0,
+      "end": 0.2,
+      "conditioning": [
+        "71",
+        0
+      ]
+    },
+    "class_type": "ConditioningSetTimestepRange",
+    "_meta": {
+      "title": "ConditioningSetTimestepRange"
+    }
+  },
+  "291": {
+    "inputs": {
+      "conditioning": [
+        "71",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
     }
   }
 }
