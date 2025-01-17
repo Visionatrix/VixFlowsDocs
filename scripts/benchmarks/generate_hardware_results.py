@@ -4,33 +4,41 @@ import re
 from pathlib import Path
 
 os.chdir(Path(__file__).parent)
-# Directory where the `summary-date-HARDWARE-SUITE.json` files are stored
+
 HARDWARE_RESULTS_DIR = Path("../../hardware_results")
-PATTERN = r"summary-\d{4}-\d{2}-\d{2}-(.*?)-(SDXL|PORTRAITS|OTHER|DIT|HEAVY)\.json"
+
+# Pattern now captures everything after "summary-YYYY-MM-DD-" up to the final ".json"
+# Group 1: hardware_desc (e.g., "YOUR_CPU-YOUR_GPU")
+# Group 2: suite_name (e.g., "SDXL", "CASCADE", etc.)
+PATTERN = r"summary-\d{4}-\d{2}-\d{2}-(.*-.*)-(.*?)\.json"
+
 OUTPUT_JSON_DIR = Path("../../docs/hardware_results/plotly_data")
+
+# We want to prioritize these suites in the given order.
+# Any suites not found in this list will appear at the end in alphabetical order.
+SORTING_ORDER = ["SDXL", "PORTRAITS", "OTHER", "DIT", "HEAVY"]
 
 
 def generate_hardware_results_table():
     results_by_flow = {}
     flow_to_display_name = {}
 
-    # Read each results_summary.json file from the hardware_results folder
     for root, _, files in os.walk(HARDWARE_RESULTS_DIR):
         for file in files:
             if file.endswith(".json"):
                 match = re.search(PATTERN, file)
                 if not match:
-                    print("found file with invalid naming:", file)
+                    print("Found file with invalid naming (skipping):", file)
                     continue
                 hardware_desc = match.group(1)
                 file_path = os.path.join(root, file)
-                with open(file_path, "r") as f:
+
+                with open(file_path, "r", encoding="utf-8") as f:
                     results_data = json.load(f)
                     for flow in results_data["flows"]:
                         flow_name = flow["flow_name"]
                         flow_to_display_name[flow_name] = flow["flow_display_name"]
 
-                        # Initialize the flow in the results dictionary if not present
                         if flow_name not in results_by_flow:
                             results_by_flow[flow_name] = []
 
@@ -42,6 +50,10 @@ def generate_hardware_results_table():
                                 smart_memory_str = "Yes"
                             else:
                                 smart_memory_str = ""
+
+                            avg_exec_time = test_case.get("avg_exec_time")
+                            if avg_exec_time is None:
+                                avg_exec_time = 0.0
 
                             avg_max_memory_usage = test_case.get(
                                 "avg_max_memory_usage", -1
@@ -56,9 +68,7 @@ def generate_hardware_results_table():
                             results_by_flow[flow_name].append(
                                 {
                                     "test_case": test_case["test_case"],
-                                    "avg_exec_time": round(
-                                        test_case["avg_exec_time"], 1
-                                    ),
+                                    "avg_exec_time": round(avg_exec_time, 1),
                                     "avg_max_memory_usage": avg_max_memory_usage,
                                     "avg_max_memory_usage_str": avg_max_memory_usage_str,
                                     "vram_state": test_case.get("vram_state", ""),
@@ -68,55 +78,48 @@ def generate_hardware_results_table():
                                 }
                             )
 
-    # Generate a Markdown table
     table_md = "# Hardware Test Results\n\n"
 
-    # Iterate over each flow, first sort by test_case, then by avg_exec_time
     for flow_name, test_cases in results_by_flow.items():
-        # Sort test cases first by 'test_case' alphabetically, then by 'avg_exec_time'
         sorted_test_cases = sorted(
             test_cases, key=lambda x: (x["test_case"], x["avg_exec_time"])
         )
 
-        table_md += f"## {flow_to_display_name[flow_name]}\n\n"
+        display_name = flow_to_display_name.get(flow_name, flow_name)
+        table_md += f"## {display_name}\n\n"
         table_md += "|  Type | Execution<br>Time (s) | Hardware | Test Time | VRAM Mode<br>Smart Memory | GPU Memory |\n"
         table_md += "| :---: | :----------------: | -------- | --------- | :-----------------------: | :--------: |\n"
 
-        for test_case in sorted_test_cases:
-            vram_state = str(test_case["vram_state"]).removesuffix("_VRAM")
+        for tc in sorted_test_cases:
+            vram_state = str(tc["vram_state"]).removesuffix("_VRAM")
             table_md += (
-                f"| {test_case['test_case']} | {test_case['avg_exec_time']} | "
-                f"{test_case['hardware_desc']} | {test_case['test_time']} | {vram_state}<br>{test_case['disable_smart_memory']} | "
-                f"{test_case['avg_max_memory_usage_str']} |\n"
+                f"| {tc['test_case']} | {tc['avg_exec_time']} | "
+                f"{tc['hardware_desc']} | {tc['test_time']} | {vram_state}<br>{tc['disable_smart_memory']} | "
+                f"{tc['avg_max_memory_usage_str']} |\n"
             )
-        table_md += "\n"  # Add spacing between flow groups
+        table_md += "\n"
 
-    table_md = table_md[:-1] if table_md.endswith("\n\n") else table_md
-    # Save the table to a Markdown file
+    if table_md.endswith("\n\n"):
+        table_md = table_md[:-1]
+
     output_path = Path("../../docs/hardware_results_raw.md")
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w") as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(table_md)
 
     print(f"Hardware test results table generated at {output_path}")
 
 
 def generate_plotly_data():
-    suite_data = {"SDXL": {}, "PORTRAITS": {}, "OTHER": {}, "HEAVY": {}, "DIT": {}}
-    suite_index = {
-        "SDXL": set(),
-        "PORTRAITS": set(),
-        "OTHER": set(),
-        "DIT": set(),
-        "HEAVY": set(),
-    }
+    suite_data = {}
+    suite_index = {}
 
     for root, _, files in os.walk(HARDWARE_RESULTS_DIR):
         for file in files:
             if file.endswith(".json"):
                 match = re.search(PATTERN, file)
                 if not match:
-                    print("Invalid file naming:", file)
+                    print("Invalid file naming (skipping):", file)
                     continue
                 hardware_desc = match.group(1)
                 suite_name = match.group(2)
@@ -124,66 +127,74 @@ def generate_plotly_data():
 
                 with open(file_path, "r") as f:
                     results_data = json.load(f)
+
+                    if suite_name not in suite_data:
+                        suite_data[suite_name] = {}
+                        suite_index[suite_name] = set()
+
                     for flow in results_data["flows"]:
                         flow_name = flow["flow_name"]
                         flow_display_name = flow["flow_display_name"]
 
                         for test_case in flow["test_cases"]:
                             test_case_name = test_case["test_case"]
-
-                            # Track the test cases for each suite
                             suite_index[suite_name].add(test_case_name)
 
-                            # Initialize the test case dictionary
-                            if test_case_name not in suite_data[suite_name]:
-                                suite_data[suite_name][test_case_name] = []
+                            data_for_case = suite_data[suite_name].setdefault(
+                                test_case_name, []
+                            )
 
-                            suite_data[suite_name][test_case_name].append(
+                            data_for_case.append(
                                 {
                                     "flow_name": flow_name,
                                     "flow_display_name": flow_display_name,
                                     "test_case": test_case_name,
-                                    "avg_exec_time": test_case["avg_exec_time"],
+                                    "avg_exec_time": test_case.get(
+                                        "avg_exec_time", 0.0
+                                    ),
                                     "hardware_desc": hardware_desc,
                                     "test_time": results_data["test_time"],
                                     "disable_smart_memory": test_case.get(
-                                        "disable_smart_memory", False
+                                        "disable_smart_memory", ""
                                     ),
                                 }
                             )
 
     OUTPUT_JSON_DIR.mkdir(parents=True, exist_ok=True)
-    for file in OUTPUT_JSON_DIR.glob("*"):
-        if file.is_file():
-            file.unlink()
+    for old_file in OUTPUT_JSON_DIR.glob("*"):
+        if old_file.is_file():
+            old_file.unlink()
 
-    # Save each test suite's data to a separate JSON file for each test case
-    for suite_name, test_cases in suite_data.items():
-        for test_case_name, data in test_cases.items():
+    # Sort suites in the final index using SORTING_ORDER, with any unknown suites appended at the end (alphabetically)
+    # Also store the test cases in alphabetical order.
+    all_suites = list(suite_data.keys())
+    known_suites = [s for s in SORTING_ORDER if s in all_suites]
+    unknown_suites = [s for s in all_suites if s not in SORTING_ORDER]
+    unknown_suites.sort()
+    final_suite_order = known_suites + unknown_suites
+
+    # Write out the data per suite->test_case
+    for suite_name in final_suite_order:
+        test_cases_dict = suite_data[suite_name]
+        for test_case_name, data_array in test_cases_dict.items():
             output_path = OUTPUT_JSON_DIR / f"{suite_name}_{test_case_name}.json"
-            with open(output_path, "w") as f:
-                json.dump(data, f, indent=2)
+            with open(output_path, "w", encoding="utf-8") as f:
+                json.dump(data_array, f, indent=2)
             print(
                 f"Plotly data for {suite_name} - {test_case_name} generated at {output_path}"
             )
 
-    # Save the index of available test cases for each suite
+    suite_index_output = {}
+    for suite_name in final_suite_order:
+        test_case_names = list(suite_index[suite_name])
+        test_case_names.sort()
+        suite_index_output[suite_name] = test_case_names
+
     index_output_path = OUTPUT_JSON_DIR / "plotly_data_index.json"
-    suite_index = {key: list(value) for key, value in suite_index.items()}
-    if "OTHER" in suite_index and suite_index["OTHER"]:
-        suite_index["OTHER"] = sorted(suite_index["OTHER"], key=custom_sort_other)
-    with open(index_output_path, "w") as f:
-        json.dump(suite_index, f, indent=2)
+    with open(index_output_path, "w", encoding="utf-8") as f:
+        json.dump(suite_index_output, f, indent=2)
+
     print(f"Plotly data index generated at {index_output_path}")
-
-
-def custom_sort_other(test_case_name):
-    predefined_order = ["one_pass", "two_pass", "three_pass"]
-    if test_case_name in predefined_order:
-        # Return index of predefined order with a negative priority to place them first
-        return 0, predefined_order.index(test_case_name)
-    # For other test cases, return them with a positive priority to sort alphabetically after predefined ones
-    return 1, test_case_name.lower()
 
 
 if __name__ == "__main__":

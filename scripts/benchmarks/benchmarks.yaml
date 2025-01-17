@@ -1,169 +1,191 @@
+PROMPTS:
+  SDXL: [
+    "abstract style, brown sands, blue swirls of water and galaxies, best quality, masterpiece",
+    "Portrait, photorealistic, vibrant 8k, natural setting, dramatic lighting, expressive features, cinematic depth of field, vivid blue eyes, fantasy humanoid character",
+    "solo majestic wild cat, ethereal ambiance, symmetrical eyes, detailed background, photorealistic, ultra-realistic, 8k, artistic creativity, dreamlike textures",
+    "sci-fi theme, advanced technology, electromagnetic fields, complex circuits, intricate mechanisms, glowing energy, vibrant colors, masterpiece"
+  ]
+  CASCADE: [
+    "abstract style, brown sands, blue swirls of water and galaxies, best quality, masterpiece",
+    "Portrait, photorealistic, vibrant 8k, natural setting, dramatic lighting, expressive features, cinematic depth of field, vivid blue eyes, fantasy humanoid character",
+    "solo majestic wild cat, ethereal ambiance, symmetrical eyes, detailed background, photorealistic, ultra-realistic, 8k, artistic creativity, dreamlike textures",
+    "sci-fi theme, advanced technology, electromagnetic fields, complex circuits, intricate mechanisms, glowing energy, vibrant colors, masterpiece"
+  ]
+  DIT_8_BIT: [
+    "abstract style, brown sands, blue swirls of water and galaxies, best quality, masterpiece",
+    "Portrait, photorealistic, vibrant 8k, natural setting, dramatic lighting, expressive features, cinematic depth of field, vivid blue eyes, fantasy humanoid character",
+    "solo majestic wild cat, ethereal ambiance, symmetrical eyes, detailed background, photorealistic, ultra-realistic, 8k, artistic creativity, dreamlike textures",
+    "sci-fi theme, advanced technology, electromagnetic fields, complex circuits, intricate mechanisms, glowing energy, vibrant colors, masterpiece"
+  ]
+  DIT: [
+    "abstract style, brown sands, blue swirls of water and galaxies, best quality, masterpiece",
+    "Portrait, photorealistic, vibrant 8k, natural setting, dramatic lighting, expressive features, cinematic depth of field, vivid blue eyes, fantasy humanoid character",
+    "solo majestic wild cat, ethereal ambiance, symmetrical eyes, detailed background, photorealistic, ultra-realistic, 8k, artistic creativity, dreamlike textures",
+    "sci-fi theme, advanced technology, electromagnetic fields, complex circuits, intricate mechanisms, glowing energy, vibrant colors, masterpiece"
+  ]
+
 SDXL:
   - flow_name: "sdxl_lighting"
     test_cases:
       - name: "lighting"
         input_params:
-          prompt: "green apple"
+          prompt: []
           steps_number: "8 steps"
   - flow_name: "juggernaut_lite"
     test_cases:
       - name: "lighting"
         input_params:
-          prompt: "green apple"
-  - flow_name: "juggernaut_xl"
-    test_cases:
-      - name: "default"
-        input_params:
-          prompt: "green apple"
-          fast_run: false
-      - name: "fast_run"
-        input_params:
-          prompt: "green apple"
-          fast_run: true
-  - flow_name: "colorful_xl"
-    test_cases:
-      - name: "fast_run"
-        input_params:
-          prompt: "green apple"
-          fast_run: true
-          steps_count: 45
-      - name: "default"
-        input_params:
-          prompt: "green apple"
-          fast_run: false
-          steps_count: 45
-  - flow_name: "mobius_xl"
-    test_cases:
-      - name: "fast_run"
-        input_params:
-          prompt: "green apple"
-          fast_run: true
-      - name: "default"
-        input_params:
-          prompt: "green apple"
-          fast_run: false
+          prompt: []
   - flow_name: "playground_2_5_aesthetic"
     test_cases:
       - name: "default"
         input_params:
-          prompt: "green apple"
+          prompt: []
           fast_run: false
+          steps_count: 30
       - name: "fast_run"
         input_params:
-          prompt: "green apple"
+          prompt: []
           fast_run: true
-  - flow_name: "playground_2_5_prometheus"
-    test_cases:
-      - name: "default"
-        input_params:
-          prompt: "green apple"
-          steps_count: 45
+          steps_count: 30
 
-PORTRAITS:
-  - flow_name: "vintage_portrait"
-    test_cases:
-      - name: "default"
-        input_params:
-          prompt: "hero portrait"
-        input_files:
-          person_face: "man.png"
-  - flow_name: "sketch_portrait"
-    test_cases:
-      - name: "default"
-        input_params:
-          prompt: "hero portrait"
-        input_files:
-          person_face: "man.png"
-  - flow_name: "comicu_portrait"
-    test_cases:
-      - name: "default"
-        input_params:
-          prompt: "hero portrait"
-        input_files:
-          person_face: "man.png"
-  - flow_name: "ghibli_portrait"
-    test_cases:
-      - name: "default"
-        input_params:
-          prompt: "hero portrait"
-        input_files:
-          person_face: "man.png"
-  - flow_name: "memoji_portrait"
-    test_cases:
-      - name: "default"
-        input_params:
-          prompt: "man, portrait, close up"
-        input_files:
-          person_face: "man.png"
-  - flow_name: "photomaker_1"
-    test_cases:
-      - name: "default"
-        input_params:
-          prompt: "portrait of a man"
-        input_files:
-          person_face: "man.png"
-  - flow_name: "photo_stickers"
-    test_cases:
-      - name: "default"
-        input_files:
-          person_face: "man.png"
-
-OTHER:
+CASCADE:
   - flow_name: "stable_cascade"
     test_cases:
-      - name: "one_pass"
+      - name: "1 pass"
         input_params:
-          prompt: "green apple"
+          prompt: []
           pass_count: "One pass"
-      - name: "two_pass"
+      - name: "2 passes"
         input_params:
-          prompt: "green apple"
+          prompt: []
           pass_count: "Two pass"
-      - name: "three_pass"
+      - name: "3 passes"
         input_params:
-          prompt: "green apple"
+          prompt: []
           pass_count: "Three pass"
-  - flow_name: "remove_background_birefnet"
+
+DIT_8_BIT:
+  - flow_name: "flux1_dev_8bit"
     test_cases:
-      - name: "Remove Background"
-        input_files:
-          input_image: "man.png"
-  - flow_name: "remove_background_bria"
-    test_cases:
-      - name: "Remove Background"
-        input_files:
-          input_image: "man.png"
-  - flow_name: "supir_upscaler"
-    test_cases:
-      - name: "1.5x Scale"
+      - name: "default"
         input_params:
-          scale_factor: 1.5
-        input_files:
-          image_to_upscale: "man.png"
+          prompt: []
+          aspect_ratio: "1:1 (1024x1024)"
+          steps_count: 30
+  - flow_name: "flux1_schnell_8bit"
+    test_cases:
+      - name: "lighting"
+        input_params:
+          prompt: []
+          aspect_ratio: "1:1 (1024x1024)"
+  - flow_name: "sd3_5_large_8bit"
+    test_cases:
+      - name: "default"
+        input_params:
+          prompt: []
+          aspect_ratio: "1:1 (1024x1024)"
+          steps_count: 30
+  - flow_name: "sketch_pencil"
+    test_cases:
+      - name: "lighting"
+        input_params:
+          aspect_ratio: "1:1 (1024x1024)"
+          prompt: []
 
 DIT:
   - flow_name: "hunyuan_dit"
     test_cases:
       - name: "default"
         input_params:
-          prompt: "green apple"
-          steps_count: 45
-  - flow_name: "flux1_dev_8bit"
-    test_cases:
-      - name: "default"
-        input_params:
-          prompt: "green apple"
-          steps_count: 45
-  - flow_name: "flux1_schnell_8bit"
-    test_cases:
-      - name: "lighting"
-        input_params:
-          prompt: "green apple"
-
-HEAVY:
+          prompt: []
+          aspect_ratio: "1:1 (1024x1024)"
+          steps_count: 30
   - flow_name: "flux1_dev"
     test_cases:
       - name: "default"
         input_params:
-          prompt: "green apple"
-          steps_count: 45
+          prompt: []
+          aspect_ratio: "1:1 (1024x1024)"
+          steps_count: 30
+  - flow_name: "flux1_schnell"
+    test_cases:
+      - name: "lighting"
+        input_params:
+          prompt: []
+          aspect_ratio: "1:1 (1024x1024)"
+  - flow_name: "sd3_5_medium"
+    test_cases:
+      - name: "default"
+        input_params:
+          prompt: [ ]
+          aspect_ratio: "1:1 (1024x1024)"
+          steps_count: 30
+  - flow_name: "sd3_5_large"
+    test_cases:
+      - name: "default"
+        input_params:
+          prompt: []
+          aspect_ratio: "1:1 (1024x1024)"
+          steps_count: 30
+  - flow_name: "pixart_e"
+    test_cases:
+      - name: "default"
+        input_params:
+          prompt: []
+          aspect_ratio: "1:1 (1024x1024)"
+          steps_count: 30
+
+PORTRAITS:
+  - flow_name: "vintage_portrait"
+    test_cases:
+      - name: "default"
+        input_params:
+          prompt: ["portrait of happy boy", "portrait of crying girl", "portrait of very angry man", "portrait of happy woman"]
+        input_files:
+          person_face: ["boy.png", "girl.png", "man.png", "woman.png"]
+  - flow_name: "ghibli_portrait"
+    test_cases:
+      - name: "default"
+        input_params:
+          prompt: ["portrait of happy boy", "portrait of crying girl", "portrait of very angry man", "portrait of happy woman"]
+        input_files:
+          person_face: ["boy.png", "girl.png", "man.png", "woman.png"]
+  - flow_name: "photomaker_1"
+    test_cases:
+      - name: "default"
+        input_params:
+          prompt: ["portrait of happy boy", "portrait of crying girl", "portrait of very angry man", "portrait of happy woman"]
+        input_files:
+          person_face: ["boy.png", "girl.png", "man.png", "woman.png"]
+  - flow_name: "photo_stickers"
+    test_cases:
+      - name: "default"
+        input_files:
+          person_face: ["boy.png", "girl.png", "man.png", "woman.png"]
+
+UPSCALERS:
+  - flow_name: "supir_upscaler"
+    test_cases:
+      - name: "1024x1024 - 1.5x scaling"
+        input_params:
+          scale_factor: 1.5
+        input_files:
+          image_to_upscale: ["boy.png", "girl.png", "man.png", "woman.png"]
+      - name: "1024x1024 - 2x scaling"
+        input_params:
+          scale_factor: 2
+        input_files:
+          image_to_upscale: ["boy.png", "girl.png", "man.png", "woman.png"]
+
+OTHER:
+  - flow_name: "remove_background_birefnet_lite"
+    test_cases:
+      - name: "Remove Background"
+        input_files:
+          input_image: ["boy.png", "girl.png", "man.png", "woman.png"]
+  - flow_name: "remove_background_birefnet"
+    test_cases:
+      - name: "Remove Background"
+        input_files:
+          input_image: ["boy.png", "girl.png", "man.png", "woman.png"]
