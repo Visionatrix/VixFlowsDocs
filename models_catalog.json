@@ -1371,5 +1371,20 @@
       "style_models"
     ],
     "gated": true
+  },
+  "SD3.5-Large": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:sd3\\.5_large\\.safetensors|stableDiffusion35_large\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/resolve/main/sd3.5_large.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
+    "hash": "ffef7a279d9134626e6ce0d494fba84fc1c7e720b3c7df2d19a09dc3796d8f93",
+    "file_size": 16460379262,
+    "types": [
+      "checkpoints"
+    ],
+    "gated": true
   }
 }
