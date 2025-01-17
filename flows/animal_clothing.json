@@ -1,0 +1,465 @@
+{
+  "6": {
+    "inputs": {
+      "text": [
+        "77",
+        0
+      ],
+      "clip": [
+        "59",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "31",
+        0
+      ],
+      "vae": [
+        "79",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "27": {
+    "inputs": {
+      "width": [
+        "83",
+        1
+      ],
+      "height": [
+        "83",
+        2
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "EmptySD3LatentImage"
+    }
+  },
+  "31": {
+    "inputs": {
+      "seed": 998168807331720,
+      "steps": 12,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "59",
+        0
+      ],
+      "positive": [
+        "35",
+        0
+      ],
+      "negative": [
+        "60",
+        0
+      ],
+      "latent_image": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "35": {
+    "inputs": {
+      "guidance": 3.5,
+      "conditioning": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "48": {
+    "inputs": {
+      "filename_prefix": "flux/img_",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "59": {
+    "inputs": {
+      "lora_name": "aidmaFLUXpro1.1-FLUX-V0.2.safetensors",
+      "strength_model": 0.7000000000000001,
+      "strength_clip": 1,
+      "model": [
+        "62",
+        0
+      ],
+      "clip": [
+        "62",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "60": {
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "62": {
+    "inputs": {
+      "lora_name": "FLUX.1-Turbo-Alpha.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "79",
+        0
+      ],
+      "clip": [
+        "79",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "68": {
+    "inputs": {
+      "query": [
+        "92",
+        0
+      ],
+      "debug": "enable",
+      "url": "http://127.0.0.1:11434",
+      "model": "llava:7b-v1.6-vicuna-q8_0",
+      "keep_alive": 0,
+      "format": "text",
+      "seed": 891938943,
+      "images": [
+        "82",
+        0
+      ]
+    },
+    "class_type": "OllamaVision",
+    "_meta": {
+      "title": "Ollama Vision"
+    }
+  },
+  "69": {
+    "inputs": {
+      "query": [
+        "91",
+        0
+      ],
+      "debug": "enable",
+      "url": "http://127.0.0.1:11434",
+      "model": "llava:7b-v1.6-vicuna-q8_0",
+      "keep_alive": 0,
+      "format": "text",
+      "seed": 891938943,
+      "images": [
+        "81",
+        0
+      ]
+    },
+    "class_type": "OllamaVision",
+    "_meta": {
+      "title": "Ollama Vision"
+    }
+  },
+  "73": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "84",
+        0
+      ],
+      "text_b": [
+        "68",
+        0
+      ],
+      "text_c": [
+        "69",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "75": {
+    "inputs": {
+      "prompt": [
+        "73",
+        0
+      ],
+      "debug": "enable",
+      "url": "http://127.0.0.1:11434",
+      "model": "llava:7b-v1.6-vicuna-q8_0",
+      "keep_alive": 0,
+      "format": "text"
+    },
+    "class_type": "OllamaGenerate",
+    "_meta": {
+      "title": "Ollama Generate"
+    }
+  },
+  "77": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "85",
+        0
+      ],
+      "text_b": [
+        "86",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "79": {
+    "inputs": {
+      "ckpt_name": "flux1-dev-fp8.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "80": {
+    "inputs": {
+      "name": "animal_clothing",
+      "display_name": "Animal Clothing",
+      "description": "Based on a picture of an animal and a picture of clothes, dresses the animal in clothes",
+      "author": "Datou",
+      "homepage": "https://openart.ai/workflows/datou/animal-model/iXIzP3HGFkXbaVk56tKU",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"general\", \"animals\", \"clothing\"]",
+      "version": "1.0.0",
+      "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true,
+      "is_macos_supported": true,
+      "required_memory_gb": 12
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "81": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Image of clothes;order=2;custom_id=image_of_clothes"
+    }
+  },
+  "82": {
+    "inputs": {
+      "image": "",
+      "upload": "image"
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person or animal;order=1;custom_id=person_image"
+    }
+  },
+  "83": {
+    "inputs": {
+      "aspect_ratio": "2:3"
+    },
+    "class_type": "SDXLAspectRatioSelector",
+    "_meta": {
+      "title": "input;Aspect Ratio;optional;advanced;order=9;custom_id=aspect_ratio"
+    }
+  },
+  "84": {
+    "inputs": {
+      "text": "Please rewrite the following information into an AI painting prompt. The content is a fashion magazine cover photo taken by an anthropomorphic animal model. Keep the description of the animal characteristics and the description of the clothing. The exposed parts of the model's body have animal characteristics. The photo The background is a solid color background that echoes the clothing. \n\nDon't output anything else, such as \"Here's a rewritten AI painting prompt based on the provided information:\"\n\n---\n."
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "85": {
+    "inputs": {
+      "text": " fashion magazine shoots, aidmafluxpro1.1, solo,"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "86": {
+    "inputs": {
+      "state": false,
+      "display_name": "Use Gemini for vision instead of Ollama",
+      "optional": true,
+      "advanced": true,
+      "order": 99,
+      "custom_id": "vision_provider",
+      "hidden": false,
+      "input_off_state": [
+        "75",
+        0
+      ],
+      "input_on_state": [
+        "87",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
+    }
+  },
+  "87": {
+    "inputs": {
+      "prompt": [
+        "88",
+        0
+      ],
+      "safety_settings": "BLOCK_NONE",
+      "response_type": "text",
+      "model": "gemini-1.5-flash-002",
+      "api_key": "",
+      "proxy": "",
+      "system_instruction": "",
+      "error_fallback_value": ""
+    },
+    "class_type": "Ask_Gemini",
+    "_meta": {
+      "title": "Ask Gemini"
+    }
+  },
+  "88": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "84",
+        0
+      ],
+      "text_b": [
+        "90",
+        0
+      ],
+      "text_c": [
+        "89",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "89": {
+    "inputs": {
+      "prompt": [
+        "91",
+        0
+      ],
+      "safety_settings": "BLOCK_NONE",
+      "response_type": "text",
+      "model": "gemini-1.5-flash-002",
+      "api_key": "",
+      "proxy": "",
+      "system_instruction": "",
+      "error_fallback_value": "",
+      "image_1": [
+        "81",
+        0
+      ]
+    },
+    "class_type": "Ask_Gemini",
+    "_meta": {
+      "title": "Ask Gemini"
+    }
+  },
+  "90": {
+    "inputs": {
+      "prompt": [
+        "92",
+        0
+      ],
+      "safety_settings": "BLOCK_NONE",
+      "response_type": "text",
+      "model": "gemini-1.5-flash-002",
+      "api_key": "",
+      "proxy": "",
+      "system_instruction": "",
+      "error_fallback_value": "",
+      "image_1": [
+        "82",
+        0
+      ]
+    },
+    "class_type": "Ask_Gemini",
+    "_meta": {
+      "title": "Ask Gemini"
+    }
+  },
+  "91": {
+    "inputs": {
+      "text": "Ignoring other information, describe the clothing in the picture."
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "92": {
+    "inputs": {
+      "text": "Describe in detail the animal depicted in the image. If no animal is present, provide a detailed description of the person in the image. Focus only on the subject and their characteristics, ignoring other elements in the scene."
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  }
+}
