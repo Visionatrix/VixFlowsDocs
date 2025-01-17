@@ -1387,5 +1387,21 @@
       "checkpoints"
     ],
     "gated": true
+  },
+  "FLUX-ExtremeDetailer-LoRA": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?aidmaFLUXpro1\\.1\\-FLUX\\-V0\\.2\\.safetensors$"
+      }
+    ],
+    "url": "https://civitai.com/api/download/models/955535",
+    "homepage": "https://civitai.com/models/832683",
+    "hash": "22EEBDF2AA11B67C4130ADD08ABE686C60E08900CCAC220DA499D87DAD53CBF4",
+    "file_size": 76691944,
+    "filename": "aidmaFLUXpro1.1-FLUX-V0.2.safetensors",
+    "types": [
+      "loras"
+    ],
+    "gated": true
   }
 }
