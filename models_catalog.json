@@ -376,16 +376,17 @@
   "EpicRealism_naturalSinRC1VAE": {
     "regexes": [
       {
-        "input_value": "^(?=.*(?i:epicrealism))(?=.*(?i:naturalSinRC1)).*"
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?epicrealism_naturalSinRC1VAE\\.safetensors$"
       }
     ],
-    "url": "https://huggingface.co/Justin-Choo/epiCRealism-Natural_Sin_RC1_VAE/resolve/main/epicrealism_naturalSinRC1VAE.safetensors",
-    "homepage": "https://civitai.com/models/25694?modelVersionId=143906",
-    "hash": "84d76a0328ee5a1a2a1d466ba7478ab59183e3fea385441528aa4c5d567fd43e",
+    "url": "https://civitai.com/api/download/models/143906",
+    "homepage": "https://civitai.com/models/25694",
+    "hash": "84D76A0328EE5A1A2A1D466BA7478AB59183E3FEA385441528AA4C5D567FD43E",
+    "file_size": 2132625612,
+    "filename": "epicrealism_naturalSinRC1VAE.safetensors",
     "types": [
       "checkpoints"
-    ],
-    "file_size": 2132625612
+    ]
   },
   "SDXL_lightning_4step": {
     "regexes": [
