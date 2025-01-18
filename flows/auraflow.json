@@ -1,0 +1,219 @@
+{
+  "1": {
+    "inputs": {
+      "ckpt_name": "auraflow_v03.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "2": {
+    "inputs": {
+      "shift": 1.73,
+      "model": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingAuraFlow",
+    "_meta": {
+      "title": "ModelSamplingAuraFlow"
+    }
+  },
+  "3": {
+    "inputs": {
+      "seed": 884509013139832,
+      "steps": [
+        "12",
+        0
+      ],
+      "cfg": [
+        "10",
+        0
+      ],
+      "sampler_name": "uni_pc",
+      "scheduler": "normal",
+      "denoise": 1,
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "4",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "4": {
+    "inputs": {
+      "text": [
+        "13",
+        0
+      ],
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "5": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "1",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "6": {
+    "inputs": {
+      "width": [
+        "11",
+        1
+      ],
+      "height": [
+        "11",
+        2
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "7": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "1",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "8": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "9": {
+    "inputs": {
+      "name": "auraflow",
+      "display_name": "AuraFlow",
+      "description": "True open source (FOSS) model, but not very fast.",
+      "author": "bigcat88",
+      "homepage": "https://huggingface.co/fal/AuraFlow-v0.3",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"general\", \"simple\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true,
+      "is_macos_supported": true,
+      "required_memory_gb": 8
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "10": {
+    "inputs": {
+      "value": 3.5,
+      "display_name": "Vibrancy",
+      "optional": true,
+      "advanced": true,
+      "min": 2,
+      "max": 5,
+      "step": 0.1,
+      "order": 90,
+      "custom_id": "vibrancy",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "11": {
+    "inputs": {
+      "aspect_ratio": "1:1"
+    },
+    "class_type": "SDXLAspectRatioSelector",
+    "_meta": {
+      "title": "input;Aspect Ratio;optional;advanced;order=2;custom_id=aspect_ratio"
+    }
+  },
+  "12": {
+    "inputs": {
+      "value": 20,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 20,
+      "max": 60,
+      "step": 1,
+      "order": 91,
+      "custom_id": "steps_count",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "13": {
+    "inputs": {
+      "text": "solo majestic wild cat, ethereal ambiance, symmetrical eyes, detailed background, photorealistic, ultra-realistic, 8k, artistic creativity, dreamlike textures",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  }
+}
