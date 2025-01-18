@@ -10,18 +10,20 @@ from datetime import datetime
 from pathlib import Path
 
 import httpx
+import yaml
 from pydantic import BaseModel, Field
 
 os.chdir(Path(__file__).parent)
 
 SERVER_URL = os.environ.get("SERVER_URL", "http://127.0.0.1:8288")
 REMOVE_RESULTS_FROM_VISIONATRIX = int(os.environ.get("REMOVE_RESULTS", "1"))
-DEFAULT_NUMBER_OF_TEST_CASE_RUNS = int(os.environ.get("COUNT", "2"))
+DEFAULT_NUMBER_OF_TEST_CASE_RUNS = min(int(os.environ.get("COUNT", "2")), 3)
 HARDWARE = os.environ.get("HARDWARE", "YOUR_CPU-YOUR_GPU").strip("\"'")
 FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "1800"))
 TEST_START_TIME = datetime.now()
 RESULTS_DIR: Path
 SELECTED_WORKER: dict
+AUTOMATIC_INSTALL = True  # do not ask before installing flows for test suites
 
 USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", "admin"), os.getenv(
     "USER_PASSWORD", "admin"
@@ -31,52 +33,53 @@ BASIC_AUTH = (
 )
 if BASIC_AUTH:
     print(f"Using authentication for connect, user: '{USER_NAME}'")
+
 PAUSE_INTERVAL = int(os.environ.get("PAUSE_INTERVAL", "0"))
 PAUSE_INTERVAL_AFTER_WARMUP = int(os.environ.get("PAUSE_INTERVAL_AFTER_WARMUP", "0"))
 UNLOAD_MODELS_BEFORE_WARMUP = os.environ.get("UNLOAD_MODELS_BEFORE_WARMUP", "1")
 EXECUTION_PROFILER = True
 
 FIRST_TEST_FLAG = True
+SELECTED_TEST_FLOW_SUITES: list[tuple[str, list["FlowTest"]]] = []
 SELECTED_TEST_FLOW_SUITE = []
-SELECTED_TEST_FLOW_SUITES = []
 INSTALLED_FLOWS_CACHE = []
+
+PARALLEL_INSTALLS = 5
+
+GLOBAL_PROMPTS: dict[str, list[str]] = {}
 
 
 class TestCase(BaseModel):
-    name: str = Field(
-        ..., description="The name of the test case for this specific flow."
-    )
+    name: str = Field(..., description="Name of the test case for this specific flow.")
     input_params: dict[str, typing.Any] = Field(
         {},
-        description="A set of input parameters to pass to the flow during the task creation.",
+        description="Parameters for the flow. If a key has a list value, we handle it the same as prompt lists.",
     )
-    input_files: dict[str, str | Path] = Field(
+    input_files: dict[str, str | Path | list[str | Path]] = Field(
         {},
-        description="A set of input files to pass to the flow during the task creation.",
+        description="Files to pass to the flow. Each key can be a single string or a list of strings.",
     )
     count: int = Field(
         DEFAULT_NUMBER_OF_TEST_CASE_RUNS,
-        description="Number of task executions to perform after the warm-up run.",
+        description="Number of task executions to perform (beyond warm-up).",
     )
 
 
 class FlowTest(BaseModel):
-    flow_name: str = Field(..., description="The name of the flow that will be tested.")
+    flow_name: str = Field(..., description="Name of the flow that will be tested.")
     test_cases: list[TestCase] = Field(
         ...,
-        description="A list of test cases with different parameter sets for this flow.",
+        description="List of test cases with different parameter sets for this flow.",
     )
 
 
 def validate_flows_test_cases(flows_test_cases: list[FlowTest]):
-    # Ensure flow_name is unique
     flow_names = set()
     for flow_test in flows_test_cases:
         if flow_test.flow_name in flow_names:
             raise ValueError(f"Duplicate flow_name found: {flow_test.flow_name}")
         flow_names.add(flow_test.flow_name)
 
-        # Ensure test_names is unique within each FlowTest
         test_names = set()
         for test_case in flow_test.test_cases:
             if test_case.name in test_names:
@@ -86,322 +89,11 @@ def validate_flows_test_cases(flows_test_cases: list[FlowTest]):
             test_names.add(test_case.name)
 
 
-TEST_CASES_SDXL = [
-    FlowTest(
-        flow_name="sdxl_lighting",
-        test_cases=[
-            TestCase(
-                name="lighting",
-                input_params={"prompt": "green apple", "steps_number": "8 steps"},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="juggernaut_lite",
-        test_cases=[
-            TestCase(name="lighting", input_params={"prompt": "green apple"}),
-        ],
-    ),
-    FlowTest(
-        flow_name="juggernaut_xl",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={
-                    "prompt": "green apple",
-                    "fast_run": False,
-                },
-            ),
-            TestCase(
-                name="fast_run",
-                input_params={
-                    "prompt": "green apple",
-                    "fast_run": True,
-                },
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="colorful_xl",
-        test_cases=[
-            TestCase(
-                name="fast_run",
-                input_params={
-                    "prompt": "green apple",
-                    "fast_run": True,
-                    "steps_count": 45,
-                },
-            ),
-            TestCase(
-                name="default",
-                input_params={
-                    "prompt": "green apple",
-                    "fast_run": False,
-                    "steps_count": 45,
-                },
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="mobius_xl",
-        test_cases=[
-            TestCase(
-                name="fast_run",
-                input_params={
-                    "prompt": "green apple",
-                    "fast_run": True,
-                },
-            ),
-            TestCase(
-                name="default",
-                input_params={
-                    "prompt": "green apple",
-                    "fast_run": False,
-                },
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="playground_2_5_aesthetic",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={
-                    "prompt": "green apple",
-                    "fast_run": False,
-                },
-            ),
-            TestCase(
-                name="fast_run",
-                input_params={
-                    "prompt": "green apple",
-                    "fast_run": True,
-                },
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="playground_2_5_prometheus",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={"prompt": "green apple", "steps_count": 45},
-            ),
-        ],
-    ),
-]
-TEST_CASES_PORTRAITS = [
-    FlowTest(
-        flow_name="vintage_portrait",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={"prompt": "hero portrait"},
-                input_files={"person_face": "man.png"},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="sketch_portrait",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={"prompt": "hero portrait"},
-                input_files={"person_face": "man.png"},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="comicu_portrait",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={"prompt": "hero portrait"},
-                input_files={"person_face": "man.png"},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="ghibli_portrait",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={"prompt": "hero portrait"},
-                input_files={"person_face": "man.png"},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="memoji_portrait",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={"prompt": "man, portrait, close up"},
-                input_files={"person_face": "man.png"},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="photomaker_1",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={"prompt": "portrait of a man"},
-                input_files={"person_face": "man.png"},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="photo_stickers",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_files={"person_face": "man.png"},
-            ),
-        ],
-    ),
-]
-TEST_CASES_OTHER = [
-    FlowTest(
-        flow_name="stable_cascade",
-        test_cases=[
-            TestCase(
-                name="one_pass",
-                input_params={"prompt": "green apple", "pass_count": "One pass"},
-            ),
-            TestCase(
-                name="two_pass",
-                input_params={"prompt": "green apple", "pass_count": "Two pass"},
-            ),
-            TestCase(
-                name="three_pass",
-                input_params={"prompt": "green apple", "pass_count": "Three pass"},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="remove_background_birefnet",
-        test_cases=[
-            TestCase(
-                name="Remove Background",
-                input_files={"input_image": "man.png"},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="remove_background_bria",
-        test_cases=[
-            TestCase(
-                name="Remove Background",
-                input_files={"input_image": "man.png"},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="supir_upscaler",
-        test_cases=[
-            TestCase(
-                name="1.5x Scale",
-                input_params={"scale_factor": 1.5},
-                input_files={"image_to_upscale": "man.png"},
-            ),
-        ],
-    ),
-]
-TEST_CASES_DIT = [
-    FlowTest(
-        flow_name="hunyuan_dit",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={"prompt": "green apple", "steps_count": 45},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="flux1_dev_8bit",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={"prompt": "green apple", "steps_count": 45},
-            ),
-        ],
-    ),
-    FlowTest(
-        flow_name="flux1_schnell_8bit",
-        test_cases=[
-            TestCase(name="lighting", input_params={"prompt": "green apple"}),
-        ],
-    ),
-]
-TEST_CASES_HEAVY = [
-    FlowTest(
-        flow_name="flux1_dev",
-        test_cases=[
-            TestCase(
-                name="default",
-                input_params={"prompt": "green apple", "steps_count": 45},
-            ),
-        ],
-    ),
-]
-validate_flows_test_cases(
-    TEST_CASES_SDXL
-    + TEST_CASES_PORTRAITS
-    + TEST_CASES_OTHER
-    + TEST_CASES_DIT
-    + TEST_CASES_HEAVY
-)
-
-
-async def select_test_flow_suite():
-    global SELECTED_TEST_FLOW_SUITES  # Now a list of tuples (suite_name, suite_test_cases)
-
-    print("Please select the test suites you want to run:")
-    print("1. SDXL Suite")
-    print("2. PORTRAITS Suite")
-    print("3. OTHER Suite")
-    print("4. DiT(FLUX, ..) Suite")
-    print("5. HEAVY(24GB+ VRAM) Suite")
-
-    user_choice = input(
-        "Enter the numbers of the suites to run, separated by commas (e.g., 1,3,5): "
-    )
-
-    selected_numbers = [num.strip() for num in user_choice.split(",")]
-    SELECTED_TEST_FLOW_SUITES = []
-
-    for num in selected_numbers:
-        if num == "1":
-            SELECTED_TEST_FLOW_SUITES.append(("SDXL", TEST_CASES_SDXL))
-            print("Selected SDXL Suite.")
-        elif num == "2":
-            SELECTED_TEST_FLOW_SUITES.append(("PORTRAITS", TEST_CASES_PORTRAITS))
-            print("Selected PORTRAITS Suite.")
-        elif num == "3":
-            SELECTED_TEST_FLOW_SUITES.append(("OTHER", TEST_CASES_OTHER))
-            print("Selected OTHER Suite.")
-        elif num == "4":
-            SELECTED_TEST_FLOW_SUITES.append(("DIT", TEST_CASES_DIT))
-            print("Selected DIT Suite.")
-        elif num == "5":
-            SELECTED_TEST_FLOW_SUITES.append(("HEAVY", TEST_CASES_HEAVY))
-            print("Selected HEAVY Suite.")
-        else:
-            print(f"Invalid selection '{num}'. Skipping.")
-
-    if not SELECTED_TEST_FLOW_SUITES:
-        print(
-            "No valid suites selected. Please restart and select at least one valid suite."
-        )
-        exit(1)
-
-
 async def is_server_online() -> bool:
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             response = await client.get(f"{SERVER_URL}/vapi/flows/installed")
-            response.raise_for_status()  # Ensure server responds correctly
+            response.raise_for_status()
             return True
         except (httpx.RequestError, httpx.HTTPStatusError):
             print(f"Server at {SERVER_URL} is unreachable.")
@@ -410,7 +102,6 @@ async def is_server_online() -> bool:
 
 async def get_installed_flows() -> list:
     global INSTALLED_FLOWS_CACHE
-
     if INSTALLED_FLOWS_CACHE:
         return INSTALLED_FLOWS_CACHE
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
@@ -462,7 +153,9 @@ async def wait_for_installation_to_complete(
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         while elapsed_time < timeout:
             try:
-                response = await client.get(f"{SERVER_URL}/vapi/flows/install-progress")
+                response = await client.get(
+                    f"{SERVER_URL}/vapi/flows/install-progress", timeout=15
+                )
                 response.raise_for_status()
                 install_progress = response.json()
 
@@ -488,7 +181,7 @@ async def wait_for_installation_to_complete(
             except httpx.ReadTimeout:
                 max_read_timeout_count -= 1
                 print(
-                    f"Flow '{flow_name}': ReadTimeout error during installation progress check, "
+                    f"Flow '{flow_name}': ReadTimeout during installation progress check, "
                     f"continuing... {max_read_timeout_count} tries left"
                 )
                 if not max_read_timeout_count:
@@ -515,14 +208,17 @@ async def create_task(
 ) -> list[int]:
     files_to_upload = {}
     if input_files:
-        # Load from the "input_files" directory
-        for param_id, file_name in input_files.items():
-            file_path = os.path.join("input_files", file_name)
-            try:
-                files_to_upload[param_id] = open(file_path, "rb")
-            except FileNotFoundError:
-                print(f"File {file_name} not found in the input_files directory.")
-                return []
+        for param_id, file_value in input_files.items():
+            if isinstance(file_value, (str, Path)):
+                file_path = os.path.join("input_files", str(file_value))
+                try:
+                    files_to_upload[param_id] = open(file_path, "rb")
+                except FileNotFoundError:
+                    print(f"File {file_value} not found in the input_files directory.")
+                    return []
+            else:
+                # Should not happen here if we handle array logic externally
+                print(f"Unexpected file list for key={param_id}: {file_value}")
 
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
@@ -554,7 +250,6 @@ async def create_task(
         except httpx.RequestError as exc:
             print(f"An error occurred during task creation: {exc.request.url!r}: {exc}")
         finally:
-            # Close file handlers
             for file_handle in files_to_upload.values():
                 file_handle.close()
 
@@ -568,7 +263,7 @@ async def get_task_progress(task_id: int, poll_interval: int = 5) -> dict:
         while True:
             try:
                 response = await client.get(
-                    f"{SERVER_URL}/vapi/tasks/progress/{task_id}"
+                    f"{SERVER_URL}/vapi/tasks/progress/{task_id}", timeout=15
                 )
                 if response.status_code == 200:
                     task_data = response.json()
@@ -583,14 +278,12 @@ async def get_task_progress(task_id: int, poll_interval: int = 5) -> dict:
                             f"Task `{task_data['name']}` with id={task_id}, progress: 100%"
                         )
                         return task_data
-                    if progress > 0.0:
-                        # Only print progress if it has increased
-                        if progress != previous_progress:
-                            rounded_task_progress = math.floor(progress * 10) / 10
-                            print(
-                                f"Task `{task_data['name']}` with id={task_id}, progress: {rounded_task_progress}%"
-                            )
-                            previous_progress = progress
+                    if progress > 0.0 and progress != previous_progress:
+                        rounded_flow_progress = math.floor(progress * 10) / 10
+                        print(
+                            f"Task `{task_data['name']}` with id={task_id}, progress: {rounded_flow_progress}%"
+                        )
+                        previous_progress = progress
                         max_read_timeout_count = 20
                 await asyncio.sleep(poll_interval)
             except httpx.ReadTimeout:
@@ -607,14 +300,82 @@ async def get_task_progress(task_id: int, poll_interval: int = 5) -> dict:
                 return {"error": "request_error"}
 
 
+def split_value_for_warmup_and_runs(
+    value: typing.Any, count: int, suite_prompts: list[str] | None = None
+) -> tuple[typing.Any, list[typing.Any]]:
+    """
+    Given a value from either input_params or input_files, decide how to split it for warm-up
+    vs. main runs. If it's a list, first item is warm-up, the rest are subsequent runs.
+    If empty list, we might use suite_prompts logic (only for prompt?), but for input_files
+    it should just be blank, or we warn. If it's a single item, we use that for all runs.
+    """
+    if isinstance(value, list):
+        if not value and suite_prompts is not None:
+            # For 'prompt' in input_params, we might do top-level suite prompts logic
+            # but for input_files, we can't do that automatically. We'll just leave it blank.
+            # We'll do the same logic as we do for "prompt" => first item = warmup, rest = subsequent
+            if suite_prompts:
+                warmup_val = suite_prompts[0] if len(suite_prompts) > 0 else ""
+                subsequent_vals = suite_prompts[1 : count + 1]
+                return warmup_val, subsequent_vals
+            else:
+                return "", ["" for _ in range(count)]
+        else:
+            warmup_val = value[0] if len(value) > 0 else ""
+            subsequent_vals = value[1 : count + 1]
+            return warmup_val, subsequent_vals
+    else:
+        # Single value => same for all runs
+        return value, [value for _ in range(count)]
+
+
+def build_warmup_and_runs_dict(
+    params: dict[str, typing.Any],
+    suite_identifier: str,
+    count: int,
+    is_input_files: bool,
+) -> tuple[dict[str, typing.Any], list[dict[str, typing.Any]]]:
+    """
+    For each key in `params`, figure out the warm-up value and subsequent values.
+    Return (warmup_dict, [dict_for_run0, dict_for_run1, ...]).
+    If it's for prompt and is an empty list, we might use the top-level PROMPTS suite logic.
+    If it's for input_files with a list, we do the same approach (first => warmup, subsequent => next runs).
+    """
+    warmup_dict = {}
+    runs_list = [dict() for _ in range(count)]
+
+    for key, value in params.items():
+        suite_prompts = None
+        # If it's the special "prompt" key in input_params and we have an empty list => use top-level suite prompts
+        # For input_files, we do not have top-level suite prompts, so we skip
+        if (
+            not is_input_files
+            and key == "prompt"
+            and isinstance(value, list)
+            and not value
+        ):
+            suite_prompts = GLOBAL_PROMPTS.get(suite_identifier, [])
+
+        warmup_val, subsequent_vals = split_value_for_warmup_and_runs(
+            value, count, suite_prompts
+        )
+        warmup_dict[key] = warmup_val
+
+        for i in range(count):
+            runs_list[i][key] = (
+                subsequent_vals[i] if i < len(subsequent_vals) else warmup_val
+            )
+            # If the list is too short, we fallback to the warmup_val
+
+    return warmup_dict, runs_list
+
+
 async def run_test_case(
     flow_name: str,
     test_case: TestCase,
-    results_summary: dict,
     test_semaphore: asyncio.Semaphore,
     suite_identifier: str,
 ):
-    # Use the test_semaphore to limit concurrent tests
     async with test_semaphore:
         global FIRST_TEST_FLAG
 
@@ -627,230 +388,204 @@ async def run_test_case(
                 )
                 await asyncio.sleep(PAUSE_INTERVAL)
 
-        input_params = test_case.input_params
-        input_files = test_case.input_files
-
-        # Check if results already exist for this test case
-        flow_results = results_summary.setdefault(flow_name, {})
-        test_case_results = flow_results.setdefault(test_case.name, set())
-
-        # Load existing results for this test case
         flow_test_case_dir = os.path.join(RESULTS_DIR, f"{flow_name}__{test_case.name}")
         metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
         existing_configurations = set()
         if os.path.exists(metadata_file):
             with open(metadata_file, "r") as f:
-                metadata = json.load(f)
-                existing_configurations.update(metadata["results"].keys())
-
-        test_case_results.update(existing_configurations)
+                try:
+                    metadata = json.load(f)
+                    if "results" in metadata:
+                        existing_configurations.update(metadata["results"].keys())
+                except json.JSONDecodeError:
+                    pass
 
         worker_engine_details = SELECTED_WORKER["engine_details"]
-        configuration_key = f"{worker_engine_details['vram_state']}_disable_smart_memory_{worker_engine_details['disable_smart_memory']}"
-        # Check if results for this configuration already exist
-        if configuration_key in test_case_results:
+        configuration_key = (
+            f"{worker_engine_details['vram_state']}_disable_smart_memory_"
+            f"{worker_engine_details['disable_smart_memory']}"
+        )
+
+        if configuration_key in existing_configurations:
             print(
-                f"Results for flow '{flow_name}', test case '{test_case.name}', configuration '{configuration_key}' already exist. Skipping."
+                f"Results for flow '{flow_name}', test case '{test_case.name}', "
+                f"configuration '{configuration_key}' already exist. Skipping."
             )
             return
 
-        print(f"Warming up... (flow_name={flow_name}, test_case={test_case.name})")
-        warmup_task_id = await create_task(
-            flow_name, input_params, 1, input_files, True
+        # Build warm-up vs subsequent runs for input_params
+        warmup_params, run_params_list = build_warmup_and_runs_dict(
+            test_case.input_params,
+            suite_identifier,
+            test_case.count,
+            is_input_files=False,
         )
-        if not warmup_task_id:
+
+        # Build warm-up vs subsequent runs for input_files
+        warmup_files, run_files_list = build_warmup_and_runs_dict(
+            test_case.input_files,
+            suite_identifier,
+            test_case.count,
+            is_input_files=True,
+        )
+
+        print(
+            f"\n------\nRunning test '{test_case.name}' for flow '{flow_name}', config '{configuration_key}'\n"
+        )
+
+        # --- Warm-up ---
+        print("Warming up task...")
+
+        warmup_task_ids = await create_task(
+            flow_name=flow_name,
+            input_params=warmup_params,
+            count=1,
+            input_files=warmup_files,
+            warm_up=True,
+        )
+        if not warmup_task_ids:
             print(
                 f"Failed to create warmup task for flow '{flow_name}', test case: {test_case.name}"
             )
             return
-        r = await get_task_progress(warmup_task_id[0])
-        if r.get("error", ""):
+
+        wr = await get_task_progress(warmup_task_ids[0])
+        if wr.get("error"):
             print(
-                f"Failed to finish warmup task for flow '{flow_name}', test case: {test_case.name}"
-                f"\nError: {r['error']}"
+                f"Failed warmup task for flow '{flow_name}', test case: {test_case.name} with error: {wr['error']}"
             )
             return
-        if REMOVE_RESULTS_FROM_VISIONATRIX:
-            await delete_task(warmup_task_id[0])
+        warmup_result = wr
+
         if PAUSE_INTERVAL_AFTER_WARMUP:
-            print(f"Pausing for {PAUSE_INTERVAL_AFTER_WARMUP} seconds after warmup.")
+            print(f"Pausing {PAUSE_INTERVAL_AFTER_WARMUP}s after warmup.")
             await asyncio.sleep(PAUSE_INTERVAL_AFTER_WARMUP)
 
-        # Proceed to run the actual test
-        # Create tasks, passing input files if present
-        task_ids = await create_task(
-            flow_name, input_params, test_case.count, input_files, False
-        )
-        if not task_ids:
-            print(
-                f"Failed to create tasks for flow '{flow_name}', test case: {test_case.name}"
+        # --- Main runs ---
+        all_test_runs_results = []
+        for i in range(test_case.count):
+            rp = run_params_list[i]
+            rf = run_files_list[i]
+
+            # Just printing a short summary if there's a prompt in rp
+            maybe_prompt = rp.get("prompt", "")
+            if isinstance(maybe_prompt, str) and maybe_prompt.strip():
+                print(f"Creating main run #{i+1} with prompt='{maybe_prompt}'")
+            else:
+                print(f"Creating main run #{i+1}")
+
+            task_ids = await create_task(
+                flow_name=flow_name,
+                input_params=rp,
+                count=1,
+                input_files=rf,
+                warm_up=False,
             )
-            return
-
-        # Create a list of coroutines for task progress
-        task_progress_coroutines = [get_task_progress(task_id) for task_id in task_ids]
-        task_results = await asyncio.gather(*task_progress_coroutines)
-
-        # Save results and capture summary
-        summary = await save_results(
-            flow_name,
-            test_case.name,
-            test_case,
-            task_results,
-            worker_engine_details["vram_state"],
-            worker_engine_details["disable_smart_memory"],
-        )
-        if summary:
-            # Save the updated results summary after each test case
-            await generate_results_summary_json(results_summary, suite_identifier)
-
-
-async def process_flow(
-    flow_test: FlowTest,
-    results_summary: dict,
-    installation_semaphore: asyncio.Semaphore,
-    test_semaphore: asyncio.Semaphore,
-    suite_identifier: str,
-):
-    flow_name = flow_test.flow_name
-
-    # Initialize the flow in the results summary if not already present
-    if flow_name not in results_summary:
-        results_summary[flow_name] = {}
-
-    # Check if the flow is installed
-    if not await is_flow_installed(flow_name):
-        print(f"Flow '{flow_name}' is not installed. Installing now...")
-
-        # Use semaphore to ensure only one installation at a time
-        async with installation_semaphore:
-            success = await install_flow(flow_name)
-            if not success:
-                print(f"Failed to install flow '{flow_name}'.")
-                return
-    else:
-        print(f"Flow '{flow_name}' is already installed.")
-
-    for test_case in flow_test.test_cases:
-        await run_test_case(
-            flow_name, test_case, results_summary, test_semaphore, suite_identifier
-        )
-
-
-async def load_results_summary() -> dict:
-    # Initialize empty results summary
-    results_summary = {}
-
-    # Load existing results for the selected test suite
-    for flow_test in SELECTED_TEST_FLOW_SUITE:
-        flow_name = flow_test.flow_name
-        flow_results = results_summary.setdefault(flow_name, {})
-        for test_case in flow_test.test_cases:
-            test_case_name = test_case.name
-            test_case_results = flow_results.setdefault(test_case_name, set())
-
-            flow_test_case_dir = os.path.join(
-                RESULTS_DIR, f"{flow_name}__{test_case_name}"
-            )
-            metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
-
-            if os.path.exists(metadata_file):
-                with open(metadata_file, "r") as f:
-                    metadata = json.load(f)
-                    existing_configurations = set(metadata["results"].keys())
-                    test_case_results.update(existing_configurations)
-
-    return results_summary
-
-
-async def benchmarker():
-    # Check if the server is online
-    if not await is_server_online():
-        print("Cannot proceed as the server is down.")
-        return
-
-    await select_worker()
-
-    # Ask the user which suites to run
-    await select_test_flow_suite()
-
-    # Semaphores to control concurrency
-    installation_semaphore = asyncio.Semaphore(1)  # Only 1 flow installation at a time
-    test_semaphore = asyncio.Semaphore(1)  # Only 1 test runs at a time
-
-    for suite_name, suite_test_cases in SELECTED_TEST_FLOW_SUITES:
-        global RESULTS_DIR, SELECTED_TEST_FLOW_SUITE
-        SELECTED_TEST_FLOW_SUITE = suite_test_cases
-
-        # Set RESULTS_DIR based on the selected suite
-        RESULTS_DIR = Path("results").joinpath(
-            f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_name}"
-        )
-
-        print(f"\nRunning test suite: {suite_name}\n")
-
-        # Load existing results if available
-        results_summary = await load_results_summary()
-
-        flow_tasks = []
-
-        for flow_test in SELECTED_TEST_FLOW_SUITE:
-            flow_task = asyncio.create_task(
-                process_flow(
-                    flow_test,
-                    results_summary,
-                    installation_semaphore,
-                    test_semaphore,
-                    suite_name,
+            if not task_ids:
+                print(
+                    f"Failed to create test run task for flow '{flow_name}', test case: {test_case.name}"
                 )
-            )
-            flow_tasks.append(flow_task)
+                continue
 
-        await asyncio.gather(*flow_tasks)
+            r = await get_task_progress(task_ids[0])
+            r["input_params"] = rp
+            all_test_runs_results.append(r)
 
-        # Generate results summary after each suite is done
-        await generate_results_summary_json(results_summary, suite_name)
+        await save_results(
+            flow_name=flow_name,
+            test_case_name=test_case.name,
+            test_case=test_case,
+            warmup_result=warmup_result,
+            main_task_results=all_test_runs_results,
+            vram_state=worker_engine_details["vram_state"],
+            disable_smart_memory=worker_engine_details["disable_smart_memory"],
+        )
+
+
+async def install_flows_in_parallel(flow_names: list[str]) -> dict[str, bool]:
+    semaphore = asyncio.Semaphore(PARALLEL_INSTALLS)
+    results = {}
+
+    async def install_one_flow(name: str):
+        async with semaphore:
+            if await is_flow_installed(name):
+                print(f"Flow '{name}' is already installed.")
+                results[name] = True
+            else:
+                success = await install_flow(name)
+                results[name] = success
+
+    tasks = [asyncio.create_task(install_one_flow(fname)) for fname in flow_names]
+    await asyncio.gather(*tasks)
+
+    return results
+
+
+def is_flow_fully_tested_for_config(
+    flow_test: FlowTest, config_key: str, results_folder: Path
+) -> bool:
+    """
+    Returns True if *all* test cases for the given flow_test
+    have already been completed for the specified config_key.
+    """
+    for tc in flow_test.test_cases:
+        test_case_dir = results_folder.joinpath(f"{flow_test.flow_name}__{tc.name}")
+        metadata_file = test_case_dir.joinpath("metadata.json")
+
+        if not metadata_file.exists():
+            return False
+        try:
+            with open(metadata_file, "r") as f:
+                metadata = json.load(f)
+            flow_results = metadata.get("results", {})
+            if config_key not in flow_results:
+                return False
+        except (json.JSONDecodeError, OSError):
+            return False
+    return True
 
 
 async def save_results(
     flow_name: str,
     test_case_name: str,
     test_case: TestCase,
-    task_results: list,
+    warmup_result: dict | None,
+    main_task_results: list[dict],
     vram_state: str,
     disable_smart_memory: typing.Union[bool, str],
 ):
-    # Ensure results directory exists
     os.makedirs(RESULTS_DIR, exist_ok=True)
     flow_test_case_dir = os.path.join(RESULTS_DIR, f"{flow_name}__{test_case_name}")
     os.makedirs(flow_test_case_dir, exist_ok=True)
 
-    failed_tasks = [task for task in task_results if task.get("error")]
-    if failed_tasks:
+    valid_main_tasks = [t for t in main_task_results if not t.get("error")]
+    if not main_task_results or not valid_main_tasks:
         print(
-            f"Some tasks failed for flow '{flow_name}', test case '{test_case_name}' with errors:"
+            f"No valid tasks to summarize for flow '{flow_name}', test case '{test_case_name}'."
         )
-        for i in failed_tasks:
-            print(i["error"])
 
-    # Calculate summary statistics
     execution_times = [
-        task["execution_time"] for task in task_results if "execution_time" in task
+        task["execution_time"] for task in valid_main_tasks if "execution_time" in task
     ]
-    if not execution_times:
-        return None  # No valid execution times, skip saving
+    summary = {}
+    if execution_times:
+        summary = {
+            "min_exec_time": min(execution_times),
+            "max_exec_time": max(execution_times),
+            "avg_exec_time": statistics.mean(execution_times),
+        }
 
-    summary = {
-        "min_exec_time": min(execution_times),
-        "max_exec_time": max(execution_times),
-        "avg_exec_time": statistics.mean(execution_times),
-    }
-
-    # Load existing metadata if available
     metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
     if os.path.exists(metadata_file):
-        with open(metadata_file, "r") as f:
-            metadata = json.load(f)
+        try:
+            with open(metadata_file, "r") as f:
+                metadata = json.load(f)
+        except json.JSONDecodeError:
+            metadata = {
+                "flow_name": flow_name,
+                "test_case": test_case.model_dump(),
+                "results": {},
+            }
     else:
         metadata = {
             "flow_name": flow_name,
@@ -858,18 +593,32 @@ async def save_results(
             "results": {},
         }
 
-    # Remove 'flow_comfy' from task results
-    for task in task_results:
-        task.pop("flow_comfy", None)  # We saved it in a separate file
-
-    # Update the results for the current configuration
     configuration_key = f"{vram_state}_disable_smart_memory_{disable_smart_memory}"
-    metadata["results"][configuration_key] = {
-        "summary": summary,
-        "task_results": task_results,
-    }
+    metadata["results"].setdefault(configuration_key, {})
 
-    # Save updated metadata
+    if warmup_result:
+        metadata["results"][configuration_key]["warmup_task_results"] = [warmup_result]
+        if not warmup_result.get("error"):
+            for output in warmup_result.get("outputs", []):
+                node_id = output.get("comfy_node_id")
+                if node_id:
+                    output_data = await get_task_results(
+                        warmup_result["task_id"], node_id
+                    )
+                    if output_data:
+                        warmup_png = os.path.join(
+                            flow_test_case_dir,
+                            f"warmup_task_{warmup_result['task_id']}_node_{node_id}_{configuration_key}.png",
+                        )
+                        with open(warmup_png, "wb") as fw:
+                            fw.write(output_data)
+                        print(f"Warm-up PNG saved to: {warmup_png}")
+            if REMOVE_RESULTS_FROM_VISIONATRIX:
+                await delete_task(warmup_result["task_id"])
+
+    metadata["results"][configuration_key]["summary"] = summary
+    metadata["results"][configuration_key]["task_results"] = main_task_results
+
     with open(metadata_file, "w") as f:
         json.dump(metadata, f, indent=4)
 
@@ -877,63 +626,26 @@ async def save_results(
         f"Results saved to {flow_test_case_dir} for configuration '{configuration_key}'"
     )
 
-    # Save outputs for each task
-    for task in task_results:
+    for task in main_task_results:
+        if task.get("error"):
+            continue
         task_id = task.get("task_id")
-        if task_id:
-            for output in task.get("outputs", []):
-                node_id = output.get("comfy_node_id")
-                if node_id:
-                    output_data = await get_task_results(task_id, node_id)
-                    if output_data:
-                        await save_output(
-                            flow_test_case_dir,
-                            task_id,
-                            node_id,
-                            output_data,
-                            configuration_key=configuration_key,
-                        )
-
-            if REMOVE_RESULTS_FROM_VISIONATRIX:
-                await delete_task(task_id)
-
-    # Save the flow_comfy from the first task that has it
-    for result in task_results:
-        if "flow_comfy" in result:
-            await save_flow_comfy(
-                flow_name, test_case_name, result["flow_comfy"], configuration_key
-            )
-            break  # No need to check further once saved
-
-    return summary
-
-
-async def delete_task(task_id: int) -> None:
-    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
-        try:
-            response = await client.delete(
-                f"{SERVER_URL}/vapi/tasks/task", params={"task_id": task_id}
-            )
-            if response.status_code != 204:
-                print(
-                    f"Failed to delete results for task {task_id}. Status code: {response.status_code}"
-                )
-        except httpx.RequestError as exc:
-            print(
-                f"An error occurred while deleting task results: {exc.request.url!r}: {exc}"
-            )
-
-
-async def save_flow_comfy(
-    flow_name: str, test_case_name: str, flow_comfy: dict, configuration_key: str
-):
-    flow_test_case_dir = os.path.join(RESULTS_DIR, f"{flow_name}__{test_case_name}")
-    os.makedirs(flow_test_case_dir, exist_ok=True)
-    flow_comfy_file = os.path.join(
-        flow_test_case_dir, f"flow_comfy_{configuration_key}.json"
-    )
-    with open(flow_comfy_file, "w") as f:
-        json.dump(flow_comfy, f, indent=4)
+        if not task_id:
+            continue
+        for output in task.get("outputs", []):
+            node_id = output.get("comfy_node_id")
+            if node_id:
+                output_data = await get_task_results(task_id, node_id)
+                if output_data:
+                    await save_output(
+                        flow_test_case_dir,
+                        task_id,
+                        node_id,
+                        output_data,
+                        configuration_key=configuration_key,
+                    )
+        if REMOVE_RESULTS_FROM_VISIONATRIX:
+            await delete_task(task_id)
 
 
 async def get_task_results(task_id: int, node_id: int) -> bytes:
@@ -942,17 +654,18 @@ async def get_task_results(task_id: int, node_id: int) -> bytes:
             response = await client.get(
                 f"{SERVER_URL}/vapi/tasks/results",
                 params={"task_id": task_id, "node_id": node_id},
+                timeout=15,
             )
             if response.status_code == 200:
-                return response.content  # File content as bytes
+                return response.content
             print(
-                f"Failed to get results for task {task_id}, node {node_id}. Status code: {response.status_code}"
+                f"Failed to get results for task {task_id}, node {node_id}. Status: {response.status_code}"
             )
         except httpx.RequestError as exc:
             print(
                 f"An error occurred while fetching task results: {exc.request.url!r}: {exc}"
             )
-        return b""  # Return empty bytes if there is an error
+        return b""
 
 
 async def save_output(
@@ -963,98 +676,133 @@ async def save_output(
     configuration_key: str,
     file_extension: str = "png",
 ):
-    # Create the output file path, appending file extension
     output_file = os.path.join(
         flow_test_case_dir,
         f"result__task_{task_id}_node_{node_id}_{configuration_key}.{file_extension}",
     )
     with open(output_file, "wb") as f:
-        f.write(output_data)  # Write binary data to the file
+        f.write(output_data)
     print(
-        f"Output saved for task {task_id}, node {node_id}, configuration '{configuration_key}' to {output_file}"
+        f"Output saved for task {task_id}, node {node_id}, config '{configuration_key}' => {output_file}"
     )
 
 
-async def generate_results_summary_json(results_summary: dict, suite_identifier: str):
+async def delete_task(task_id: int) -> None:
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
+        try:
+            response = await client.delete(
+                f"{SERVER_URL}/vapi/tasks/task", params={"task_id": task_id}
+            )
+            if response.status_code != 204:
+                print(
+                    f"Failed to delete task {task_id}. Status code: {response.status_code}"
+                )
+        except httpx.RequestError as exc:
+            print(
+                f"An error occurred while deleting task results: {exc.request.url!r}: {exc}"
+            )
+
+
+async def generate_results_summary_json(suite_identifier: str):
     summary_file = os.path.join(
         RESULTS_DIR,
         f"summary-{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_identifier}.json",
     )
 
-    results_data = {
+    old_summary_data = None
+    if os.path.exists(summary_file):
+        try:
+            with open(summary_file, "r", encoding="utf-8") as f:
+                old_summary_data = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            old_summary_data = None
+
+    new_summary_data = {
         "test_time": TEST_START_TIME.strftime("%Y/%m/%d"),
         "flows": [],
     }
 
     flows_display_names = await get_flow_display_names()
+    new_flows_map = {}
 
-    # Use results from the current run (results_summary)
-    for flow_name in results_summary.keys():
-        flow_data = {
-            "flow_name": flow_name,
-            "flow_display_name": flows_display_names.get(flow_name, flow_name),
-            "test_cases": [],
-        }
+    for entry in os.scandir(RESULTS_DIR):
+        if not entry.is_dir():
+            continue
+        if "__" not in entry.name:
+            continue
+        metadata_file = os.path.join(entry.path, "metadata.json")
+        if not os.path.exists(metadata_file):
+            continue
 
-        # Read test case results from the corresponding directories
-        flow_test_cases = results_summary[flow_name]
-        for test_case_name in flow_test_cases.keys():
-            flow_test_case_dir = os.path.join(
-                RESULTS_DIR, f"{flow_name}__{test_case_name}"
+        with open(metadata_file, "r") as f:
+            try:
+                metadata = json.load(f)
+            except json.JSONDecodeError:
+                continue
+
+        flow_name = metadata.get("flow_name")
+        if not flow_name:
+            continue
+
+        flow_display = flows_display_names.get(flow_name, flow_name)
+        flow_obj = new_flows_map.setdefault(
+            flow_name,
+            {
+                "flow_name": flow_name,
+                "flow_display_name": flow_display,
+                "test_cases": [],
+            },
+        )
+
+        results = metadata.get("results", {})
+        test_case_name = metadata.get("test_case", {}).get("name", entry.name)
+        for configuration_key, config_results in results.items():
+            summary = config_results.get("summary", {})
+            task_results = config_results.get("task_results", [])
+            max_memory_usages = [
+                details.get("max_memory_usage")
+                for details in (
+                    result.get("execution_details") for result in task_results
+                )
+                if details and details.get("max_memory_usage") is not None
+            ]
+            parts = configuration_key.split("_disable_smart_memory_")
+            if len(parts) == 2:
+                vram_state, disable_smart_memory_str = parts
+                disable_smart_memory = disable_smart_memory_str == "True"
+            else:
+                vram_state = configuration_key
+                disable_smart_memory = None
+
+            flow_obj["test_cases"].append(
+                {
+                    "test_case": test_case_name,
+                    "vram_state": vram_state,
+                    "disable_smart_memory": disable_smart_memory,
+                    "avg_exec_time": summary.get("avg_exec_time"),
+                    "avg_max_memory_usage": (
+                        statistics.mean(max_memory_usages)
+                        if max_memory_usages
+                        else None
+                    ),
+                }
             )
-            metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
 
-            if os.path.exists(metadata_file):
-                with open(metadata_file, "r") as f:
-                    metadata = json.load(f)
-                    results = metadata.get("results", {})
-                    for configuration_key, config_results in results.items():
-                        summary = config_results.get("summary", {})
-                        task_results = config_results.get("task_results", [])
-                        max_memory_usages = [
-                            details.get("max_memory_usage")
-                            for details in (
-                                result.get("execution_details")
-                                for result in task_results
-                            )
-                            if details and details.get("max_memory_usage") is not None
-                        ]
-                        # Parse configuration_key
-                        parts = configuration_key.split("_disable_smart_memory_")
-                        if len(parts) == 2:
-                            vram_state, disable_smart_memory_str = parts
-                            disable_smart_memory = disable_smart_memory_str == "True"
-                        else:
-                            vram_state = configuration_key
-                            disable_smart_memory = None
-                        flow_data["test_cases"].append(
-                            {
-                                "test_case": test_case_name,
-                                "vram_state": vram_state,
-                                "disable_smart_memory": disable_smart_memory,
-                                "avg_exec_time": summary.get("avg_exec_time"),
-                                "avg_max_memory_usage": (
-                                    statistics.mean(max_memory_usages)
-                                    if max_memory_usages
-                                    else None
-                                ),
-                            }
-                        )
+    if old_summary_data and "flows" in old_summary_data:
+        for old_flow in old_summary_data["flows"]:
+            old_flow_name = old_flow.get("flow_name")
+            if old_flow_name and old_flow_name not in new_flows_map:
+                new_flows_map[old_flow_name] = old_flow
 
-        results_data["flows"].append(flow_data)
+    new_summary_data["flows"] = list(new_flows_map.values())
 
-    # Write the results to a JSON file
-    with open(summary_file, "w") as f:
-        json.dump(results_data, f, indent=4)
+    with open(summary_file, "w", encoding="utf-8") as f:
+        json.dump(new_summary_data, f, indent=4)
 
-    print(f"Test results summary saved to {summary_file}")
+    print(f"Final test results summary saved to {summary_file}")
 
 
 async def get_available_workers() -> list[dict]:
-    """
-    Fetch the list of available workers from the server.
-    Returns a list of worker details with 'worker_id'.
-    """
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             response = await client.get(f"{SERVER_URL}/vapi/workers/info", timeout=60)
@@ -1097,6 +845,152 @@ async def select_worker():
                 print("Invalid selection. Please try again.")
         except ValueError:
             print("Invalid input. Please enter a valid number.")
+
+
+def load_test_suites_from_yaml(path="benchmarks.yaml") -> dict[str, list[FlowTest]]:
+    with open(path, "r", encoding="utf-8") as f:
+        data = yaml.safe_load(f)
+
+    global GLOBAL_PROMPTS
+    GLOBAL_PROMPTS = data.pop("PROMPTS", {})
+
+    test_suites = {}
+    for suite_name, flows_data in data.items():
+        flows_test = [FlowTest(**flow_dict) for flow_dict in flows_data]
+        validate_flows_test_cases(flows_test)
+        test_suites[suite_name] = flows_test
+
+    return test_suites
+
+
+async def select_test_flow_suite(test_suites: dict[str, list[FlowTest]]):
+    global SELECTED_TEST_FLOW_SUITES
+    suite_names = list(test_suites.keys())
+
+    print("Please select the test suites you want to run:")
+    for idx, name in enumerate(suite_names, start=1):
+        print(f"{idx}. {name} Suite")
+
+    user_choice = input(
+        "Enter the numbers of the suites to run, separated by commas (e.g., 1,3,5 or ALL): "
+    )
+
+    if user_choice.lower() == "all":
+        SELECTED_TEST_FLOW_SUITES = [(name, test_suites[name]) for name in suite_names]
+        print("Selected all suites.")
+        return
+
+    selected_numbers = [num.strip() for num in user_choice.split(",")]
+    SELECTED_TEST_FLOW_SUITES.clear()
+
+    for num in selected_numbers:
+        try:
+            idx = int(num)
+            if 1 <= idx <= len(suite_names):
+                suite_key = suite_names[idx - 1]
+                SELECTED_TEST_FLOW_SUITES.append((suite_key, test_suites[suite_key]))
+                print(f"Selected {suite_key} Suite.")
+            else:
+                print(f"Invalid selection '{num}'. Skipping.")
+        except ValueError:
+            print(f"Invalid selection '{num}'. Skipping.")
+
+    if not SELECTED_TEST_FLOW_SUITES:
+        print(
+            "No valid suites selected. Please restart and select at least one valid suite."
+        )
+        exit(1)
+
+
+async def benchmarker():
+    if not await is_server_online():
+        print("Cannot proceed as the server is down.")
+        return
+
+    await select_worker()
+
+    test_suites = load_test_suites_from_yaml("benchmarks.yaml")
+    await select_test_flow_suite(test_suites)
+
+    if AUTOMATIC_INSTALL:
+        do_install = True
+    else:
+        do_install = (
+            input("Install flows for all selected test suites? [y/N]: ").strip().lower()
+            == "y"
+        )
+
+    # --------------------------------------------------------------------------
+    # NEW: Gather all flows from all selected test suites first
+    # --------------------------------------------------------------------------
+    all_flows_to_install = set()
+    for _, suite_test_cases in SELECTED_TEST_FLOW_SUITES:
+        for flow_test in suite_test_cases:
+            all_flows_to_install.add(flow_test.flow_name)
+
+    # --------------------------------------------------------------------------
+    # NEW: If do_install is True, install them all at once
+    # --------------------------------------------------------------------------
+    if do_install:
+        install_results = await install_flows_in_parallel(all_flows_to_install)
+    else:
+        installed_flows_list = await get_installed_flows()
+        installed_flow_names = {f["name"] for f in installed_flows_list}
+        install_results = {
+            flow_name: (flow_name in installed_flow_names)
+            for flow_name in all_flows_to_install
+        }
+
+    # --------------------------------------------------------------------------
+    # Now run each suite's tests
+    # --------------------------------------------------------------------------
+    for suite_name, suite_test_cases in SELECTED_TEST_FLOW_SUITES:
+        global RESULTS_DIR, SELECTED_TEST_FLOW_SUITE
+        SELECTED_TEST_FLOW_SUITE = suite_test_cases
+
+        RESULTS_DIR = Path("results").joinpath(
+            f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_name}"
+        )
+
+        print(f"\nRunning test suite: {suite_name}\n")
+
+        # Collect which flows in this suite actually got installed or were already installed
+        installed_ok = {
+            ft.flow_name for ft in suite_test_cases if install_results.get(ft.flow_name)
+        }
+
+        worker_engine_details = SELECTED_WORKER["engine_details"]
+        config_key_for_worker = (
+            f"{worker_engine_details['vram_state']}_disable_smart_memory_"
+            f"{worker_engine_details['disable_smart_memory']}"
+        )
+
+        test_semaphore = asyncio.Semaphore(1)
+
+        for flow_test in suite_test_cases:
+            if flow_test.flow_name not in installed_ok:
+                print(f"Skipping '{flow_test.flow_name}' (not installed).")
+                continue
+
+            flow_already_done = is_flow_fully_tested_for_config(
+                flow_test, config_key_for_worker, RESULTS_DIR
+            )
+            if flow_already_done:
+                print(
+                    f"All test cases for '{flow_test.flow_name}' are already completed "
+                    f"under configuration '{config_key_for_worker}'. Skipping entire flow."
+                )
+                continue
+
+            for test_case in flow_test.test_cases:
+                await run_test_case(
+                    flow_test.flow_name,
+                    test_case,
+                    test_semaphore,
+                    suite_name,
+                )
+
+        await generate_results_summary_json(suite_name)
 
 
 if __name__ == "__main__":
