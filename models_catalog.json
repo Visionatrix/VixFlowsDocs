@@ -1418,5 +1418,19 @@
     "types": [
       "diffusion_models"
     ]
+  },
+  "AuraFlow-v0.3": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:aura_flow_0\\.3\\.safetensors|auraflow_v03\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/fal/AuraFlow-v0.3/resolve/main/aura_flow_0.3.safetensors",
+    "homepage": "https://huggingface.co/fal/AuraFlow-v0.3",
+    "hash": "526be97cf581c89ad87c6b19c1f7c2378851137698f7ec436596d061a382d37b",
+    "file_size": 16463323066,
+    "types": [
+      "checkpoints"
+    ]
   }
 }

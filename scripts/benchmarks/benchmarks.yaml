@@ -5,6 +5,12 @@ PROMPTS:
     "solo majestic wild cat, ethereal ambiance, symmetrical eyes, detailed background, photorealistic, ultra-realistic, 8k, artistic creativity, dreamlike textures",
     "sci-fi theme, advanced technology, electromagnetic fields, complex circuits, intricate mechanisms, glowing energy, vibrant colors, masterpiece"
   ]
+  AURA_FLOW: [
+    "abstract style, brown sands, blue swirls of water and galaxies, best quality, masterpiece",
+    "Portrait, photorealistic, vibrant 8k, natural setting, dramatic lighting, expressive features, cinematic depth of field, vivid blue eyes, fantasy humanoid character",
+    "solo majestic wild cat, ethereal ambiance, symmetrical eyes, detailed background, photorealistic, ultra-realistic, 8k, artistic creativity, dreamlike textures",
+    "sci-fi theme, advanced technology, electromagnetic fields, complex circuits, intricate mechanisms, glowing energy, vibrant colors, masterpiece"
+  ]
   CASCADE: [
     "abstract style, brown sands, blue swirls of water and galaxies, best quality, masterpiece",
     "Portrait, photorealistic, vibrant 8k, natural setting, dramatic lighting, expressive features, cinematic depth of field, vivid blue eyes, fantasy humanoid character",
@@ -47,6 +53,14 @@ SDXL:
         input_params:
           prompt: []
           fast_run: true
+          steps_count: 30
+
+AURA_FLOW:
+  - flow_name: "auraflow"
+    test_cases:
+      - name: "default"
+        input_params:
+          prompt: []
           steps_count: 30
 
 CASCADE:
