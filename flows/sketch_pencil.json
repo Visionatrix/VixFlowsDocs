@@ -47,11 +47,11 @@
   "27": {
     "inputs": {
       "width": [
-        "43",
+        "73",
         1
       ],
       "height": [
-        "43",
+        "73",
         2
       ],
       "batch_size": 1
@@ -102,15 +102,6 @@
     "class_type": "FluxGuidance",
     "_meta": {
       "title": "FluxGuidance"
-    }
-  },
-  "43": {
-    "inputs": {
-      "aspect_ratio": "3:4"
-    },
-    "class_type": "SDXLAspectRatioSelector",
-    "_meta": {
-      "title": "SDXL Aspect Ratio"
     }
   },
   "59": {
@@ -207,7 +198,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"sketch\"]",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -270,6 +261,15 @@
     "class_type": "Text Multiline (Code Compatible)",
     "_meta": {
       "title": "Text Multiline (Code Compatible)"
+    }
+  },
+  "73": {
+    "inputs": {
+      "aspect_ratio": "3:4"
+    },
+    "class_type": "SDXLAspectRatioSelector",
+    "_meta": {
+      "title": "input;Aspect Ratio;optional;advanced;order=20;custom_id=aspect_ratio"
     }
   }
 }

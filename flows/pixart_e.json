@@ -1,0 +1,265 @@
+{
+  "65": {
+    "inputs": {
+      "samples": [
+        "155",
+        0
+      ],
+      "vae": [
+        "180",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "66": {
+    "inputs": {
+      "filename_prefix": "ComfyUI_PixArt",
+      "images": [
+        "65",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "155": {
+    "inputs": {
+      "seed": 675457909976615,
+      "steps": [
+        "193",
+        0
+      ],
+      "cfg": [
+        "194",
+        0
+      ],
+      "sampler_name": "dpmpp_2m",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "181",
+        0
+      ],
+      "positive": [
+        "175",
+        0
+      ],
+      "negative": [
+        "176",
+        0
+      ],
+      "latent_image": [
+        "182",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "175": {
+    "inputs": {
+      "text": [
+        "191",
+        0
+      ],
+      "clip": [
+        "183",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "176": {
+    "inputs": {
+      "text": [
+        "192",
+        0
+      ],
+      "clip": [
+        "183",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "180": {
+    "inputs": {
+      "vae_name": "sdxl_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "181": {
+    "inputs": {
+      "unet_name": "900mPixartSigma_base.safetensors",
+      "weight_dtype": [
+        "197",
+        0
+      ]
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "182": {
+    "inputs": {
+      "width": [
+        "195",
+        1
+      ],
+      "height": [
+        "195",
+        2
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "183": {
+    "inputs": {
+      "clip_name": "t5xxl_fp8_e4m3fn.safetensors",
+      "type": "pixart",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "Load CLIP"
+    }
+  },
+  "191": {
+    "inputs": {
+      "text": "drawing of a tank with a (blue:0.8) camo pattern",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "192": {
+    "inputs": {
+      "text": "",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 15,
+      "custom_id": "negative_prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "193": {
+    "inputs": {
+      "value": 20,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 20,
+      "max": 60,
+      "step": 1,
+      "order": 91,
+      "custom_id": "steps_count",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "194": {
+    "inputs": {
+      "value": 4.5,
+      "display_name": "Vibrancy",
+      "optional": true,
+      "advanced": true,
+      "min": 3,
+      "max": 5,
+      "step": 0.1,
+      "order": 90,
+      "custom_id": "vibrancy",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "195": {
+    "inputs": {
+      "aspect_ratio": "1:1"
+    },
+    "class_type": "SDXLAspectRatioSelector",
+    "_meta": {
+      "title": "input;Aspect Ratio;optional;advanced;order=2;custom_id=aspect_ratio"
+    }
+  },
+  "196": {
+    "inputs": {
+      "name": "pixart_e",
+      "display_name": "PixArt Sigma",
+      "description": "DiT family model with fast speed",
+      "author": "DataVoid",
+      "homepage": "https://huggingface.co/dataautogpt3/PixArt-Sigma-900M",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"general\", \"simple\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true,
+      "is_macos_supported": true,
+      "required_memory_gb": 6
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "197": {
+    "inputs": {
+      "default_value": "default",
+      "possible_values": "[\"default\", \"fp8_e4m3fn\", \"fp8_e4m3fn_fast\", \"fp8_e5m2\"]",
+      "display_name": "Diffusion precision",
+      "optional": true,
+      "advanced": true,
+      "order": 98,
+      "custom_id": "",
+      "hidden": false
+    },
+    "class_type": "VixUiList",
+    "_meta": {
+      "title": "VixUI-List"
+    }
+  }
+}

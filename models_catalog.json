@@ -1403,5 +1403,20 @@
       "loras"
     ],
     "gated": true
+  },
+  "PixArt-E-Realistic": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:900mPixartSigma_base\\.safetensors|900M\\-base\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/dataautogpt3/PixArt-Sigma-900M/resolve/main/900M-base.safetensors",
+    "homepage": "https://huggingface.co/dataautogpt3/PixArt-Sigma-900M",
+    "hash": "8e38bc33dc46924a967e1a698f9135aa1f029d2fc7078c715db35de5a6ce555b",
+    "file_size": 3633837024,
+    "filename": "900mPixartSigma_base.safetensors",
+    "types": [
+      "diffusion_models"
+    ]
   }
 }
