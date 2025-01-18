@@ -26,8 +26,14 @@
   },
   "244": {
     "inputs": {
-      "width": 1024,
-      "height": 1024,
+      "width": [
+        "311",
+        1
+      ],
+      "height": [
+        "311",
+        2
+      ],
       "batch_size": [
         "309",
         0
@@ -61,7 +67,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/HunyuanDiT/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -226,6 +232,15 @@
     "class_type": "VixUiRangeInt",
     "_meta": {
       "title": "VixUI-RangeInt"
+    }
+  },
+  "311": {
+    "inputs": {
+      "aspect_ratio": "1:1"
+    },
+    "class_type": "SDXLAspectRatioSelector",
+    "_meta": {
+      "title": "input;Aspect Ratio;optional;advanced;order=2;custom_id=aspect_ratio"
     }
   }
 }
