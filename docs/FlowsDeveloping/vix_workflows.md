@@ -106,9 +106,8 @@ and check for download errors.
 
 ## Vix workflow overview
 
-Starting from the Visionatrix **0.6.0**, the workflow consists of a
-single file: `flow_name.json`, which is a ComfyUI workflow file adopted
-to Visionatrix.
+In the Visionatrix the workflow consists of a
+single file: `flow_name.json`, which is a ComfyUI workflow file adopted to Visionatrix.
 
 !!! note
 
@@ -158,10 +157,8 @@ A list of string tags that can be used to label the categories of the flow.
 
 !!! note
 
-    Starting with Visionatrix 0.6.0, the input params are parsed
-    automatically from the adopted ComfyUI workflow. Based on the
-    information from this field, the Visionatrix UI dynamically displays the
-    interface.
+    The input params are parsed automatically from the adopted ComfyUI workflow. Based on the
+    information from this field, the Visionatrix UI dynamically displays the interface.
 
 Technically, this is a list of objects, where each object is one input
 parameter, which includes:
@@ -187,3 +184,57 @@ parameter, which includes:
         optional fields (as in the ComfyUI flow, the Node value is still set)
 
 * "comfy_node_id" - **a field only for the backend**, which defines what to do with this value (where to use it in the ComfyUI Flow)
+
+### "required_memory_gb"
+
+This field indicates the amount of (video) memory in gigabytes required for the flow to work.
+
+By default, in Visionatrix, all flows not supported by the available hardware are hidden.
+
+---
+
+## Calculating **`Required Memory`**
+
+To determine the appropriate `required_memory_gb` value for a flow (e.g., on a GPU with 24 GB of memory), follow these steps:
+
+#### Adjusting for Different GPU Memory
+
+If your GPU has less memory (e.g., 16 GB), reduce the calculated values accordingly (subtract 8 GB from the original values for a 24 GB card).
+
+#### Steps to Measure Memory Usage
+
+1. **Disable Smart Memory Management**
+   Run ComfyUI with the following argument:
+   `--disable-smart-memory --reserve-vram=17.2`
+
+2. **Enable Execution Settings**
+   Inside Visionatrix when launching Flow, navigate to:
+   **Advanced Options -> Execution Settings**
+   Set the variables `X-WORKER-UNLOAD-MODELS` and `X-WORKER-EXECUTION-PROFILER` to `1`. Check the box for **"Enable Execution Settings"**.
+
+3. **Execute the Flow**
+   Launch the task with "Execution Settings" enabled. After the task completes, click the ellipsis under the task and select **"Execution Details"**.
+
+4. **Review Maximum Memory Usage**
+   In the **Execution Details**, look for a value labeled `"max_memory_usage"`. For example:
+   `"max_memory_usage": 3800.11`
+   This value represents the maximum memory usage in **megabytes** for the task.
+
+5. **Convert Memory Usage to Gigabytes**
+   Ensure that the `"max_memory_usage"` value does not exceed the desired `required_memory_gb`. Use this value to set the field appropriately.
+
+#### Important Notes
+
+- For accurate measurements, **ComfyUI** must be launched with the `--disable-smart-memory` parameter, and `X-WORKER-UNLOAD-MODELS` must be set to `1`.
+- While not all nodes support the `--reserve-vram` parameter, and some nodes like `Supir` may not reflect accurate `max_memory_usage` values due to their reset behavior, this approach is still much better than no estimation.
+
+---
+
+### GPU Memory Settings for Common Configurations
+
+Here are recommended arguments for testing if a flow works on GPUs with specific memory configurations:
+
+- **6 GB cards:** `--disable-smart-memory --reserve-vram=19.2`
+- **8 GB cards:** `--disable-smart-memory --reserve-vram=17.2`
+- **12 GB cards:** `--disable-smart-memory --reserve-vram=13.2`
+- **16 GB cards:** `--disable-smart-memory --reserve-vram=9.2`

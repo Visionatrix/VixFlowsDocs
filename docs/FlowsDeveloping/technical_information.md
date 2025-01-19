@@ -35,6 +35,7 @@ Visionatrix by default install and update these nodes:
 > -   [ComfyUI-KJNodes](https://github.com/Visionatrix/ComfyUI-KJNodes)
 > -   [ComfyUI_LayerStyle](https://github.com/Visionatrix/ComfyUI_LayerStyle)
 > -   [ComfyUI-Easy-Use](https://github.com/Visionatrix/ComfyUI-Easy-Use)
+> -   [ComfyUI_PuLID_Flux_ll](https://github.com/Visionatrix/ComfyUI_PuLID_Flux_ll)
 
 We are gradually expanding the list.
 
