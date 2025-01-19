@@ -1432,5 +1432,35 @@
     "types": [
       "checkpoints"
     ]
+  },
+  "Stable-Audio-Open-1.0": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?stable\\-audio\\-open\\-1\\.0\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/audo/stable-audio-open-1.0/resolve/main/model.safetensors",
+    "homepage": "https://huggingface.co/audo/stable-audio-open-1.0",
+    "hash": "7b20458a071231aaf32613b6fbc7945f28f34dbba4f295bb49bad56f5f66b57e",
+    "file_size": 4853889016,
+    "filename": "stable-audio-open-1.0.safetensors",
+    "types": [
+      "checkpoints"
+    ]
+  },
+  "Google-T5-Base": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?t5_base\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/google-t5/t5-base/resolve/main/model.safetensors",
+    "homepage": "https://huggingface.co/google-t5/t5-base",
+    "hash": "a90903540cc02cbeb7ff9f823f1a80eb778c7e22426a0e620b01c77a5ec8f5b4",
+    "file_size": 891646390,
+    "filename": "t5_base.safetensors",
+    "types": [
+      "text_encoders"
+    ]
   }
 }
