@@ -6,8 +6,8 @@
         0
       ],
       "clip": [
-        "285",
-        0
+        "287",
+        1
       ]
     },
     "class_type": "CLIPTextEncode",
@@ -19,8 +19,8 @@
     "inputs": {
       "text": "",
       "clip": [
-        "285",
-        0
+        "287",
+        1
       ]
     },
     "class_type": "CLIPTextEncode",
@@ -76,7 +76,7 @@
       "scheduler": "sgm_uniform",
       "denoise": 1,
       "model": [
-        "286",
+        "287",
         0
       ],
       "positive": [
@@ -119,8 +119,8 @@
       "homepage": "",
       "documentation": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
       "license": "",
-      "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.2",
+      "tags": "[\"general\", \"simple\", \"loras\"]",
+      "version": "1.1.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -212,6 +212,24 @@
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
       "title": "Load Checkpoint"
+    }
+  },
+  "287": {
+    "inputs": {
+      "base_model_type": "SD 3.5 Large",
+      "description": "LoRAs to apply",
+      "model": [
+        "286",
+        0
+      ],
+      "clip": [
+        "285",
+        0
+      ]
+    },
+    "class_type": "VixDynamicLoraDefinition",
+    "_meta": {
+      "title": "VixUI-VixDynamicLoraDefinition"
     }
   }
 }
