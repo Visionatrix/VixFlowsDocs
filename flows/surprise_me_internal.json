@@ -1,0 +1,329 @@
+{
+  "16": {
+    "inputs": {
+      "name": "surprise_me_internal",
+      "display_name": "Surprise Me (Internal)",
+      "description": "Generates a text prompt, fully random or on the specific theme",
+      "author": "bigcat88",
+      "homepage": "",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"text\", \"llm\"]",
+      "version": "1.0.0",
+      "requires": "[\"Ollama:deepseek-r1:8b\"]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true,
+      "is_macos_supported": true,
+      "required_memory_gb": 10,
+      "hidden": true
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "31": {
+    "inputs": {
+      "action": "replace",
+      "tidy_tags": "no",
+      "text_a": [
+        "45",
+        0
+      ],
+      "text_b": "/<think>[\\s\\S]*?<\\/think>/",
+      "text_c": ""
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "32": {
+    "inputs": {
+      "action": "replace",
+      "tidy_tags": "no",
+      "text_a": [
+        "31",
+        0
+      ],
+      "text_b": "/[\\r\\n]+/",
+      "text_c": ""
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "33": {
+    "inputs": {
+      "action": "replace",
+      "tidy_tags": "no",
+      "text_a": [
+        "32",
+        0
+      ],
+      "text_b": "/(^\")|(\"$)/",
+      "text_c": ""
+    },
+    "class_type": "StringFunction|pysssss",
+    "_meta": {
+      "title": "String Function 🐍"
+    }
+  },
+  "38": {
+    "inputs": {
+      "system": "",
+      "prompt": [
+        "56",
+        0
+      ],
+      "keep_context": false,
+      "format": "text",
+      "connectivity": [
+        "40",
+        0
+      ],
+      "options": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "OllamaGenerateV2",
+    "_meta": {
+      "title": "Ollama Generate V2"
+    }
+  },
+  "39": {
+    "inputs": {
+      "enable_mirostat": false,
+      "mirostat": 0,
+      "enable_mirostat_eta": false,
+      "mirostat_eta": 0.1,
+      "enable_mirostat_tau": false,
+      "mirostat_tau": 5,
+      "enable_num_ctx": false,
+      "num_ctx": 2048,
+      "enable_repeat_last_n": false,
+      "repeat_last_n": 64,
+      "enable_repeat_penalty": false,
+      "repeat_penalty": 1.1,
+      "enable_temperature": false,
+      "temperature": 0.8,
+      "enable_seed": false,
+      "seed": 139973705,
+      "enable_stop": false,
+      "stop": "",
+      "enable_tfs_z": false,
+      "tfs_z": 1,
+      "enable_num_predict": false,
+      "num_predict": -1,
+      "enable_top_k": false,
+      "top_k": 40,
+      "enable_top_p": false,
+      "top_p": 0.9,
+      "enable_min_p": false,
+      "min_p": 0,
+      "debug": false
+    },
+    "class_type": "OllamaOptionsV2",
+    "_meta": {
+      "title": "Ollama Options V2"
+    }
+  },
+  "40": {
+    "inputs": {
+      "url": "http://127.0.0.1:11434",
+      "model": "deepseek-r1:8b",
+      "keep_alive": 0,
+      "keep_alive_unit": "minutes"
+    },
+    "class_type": "OllamaConnectivityV2",
+    "_meta": {
+      "title": "Ollama Connectivity V2"
+    }
+  },
+  "41": {
+    "inputs": {
+      "text": "Generate a random diffusion prompt that meets the following criteria:\n- It should be a brief, comma-separated list of descriptive words and phrases.\n- It must include a subject or scene and at least one artistic or quality descriptor.\n- The prompt must not exceed 40 words.\n- The prompt must contain at least 15 words.\n- Don't use super complex words.\n- Do not include any additional explanation—only output the prompt.\n\nExample prompts:\n1. \"abstract style, undulating dunes, shimmering sapphire vortex, meticulous rendering, flawless composition, ethereal essence, transcendent imagery, visionary artwork, infinite depth, unparalleled excellence\"\n2. \"portrait, radiant visage, gentle expression, intricate features, electric lighting, subtle gradients, lifelike skin, elegant poise, refined clarity, masterful technique\"\n3. \"wildlife, ferocious tiger, dense jungle, rugged terrain, primal power, vivid fur, piercing gaze, raw energy, dramatic shadows, natural magnificence, detailed environment\"\n4. \"science-fiction, futuristic astronaut, galactic voyage, interstellar spacecraft, surreal nebulae, luminous star clusters, bold innovation, hyper-real textures, innovative design, immersive expanse, stellar adventure\"\n5. \"vintage, urban street, rainy evening, neon signage, moody ambiance, reflective puddles, cinematic allure, classic aesthetics, artistic nostalgia, timeless charm\"\n6. \"enchanted, woodland, mystical fairies, glistening dew, ancient oaks, whimsical sprites, serene glade, magical glow, ornate flora, translucent vista, sublime wonder, brilliant reverie\"\n7. \"universal panorama, glowing comet, boundless universe, swirling stardust, celestial harmony, enigmatic eclipse, dynamic orbit, limitless cosmos, surreal spectacle, astral trek, stellar brilliance\"\n8. \"calm mien, contemplative elder, weathered face, soulful eyes, delicate lines, profound wisdom, quiet dignity, timeless character, poignant depiction, refined detail, creative realism, expressive mood\"\n9. \"robust animal, agile cheetah, sunlit savannah, swift sprint, focused alertness, sinewy strength, graceful motion, sun-dappled grassland, powerful stride, vigorous drive, natural prowess, wild spirit\"\n10. \"energetic, celebration, joyful dancers, rhythmic movement, colorful gala, exuberant costumes, lively percussion, kinetic choreography, spirited performance, festive ambiance, brave creativity, cultural vibrancy, remarkable spectacle\"\n\n"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "42": {
+    "inputs": {
+      "text": "\nCreate an inventive and varied diffusion prompt on a random topic in the style examples above. Let your creativity run wild, don't limit yourself.\n\n"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "43": {
+    "inputs": {
+      "text": "\nIncorporate the following theme into the prompt: \n"
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "44": {
+    "inputs": {
+      "prompt": [
+        "56",
+        0
+      ],
+      "safety_settings": "BLOCK_NONE",
+      "response_type": "text",
+      "model": "gemini-1.5-flash-002",
+      "api_key": "",
+      "proxy": "",
+      "error_fallback_value": "",
+      "seed": 563846918
+    },
+    "class_type": "Ask_Gemini",
+    "_meta": {
+      "title": "Ask Gemini"
+    }
+  },
+  "45": {
+    "inputs": {
+      "state": true,
+      "display_name": "Use Gemini instead of Ollama",
+      "optional": true,
+      "advanced": true,
+      "order": 99,
+      "custom_id": "text_provider",
+      "hidden": false,
+      "input_off_state": [
+        "38",
+        0
+      ],
+      "input_on_state": [
+        "44",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
+    }
+  },
+  "46": {
+    "inputs": {
+      "text": "",
+      "display_name": "Prompt",
+      "optional": true,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "47": {
+    "inputs": {
+      "comparison": "a == b",
+      "a": [
+        "46",
+        0
+      ],
+      "b": [
+        "49",
+        0
+      ]
+    },
+    "class_type": "easy compare",
+    "_meta": {
+      "title": "Compare"
+    }
+  },
+  "49": {
+    "inputs": {
+      "text": ""
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "50": {
+    "inputs": {
+      "delimiter": " ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "43",
+        0
+      ],
+      "text_b": [
+        "46",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "54": {
+    "inputs": {
+      "root_dir": "output",
+      "file": "file.txt",
+      "append": "overwrite",
+      "insert": true,
+      "text": [
+        "33",
+        0
+      ]
+    },
+    "class_type": "SaveText|pysssss",
+    "_meta": {
+      "title": "Save Text 🐍"
+    }
+  },
+  "56": {
+    "inputs": {
+      "delimiter": "",
+      "clean_whitespace": "false",
+      "text_a": [
+        "41",
+        0
+      ],
+      "text_b": [
+        "59",
+        0
+      ]
+    },
+    "class_type": "Text Concatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "59": {
+    "inputs": {
+      "state": [
+        "47",
+        0
+      ],
+      "input_off_state": [
+        "50",
+        0
+      ],
+      "input_on_state": [
+        "42",
+        0
+      ]
+    },
+    "class_type": "VixCheckboxLogic",
+    "_meta": {
+      "title": "Vix-CheckboxLogic"
+    }
+  }
+}
