@@ -6,7 +6,7 @@
         0
       ],
       "clip": [
-        "35",
+        "39",
         1
       ]
     },
@@ -57,7 +57,8 @@
     "inputs": {
       "clip_name1": "t5xxl_fp16.safetensors",
       "clip_name2": "clip_l.safetensors",
-      "type": "flux"
+      "type": "flux",
+      "device": "default"
     },
     "class_type": "DualCLIPLoader",
     "_meta": {
@@ -120,7 +121,7 @@
       ],
       "denoise": 1,
       "model": [
-        "35",
+        "39",
         0
       ]
     },
@@ -132,7 +133,7 @@
   "22": {
     "inputs": {
       "model": [
-        "35",
+        "38",
         0
       ],
       "conditioning": [
@@ -221,8 +222,8 @@
       "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
       "documentation": "https://comfyanonymous.github.io/ComfyUI_examples/flux/#simple-to-use-fp8-checkpoint-version",
       "license": "",
-      "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.5",
+      "tags": "[\"general\", \"simple\", \"loras\"]",
+      "version": "1.1.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -253,46 +254,6 @@
       "title": "VixUI-RangeInt"
     }
   },
-  "35": {
-    "inputs": {
-      "lora_name": "flux_realism_lora.safetensors",
-      "strength_model": [
-        "36",
-        0
-      ],
-      "strength_clip": 1,
-      "model": [
-        "12",
-        0
-      ],
-      "clip": [
-        "11",
-        0
-      ]
-    },
-    "class_type": "LoraLoader",
-    "_meta": {
-      "title": "Load LoRA"
-    }
-  },
-  "36": {
-    "inputs": {
-      "value": 0,
-      "display_name": "Realism LoRa strength",
-      "optional": true,
-      "advanced": true,
-      "min": 0,
-      "max": 1,
-      "step": 0.1,
-      "order": 92,
-      "custom_id": "realism_lora_strength",
-      "hidden": false
-    },
-    "class_type": "VixUiRangeFloat",
-    "_meta": {
-      "title": "VixUI-RangeFloat"
-    }
-  },
   "37": {
     "inputs": {
       "value": 1,
@@ -309,6 +270,43 @@
     "class_type": "VixUiRangeInt",
     "_meta": {
       "title": "VixUI-RangeInt"
+    }
+  },
+  "38": {
+    "inputs": {
+      "base_model_type": "Flux.1 D",
+      "description": "LoRAs to apply",
+      "model": [
+        "12",
+        0
+      ],
+      "clip": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "VixDynamicLoraDefinition",
+    "_meta": {
+      "title": "VixUI-VixDynamicLoraDefinition"
+    }
+  },
+  "39": {
+    "inputs": {
+      "lora_name": "flux_realism_lora.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "38",
+        0
+      ],
+      "clip": [
+        "38",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "lora-input;Realism LoRa strength"
     }
   }
 }

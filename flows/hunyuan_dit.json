@@ -66,8 +66,8 @@
       "homepage": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT",
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/HunyuanDiT/",
       "license": "",
-      "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.3",
+      "tags": "[\"general\", \"simple\", \"loras\"]",
+      "version": "1.1.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -119,7 +119,7 @@
         0
       ],
       "clip": [
-        "2",
+        "314",
         1
       ]
     },
@@ -135,7 +135,7 @@
         0
       ],
       "clip": [
-        "2",
+        "314",
         1
       ]
     },
@@ -159,7 +159,7 @@
       "scheduler": "sgm_uniform",
       "denoise": 1,
       "model": [
-        "2",
+        "314",
         0
       ],
       "positive": [
@@ -241,6 +241,24 @@
     "class_type": "SDXLAspectRatioSelector",
     "_meta": {
       "title": "input;Aspect Ratio;optional;advanced;order=2;custom_id=aspect_ratio"
+    }
+  },
+  "314": {
+    "inputs": {
+      "base_model_type": "Hunyuan 1",
+      "description": "LoRAs to apply",
+      "model": [
+        "2",
+        0
+      ],
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "VixDynamicLoraDefinition",
+    "_meta": {
+      "title": "VixUI-VixDynamicLoraDefinition"
     }
   }
 }
