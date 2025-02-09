@@ -16,7 +16,17 @@ OUTPUT_JSON_DIR = Path("../../docs/hardware_results/plotly_data")
 
 # We want to prioritize these suites in the given order.
 # Any suites not found in this list will appear at the end in alphabetical order.
-SORTING_ORDER = ["SDXL", "PORTRAITS", "OTHER", "DIT", "HEAVY"]
+SORTING_ORDER = [
+    "SDXL",
+    "AURA_FLOW",
+    "CASCADE",
+    "DIT_8_BIT",
+    "DIT",
+    "PORTRAITS",
+    "UPSCALERS",
+    "OTHER",
+    "OLLAMA",
+]
 
 
 def generate_hardware_results_table():

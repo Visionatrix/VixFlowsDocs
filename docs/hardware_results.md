@@ -40,6 +40,7 @@ fetch('./plotly_data/plotly_data_index.json')
                 toggleLabel.textContent = 'Show Disable Smart Memory Results';
                 toggleLabel.htmlFor = toggleCheckbox.id;
 
+                // Attach them to the DOM now, but we may remove them later if unnecessary
                 graphsContainer.appendChild(toggleLabel);
                 graphsContainer.appendChild(toggleCheckbox);
                 graphsContainer.appendChild(containerDiv);
@@ -51,9 +52,15 @@ fetch('./plotly_data/plotly_data_index.json')
                         return response.json();
                     })
                     .then(data => {
-                        const traces = [];
+                        // Determine if we have any results with disable_smart_memory === true
+                        const hasSmartMemoryTrue = data.some(item => item.disable_smart_memory === true);
 
-                        // Group data by flow_display_name
+                        // If none of the items have disable_smart_memory === true, remove the checkbox and label
+                        if (!hasSmartMemoryTrue) {
+                            toggleCheckbox.remove();
+                            toggleLabel.remove();
+                        }
+
                         const groupedData = data.reduce((acc, item) => {
                             const key = item.flow_display_name;
                             if (!acc[key]) acc[key] = [];
@@ -65,7 +72,7 @@ fetch('./plotly_data/plotly_data_index.json')
                             const showDisableSmartMemory = toggleCheckbox.checked;
                             const filteredTraces = [];
 
-                            // Create traces based on the checkbox state
+                            // Build traces from items
                             Object.entries(groupedData).forEach(([flowDisplayName, items]) => {
                                 const filteredItems = items.filter(item =>
                                     showDisableSmartMemory
@@ -74,23 +81,22 @@ fetch('./plotly_data/plotly_data_index.json')
                                 );
 
                                 if (filteredItems.length > 0) {
+                                    // Sort from highest to lowest for a nicer stacked/horizontal look
                                     const sortedItems = filteredItems.sort((a, b) => b.avg_exec_time - a.avg_exec_time);
                                     const y = sortedItems.map(item => `${item.hardware_desc}<br>\u2003${item.test_time}\u2003`);
                                     const x = sortedItems.map(item => item.avg_exec_time);
                                     const hoverText = sortedItems.map(item => `Test Time: ${item.test_time}`);
 
-                                    const trace = {
-                                        y: y,
-                                        x: x,
+                                    filteredTraces.push({
+                                        y,
+                                        x,
                                         type: 'bar',
                                         orientation: 'h',
                                         name: flowDisplayName,
                                         text: hoverText,
                                         hoverinfo: 'text+x',
                                         showlegend: true
-                                    };
-
-                                    filteredTraces.push(trace);
+                                    });
                                 }
                             });
 
@@ -106,13 +112,19 @@ fetch('./plotly_data/plotly_data_index.json')
                             Plotly.react(containerId, filteredTraces, layout);
                         }
 
-                        // Initial chart rendering
+                        // Initial draw
                         updateChart();
 
-                        // Update chart when the checkbox is toggled
+                        // Re-draw the chart upon toggling, if the checkbox is present
                         toggleCheckbox.addEventListener('change', updateChart);
                     })
-                    .catch(error => console.warn(`No data found for ${suite} - ${testCase}:`, error));
+                    .catch(error => {
+                        console.warn(`No data found for ${suite} - ${testCase}:`, error);
+                        // If there's no data at all, remove the whole container & toggles
+                        containerDiv.remove();
+                        toggleCheckbox.remove();
+                        toggleLabel.remove();
+                    });
             });
         });
     })

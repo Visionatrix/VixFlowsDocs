@@ -38,6 +38,28 @@ If you prefer not to use a virtual environment, you can install the dependencies
 cd VixFlowsDocs && pip install -r requirements.txt
 ```
 
+## Installing Ollama
+
+Since Visionatrix is starting to use LLM more and more, we decided to add Ollama tests to help people understand what they can expect.
+
+To install Ollama on Linux if it is not installed use:
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+The tests are done with two models:
+
+- deepseek-r1:8b
+- phi4:14b-q4_K_M
+
+Please install both of these models in Ollama using the commands:
+
+```bash
+ollama pull deepseek-r1:8b
+ollama pull phi4:14b-q4_K_M
+```
+
 ## Running the Benchmark Script
 
 The benchmark script is located in the `scripts/benchmarks` directory.
@@ -55,18 +77,20 @@ The script will prompt you to select the test suite(s) you want to run. Enter th
 ```
 Please select the test suites you want to run:
 1. SDXL Suite
-2. PORTRAITS Suite
-3. OTHER Suite
-4. DiT(FLUX, ..) Suite
-5. HEAVY(24GB+ VRAM) Suite
-Enter the numbers of the suites to run, separated by commas (e.g., 1,3,5): 1,2,3,4,5
+2. AURA_FLOW Suite
+3. CASCADE Suite
+4. DIT_8_BIT(FLUX 8-bit, ..) Suite
+5. DIT(Flux original, ..) Suite
+6. PORTRAITS Suite
+7. UPSCALERS Suite
+8. OTHER Suite
+9. OLLAMA Suite
+Enter the numbers of the suites to run, separated by commas (e.g., 1,3,5): 1,2,3,4,5 or `ALL`
 ```
 
 !!! note
 
-    The script will automatically install the flows from the selected test suite if they are not already installed. It will start testing as soon as the first flow is installed and will install the subsequent flows in parallel.
-
-    This should not significantly affect performance (unless your Visionatrix is running in `DEFAULT` mode).
+    The script will automatically install the flows from the selected test suite if they are not already installed. It will start testing as soon as all flows are installed.
 
 Upon completion of the tests, a folder with results will appear in the `results` directory, named with the date, hardware, and test suite. For example:
 
