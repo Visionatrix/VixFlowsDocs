@@ -131,11 +131,11 @@
   "244": {
     "inputs": {
       "width": [
-        "270",
+        "272",
         1
       ],
       "height": [
-        "270",
+        "272",
         2
       ],
       "batch_size": [
@@ -291,13 +291,14 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Juggernaut_Lite/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 8
+      "required_memory_gb": 8,
+      "hidden": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -336,15 +337,6 @@
       "title": "VixUI-Prompt"
     }
   },
-  "270": {
-    "inputs": {
-      "aspect_ratio": "2:3"
-    },
-    "class_type": "SDXLAspectRatioSelector",
-    "_meta": {
-      "title": "input;Aspect Ratio;optional;advanced;order=20;custom_id=aspect_ratio"
-    }
-  },
   "271": {
     "inputs": {
       "value": 1,
@@ -361,6 +353,21 @@
     "class_type": "VixUiRangeInt",
     "_meta": {
       "title": "VixUI-RangeInt"
+    }
+  },
+  "272": {
+    "inputs": {
+      "aspect_ratio": "2:3 (832x1216)",
+      "display_name": "Aspect Ratio",
+      "optional": true,
+      "advanced": true,
+      "order": 20,
+      "custom_id": "aspect_ratio",
+      "hidden": false
+    },
+    "class_type": "VixUiAspectRatioSelector",
+    "_meta": {
+      "title": "VixUI-Aspect Ratio"
     }
   }
 }

@@ -34,11 +34,11 @@
   "27": {
     "inputs": {
       "width": [
-        "83",
+        "93",
         1
       ],
       "height": [
-        "83",
+        "93",
         2
       ],
       "batch_size": 1
@@ -274,13 +274,14 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"animals\", \"clothing\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 12
+      "required_memory_gb": 12,
+      "hidden": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -305,15 +306,6 @@
     "class_type": "LoadImage",
     "_meta": {
       "title": "input;Person or animal;order=1;custom_id=person_image"
-    }
-  },
-  "83": {
-    "inputs": {
-      "aspect_ratio": "2:3"
-    },
-    "class_type": "SDXLAspectRatioSelector",
-    "_meta": {
-      "title": "input;Aspect Ratio;optional;advanced;order=9;custom_id=aspect_ratio"
     }
   },
   "84": {
@@ -369,7 +361,8 @@
       "api_key": "",
       "proxy": "",
       "system_instruction": "",
-      "error_fallback_value": ""
+      "error_fallback_value": "",
+      "seed": 674099112
     },
     "class_type": "Ask_Gemini",
     "_meta": {
@@ -411,6 +404,7 @@
       "proxy": "",
       "system_instruction": "",
       "error_fallback_value": "",
+      "seed": 674099112,
       "image_1": [
         "81",
         0
@@ -434,6 +428,7 @@
       "proxy": "",
       "system_instruction": "",
       "error_fallback_value": "",
+      "seed": 674099112,
       "image_1": [
         "82",
         0
@@ -460,6 +455,21 @@
     "class_type": "Text Multiline",
     "_meta": {
       "title": "Text Multiline"
+    }
+  },
+  "93": {
+    "inputs": {
+      "aspect_ratio": "2:3 (832x1216)",
+      "display_name": "Aspect Ratio",
+      "optional": true,
+      "advanced": true,
+      "order": 9,
+      "custom_id": "aspect_ratio",
+      "hidden": false
+    },
+    "class_type": "VixUiAspectRatioSelector",
+    "_meta": {
+      "title": "VixUI-Aspect Ratio"
     }
   }
 }

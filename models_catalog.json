@@ -1153,7 +1153,8 @@
     "types": [
       "loras"
     ],
-    "file_size": 171969400
+    "file_size": 171969400,
+    "gated": true
   },
   "FLUX-1-Dev-FP8-CLIPS": {
     "regexes": [

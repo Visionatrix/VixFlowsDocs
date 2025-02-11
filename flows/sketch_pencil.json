@@ -47,11 +47,11 @@
   "27": {
     "inputs": {
       "width": [
-        "73",
+        "74",
         1
       ],
       "height": [
-        "73",
+        "74",
         2
       ],
       "batch_size": 1
@@ -198,13 +198,14 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"sketch\"]",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 12
+      "required_memory_gb": 12,
+      "hidden": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -263,13 +264,19 @@
       "title": "Text Multiline (Code Compatible)"
     }
   },
-  "73": {
+  "74": {
     "inputs": {
-      "aspect_ratio": "3:4"
+      "aspect_ratio": "3:4 (896x1152)",
+      "display_name": "Aspect Ratio",
+      "optional": true,
+      "advanced": true,
+      "order": 20,
+      "custom_id": "aspect_ratio",
+      "hidden": false
     },
-    "class_type": "SDXLAspectRatioSelector",
+    "class_type": "VixUiAspectRatioSelector",
     "_meta": {
-      "title": "input;Aspect Ratio;optional;advanced;order=20;custom_id=aspect_ratio"
+      "title": "VixUI-Aspect Ratio"
     }
   }
 }

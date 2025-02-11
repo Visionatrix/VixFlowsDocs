@@ -6,7 +6,6 @@ title: Technical Information
 
 Visionatrix by default install and update these nodes:
 
-> -   [comfyui-art-venture](https://github.com/Visionatrix/comfyui-art-venture)
 > -   [ComfyUI-AutoCropFaces](https://github.com/Visionatrix/ComfyUI-AutoCropFaces)
 > -   [ComfyUI_BiRefNet_ll](https://github.com/Visionatrix/ComfyUI_BiRefNet_ll)
 > -   [ComfyUI-Custom-Scripts](https://github.com/Visionatrix/ComfyUI-Custom-Scripts)

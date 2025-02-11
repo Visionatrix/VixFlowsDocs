@@ -49,11 +49,11 @@
   "244": {
     "inputs": {
       "width": [
-        "282",
+        "318",
         1
       ],
       "height": [
-        "282",
+        "318",
         2
       ],
       "batch_size": [
@@ -143,15 +143,6 @@
       "title": "VAE Decode"
     }
   },
-  "282": {
-    "inputs": {
-      "aspect_ratio": "1:1"
-    },
-    "class_type": "SDXLAspectRatioSelector",
-    "_meta": {
-      "title": "input;Aspect Ratio;optional;advanced;order=20;custom_id=aspect_ratio"
-    }
-  },
   "297": {
     "inputs": {
       "samples": [
@@ -235,13 +226,14 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Colorful_XL/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "2.1.3",
+      "version": "2.1.4",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 6
+      "required_memory_gb": 6,
+      "hidden": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -350,6 +342,21 @@
     "class_type": "VixUiRangeInt",
     "_meta": {
       "title": "VixUI-RangeInt"
+    }
+  },
+  "318": {
+    "inputs": {
+      "aspect_ratio": "1:1 (1024x1024)",
+      "display_name": "Aspect Ratio",
+      "optional": true,
+      "advanced": true,
+      "order": 20,
+      "custom_id": "aspect_ratio",
+      "hidden": false
+    },
+    "class_type": "VixUiAspectRatioSelector",
+    "_meta": {
+      "title": "VixUI-Aspect Ratio"
     }
   }
 }
