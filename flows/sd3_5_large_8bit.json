@@ -31,11 +31,11 @@
   "135": {
     "inputs": {
       "width": [
-        "282",
+        "288",
         1
       ],
       "height": [
-        "282",
+        "288",
         2
       ],
       "batch_size": 1
@@ -120,13 +120,14 @@
       "documentation": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
       "license": "",
       "tags": "[\"general\", \"simple\", \"loras\"]",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 12
+      "required_memory_gb": 12,
+      "hidden": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -147,15 +148,6 @@
     "class_type": "VixUiPrompt",
     "_meta": {
       "title": "VixUI-Prompt"
-    }
-  },
-  "282": {
-    "inputs": {
-      "aspect_ratio": "3:4"
-    },
-    "class_type": "SDXLAspectRatioSelector",
-    "_meta": {
-      "title": "input;Aspect Ratio;optional;advanced;order=2;custom_id=aspect_ratio"
     }
   },
   "283": {
@@ -230,6 +222,21 @@
     "class_type": "VixDynamicLoraDefinition",
     "_meta": {
       "title": "VixUI-VixDynamicLoraDefinition"
+    }
+  },
+  "288": {
+    "inputs": {
+      "aspect_ratio": "3:4 (896x1152)",
+      "display_name": "Aspect Ratio",
+      "optional": true,
+      "advanced": true,
+      "order": 2,
+      "custom_id": "aspect_ratio",
+      "hidden": false
+    },
+    "class_type": "VixUiAspectRatioSelector",
+    "_meta": {
+      "title": "VixUI-Aspect Ratio"
     }
   }
 }
