@@ -171,11 +171,11 @@
   "27": {
     "inputs": {
       "width": [
-        "30",
+        "39",
         1
       ],
       "height": [
-        "30",
+        "39",
         2
       ],
       "batch_size": [
@@ -186,15 +186,6 @@
     "class_type": "EmptySD3LatentImage",
     "_meta": {
       "title": "EmptySD3LatentImage"
-    }
-  },
-  "30": {
-    "inputs": {
-      "aspect_ratio": "1:1"
-    },
-    "class_type": "SDXLAspectRatioSelector",
-    "_meta": {
-      "title": "input;Aspect Ratio;optional;advanced;order=2;custom_id=aspect_ratio"
     }
   },
   "31": {
@@ -223,13 +214,14 @@
       "documentation": "https://comfyanonymous.github.io/ComfyUI_examples/flux/#simple-to-use-fp8-checkpoint-version",
       "license": "",
       "tags": "[\"general\", \"simple\", \"loras\"]",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 12
+      "required_memory_gb": 12,
+      "hidden": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -307,6 +299,21 @@
     "class_type": "VixDynamicLoraDefinition",
     "_meta": {
       "title": "VixUI-VixDynamicLoraDefinition"
+    }
+  },
+  "39": {
+    "inputs": {
+      "aspect_ratio": "1:1 (1024x1024)",
+      "display_name": "Aspect Ratio",
+      "optional": true,
+      "advanced": true,
+      "order": 2,
+      "custom_id": "aspect_ratio",
+      "hidden": false
+    },
+    "class_type": "VixUiAspectRatioSelector",
+    "_meta": {
+      "title": "VixUI-Aspect Ratio"
     }
   }
 }

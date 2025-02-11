@@ -89,11 +89,11 @@
   "6": {
     "inputs": {
       "width": [
-        "11",
+        "14",
         1
       ],
       "height": [
-        "11",
+        "14",
         2
       ],
       "batch_size": 1
@@ -142,13 +142,14 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 8
+      "required_memory_gb": 8,
+      "hidden": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -171,15 +172,6 @@
     "class_type": "VixUiRangeFloat",
     "_meta": {
       "title": "VixUI-RangeFloat"
-    }
-  },
-  "11": {
-    "inputs": {
-      "aspect_ratio": "1:1"
-    },
-    "class_type": "SDXLAspectRatioSelector",
-    "_meta": {
-      "title": "input;Aspect Ratio;optional;advanced;order=2;custom_id=aspect_ratio"
     }
   },
   "12": {
@@ -214,6 +206,21 @@
     "class_type": "VixUiPrompt",
     "_meta": {
       "title": "VixUI-Prompt"
+    }
+  },
+  "14": {
+    "inputs": {
+      "aspect_ratio": "1:1 (1024x1024)",
+      "display_name": "Aspect Ratio",
+      "optional": true,
+      "advanced": true,
+      "order": 2,
+      "custom_id": "aspect_ratio",
+      "hidden": false
+    },
+    "class_type": "VixUiAspectRatioSelector",
+    "_meta": {
+      "title": "VixUI-Aspect Ratio"
     }
   }
 }
