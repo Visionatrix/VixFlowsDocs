@@ -30,6 +30,14 @@ title: Worker to Database-FS Mode
     sudo apt update && sudo apt install -y wget curl python3-venv python3-pip build-essential git
     ```
 
+    !!! note
+
+        On some systems you need additionally to install `cv2` dependencies:
+
+        ```bash
+        sudo apt install -y ffmpeg libsm6 libxext6
+        ```
+
 4. Install and start PostgreSQL:
 
     ```bash

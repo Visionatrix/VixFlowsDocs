@@ -60,6 +60,14 @@ ollama pull deepseek-r1:8b
 ollama pull phi4:14b-q4_K_M
 ```
 
+## HuggingFace and CivitAI tokens
+
+Make sure that in the Visionatrix Settings, the Hugging Face and CivitAI tokens are present to install the following models used in the flows that are included in the benchmarks:
+
+- [Shou Xin](https://huggingface.co/Datou1111/shou_xin)
+- [StableDiffusion 3.5 Medium](https://huggingface.co/stabilityai/stable-diffusion-3.5-medium)
+- [StableDiffusion 3.5 Large](https://huggingface.co/stabilityai/stable-diffusion-3.5-large)
+
 ## Running the Benchmark Script
 
 The benchmark script is located in the `scripts/benchmarks` directory.
