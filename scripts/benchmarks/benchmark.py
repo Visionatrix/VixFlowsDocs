@@ -19,7 +19,7 @@ SERVER_URL = os.environ.get("SERVER_URL", "http://127.0.0.1:8288")
 REMOVE_RESULTS_FROM_VISIONATRIX = int(os.environ.get("REMOVE_RESULTS", "1"))
 DEFAULT_NUMBER_OF_TEST_CASE_RUNS = min(int(os.environ.get("COUNT", "2")), 3)
 HARDWARE = os.environ.get("HARDWARE", "YOUR_CPU-YOUR_GPU").strip("\"'")
-FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "1800"))
+FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "2400"))
 TEST_START_TIME = datetime.now()
 # TEST_START_TIME = datetime(year=2025, month=2, day=2)  # set custom datetime if needed to add results to old results
 RESULTS_DIR: Path
@@ -45,7 +45,7 @@ SELECTED_TEST_FLOW_SUITES: list[tuple[str, list["FlowTest"]]] = []
 SELECTED_TEST_FLOW_SUITE = []
 INSTALLED_FLOWS_CACHE = []
 
-PARALLEL_INSTALLS = int(os.environ.get("PARALLEL_INSTALLS", "5"))
+PARALLEL_INSTALLS = int(os.environ.get("PARALLEL_INSTALLS", "3"))
 
 GLOBAL_PROMPTS: dict[str, list[str]] = {}
 
@@ -662,13 +662,14 @@ async def save_results(
                         warmup_result["task_id"], node_id
                     )
                     if output_data:
-                        warmup_png = os.path.join(
+                        warmup_file = os.path.join(
                             flow_test_case_dir,
-                            f"warmup_task_{warmup_result['task_id']}_node_{node_id}_{configuration_key}.png",
+                            f"warmup_task_{warmup_result['task_id']}_node_{node_id}_{configuration_key}{get_extension(output_data)}",
                         )
-                        with open(warmup_png, "wb") as fw:
-                            fw.write(output_data)
-                        print(f"Warm-up PNG saved to: {warmup_png}")
+
+                        with open(warmup_file, "wb") as fw:
+                            fw.write(output_data.content)
+                        print(f"Warm-up result saved to: {warmup_file}")
             if REMOVE_RESULTS_FROM_VISIONATRIX:
                 await delete_task(warmup_result["task_id"])
 
@@ -697,14 +698,15 @@ async def save_results(
                         flow_test_case_dir,
                         task_id,
                         node_id,
-                        output_data,
+                        output_data.content,
                         configuration_key=configuration_key,
+                        file_extension=get_extension(output_data),
                     )
         if REMOVE_RESULTS_FROM_VISIONATRIX:
             await delete_task(task_id)
 
 
-async def get_task_results(task_id: int, node_id: int) -> bytes:
+async def get_task_results(task_id: int, node_id: int) -> httpx.Response | None:
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             response = await client.get(
@@ -713,7 +715,7 @@ async def get_task_results(task_id: int, node_id: int) -> bytes:
                 timeout=15,
             )
             if response.status_code == 200:
-                return response.content
+                return response
             print(
                 f"Failed to get results for task {task_id}, node {node_id}. Status: {response.status_code}"
             )
@@ -721,7 +723,7 @@ async def get_task_results(task_id: int, node_id: int) -> bytes:
             print(
                 f"An error occurred while fetching task results: {exc.request.url!r}: {exc}"
             )
-        return b""
+        return None
 
 
 async def save_output(
@@ -1096,6 +1098,19 @@ async def benchmarker():
                 )
 
         await generate_results_summary_json(suite_name)
+
+
+def get_extension(res: httpx.Response):
+    content_disposition = res.headers.get("content-disposition")
+    if content_disposition:
+        import re
+
+        match = re.search(r'filename="?([^";]+)"?', content_disposition)
+        if match:
+            filename = match.group(1)
+            if "." in filename:
+                return f".{filename.rsplit('.', 1)[-1]}"
+    return ".png"
 
 
 if __name__ == "__main__":
