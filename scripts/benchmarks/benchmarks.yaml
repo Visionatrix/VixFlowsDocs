@@ -212,9 +212,10 @@ OLLAMA:
         use_settings:
           ollama_llm_model: "falcon3:7b-instruct-fp16"
           ollama_keepalive: "0.25"
-        sleep_after: 30
         input_params:
           text_provider: 0
+        sleep_after: 30
+        recalculate_time_per_300_chars: true
       - name: "Generate prompt (falcon3:7b-instruct-fp16) (unload=True)"
         support_disable_smart_memory: 0
         use_settings:
@@ -223,14 +224,16 @@ OLLAMA:
         input_params:
           text_provider: 0
         sleep_after: 30
+        recalculate_time_per_300_chars: true
       - name: "Generate prompt (phi4:14b-q4_K_M)"
         support_disable_smart_memory: 0
         use_settings:
           ollama_llm_model: "phi4:14b-q4_K_M"
           ollama_keepalive: "0.25"
-        sleep_after: 30
         input_params:
           text_provider: 0
+        sleep_after: 30
+        recalculate_time_per_300_chars: true
       - name: "Generate prompt (phi4:14b-q4_K_M) (unload=True)"
         support_disable_smart_memory: 0
         use_settings:
@@ -239,3 +242,4 @@ OLLAMA:
         input_params:
           text_provider: 0
         sleep_after: 30
+        recalculate_time_per_300_chars: true
