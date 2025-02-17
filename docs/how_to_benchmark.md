@@ -50,13 +50,13 @@ curl -fsSL https://ollama.com/install.sh | sh
 
 The tests are done with two models:
 
-- deepseek-r1:8b
+- falcon3:7b-instruct-fp16
 - phi4:14b-q4_K_M
 
 Please install both of these models in Ollama using the commands:
 
 ```bash
-ollama pull deepseek-r1:8b
+ollama pull falcon3:7b-instruct-fp16
 ollama pull phi4:14b-q4_K_M
 ```
 
@@ -103,10 +103,10 @@ Enter the numbers of the suites to run, separated by commas (e.g., 1,3,5): 1,2,3
 Upon completion of the tests, a folder with results will appear in the `results` directory, named with the date, hardware, and test suite. For example:
 
 ```
-results/2024-11-11-EPYC_75F3-4090-SDXL/
+results/2024-11-11-EPYC75F3-4090-SDXL/
 ```
 
-Inside this folder, you will find the summary JSON file (e.g., `summary-2024-11-11-EPYC_75F3-4090-SDXL.json`) and the detailed results for each flow and test case.
+Inside this folder, you will find the summary JSON file (e.g., `summary-2024-11-11-EPYC75F3-4090-SDXL.json`) and the detailed results for each flow and test case.
 
 The `benchmark.py` script supports resuming interrupted tests. If you run the script again for the same test suite, it will skip tests that have already been completed.
 
@@ -133,7 +133,7 @@ This script will process the summary JSON files in the `hardware_results` folder
 As mentioned earlier, the `HARDWARE` variable is supported. Example usage:
 
 ```bash
-HARDWARE="EPYC_75F3-4090" python3 scripts/benchmarks/benchmark.py
+HARDWARE="EPYC75F3-4090" python3 scripts/benchmarks/benchmark.py
 ```
 
 Another supported variable is `SERVER_URL`, for example:
@@ -158,7 +158,7 @@ Another supported variable is `REMOVE_RESULTS`. By default, it is `1`, which mea
 
 If you have a slow internet connection and not all flows from your selected test suite are installed, you might want to set a custom value for the `FLOW_INSTALL_TIMEOUT` variable.
 
-By default, it is set to 1800 seconds (30 minutes). If the flow does not download within this time, the script will produce an error (but this does not cancel the flow installation; it will eventually be installed on the server).
+By default, it is set to 2400 seconds (40 minutes). If the flow does not download within this time, the script will produce an error (but this does not cancel the flow installation; it will eventually be installed on the server).
 
 The variables `PAUSE_INTERVAL` (default value `0`) and `PAUSE_INTERVAL_AFTER_WARMUP` (default value `0`) control the pause time between tests.
 

@@ -1,0 +1,79 @@
+{
+    "test_time": "2025/02/17",
+    "flows": [
+        {
+            "flow_name": "juggernaut_lite",
+            "flow_display_name": "Juggernaut Lite",
+            "test_cases": [
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 11.598127343499527,
+                    "avg_max_memory_usage": 9859.81
+                },
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 12.836045204999209,
+                    "avg_max_memory_usage": 5267.91
+                }
+            ]
+        },
+        {
+            "flow_name": "playground_2_5_aesthetic",
+            "flow_display_name": "Aesthetic images",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 7.501843561500664,
+                    "avg_max_memory_usage": 8827.99
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 9.911451287500313,
+                    "avg_max_memory_usage": 5322.63
+                },
+                {
+                    "test_case": "fast_run",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 2.9176141069997357,
+                    "avg_max_memory_usage": 8834.88
+                },
+                {
+                    "test_case": "fast_run",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 5.2650264045005315,
+                    "avg_max_memory_usage": 5322.63
+                }
+            ]
+        },
+        {
+            "flow_name": "sdxl_lighting",
+            "flow_display_name": "SDXL Lighting",
+            "test_cases": [
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 1.7760610064997309,
+                    "avg_max_memory_usage": 8907.5
+                },
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 4.091265704500074,
+                    "avg_max_memory_usage": 5163.41
+                }
+            ]
+        }
+    ]
+}

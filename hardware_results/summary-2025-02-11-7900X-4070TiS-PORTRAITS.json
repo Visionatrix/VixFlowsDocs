@@ -1,0 +1,85 @@
+{
+    "test_time": "2025/02/11",
+    "flows": [
+        {
+            "flow_name": "vintage_portrait",
+            "flow_display_name": "Vintage Portrait",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 18.718843693500276,
+                    "avg_max_memory_usage": 12058.19
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 20.584067894999862,
+                    "avg_max_memory_usage": 8603.224999999999
+                }
+            ]
+        },
+        {
+            "flow_name": "photo_stickers",
+            "flow_display_name": "Photo Stickers",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 31.13748270950009,
+                    "avg_max_memory_usage": 12625.880000000001
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 35.008376924500226,
+                    "avg_max_memory_usage": 9429.205
+                }
+            ]
+        },
+        {
+            "flow_name": "ghibli_portrait",
+            "flow_display_name": "Ghibli Portrait",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 3.0525569364999683,
+                    "avg_max_memory_usage": 12037.73
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 4.601442245999806,
+                    "avg_max_memory_usage": 8564.9
+                }
+            ]
+        },
+        {
+            "flow_name": "photomaker_1",
+            "flow_display_name": "Photo from 1 image",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 9.219230178000089,
+                    "avg_max_memory_usage": 8913.01
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 12.175863687999936,
+                    "avg_max_memory_usage": 5307.23
+                }
+            ]
+        }
+    ]
+}

@@ -35,6 +35,9 @@ BASIC_AUTH = (
 if BASIC_AUTH:
     print(f"Using authentication for connect, user: '{USER_NAME}'")
 
+HUGGINGFACE_TOKEN = ""
+CIVITAI_TOKEN = ""
+
 PAUSE_INTERVAL = int(os.environ.get("PAUSE_INTERVAL", "0"))
 PAUSE_INTERVAL_AFTER_WARMUP = int(os.environ.get("PAUSE_INTERVAL_AFTER_WARMUP", "0"))
 UNLOAD_MODELS_BEFORE_WARMUP = os.environ.get("UNLOAD_MODELS_BEFORE_WARMUP", "1")
@@ -45,7 +48,9 @@ SELECTED_TEST_FLOW_SUITES: list[tuple[str, list["FlowTest"]]] = []
 SELECTED_TEST_FLOW_SUITE = []
 INSTALLED_FLOWS_CACHE = []
 
-PARALLEL_INSTALLS = int(os.environ.get("PARALLEL_INSTALLS", "3"))
+PARALLEL_INSTALLS = int(
+    os.environ.get("PARALLEL_INSTALLS", "3")
+)  # for slow internet(<300MB) set to "2"
 
 GLOBAL_PROMPTS: dict[str, list[str]] = {}
 
@@ -566,21 +571,43 @@ async def run_test_case(
 
 
 async def install_flows_in_parallel(flow_names: list[str]) -> dict[str, bool]:
-    semaphore = asyncio.Semaphore(PARALLEL_INSTALLS)
-    results = {}
+    old_hf_token = ""
+    old_civitai_token = ""
+    if HUGGINGFACE_TOKEN:
+        old_hf_token = await get_global_setting_value("huggingface_auth_token")
+        await set_global_setting_value(
+            "huggingface_auth_token", HUGGINGFACE_TOKEN, sensitive=True
+        )
+    if CIVITAI_TOKEN:
+        old_civitai_token = await get_global_setting_value("civitai_auth_token")
+        await set_global_setting_value(
+            "civitai_auth_token", CIVITAI_TOKEN, sensitive=True
+        )
 
-    async def install_one_flow(name: str):
-        async with semaphore:
-            if await is_flow_installed(name):
-                print(f"Flow '{name}' is already installed.")
-                results[name] = True
-            else:
-                success = await install_flow(name)
-                results[name] = success
+    try:
+        semaphore = asyncio.Semaphore(PARALLEL_INSTALLS)
+        results = {}
 
-    tasks = [asyncio.create_task(install_one_flow(fname)) for fname in flow_names]
-    await asyncio.gather(*tasks)
+        async def install_one_flow(name: str):
+            async with semaphore:
+                if await is_flow_installed(name):
+                    print(f"Flow '{name}' is already installed.")
+                    results[name] = True
+                else:
+                    success = await install_flow(name)
+                    results[name] = success
 
+        tasks = [asyncio.create_task(install_one_flow(fname)) for fname in flow_names]
+        await asyncio.gather(*tasks)
+    finally:
+        if HUGGINGFACE_TOKEN:
+            await set_global_setting_value(
+                "huggingface_auth_token", old_hf_token, sensitive=True
+            )
+        if CIVITAI_TOKEN:
+            await set_global_setting_value(
+                "civitai_auth_token", old_civitai_token, sensitive=True
+            )
     return results
 
 
@@ -775,11 +802,11 @@ async def save_output(
     node_id: int,
     output_data: bytes,
     configuration_key: str,
-    file_extension: str = "png",
+    file_extension: str = ".png",
 ):
     output_file = os.path.join(
         flow_test_case_dir,
-        f"result__task_{task_id}_node_{node_id}_{configuration_key}.{file_extension}",
+        f"result__task_{task_id}_node_{node_id}_{configuration_key}{file_extension}",
     )
     with open(output_file, "wb") as f:
         f.write(output_data)
@@ -1024,16 +1051,13 @@ async def get_global_setting_value(key: str) -> str:
     return ""
 
 
-async def set_global_setting_value(key: str, value: str):
-    """
-    Creates or updates a global setting with 'sensitive=False'.
-    If value == '', we remove the setting.
-    """
+async def set_global_setting_value(key: str, value: str, sensitive=False):
+    """Creates or updates a global setting. If value == '', we remove the setting."""
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         payload = {
             "key": key,
             "value": value,
-            "sensitive": False,
+            "sensitive": sensitive,
         }
         try:
             response = await client.post(
