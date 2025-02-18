@@ -25,7 +25,6 @@ Visionatrix by default install and update these nodes:
 > -   [PuLID_ComfyUI](https://github.com/Visionatrix/PuLID_ComfyUI)
 > -   [rgthree-comfy](https://github.com/Visionatrix/rgthree-comfy)
 > -   [Skimmed_CFG](https://github.com/Visionatrix/Skimmed_CFG)
-> -   [style_aligned_comfy](https://github.com/Visionatrix/style_aligned_comfy)
 > -   [was-node-suite-comfyui](https://github.com/Visionatrix/was-node-suite-comfyui)
 > -   [ComfyUI-Inpaint-CropAndStitch](https://github.com/Visionatrix/ComfyUI-Inpaint-CropAndStitch)
 > -   [ComfyUI-PhotoMaker-Plus](https://github.com/Visionatrix/ComfyUI-PhotoMaker-Plus)

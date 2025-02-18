@@ -30,6 +30,14 @@ title: Worker to Database-FS Mode
     sudo apt update && sudo apt install -y wget curl python3-venv python3-pip build-essential git
     ```
 
+    !!! note
+
+        On some systems you need additionally to install `cv2` dependencies:
+
+        ```bash
+        sudo apt install -y ffmpeg libsm6 libxext6
+        ```
+
 4. Install and start PostgreSQL:
 
     ```bash
@@ -110,6 +118,7 @@ title: Worker to Database-FS Mode
       COMPUTE_DEVICE=NVIDIA DEV_VERSION=1 BUILD_RELEASE=1 python3 easy_install.py && \
       cd Visionatrix && source venv/bin/activate && \
       pip install ".[pgsql]" && \
+      AUTO_INIT_CONFIG_MODELS_DIR="$(pwd)/../VixModels" python3 scripts/easy_install.py && \
       \
       USER_PASSWORD=$(openssl rand -base64 32 | tr -dc 'A-Za-z0-9' | head -c 16) && \
       DATABASE_URI="postgresql+psycopg://vix_user:vix_password@localhost:5432/vix_db" \

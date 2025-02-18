@@ -1,0 +1,25 @@
+{
+    "test_time": "2025/02/02",
+    "flows": [
+        {
+            "flow_name": "auraflow",
+            "flow_display_name": "AuraFlow",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 52.05429463850032,
+                    "avg_max_memory_usage": 16719.62
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 61.93319436500133,
+                    "avg_max_memory_usage": 14148.72
+                }
+            ]
+        }
+    ]
+}

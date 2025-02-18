@@ -1,0 +1,45 @@
+{
+    "test_time": "2025/02/02",
+    "flows": [
+        {
+            "flow_name": "remove_background_birefnet_lite",
+            "flow_display_name": "Remove background (BiRefNet Lite)",
+            "test_cases": [
+                {
+                    "test_case": "Remove Background",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 0.6822220564990857,
+                    "avg_max_memory_usage": 2518.09
+                },
+                {
+                    "test_case": "Remove Background",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 0.5533268330000283,
+                    "avg_max_memory_usage": 2523.59
+                }
+            ]
+        },
+        {
+            "flow_name": "remove_background_birefnet",
+            "flow_display_name": "Remove background (BiRefNet)",
+            "test_cases": [
+                {
+                    "test_case": "Remove Background",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 0.7262735875010549,
+                    "avg_max_memory_usage": 4026.15
+                },
+                {
+                    "test_case": "Remove Background",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 0.6831006780012103,
+                    "avg_max_memory_usage": 4029.48
+                }
+            ]
+        }
+    ]
+}

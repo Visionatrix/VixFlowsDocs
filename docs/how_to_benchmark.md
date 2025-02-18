@@ -38,6 +38,36 @@ If you prefer not to use a virtual environment, you can install the dependencies
 cd VixFlowsDocs && pip install -r requirements.txt
 ```
 
+## Installing Ollama
+
+Since Visionatrix is starting to use LLM more and more, we decided to add Ollama tests to help people understand what they can expect.
+
+To install Ollama on Linux if it is not installed use:
+
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+```
+
+The tests are done with two models:
+
+- falcon3:7b-instruct-fp16
+- phi4:14b-q4_K_M
+
+Please install both of these models in Ollama using the commands:
+
+```bash
+ollama pull falcon3:7b-instruct-fp16
+ollama pull phi4:14b-q4_K_M
+```
+
+## HuggingFace and CivitAI tokens
+
+Make sure that in the Visionatrix Settings, the Hugging Face and CivitAI tokens are present to install the following models used in the flows that are included in the benchmarks:
+
+- [Shou Xin](https://huggingface.co/Datou1111/shou_xin)
+- [StableDiffusion 3.5 Medium](https://huggingface.co/stabilityai/stable-diffusion-3.5-medium)
+- [StableDiffusion 3.5 Large](https://huggingface.co/stabilityai/stable-diffusion-3.5-large)
+
 ## Running the Benchmark Script
 
 The benchmark script is located in the `scripts/benchmarks` directory.
@@ -55,26 +85,28 @@ The script will prompt you to select the test suite(s) you want to run. Enter th
 ```
 Please select the test suites you want to run:
 1. SDXL Suite
-2. PORTRAITS Suite
-3. OTHER Suite
-4. DiT(FLUX, ..) Suite
-5. HEAVY(24GB+ VRAM) Suite
-Enter the numbers of the suites to run, separated by commas (e.g., 1,3,5): 1,2,3,4,5
+2. AURA_FLOW Suite
+3. CASCADE Suite
+4. DIT_8_BIT(FLUX 8-bit, ..) Suite
+5. DIT(Flux original, ..) Suite
+6. PORTRAITS Suite
+7. UPSCALERS Suite
+8. OTHER Suite
+9. OLLAMA Suite
+Enter the numbers of the suites to run, separated by commas (e.g., 1,3,5): 1,2,3,4,5 or `ALL`
 ```
 
 !!! note
 
-    The script will automatically install the flows from the selected test suite if they are not already installed. It will start testing as soon as the first flow is installed and will install the subsequent flows in parallel.
-
-    This should not significantly affect performance (unless your Visionatrix is running in `DEFAULT` mode).
+    The script will automatically install the flows from the selected test suite if they are not already installed. It will start testing as soon as all flows are installed.
 
 Upon completion of the tests, a folder with results will appear in the `results` directory, named with the date, hardware, and test suite. For example:
 
 ```
-results/2024-11-11-EPYC_75F3-4090-SDXL/
+results/2024-11-11-EPYC75F3-4090-SDXL/
 ```
 
-Inside this folder, you will find the summary JSON file (e.g., `summary-2024-11-11-EPYC_75F3-4090-SDXL.json`) and the detailed results for each flow and test case.
+Inside this folder, you will find the summary JSON file (e.g., `summary-2024-11-11-EPYC75F3-4090-SDXL.json`) and the detailed results for each flow and test case.
 
 The `benchmark.py` script supports resuming interrupted tests. If you run the script again for the same test suite, it will skip tests that have already been completed.
 
@@ -101,7 +133,7 @@ This script will process the summary JSON files in the `hardware_results` folder
 As mentioned earlier, the `HARDWARE` variable is supported. Example usage:
 
 ```bash
-HARDWARE="EPYC_75F3-4090" python3 scripts/benchmarks/benchmark.py
+HARDWARE="EPYC75F3-4090" python3 scripts/benchmarks/benchmark.py
 ```
 
 Another supported variable is `SERVER_URL`, for example:
@@ -126,7 +158,7 @@ Another supported variable is `REMOVE_RESULTS`. By default, it is `1`, which mea
 
 If you have a slow internet connection and not all flows from your selected test suite are installed, you might want to set a custom value for the `FLOW_INSTALL_TIMEOUT` variable.
 
-By default, it is set to 1800 seconds (30 minutes). If the flow does not download within this time, the script will produce an error (but this does not cancel the flow installation; it will eventually be installed on the server).
+By default, it is set to 2400 seconds (40 minutes). If the flow does not download within this time, the script will produce an error (but this does not cancel the flow installation; it will eventually be installed on the server).
 
 The variables `PAUSE_INTERVAL` (default value `0`) and `PAUSE_INTERVAL_AFTER_WARMUP` (default value `0`) control the pause time between tests.
 

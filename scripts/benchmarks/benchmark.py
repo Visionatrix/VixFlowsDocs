@@ -19,8 +19,9 @@ SERVER_URL = os.environ.get("SERVER_URL", "http://127.0.0.1:8288")
 REMOVE_RESULTS_FROM_VISIONATRIX = int(os.environ.get("REMOVE_RESULTS", "1"))
 DEFAULT_NUMBER_OF_TEST_CASE_RUNS = min(int(os.environ.get("COUNT", "2")), 3)
 HARDWARE = os.environ.get("HARDWARE", "YOUR_CPU-YOUR_GPU").strip("\"'")
-FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "1800"))
+FLOW_INSTALL_TIMEOUT = int(os.environ.get("FLOW_INSTALL_TIMEOUT", "2400"))
 TEST_START_TIME = datetime.now()
+# TEST_START_TIME = datetime(year=2025, month=2, day=2)  # set custom datetime if needed to add results to old results
 RESULTS_DIR: Path
 SELECTED_WORKER: dict
 AUTOMATIC_INSTALL = True  # do not ask before installing flows for test suites
@@ -34,6 +35,9 @@ BASIC_AUTH = (
 if BASIC_AUTH:
     print(f"Using authentication for connect, user: '{USER_NAME}'")
 
+HUGGINGFACE_TOKEN = ""
+CIVITAI_TOKEN = ""
+
 PAUSE_INTERVAL = int(os.environ.get("PAUSE_INTERVAL", "0"))
 PAUSE_INTERVAL_AFTER_WARMUP = int(os.environ.get("PAUSE_INTERVAL_AFTER_WARMUP", "0"))
 UNLOAD_MODELS_BEFORE_WARMUP = os.environ.get("UNLOAD_MODELS_BEFORE_WARMUP", "1")
@@ -44,7 +48,9 @@ SELECTED_TEST_FLOW_SUITES: list[tuple[str, list["FlowTest"]]] = []
 SELECTED_TEST_FLOW_SUITE = []
 INSTALLED_FLOWS_CACHE = []
 
-PARALLEL_INSTALLS = 5
+PARALLEL_INSTALLS = int(
+    os.environ.get("PARALLEL_INSTALLS", "3")
+)  # for slow internet(<300MB) set to "2"
 
 GLOBAL_PROMPTS: dict[str, list[str]] = {}
 
@@ -62,6 +68,34 @@ class TestCase(BaseModel):
     count: int = Field(
         DEFAULT_NUMBER_OF_TEST_CASE_RUNS,
         description="Number of task executions to perform (beyond warm-up).",
+    )
+    support_disable_smart_memory: int = Field(
+        1,
+        description=(
+            "If set to 0, skip this test if the worker has disable_smart_memory=True. "
+            "If missing or non-zero, run the test."
+        ),
+    )
+    use_settings: dict[str, str] = Field(
+        default_factory=dict,
+        description=(
+            "Temporary global settings to override for this test case. "
+            "Each key is a global setting, each value is what to set. "
+            "After the test finishes, old values are restored."
+        ),
+    )
+    sleep_after: int = Field(
+        0,
+        description=(
+            "If > 0, sleep this many seconds after finishing the test case (while holding the semaphore)."
+        ),
+    )
+    recalculate_time_per_300_chars: bool = Field(
+        False,
+        description=(
+            "If true, adjust execution time metrics for text generation to reflect the "
+            "time required to generate 300 text symbols based on the output text length."
+        ),
     )
 
 
@@ -307,13 +341,11 @@ def split_value_for_warmup_and_runs(
     Given a value from either input_params or input_files, decide how to split it for warm-up
     vs. main runs. If it's a list, first item is warm-up, the rest are subsequent runs.
     If empty list, we might use suite_prompts logic (only for prompt?), but for input_files
-    it should just be blank, or we warn. If it's a single item, we use that for all runs.
+    it should just be blank. If it's a single item, we use that for all runs.
     """
     if isinstance(value, list):
         if not value and suite_prompts is not None:
-            # For 'prompt' in input_params, we might do top-level suite prompts logic
-            # but for input_files, we can't do that automatically. We'll just leave it blank.
-            # We'll do the same logic as we do for "prompt" => first item = warmup, rest = subsequent
+            # If 'prompt' key is empty, try top-level suite prompts
             if suite_prompts:
                 warmup_val = suite_prompts[0] if len(suite_prompts) > 0 else ""
                 subsequent_vals = suite_prompts[1 : count + 1]
@@ -338,8 +370,7 @@ def build_warmup_and_runs_dict(
     """
     For each key in `params`, figure out the warm-up value and subsequent values.
     Return (warmup_dict, [dict_for_run0, dict_for_run1, ...]).
-    If it's for prompt and is an empty list, we might use the top-level PROMPTS suite logic.
-    If it's for input_files with a list, we do the same approach (first => warmup, subsequent => next runs).
+    If it's for 'prompt' in input_params and is an empty list => use top-level PROMPTS from GLOBAL_PROMPTS.
     """
     warmup_dict = {}
     runs_list = [dict() for _ in range(count)]
@@ -347,7 +378,6 @@ def build_warmup_and_runs_dict(
     for key, value in params.items():
         suite_prompts = None
         # If it's the special "prompt" key in input_params and we have an empty list => use top-level suite prompts
-        # For input_files, we do not have top-level suite prompts, so we skip
         if (
             not is_input_files
             and key == "prompt"
@@ -365,7 +395,6 @@ def build_warmup_and_runs_dict(
             runs_list[i][key] = (
                 subsequent_vals[i] if i < len(subsequent_vals) else warmup_val
             )
-            # If the list is too short, we fallback to the warmup_val
 
     return warmup_dict, runs_list
 
@@ -376,148 +405,209 @@ async def run_test_case(
     test_semaphore: asyncio.Semaphore,
     suite_identifier: str,
 ):
+    # Acquire semaphore to ensure tests run one at a time
     async with test_semaphore:
         global FIRST_TEST_FLAG
 
-        if FIRST_TEST_FLAG:
-            FIRST_TEST_FLAG = False
-        else:
-            if PAUSE_INTERVAL:
+        # -------------------------------------------------
+        # 1) Use settings override (store old, set new)
+        # -------------------------------------------------
+        old_settings: dict[str, str] = {}
+        if test_case.use_settings:
+            print(
+                f"Test case '{test_case.name}' has 'use_settings': {test_case.use_settings}"
+            )
+            for k, new_val in test_case.use_settings.items():
+                old_val = await get_global_setting_value(k)
+                old_settings[k] = old_val
+                await set_global_setting_value(k, new_val)
                 print(
-                    f"Pausing for {PAUSE_INTERVAL} seconds before starting next test."
+                    f"Set global setting: {k} => {new_val} (old value was: {old_val})"
                 )
-                await asyncio.sleep(PAUSE_INTERVAL)
 
-        flow_test_case_dir = os.path.join(RESULTS_DIR, f"{flow_name}__{test_case.name}")
-        metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
-        existing_configurations = set()
-        if os.path.exists(metadata_file):
-            with open(metadata_file, "r") as f:
-                try:
-                    metadata = json.load(f)
-                    if "results" in metadata:
-                        existing_configurations.update(metadata["results"].keys())
-                except json.JSONDecodeError:
-                    pass
+        try:
+            # -------------------------------------------------
+            # (continue normal test flow)
+            # -------------------------------------------------
 
-        worker_engine_details = SELECTED_WORKER["engine_details"]
-        configuration_key = (
-            f"{worker_engine_details['vram_state']}_disable_smart_memory_"
-            f"{worker_engine_details['disable_smart_memory']}"
-        )
-
-        if configuration_key in existing_configurations:
-            print(
-                f"Results for flow '{flow_name}', test case '{test_case.name}', "
-                f"configuration '{configuration_key}' already exist. Skipping."
-            )
-            return
-
-        # Build warm-up vs subsequent runs for input_params
-        warmup_params, run_params_list = build_warmup_and_runs_dict(
-            test_case.input_params,
-            suite_identifier,
-            test_case.count,
-            is_input_files=False,
-        )
-
-        # Build warm-up vs subsequent runs for input_files
-        warmup_files, run_files_list = build_warmup_and_runs_dict(
-            test_case.input_files,
-            suite_identifier,
-            test_case.count,
-            is_input_files=True,
-        )
-
-        print(
-            f"\n------\nRunning test '{test_case.name}' for flow '{flow_name}', config '{configuration_key}'\n"
-        )
-
-        # --- Warm-up ---
-        print("Warming up task...")
-
-        warmup_task_ids = await create_task(
-            flow_name=flow_name,
-            input_params=warmup_params,
-            count=1,
-            input_files=warmup_files,
-            warm_up=True,
-        )
-        if not warmup_task_ids:
-            print(
-                f"Failed to create warmup task for flow '{flow_name}', test case: {test_case.name}"
-            )
-            return
-
-        wr = await get_task_progress(warmup_task_ids[0])
-        if wr.get("error"):
-            print(
-                f"Failed warmup task for flow '{flow_name}', test case: {test_case.name} with error: {wr['error']}"
-            )
-            return
-        warmup_result = wr
-
-        if PAUSE_INTERVAL_AFTER_WARMUP:
-            print(f"Pausing {PAUSE_INTERVAL_AFTER_WARMUP}s after warmup.")
-            await asyncio.sleep(PAUSE_INTERVAL_AFTER_WARMUP)
-
-        # --- Main runs ---
-        all_test_runs_results = []
-        for i in range(test_case.count):
-            rp = run_params_list[i]
-            rf = run_files_list[i]
-
-            # Just printing a short summary if there's a prompt in rp
-            maybe_prompt = rp.get("prompt", "")
-            if isinstance(maybe_prompt, str) and maybe_prompt.strip():
-                print(f"Creating main run #{i+1} with prompt='{maybe_prompt}'")
+            if FIRST_TEST_FLAG:
+                FIRST_TEST_FLAG = False
             else:
-                print(f"Creating main run #{i+1}")
+                if PAUSE_INTERVAL and not test_case.sleep_after:
+                    print(
+                        f"Pausing for {PAUSE_INTERVAL} seconds before starting next test."
+                    )
+                    await asyncio.sleep(PAUSE_INTERVAL)
 
-            task_ids = await create_task(
-                flow_name=flow_name,
-                input_params=rp,
-                count=1,
-                input_files=rf,
-                warm_up=False,
+            flow_test_case_dir = os.path.join(
+                RESULTS_DIR, f"{flow_name}__{test_case.name}"
             )
-            if not task_ids:
+            metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
+            existing_configurations = set()
+            if os.path.exists(metadata_file):
+                with open(metadata_file, "r") as f:
+                    try:
+                        metadata = json.load(f)
+                        if "results" in metadata:
+                            existing_configurations.update(metadata["results"].keys())
+                    except json.JSONDecodeError:
+                        pass
+
+            worker_engine_details = SELECTED_WORKER["engine_details"]
+            configuration_key = (
+                f"{worker_engine_details['vram_state']}_disable_smart_memory_"
+                f"{worker_engine_details['disable_smart_memory']}"
+            )
+
+            if configuration_key in existing_configurations:
                 print(
-                    f"Failed to create test run task for flow '{flow_name}', test case: {test_case.name}"
+                    f"Results for flow '{flow_name}', test case '{test_case.name}', "
+                    f"configuration '{configuration_key}' already exist. Skipping."
                 )
-                continue
+                return
 
-            r = await get_task_progress(task_ids[0])
-            r["input_params"] = rp
-            all_test_runs_results.append(r)
+            # Build warm-up vs subsequent runs for input_params
+            warmup_params, run_params_list = build_warmup_and_runs_dict(
+                test_case.input_params,
+                suite_identifier,
+                test_case.count,
+                is_input_files=False,
+            )
 
-        await save_results(
-            flow_name=flow_name,
-            test_case_name=test_case.name,
-            test_case=test_case,
-            warmup_result=warmup_result,
-            main_task_results=all_test_runs_results,
-            vram_state=worker_engine_details["vram_state"],
-            disable_smart_memory=worker_engine_details["disable_smart_memory"],
-        )
+            # Build warm-up vs subsequent runs for input_files
+            warmup_files, run_files_list = build_warmup_and_runs_dict(
+                test_case.input_files,
+                suite_identifier,
+                test_case.count,
+                is_input_files=True,
+            )
+
+            print(
+                f"\n------\nRunning test '{test_case.name}' for flow '{flow_name}', config '{configuration_key}'\n"
+            )
+
+            # --- Warm-up ---
+            print("Warming up task...")
+            warmup_task_ids = await create_task(
+                flow_name=flow_name,
+                input_params=warmup_params,
+                count=1,
+                input_files=warmup_files,
+                warm_up=True,
+            )
+            if not warmup_task_ids:
+                print(
+                    f"Failed to create warmup task for flow '{flow_name}', test case: {test_case.name}"
+                )
+                return
+
+            wr = await get_task_progress(warmup_task_ids[0])
+            if wr.get("error"):
+                print(
+                    f"Failed warmup task for flow '{flow_name}', test case: {test_case.name} with error: {wr['error']}"
+                )
+                return
+            warmup_result = wr
+
+            if PAUSE_INTERVAL_AFTER_WARMUP and not test_case.sleep_after:
+                print(f"Pausing {PAUSE_INTERVAL_AFTER_WARMUP}s after warmup.")
+                await asyncio.sleep(PAUSE_INTERVAL_AFTER_WARMUP)
+
+            # --- Main runs ---
+            all_test_runs_results = []
+            for i in range(test_case.count):
+                rp = run_params_list[i]
+                rf = run_files_list[i]
+
+                maybe_prompt = rp.get("prompt", "")
+                if isinstance(maybe_prompt, str) and maybe_prompt.strip():
+                    print(f"Creating main run #{i+1} with prompt='{maybe_prompt}'")
+                else:
+                    print(f"Creating main run #{i+1}")
+
+                task_ids = await create_task(
+                    flow_name=flow_name,
+                    input_params=rp,
+                    count=1,
+                    input_files=rf,
+                    warm_up=False,
+                )
+                if not task_ids:
+                    print(
+                        f"Failed to create test run task for flow '{flow_name}', test case: {test_case.name}"
+                    )
+                    continue
+
+                r = await get_task_progress(task_ids[0])
+                r["input_params"] = rp
+                all_test_runs_results.append(r)
+
+            await save_results(
+                flow_name=flow_name,
+                test_case_name=test_case.name,
+                test_case=test_case,
+                warmup_result=warmup_result,
+                main_task_results=all_test_runs_results,
+                vram_state=worker_engine_details["vram_state"],
+                disable_smart_memory=worker_engine_details["disable_smart_memory"],
+            )
+
+        finally:
+            # -------------------------------------------------
+            # 2) Restore old global settings
+            # -------------------------------------------------
+            if old_settings:
+                for k, old_val in old_settings.items():
+                    # If old_val == "" then that setting did not exist; remove it
+                    await set_global_setting_value(k, old_val)
+                    print(f"Restored global setting: {k} => {old_val}")
+
+            # -------------------------------------------------
+            # 3) Optional sleep_after
+            # -------------------------------------------------
+            if test_case.sleep_after > 0:
+                print(f"Sleeping for {test_case.sleep_after} seconds after test case.")
+                await asyncio.sleep(test_case.sleep_after)
 
 
 async def install_flows_in_parallel(flow_names: list[str]) -> dict[str, bool]:
-    semaphore = asyncio.Semaphore(PARALLEL_INSTALLS)
-    results = {}
+    old_hf_token = ""
+    old_civitai_token = ""
+    if HUGGINGFACE_TOKEN:
+        old_hf_token = await get_global_setting_value("huggingface_auth_token")
+        await set_global_setting_value(
+            "huggingface_auth_token", HUGGINGFACE_TOKEN, sensitive=True
+        )
+    if CIVITAI_TOKEN:
+        old_civitai_token = await get_global_setting_value("civitai_auth_token")
+        await set_global_setting_value(
+            "civitai_auth_token", CIVITAI_TOKEN, sensitive=True
+        )
 
-    async def install_one_flow(name: str):
-        async with semaphore:
-            if await is_flow_installed(name):
-                print(f"Flow '{name}' is already installed.")
-                results[name] = True
-            else:
-                success = await install_flow(name)
-                results[name] = success
+    try:
+        semaphore = asyncio.Semaphore(PARALLEL_INSTALLS)
+        results = {}
 
-    tasks = [asyncio.create_task(install_one_flow(fname)) for fname in flow_names]
-    await asyncio.gather(*tasks)
+        async def install_one_flow(name: str):
+            async with semaphore:
+                if await is_flow_installed(name):
+                    print(f"Flow '{name}' is already installed.")
+                    results[name] = True
+                else:
+                    success = await install_flow(name)
+                    results[name] = success
 
+        tasks = [asyncio.create_task(install_one_flow(fname)) for fname in flow_names]
+        await asyncio.gather(*tasks)
+    finally:
+        if HUGGINGFACE_TOKEN:
+            await set_global_setting_value(
+                "huggingface_auth_token", old_hf_token, sensitive=True
+            )
+        if CIVITAI_TOKEN:
+            await set_global_setting_value(
+                "civitai_auth_token", old_civitai_token, sensitive=True
+            )
     return results
 
 
@@ -564,16 +654,52 @@ async def save_results(
             f"No valid tasks to summarize for flow '{flow_name}', test case '{test_case_name}'."
         )
 
-    execution_times = [
-        task["execution_time"] for task in valid_main_tasks if "execution_time" in task
-    ]
     summary = {}
-    if execution_times:
-        summary = {
-            "min_exec_time": min(execution_times),
-            "max_exec_time": max(execution_times),
-            "avg_exec_time": statistics.mean(execution_times),
-        }
+    # Determine the summary based on whether we need to recalculate execution times.
+    if getattr(test_case, "recalculate_time_per_300_chars", False):
+        adjusted_times = []
+        for task in valid_main_tasks:
+            exec_time = task.get("execution_time")
+            if exec_time is None:
+                continue
+            adjusted_time = exec_time
+            # Look for a text output to adjust based on its character length.
+            for output in task.get("outputs", []):
+                node_id = output.get("comfy_node_id")
+                if node_id:
+                    output_data = await get_task_results(task.get("task_id"), node_id)
+                    if output_data:
+                        try:
+                            # Decode output to get text content and its length.
+                            text = output_data.content.decode("utf-8")
+                            char_count = len(text)
+                            if char_count > 0:
+                                adjusted_time = (exec_time / char_count) * 300
+                        except Exception as e:
+                            print(
+                                f"Error decoding text output for task {task.get('task_id')}: {e}"
+                            )
+                    break  # Use the first valid text output.
+            adjusted_times.append(adjusted_time)
+        if adjusted_times:
+            summary = {
+                "min_exec_time": min(adjusted_times),
+                "max_exec_time": max(adjusted_times),
+                "avg_exec_time": statistics.mean(adjusted_times),
+                "note": "Execution times recalculated as time per 100 text symbols",
+            }
+    else:
+        execution_times = [
+            task["execution_time"]
+            for task in valid_main_tasks
+            if "execution_time" in task
+        ]
+        if execution_times:
+            summary = {
+                "min_exec_time": min(execution_times),
+                "max_exec_time": max(execution_times),
+                "avg_exec_time": statistics.mean(execution_times),
+            }
 
     metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
     if os.path.exists(metadata_file):
@@ -606,13 +732,14 @@ async def save_results(
                         warmup_result["task_id"], node_id
                     )
                     if output_data:
-                        warmup_png = os.path.join(
+                        warmup_file = os.path.join(
                             flow_test_case_dir,
-                            f"warmup_task_{warmup_result['task_id']}_node_{node_id}_{configuration_key}.png",
+                            f"warmup_task_{warmup_result['task_id']}_node_{node_id}_{configuration_key}{get_extension(output_data)}",
                         )
-                        with open(warmup_png, "wb") as fw:
-                            fw.write(output_data)
-                        print(f"Warm-up PNG saved to: {warmup_png}")
+
+                        with open(warmup_file, "wb") as fw:
+                            fw.write(output_data.content)
+                        print(f"Warm-up result saved to: {warmup_file}")
             if REMOVE_RESULTS_FROM_VISIONATRIX:
                 await delete_task(warmup_result["task_id"])
 
@@ -641,14 +768,15 @@ async def save_results(
                         flow_test_case_dir,
                         task_id,
                         node_id,
-                        output_data,
+                        output_data.content,
                         configuration_key=configuration_key,
+                        file_extension=get_extension(output_data),
                     )
         if REMOVE_RESULTS_FROM_VISIONATRIX:
             await delete_task(task_id)
 
 
-async def get_task_results(task_id: int, node_id: int) -> bytes:
+async def get_task_results(task_id: int, node_id: int) -> httpx.Response | None:
     async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
         try:
             response = await client.get(
@@ -657,7 +785,7 @@ async def get_task_results(task_id: int, node_id: int) -> bytes:
                 timeout=15,
             )
             if response.status_code == 200:
-                return response.content
+                return response
             print(
                 f"Failed to get results for task {task_id}, node {node_id}. Status: {response.status_code}"
             )
@@ -665,7 +793,7 @@ async def get_task_results(task_id: int, node_id: int) -> bytes:
             print(
                 f"An error occurred while fetching task results: {exc.request.url!r}: {exc}"
             )
-        return b""
+        return None
 
 
 async def save_output(
@@ -674,11 +802,11 @@ async def save_output(
     node_id: int,
     output_data: bytes,
     configuration_key: str,
-    file_extension: str = "png",
+    file_extension: str = ".png",
 ):
     output_file = os.path.join(
         flow_test_case_dir,
-        f"result__task_{task_id}_node_{node_id}_{configuration_key}.{file_extension}",
+        f"result__task_{task_id}_node_{node_id}_{configuration_key}{file_extension}",
     )
     with open(output_file, "wb") as f:
         f.write(output_data)
@@ -902,6 +1030,48 @@ async def select_test_flow_suite(test_suites: dict[str, list[FlowTest]]):
         exit(1)
 
 
+#
+#  Helpers to get/set global settings
+#
+async def get_global_setting_value(key: str) -> str:
+    """Retrieve the global setting's value or empty string if not found."""
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
+        try:
+            response = await client.get(
+                f"{SERVER_URL}/vapi/settings/global", params={"key": key}, timeout=30
+            )
+            if response.status_code == 200:
+                # The /settings/global endpoint returns just the string or empty string
+                return response.text
+            print(
+                f"Warning: get_global_setting_value({key}) returned status {response.status_code}"
+            )
+        except httpx.RequestError as exc:
+            print(f"Error retrieving global setting {key}: {exc}")
+    return ""
+
+
+async def set_global_setting_value(key: str, value: str, sensitive=False):
+    """Creates or updates a global setting. If value == '', we remove the setting."""
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
+        payload = {
+            "key": key,
+            "value": value,
+            "sensitive": sensitive,
+        }
+        try:
+            response = await client.post(
+                f"{SERVER_URL}/vapi/settings/global", json=payload, timeout=30
+            )
+            if response.status_code != 204:
+                print(
+                    f"Failed to set global setting {key} => {value}. "
+                    f"status_code={response.status_code}, response={response.text}"
+                )
+        except httpx.RequestError as exc:
+            print(f"Error setting global setting {key} => {value}: {exc}")
+
+
 async def benchmarker():
     if not await is_server_online():
         print("Cannot proceed as the server is down.")
@@ -920,19 +1090,15 @@ async def benchmarker():
             == "y"
         )
 
-    # --------------------------------------------------------------------------
-    # NEW: Gather all flows from all selected test suites first
-    # --------------------------------------------------------------------------
+    # Gather all flows from all selected test suites first
     all_flows_to_install = set()
     for _, suite_test_cases in SELECTED_TEST_FLOW_SUITES:
         for flow_test in suite_test_cases:
             all_flows_to_install.add(flow_test.flow_name)
 
-    # --------------------------------------------------------------------------
-    # NEW: If do_install is True, install them all at once
-    # --------------------------------------------------------------------------
+    # If do_install is True, install them all at once
     if do_install:
-        install_results = await install_flows_in_parallel(all_flows_to_install)
+        install_results = await install_flows_in_parallel(list(all_flows_to_install))
     else:
         installed_flows_list = await get_installed_flows()
         installed_flow_names = {f["name"] for f in installed_flows_list}
@@ -941,9 +1107,7 @@ async def benchmarker():
             for flow_name in all_flows_to_install
         }
 
-    # --------------------------------------------------------------------------
     # Now run each suite's tests
-    # --------------------------------------------------------------------------
     for suite_name, suite_test_cases in SELECTED_TEST_FLOW_SUITES:
         global RESULTS_DIR, SELECTED_TEST_FLOW_SUITE
         SELECTED_TEST_FLOW_SUITE = suite_test_cases
@@ -983,6 +1147,16 @@ async def benchmarker():
                 continue
 
             for test_case in flow_test.test_cases:
+                if (
+                    test_case.support_disable_smart_memory == 0
+                    and worker_engine_details["disable_smart_memory"]
+                ):
+                    print(
+                        f"Skipping test case '{test_case.name}' for flow '{flow_test.flow_name}' "
+                        "because it does not support disable_smart_memory."
+                    )
+                    continue
+
                 await run_test_case(
                     flow_test.flow_name,
                     test_case,
@@ -991,6 +1165,19 @@ async def benchmarker():
                 )
 
         await generate_results_summary_json(suite_name)
+
+
+def get_extension(res: httpx.Response):
+    content_disposition = res.headers.get("content-disposition")
+    if content_disposition:
+        import re
+
+        match = re.search(r'filename="?([^";]+)"?', content_disposition)
+        if match:
+            filename = match.group(1)
+            if "." in filename:
+                return f".{filename.rsplit('.', 1)[-1]}"
+    return ".png"
 
 
 if __name__ == "__main__":
