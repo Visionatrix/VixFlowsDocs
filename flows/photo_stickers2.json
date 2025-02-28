@@ -174,7 +174,7 @@
         0
       ],
       "image": [
-        "518",
+        "590",
         0
       ]
     },
@@ -275,7 +275,7 @@
         0
       ],
       "image": [
-        "518",
+        "590",
         0
       ],
       "model": [
@@ -312,19 +312,6 @@
       "title": "Show Text 🐍"
     }
   },
-  "518": {
-    "inputs": {
-      "megapixels": 0.5,
-      "images": [
-        "326",
-        0
-      ]
-    },
-    "class_type": "ImageScaleToMegapixels",
-    "_meta": {
-      "title": "Scale To Megapixels"
-    }
-  },
   "519": {
     "inputs": {
       "query": [
@@ -338,7 +325,7 @@
       "format": "text",
       "seed": 564503560,
       "images": [
-        "518",
+        "590",
         0
       ]
     },
@@ -498,13 +485,14 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.2.2",
+      "version": "1.2.3",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": false,
-      "required_memory_gb": 16
+      "required_memory_gb": 16,
+      "hidden": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -651,8 +639,9 @@
       "proxy": "",
       "system_instruction": "",
       "error_fallback_value": "",
+      "seed": 1385928074,
       "image_1": [
-        "518",
+        "590",
         0
       ]
     },
@@ -665,7 +654,8 @@
     "inputs": {
       "model": "General.safetensors",
       "device": "AUTO",
-      "use_weight": false
+      "use_weight": false,
+      "dtype": "float32"
     },
     "class_type": "LoadRembgByBiRefNetModel",
     "_meta": {
@@ -686,6 +676,20 @@
     "class_type": "RembgByBiRefNet",
     "_meta": {
       "title": "RembgByBiRefNet"
+    }
+  },
+  "590": {
+    "inputs": {
+      "upscale_method": "bicubic",
+      "megapixels": 0.5,
+      "image": [
+        "326",
+        0
+      ]
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Scale Image to Total Pixels"
     }
   }
 }

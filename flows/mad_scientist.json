@@ -216,26 +216,13 @@
       "format": "text",
       "seed": 564503560,
       "images": [
-        "25",
+        "49",
         0
       ]
     },
     "class_type": "OllamaVision",
     "_meta": {
       "title": "Ollama Vision"
-    }
-  },
-  "25": {
-    "inputs": {
-      "megapixels": 0.5,
-      "images": [
-        "11",
-        0
-      ]
-    },
-    "class_type": "ImageScaleToMegapixels",
-    "_meta": {
-      "title": "Scale To Megapixels"
     }
   },
   "26": {
@@ -348,13 +335,14 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MadScientist/",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.2.3",
+      "version": "1.2.4",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": false,
       "is_macos_supported": true,
-      "required_memory_gb": 6
+      "required_memory_gb": 6,
+      "hidden": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -422,14 +410,29 @@
       "proxy": "",
       "system_instruction": "",
       "error_fallback_value": "",
+      "seed": 1385928074,
       "image_1": [
-        "25",
+        "49",
         0
       ]
     },
     "class_type": "Ask_Gemini",
     "_meta": {
       "title": "Ask Gemini"
+    }
+  },
+  "49": {
+    "inputs": {
+      "upscale_method": "bicubic",
+      "megapixels": 0.5,
+      "image": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Scale Image to Total Pixels"
     }
   }
 }
