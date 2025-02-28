@@ -1,0 +1,74 @@
+[
+  {
+    "flow_name": "surprise_me_internal",
+    "flow_display_name": "Surprise Me (Internal)",
+    "test_case": "Generate prompt (falcon3:7b-instruct-fp16) (unload=True)",
+    "avg_exec_time": 6.602748862198897,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "surprise_me_internal",
+    "flow_display_name": "Surprise Me (Internal)",
+    "test_case": "Generate prompt (falcon3:7b-instruct-fp16) (unload=True)",
+    "avg_exec_time": 6.164916681227368,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "surprise_me_internal",
+    "flow_display_name": "Surprise Me (Internal)",
+    "test_case": "Generate prompt (falcon3:7b-instruct-fp16) (unload=True)",
+    "avg_exec_time": 8.498501467957592,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "surprise_me_internal",
+    "flow_display_name": "Surprise Me (Internal)",
+    "test_case": "Generate prompt (falcon3:7b-instruct-fp16) (unload=True)",
+    "avg_exec_time": 6.171933947548963,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/16",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "surprise_me_internal",
+    "flow_display_name": "Surprise Me (Internal)",
+    "test_case": "Generate prompt (falcon3:7b-instruct-fp16) (unload=True)",
+    "avg_exec_time": 4.552005273523527,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "surprise_me_internal",
+    "flow_display_name": "Surprise Me (Internal)",
+    "test_case": "Generate prompt (falcon3:7b-instruct-fp16) (unload=True)",
+    "avg_exec_time": 6.560419968852478,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "surprise_me_internal",
+    "flow_display_name": "Surprise Me (Internal)",
+    "test_case": "Generate prompt (falcon3:7b-instruct-fp16) (unload=True)",
+    "avg_exec_time": 8.311228915989785,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "surprise_me_internal",
+    "flow_display_name": "Surprise Me (Internal)",
+    "test_case": "Generate prompt (falcon3:7b-instruct-fp16) (unload=True)",
+    "avg_exec_time": 7.369514813717444,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  }
+]
