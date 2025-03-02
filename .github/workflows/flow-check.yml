@@ -77,10 +77,7 @@ jobs:
         run: |
           python3 -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
           python3 -m pip install "src_visionatrix/.[pgsql]"
-          python3 -m visionatrix install
-
-      - name: Autoconfig Models Paths
-        run: AUTO_INIT_CONFIG_MODELS_DIR=./vix_models python3 src_visionatrix/scripts/easy_install.py
+          COMFYUI_MODEL_PATH="./vix_models" python3 -m visionatrix install
 
       - name: Set up Node.js
         if: steps.check_flows.outputs.flows_changed == 'true'
