@@ -1033,17 +1033,17 @@
   "RealVisXL_V5.0_fp16": {
     "regexes": [
       {
-        "input_value": "^(?!.*(?i:lightning))(?=.*(?i:RealVis))(?=.*(?i:XL))(?=.*(?i:V5\\.0))(?=.*(?i:fp16)).*",
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:RealVisXL_V5\\.0_fp16\\.safetensors|realvisxlV50_v50Bakedvae\\.safetensors)$",
         "input_name": "^(?!.*(?i:lora)).*"
       }
     ],
     "url": "https://huggingface.co/SG161222/RealVisXL_V5.0/resolve/main/RealVisXL_V5.0_fp16.safetensors",
     "homepage": "https://huggingface.co/SG161222/RealVisXL_V5.0",
     "hash": "6a35a7855770ae9820a3c931d4964c3817b6d9e3c6f9c4dabb5b3a94e5643b80",
+    "file_size": 6938065488,
     "types": [
       "checkpoints"
-    ],
-    "file_size": 6938065488
+    ]
   },
   "RealVisXL_V5.0_Lightning_fp16": {
     "regexes": [

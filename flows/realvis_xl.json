@@ -1,0 +1,232 @@
+{
+  "2": {
+    "inputs": {
+      "ckpt_name": "RealVisXL_V5.0_fp16.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "27": {
+    "inputs": {
+      "seed": 1,
+      "steps": [
+        "282",
+        0
+      ],
+      "cfg": [
+        "280",
+        0
+      ],
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "2",
+        0
+      ],
+      "positive": [
+        "243",
+        0
+      ],
+      "negative": [
+        "242",
+        0
+      ],
+      "latent_image": [
+        "244",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "116": {
+    "inputs": {
+      "samples": [
+        "27",
+        0
+      ],
+      "vae": [
+        "2",
+        2
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "242": {
+    "inputs": {
+      "text": [
+        "278",
+        0
+      ],
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "243": {
+    "inputs": {
+      "text": [
+        "277",
+        0
+      ],
+      "clip": [
+        "2",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "244": {
+    "inputs": {
+      "width": [
+        "284",
+        1
+      ],
+      "height": [
+        "284",
+        2
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "267": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "116",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "276": {
+    "inputs": {
+      "name": "realvis_xl",
+      "display_name": "RealVis XL",
+      "description": "One of the most popular SDXL models with an eye on photorealism",
+      "author": "bigcat88",
+      "homepage": "https://civitai.com/models/139562?modelVersionId=789646",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"general\", \"simple\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true,
+      "is_macos_supported": true,
+      "required_memory_gb": 6,
+      "hidden": false
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "277": {
+    "inputs": {
+      "text": "portrait, masterpiece, 4k, ray tracing, intricate details, highly detailed, hyper realistic, 8k RAW editorial photo. an adorable lynx , head with a tilt and a slight blink. The lynx is feathers should be soft and fluffy, the background should be a snowy forest, dramatic light, shallow depth of field, high budget",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "278": {
+    "inputs": {
+      "text": "bad hands, bad anatomy, ugly, deformed, (face asymmetry, eyes asymmetry, deformed eyes, deformed mouth, open mouth)",
+      "display_name": "Negative Prompt",
+      "optional": true,
+      "advanced": true,
+      "order": 15,
+      "custom_id": "negative_prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "280": {
+    "inputs": {
+      "value": 3,
+      "display_name": "Prompt strength",
+      "optional": true,
+      "advanced": true,
+      "min": 2,
+      "max": 7,
+      "step": 0.1,
+      "order": 98,
+      "custom_id": "prompt_strength",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "282": {
+    "inputs": {
+      "value": 30,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 25,
+      "max": 60,
+      "step": 1,
+      "order": 97,
+      "custom_id": "steps_count",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "284": {
+    "inputs": {
+      "aspect_ratio": "1:1 (1024x1024)",
+      "display_name": "Aspect Ratio",
+      "optional": true,
+      "advanced": true,
+      "order": 20,
+      "custom_id": "aspect_ratio",
+      "hidden": false
+    },
+    "class_type": "VixUiAspectRatioSelector",
+    "_meta": {
+      "title": "VixUI-Aspect Ratio"
+    }
+  }
+}
