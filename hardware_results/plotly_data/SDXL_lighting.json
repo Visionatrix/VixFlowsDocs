@@ -1,0 +1,290 @@
+[
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.18950764400006,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 11.479229186499651,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.690806190999865,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 4.224902977499369,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.3875261824999825,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 2.608734633999802,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.604176714499886,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 10.400185134499907,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 11.283584371499728,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 12.420816174500033,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.7330244745003256,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 4.095326815499902,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 11.598127343499527,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 12.836045204999209,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.7760610064997309,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 4.091265704500074,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 8.799108788999547,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.782225383999958,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.5309696520002944,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 2.9154468940000697,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 7.180019403499955,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 8.004990322999674,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.2898578624999573,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 2.860885554500328,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 8.112696354499803,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.264188951500273,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.3268513080001867,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 3.149920819000272,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.198764817499978,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "juggernaut_lite",
+    "flow_display_name": "Juggernaut Lite",
+    "test_case": "lighting",
+    "avg_exec_time": 9.91266886700032,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.5131702695001876,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sdxl_lighting",
+    "flow_display_name": "SDXL Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 2.9775010340017616,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": true
+  }
+]

@@ -1,0 +1,290 @@
+[
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.2142533430005642,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.0276482885001315,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.2050436239996998,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.2061864594988947,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.9025683794998258,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.9159991394999452,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 2.0283665584997834,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.9451537299992196,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.8945995699996274,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.9176346604999708,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.874656431999938,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.9760192145004112,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.3075039284999548,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.2970927619999202,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.3345595380001214,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.3003132204994472,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.0792608900001142,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.9379755529998874,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.0544152860002214,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.0636113155001112,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 2.081614252500003,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 2.0748938254992026,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 2.190234039999268,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 2.179155371500201,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.8661686300000042,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.8529000835005718,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.9734532455000817,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 1.9985970665002242,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.6822220564990857,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet_lite",
+    "flow_display_name": "Remove background (BiRefNet Lite)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.5533268330000283,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.7262735875010549,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "remove_background_birefnet",
+    "flow_display_name": "Remove background (BiRefNet)",
+    "test_case": "Remove Background",
+    "avg_exec_time": 0.6831006780012103,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": true
+  }
+]

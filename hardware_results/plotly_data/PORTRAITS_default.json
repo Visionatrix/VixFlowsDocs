@@ -1,0 +1,578 @@
+[
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.9879592864999722,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 6.775261224500355,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 24.243388341499667,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 27.348199542000657,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 44.4923142305006,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 49.887294100500185,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 10.788156403000357,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 15.684348547499212,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 18.718843693500276,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 20.584067894999862,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 31.13748270950009,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 35.008376924500226,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.0525569364999683,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.601442245999806,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 9.219230178000089,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 12.175863687999936,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 3.714741779000178,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 5.310550422000233,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 22.441717829500703,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 25.352711397001258,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 34.52490869200119,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 36.530670346999614,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 12.230882034502429,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 14.246582117999424,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.519067198499897,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 8.15823429450029,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 20.57884511600014,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 32.85000934599884,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 45.204525382000156,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 44.46282808150045,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 8.883573089500032,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 12.531522161000794,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 2.4240847330001998,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.010807235999644,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 14.510021475500253,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 16.327011209499688,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 29.477583620999667,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 33.96828332450059,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 8.619020195999838,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 11.225342475503567,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 2.9729774034999537,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 5.657675329500307,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 16.690693286999704,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 19.771470435499396,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 34.40630098749989,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 41.12231164250079,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 7.61206112400032,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 11.669779229000596,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 2.6949037974995917,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.710019179500705,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 16.537896524499956,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 17.477665813000385,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 31.04921999149974,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 33.73248429749947,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 7.254633198000192,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 10.069397830000526,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 2.5602876349994403,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ghibli_portrait",
+    "flow_display_name": "Ghibli Portrait",
+    "test_case": "default",
+    "avg_exec_time": 4.767529828000079,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 13.374334630999783,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "vintage_portrait",
+    "flow_display_name": "Vintage Portrait",
+    "test_case": "default",
+    "avg_exec_time": 15.648710025499895,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 29.293923182999606,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photo_stickers",
+    "flow_display_name": "Photo Stickers",
+    "test_case": "default",
+    "avg_exec_time": 32.029702914500376,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 5.551524185500057,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "photomaker_1",
+    "flow_display_name": "Photo from 1 image",
+    "test_case": "default",
+    "avg_exec_time": 8.869431439999971,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": true
+  }
+]
