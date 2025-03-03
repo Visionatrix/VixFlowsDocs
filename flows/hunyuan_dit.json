@@ -67,7 +67,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/HunyuanDiT/",
       "license": "",
       "tags": "[\"general\", \"simple\", \"loras\"]",
-      "version": "1.1.1",
+      "version": "1.2.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -202,14 +202,14 @@
   "308": {
     "inputs": {
       "value": 6,
-      "display_name": "Vibrancy",
+      "display_name": "Prompt strength",
       "optional": true,
       "advanced": true,
       "min": 2,
       "max": 15,
       "step": 0.1,
       "order": 90,
-      "custom_id": "vibrancy",
+      "custom_id": "prompt_strength",
       "hidden": false
     },
     "class_type": "VixUiRangeFloat",

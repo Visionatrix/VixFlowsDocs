@@ -185,14 +185,14 @@
   "308": {
     "inputs": {
       "value": 1,
-      "display_name": "Vibrancy",
+      "display_name": "Prompt strength",
       "optional": true,
       "advanced": true,
       "min": 1,
       "max": 4.5,
       "step": 0.1,
       "order": 10,
-      "custom_id": "vibrancy",
+      "custom_id": "prompt_strength",
       "hidden": false
     },
     "class_type": "VixUiRangeFloat",
@@ -226,7 +226,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Colorful_XL/",
       "license": "",
       "tags": "[\"general\", \"simple\"]",
-      "version": "2.1.4",
+      "version": "2.2.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
