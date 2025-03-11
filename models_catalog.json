@@ -1286,6 +1286,20 @@
       "text_encoders"
     ]
   },
+  "LLAVA-LLAMA3-Vision": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?llava_llama3_vision\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/clip_vision/llava_llama3_vision.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged",
+    "hash": "7d0f89bf7860815f3a994b9bdae8ebe3a29c161825d03ca9262cb13b0c973aa6",
+    "file_size": 649022376,
+    "types": [
+      "clip_vision"
+    ]
+  },
   "Hunyuan-t2v-720p-bf16": {
     "regexes": [
       {
@@ -1296,6 +1310,20 @@
     "homepage": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged",
     "hash": "c6ff2d107f0fec571fe276ad847468404ed01855c28c0be8859c3b311daec52a",
     "file_size": 25642131432,
+    "types": [
+      "diffusion_models"
+    ]
+  },
+  "Hunyuan-i2v-720p-bf16": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?hunyuan_video_v2_replace_image_to_video_720p_bf16\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/diffusion_models/hunyuan_video_v2_replace_image_to_video_720p_bf16.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged",
+    "hash": "d27fd41305825558b4c174bc13782275a947b29a7d5ad4b7c43ae56f1f431205",
+    "file_size": 25642120808,
     "types": [
       "diffusion_models"
     ]
