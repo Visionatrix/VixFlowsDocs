@@ -531,7 +531,7 @@
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 6
+      "required_memory_gb": 8
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
