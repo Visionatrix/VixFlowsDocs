@@ -2,7 +2,7 @@
   "6": {
     "inputs": {
       "text": [
-        "78",
+        "101",
         0
       ],
       "clip": [
@@ -60,7 +60,7 @@
       "filename_prefix": "ComfyUI",
       "fps": 24,
       "lossless": false,
-      "quality": 95,
+      "quality": 90,
       "method": "default",
       "images": [
         "8",
@@ -85,12 +85,12 @@
     "inputs": {
       "frame_rate": 25,
       "positive": [
-        "6",
+        "95",
         0
       ],
       "negative": [
-        "7",
-        0
+        "95",
+        1
       ]
     },
     "class_type": "LTXVConditioning",
@@ -98,37 +98,16 @@
       "title": "LTXVConditioning"
     }
   },
-  "70": {
-    "inputs": {
-      "width": [
-        "82",
-        0
-      ],
-      "height": [
-        "80",
-        0
-      ],
-      "length": [
-        "85",
-        0
-      ],
-      "batch_size": 1
-    },
-    "class_type": "EmptyLTXVLatentVideo",
-    "_meta": {
-      "title": "EmptyLTXVLatentVideo"
-    }
-  },
   "71": {
     "inputs": {
       "steps": 30,
       "max_shift": 2.05,
-      "base_shift": 0.95,
+      "base_shift": 0.9500000000000001,
       "stretch": true,
       "terminal": 0.1,
       "latent": [
-        "70",
-        0
+        "95",
+        2
       ]
     },
     "class_type": "LTXVScheduler",
@@ -139,7 +118,7 @@
   "72": {
     "inputs": {
       "add_noise": true,
-      "noise_seed": 248238034564360,
+      "noise_seed": 1092847494041144,
       "cfg": 3,
       "model": [
         "44",
@@ -162,8 +141,8 @@
         0
       ],
       "latent_image": [
-        "70",
-        0
+        "95",
+        2
       ]
     },
     "class_type": "SamplerCustom",
@@ -173,56 +152,80 @@
   },
   "73": {
     "inputs": {
-      "sampler_name": "res_multistep"
+      "sampler_name": "euler"
     },
     "class_type": "KSamplerSelect",
     "_meta": {
       "title": "KSamplerSelect"
     }
   },
-  "77": {
+  "82": {
     "inputs": {
-      "name": "ltxv_txt2video",
-      "display_name": "LTXV: Text To Video",
-      "description": "Quickly create short videos from text with resolution up to 768x768",
-      "author": "Comfy Org",
-      "homepage": "https://comfyanonymous.github.io/ComfyUI_examples/ltxv/",
-      "documentation": "",
-      "license": "",
-      "tags": "[\"video\"]",
-      "version": "1.1.0",
-      "requires": "[]",
-      "is_seed_supported": true,
-      "is_count_supported": true,
-      "is_translations_supported": true,
-      "is_macos_supported": true,
-      "required_memory_gb": 16,
-      "hidden": false
+      "img_compression": 40,
+      "image": [
+        "103",
+        0
+      ]
     },
-    "class_type": "VixUiWorkflowMetadata",
+    "class_type": "LTXVPreprocess",
     "_meta": {
-      "title": "VixUI-WorkflowMetadata"
+      "title": "LTXVPreprocess"
     }
   },
-  "78": {
+  "95": {
     "inputs": {
-      "text": "A woman with long brown hair and light skin smiles at another woman with long blonde hair. The woman with brown hair wears a black jacket and has a small, barely noticeable mole on her right cheek. The camera angle is a close-up, focused on the woman with brown hair's face. The lighting is warm and natural, likely from the setting sun, casting a soft glow on the scene. The scene appears to be real-life footage.",
-      "display_name": "Prompt",
-      "optional": false,
-      "advanced": false,
-      "order": 1,
-      "custom_id": "prompt",
-      "hidden": false,
-      "translatable": true
+      "width": [
+        "100",
+        0
+      ],
+      "height": [
+        "98",
+        0
+      ],
+      "length": [
+        "96",
+        0
+      ],
+      "batch_size": 1,
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "7",
+        0
+      ],
+      "vae": [
+        "44",
+        2
+      ],
+      "image": [
+        "82",
+        0
+      ]
     },
-    "class_type": "VixUiPrompt",
+    "class_type": "LTXVImgToVideo",
     "_meta": {
-      "title": "VixUI-Prompt"
+      "title": "LTXVImgToVideo"
     }
   },
-  "79": {
+  "96": {
     "inputs": {
-      "value": 48,
+      "a": [
+        "97",
+        0
+      ],
+      "b": 1,
+      "operation": "add"
+    },
+    "class_type": "easy mathInt",
+    "_meta": {
+      "title": "Math Int"
+    }
+  },
+  "97": {
+    "inputs": {
+      "value": 40,
       "display_name": "Number of frames",
       "optional": true,
       "advanced": true,
@@ -238,7 +241,7 @@
       "title": "VixUI-RangeInt"
     }
   },
-  "80": {
+  "98": {
     "inputs": {
       "value": 512,
       "display_name": "Height",
@@ -256,9 +259,9 @@
       "title": "VixUI-RangeInt"
     }
   },
-  "82": {
+  "100": {
     "inputs": {
-      "value": 768,
+      "value": 512,
       "display_name": "Width",
       "optional": true,
       "advanced": true,
@@ -274,18 +277,62 @@
       "title": "VixUI-RangeInt"
     }
   },
-  "85": {
+  "101": {
     "inputs": {
-      "a": [
-        "79",
-        0
-      ],
-      "b": 1,
-      "operation": "add"
+      "text": "",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt",
+      "hidden": false,
+      "translatable": true
     },
-    "class_type": "easy mathInt",
+    "class_type": "VixUiPrompt",
     "_meta": {
-      "title": "Math Int"
+      "title": "VixUI-Prompt"
+    }
+  },
+  "102": {
+    "inputs": {
+      "name": "ltxv_img2video",
+      "display_name": "LTXV: Image To Video",
+      "description": "Quickly create short videos from images with resolution up to 768x768",
+      "author": "Comfy Org",
+      "homepage": "https://comfyanonymous.github.io/ComfyUI_examples/ltxv/",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"video\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true,
+      "is_macos_supported": true,
+      "required_memory_gb": 24,
+      "hidden": false
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "103": {
+    "inputs": {
+      "image": ""
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;First frame;order=1;custom_id=image"
+    }
+  },
+  "105": {
+    "inputs": {
+      "text": "[\n  {\n    \"display_name\": \"Animate(LTXV)\",\n    \"type\": \"image\"\n  }\n]"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "WF_SUBFLOWS"
     }
   }
 }

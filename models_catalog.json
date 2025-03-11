@@ -1228,6 +1228,20 @@
       "checkpoints"
     ]
   },
+  "LTX-Video-2b-0.95": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:lightricksLTXV_2b095\\.safetensors|ltx\\-video\\-2b\\-v0\\.9\\.5\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltx-video-2b-v0.9.5.safetensors",
+    "homepage": "https://huggingface.co/Lightricks/LTX-Video",
+    "hash": "720d15c9f19f7d0f6b2a92bbbc34410e2cfb2f6856a100b38f734fbf973d4adf",
+    "file_size": 6340729500,
+    "types": [
+      "checkpoints"
+    ]
+  },
   "BiRefNet-General": {
     "regexes": [
       {
