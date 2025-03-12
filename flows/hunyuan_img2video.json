@@ -325,8 +325,8 @@
       "display_name": "Diffusion precision",
       "optional": true,
       "advanced": true,
-      "order": 98,
-      "custom_id": "",
+      "order": 30,
+      "custom_id": "diffusion_precision",
       "hidden": false
     },
     "class_type": "VixUiList",
