@@ -22,8 +22,8 @@
         0
       ],
       "vae": [
-        "79",
-        2
+        "94",
+        0
       ]
     },
     "class_type": "VAEDecode",
@@ -95,7 +95,7 @@
     "inputs": {
       "filename_prefix": "flux/img_",
       "images": [
-        "8",
+        "100",
         0
       ]
     },
@@ -141,12 +141,12 @@
       "strength_model": 1,
       "strength_clip": 1,
       "model": [
-        "79",
+        "96",
         0
       ],
       "clip": [
-        "79",
-        1
+        "95",
+        0
       ]
     },
     "class_type": "LoraLoader",
@@ -255,15 +255,6 @@
       "title": "Text Concatenate"
     }
   },
-  "79": {
-    "inputs": {
-      "ckpt_name": "flux1-dev-fp8.safetensors"
-    },
-    "class_type": "CheckpointLoaderSimple",
-    "_meta": {
-      "title": "Load Checkpoint"
-    }
-  },
   "80": {
     "inputs": {
       "name": "animal_clothing",
@@ -274,14 +265,15 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"animals\", \"clothing\"]",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
       "required_memory_gb": 12,
-      "hidden": false
+      "hidden": false,
+      "remote_vae": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -290,8 +282,7 @@
   },
   "81": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -300,8 +291,7 @@
   },
   "82": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -470,6 +460,86 @@
     "class_type": "VixUiAspectRatioSelector",
     "_meta": {
       "title": "VixUI-Aspect Ratio"
+    }
+  },
+  "94": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "95": {
+    "inputs": {
+      "clip_name1": "t5xxl_fp16.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "96": {
+    "inputs": {
+      "unet_name": "flux1-dev.sft",
+      "weight_dtype": [
+        "97",
+        0
+      ]
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "97": {
+    "inputs": {
+      "default_value": "fp8_e4m3fn",
+      "possible_values": "[\"default\", \"fp8_e4m3fn\", \"fp8_e4m3fn_fast\", \"fp8_e5m2\"]",
+      "display_name": "Diffusion precision",
+      "optional": true,
+      "advanced": true,
+      "order": 30,
+      "custom_id": "diffusion_precision",
+      "hidden": false
+    },
+    "class_type": "VixUiList",
+    "_meta": {
+      "title": "VixUI-List"
+    }
+  },
+  "100": {
+    "inputs": {
+      "state": false,
+      "input_off_state": [
+        "8",
+        0
+      ],
+      "input_on_state": [
+        "101",
+        0
+      ]
+    },
+    "class_type": "VixCheckboxLogic",
+    "_meta": {
+      "title": "remote_vae"
+    }
+  },
+  "101": {
+    "inputs": {
+      "vae_type": "Flux",
+      "samples": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "RemoteVAEDecode",
+    "_meta": {
+      "title": "VAE Decode (Remote)"
     }
   }
 }

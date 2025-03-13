@@ -51,19 +51,6 @@
       "title": "VAE Decode"
     }
   },
-  "9": {
-    "inputs": {
-      "filename_prefix": "ComfyUI",
-      "images": [
-        "8",
-        0
-      ]
-    },
-    "class_type": "SaveImage",
-    "_meta": {
-      "title": "Save Image"
-    }
-  },
   "10": {
     "inputs": {
       "vae_name": "ae.safetensors"
@@ -88,7 +75,10 @@
   "12": {
     "inputs": {
       "unet_name": "flux1-schnell.safetensors",
-      "weight_dtype": "default"
+      "weight_dtype": [
+        "37",
+        0
+      ]
     },
     "class_type": "UNETLoader",
     "_meta": {
@@ -198,14 +188,15 @@
       "documentation": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
       "license": "",
       "tags": "[\"general\", \"lighting\", \"simple\", \"loras\"]",
-      "version": "1.1.1",
+      "version": "1.2.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 16,
-      "hidden": false
+      "required_memory_gb": 12,
+      "hidden": false,
+      "remote_vae": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -233,7 +224,7 @@
   "32": {
     "inputs": {
       "base_model_type": "Flux.1 S",
-      "description": "Applied Flux Dev LoRAs",
+      "description": "Applied Flux Schnell LoRAs",
       "model": [
         "12",
         0
@@ -261,6 +252,65 @@
     "class_type": "VixUiAspectRatioSelector",
     "_meta": {
       "title": "VixUI-Aspect Ratio"
+    }
+  },
+  "34": {
+    "inputs": {
+      "vae_type": "Flux",
+      "samples": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "RemoteVAEDecode",
+    "_meta": {
+      "title": "VAE Decode (Remote)"
+    }
+  },
+  "35": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "36",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "36": {
+    "inputs": {
+      "state": false,
+      "input_off_state": [
+        "8",
+        0
+      ],
+      "input_on_state": [
+        "34",
+        0
+      ]
+    },
+    "class_type": "VixCheckboxLogic",
+    "_meta": {
+      "title": "remote_vae"
+    }
+  },
+  "37": {
+    "inputs": {
+      "default_value": "fp8_e4m3fn",
+      "possible_values": "[\"default\", \"fp8_e4m3fn\", \"fp8_e4m3fn_fast\", \"fp8_e5m2\"]",
+      "display_name": "Diffusion precision",
+      "optional": true,
+      "advanced": true,
+      "order": 30,
+      "custom_id": "diffusion_precision",
+      "hidden": false
+    },
+    "class_type": "VixUiList",
+    "_meta": {
+      "title": "VixUI-List"
     }
   }
 }

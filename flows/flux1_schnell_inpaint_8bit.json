@@ -180,7 +180,7 @@
   },
   "16": {
     "inputs": {
-      "clip_name1": "t5xxl_fp8_e4m3fn.safetensors",
+      "clip_name1": "t5xxl_fp16.safetensors",
       "clip_name2": "clip_l.safetensors",
       "type": "flux",
       "device": "default"
@@ -201,8 +201,11 @@
   },
   "19": {
     "inputs": {
-      "unet_name": "flux1-schnell-fp8.safetensors",
-      "weight_dtype": "default"
+      "unet_name": "flux1-schnell.safetensors",
+      "weight_dtype": [
+        "68",
+        0
+      ]
     },
     "class_type": "UNETLoader",
     "_meta": {
@@ -217,7 +220,7 @@
         0
       ],
       "inpainted_image": [
-        "2",
+        "67",
         0
       ]
     },
@@ -264,21 +267,23 @@
   },
   "37": {
     "inputs": {
-      "name": "flux1_schnell_inpaint_8bit",
-      "display_name": "Flux Lighting Redraw (Small)",
+      "name": "flux1_schnell_inpaint",
+      "display_name": "Flux Lighting Redraw",
       "description": "Redrawing parts of an image",
       "author": "bigcat88",
       "homepage": "https://openart.ai/workflows/profile/akita_deadly_60?sort=latest",
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Inpaint/",
       "license": "",
       "tags": "[\"redraw\", \"lighting\", \"postprocess\"]",
-      "version": "2.0.2",
+      "version": "1.0.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 12
+      "required_memory_gb": 12,
+      "hidden": false,
+      "remote_vae": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -343,8 +348,7 @@
   },
   "59": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -353,8 +357,7 @@
   },
   "60": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -363,8 +366,7 @@
   },
   "61": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -421,6 +423,52 @@
     "class_type": "ToBinaryMask",
     "_meta": {
       "title": "ToBinaryMask"
+    }
+  },
+  "66": {
+    "inputs": {
+      "vae_type": "Flux",
+      "samples": [
+        "1",
+        0
+      ]
+    },
+    "class_type": "RemoteVAEDecode",
+    "_meta": {
+      "title": "VAE Decode (Remote)"
+    }
+  },
+  "67": {
+    "inputs": {
+      "state": false,
+      "input_off_state": [
+        "2",
+        0
+      ],
+      "input_on_state": [
+        "66",
+        0
+      ]
+    },
+    "class_type": "VixCheckboxLogic",
+    "_meta": {
+      "title": "remote_vae"
+    }
+  },
+  "68": {
+    "inputs": {
+      "default_value": "fp8_e4m3fn",
+      "possible_values": "[\"default\", \"fp8_e4m3fn\", \"fp8_e4m3fn_fast\", \"fp8_e5m2\"]",
+      "display_name": "Diffusion precision",
+      "optional": true,
+      "advanced": true,
+      "order": 30,
+      "custom_id": "diffusion_precision",
+      "hidden": false
+    },
+    "class_type": "VixUiList",
+    "_meta": {
+      "title": "VixUI-List"
     }
   }
 }

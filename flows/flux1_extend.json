@@ -91,7 +91,8 @@
     "inputs": {
       "clip_name1": "clip_l.safetensors",
       "clip_name2": "t5xxl_fp8_e4m3fn.safetensors",
-      "type": "flux"
+      "type": "flux",
+      "device": "default"
     },
     "class_type": "DualCLIPLoader",
     "_meta": {
@@ -118,7 +119,7 @@
     "inputs": {
       "filename_prefix": "ComfyUI",
       "images": [
-        "7",
+        "87",
         0
       ]
     },
@@ -283,13 +284,15 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Outpaint/",
       "license": "",
       "tags": "[\"redraw\", \"postprocess\"]",
-      "version": "1.0.1",
+      "version": "1.1.0",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": false,
       "is_macos_supported": true,
-      "required_memory_gb": 12
+      "required_memory_gb": 12,
+      "hidden": false,
+      "remote_vae": true
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -316,8 +319,7 @@
   },
   "81": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -363,12 +365,12 @@
   "84": {
     "inputs": {
       "default_value": "fp8_e4m3fn",
-      "possible_values": "[\"fp16\", \"fp8_e4m3fn\", \"fp8_e4m3fn_fast\", \"fp8_e5m2\"]",
+      "possible_values": "[\"default\", \"fp8_e4m3fn\", \"fp8_e4m3fn_fast\", \"fp8_e5m2\"]",
       "display_name": "Diffusion precision",
       "optional": true,
       "advanced": true,
-      "order": 98,
-      "custom_id": "",
+      "order": 30,
+      "custom_id": "diffusion_precision",
       "hidden": false
     },
     "class_type": "VixUiList",
@@ -392,6 +394,36 @@
     "class_type": "VixUiRangeInt",
     "_meta": {
       "title": "VixUI-RangeInt"
+    }
+  },
+  "86": {
+    "inputs": {
+      "vae_type": "Flux",
+      "samples": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "RemoteVAEDecode",
+    "_meta": {
+      "title": "VAE Decode (Remote)"
+    }
+  },
+  "87": {
+    "inputs": {
+      "state": false,
+      "input_off_state": [
+        "7",
+        0
+      ],
+      "input_on_state": [
+        "86",
+        0
+      ]
+    },
+    "class_type": "VixCheckboxLogic",
+    "_meta": {
+      "title": "remote_vae"
     }
   }
 }
