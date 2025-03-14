@@ -4,42 +4,23 @@ title: Technical Information
 
 ## Bundled ComfyUI nodes
 
-Visionatrix by default install and update these nodes:
+Visionatrix by default install and reinstall on `update` some nodes that are required by flows we provide as examples.
 
-> -   [ComfyUI-AutoCropFaces](https://github.com/Visionatrix/ComfyUI-AutoCropFaces)
-> -   [ComfyUI_BiRefNet_ll](https://github.com/Visionatrix/ComfyUI_BiRefNet_ll)
-> -   [ComfyUI-Custom-Scripts](https://github.com/Visionatrix/ComfyUI-Custom-Scripts)
-> -   [ComfyUI-Impact-Pack](https://github.com/Visionatrix/ComfyUI-Impact-Pack)
-> -   [comfyui-ollama](https://github.com/Visionatrix/comfyui-ollama)
-> -   [ComfyUI-SUPIR](https://github.com/Visionatrix/ComfyUI-SUPIR)
-> -   [ComfyUI-Visionatrix](https://github.com/Visionatrix/ComfyUI-Visionatrix)
-> -   [ComfyUI-WD14-Tagger](https://github.com/Visionatrix/ComfyUI-WD14-Tagger)
-> -   [comfyui_controlnet_aux](https://github.com/Visionatrix/comfyui_controlnet_aux)
-> -   [ComfyUI_essentials](https://github.com/Visionatrix/ComfyUI_essentials)
-> -   [ComfyUI_FizzNodes](https://github.com/Visionatrix/ComfyUI_FizzNodes)
-> -   [ComfyUI-Gemini](https://github.com/Visionatrix/ComfyUI-Gemini)
-> -   [ComfyUI_InstantID](https://github.com/Visionatrix/ComfyUI_InstantID)
-> -   [ComfyUI_IPAdapter_plus](https://github.com/Visionatrix/ComfyUI_IPAdapter_plus)
-> -   [ComfyUI_UltimateSDUpscale](https://github.com/Visionatrix/ComfyUI_UltimateSDUpscale)
-> -   [efficiency-nodes-comfyui](https://github.com/Visionatrix/efficiency-nodes-comfyui)
-> -   [PuLID_ComfyUI](https://github.com/Visionatrix/PuLID_ComfyUI)
-> -   [rgthree-comfy](https://github.com/Visionatrix/rgthree-comfy)
-> -   [Skimmed_CFG](https://github.com/Visionatrix/Skimmed_CFG)
-> -   [was-node-suite-comfyui](https://github.com/Visionatrix/was-node-suite-comfyui)
-> -   [ComfyUI-Inpaint-CropAndStitch](https://github.com/Visionatrix/ComfyUI-Inpaint-CropAndStitch)
-> -   [ComfyUI-PhotoMaker-Plus](https://github.com/Visionatrix/ComfyUI-PhotoMaker-Plus)
-> -   [ComfyUI-VideoHelperSuite](https://github.com/Visionatrix/ComfyUI-VideoHelperSuite)
-> -   [ComfyUI-Frame-Interpolation](https://github.com/Visionatrix/ComfyUI-Frame-Interpolation)
-> -   [ComfyUI-KJNodes](https://github.com/Visionatrix/ComfyUI-KJNodes)
-> -   [ComfyUI_LayerStyle](https://github.com/Visionatrix/ComfyUI_LayerStyle)
-> -   [ComfyUI-Easy-Use](https://github.com/Visionatrix/ComfyUI-Easy-Use)
-> -   [ComfyUI_PuLID_Flux_ll](https://github.com/Visionatrix/ComfyUI_PuLID_Flux_ll)
+You can find file with it here: [basic_node_list.py](https://github.com/Visionatrix/Visionatrix/blob/main/visionatrix/basic_node_list.py)
 
-We are gradually expanding the list.
+!!! note
 
-The main reason many components are missing is that they are quite
-difficult to install, and we believe that an easy installation process
-is more important in most cases.
+    Starting from the Visionatrix `2.0` version we had switched to the [ComfyUI-Manager](https://github.com/ltdrdata/ComfyUI-Manager).
+
+All nodes are installed from the [Comfy-Registry](https://registry.comfy.org/) or their original repositories.
+
+You could easily update Nodes yourself if needed or install new ones.
+
+If after updating via ComfyUI-Manager some of the nodes stopped working, we recommend running the command:
+
+    `python3 -m visionatrix update`
+
+This command will perform a re-instalaltion of the nodes that are included in the Visionatrix package to the original versions that were supplied with this version of Visionatrix.
 
 ---
 

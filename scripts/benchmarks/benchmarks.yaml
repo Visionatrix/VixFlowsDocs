@@ -80,19 +80,21 @@ CASCADE:
           pass_count: "Three pass"
 
 DIT_8_BIT:
-  - flow_name: "flux1_dev_8bit"
+  - flow_name: "flux1_dev"
     test_cases:
       - name: "default"
         input_params:
           prompt: []
           aspect_ratio: "1:1 (1024x1024)"
           steps_count: 30
-  - flow_name: "flux1_schnell_8bit"
+          diffusion_precision: "fp8_e4m3fn"
+  - flow_name: "flux1_schnell"
     test_cases:
       - name: "lighting"
         input_params:
           prompt: []
           aspect_ratio: "1:1 (1024x1024)"
+          diffusion_precision: "fp8_e4m3fn"
   - flow_name: "sd3_5_large_8bit"
     test_cases:
       - name: "default"
@@ -106,6 +108,7 @@ DIT_8_BIT:
         input_params:
           aspect_ratio: "1:1 (1024x1024)"
           prompt: []
+          diffusion_precision: "fp8_e4m3fn"
 
 DIT:
   - flow_name: "hunyuan_dit"
