@@ -4,25 +4,36 @@ title: Command Line Options
 
 # Command Line Options
 
-Visionatrix supports various command-line options, including most of the options provided by `ComfyUI`. You can specify these options when starting Visionatrix manually.
+Visionatrix supports a range of command-line options to manage installation, updating, execution, and configuration of the application. These options combine Visionatrix-specific functionality with many of the command-line features inherited from ComfyUI. Note that for some settings, values stored in the database or provided via environment variables take precedence over command-line arguments.
 
-For example:
+## Global Options
 
-```shell
-python3 -m visionatrix --verbose=WARNING run --ui --disable-smart-memory
-```
+- `--verbose [LEVEL]`: Set the logging level.
+  **Choices:** `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`
+  **Note:** This option should be specified **before** the command.
 
-Below are the command-line options related to Visionatrix and ComfyUI.
+## Commands Overview
 
-## Common Options for Multiple Commands
+Visionatrix provides the following commands:
 
-The following option can be specified for the `install`, `update`, `install-flow`, `orphan-models`, and `openapi` commands:
+- **install**: Performs cleanup and initialization.
+- **update**: Updates Visionatrix to the latest version.
+- **run**: Starts Visionatrix.
+- **install-flow**: Installs a flow by name, tag, or from a file.
+- **create-user**: Creates a new user.
+- **orphan-models**: Removes orphan models.
+- **openapi**: Generates OpenAPI specifications.
+- **list-global-settings**: Lists all global settings.
+- **get-global-setting**: Retrieves a specific global setting.
+- **set-global-setting**: Creates or updates a global setting.
 
-- `--comfy_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
+> **Note:** In previous versions, options such as `--comfyui_dir` could be used to specify the ComfyUI directory. In the current version, directory paths (e.g. `COMFYUI_DIR`, `BASE_DATA_DIR`) are determined by the database settings and environment variables. To override these, update the corresponding global settings or environment variables.
+
+---
 
 ## The `run` Command
 
-Starts the Visionatrix.
+Starts the Visionatrix application, enabling both task processing and (optionally) the web user interface.
 
 ### Syntax
 
@@ -30,9 +41,7 @@ Starts the Visionatrix.
 python3 -m visionatrix [--verbose=LEVEL] run [options]
 ```
 
-### Options
-
-#### Visionatrix-Specific Options
+### Visionatrix-Specific Options
 
 - `--host=HOST`: Host to listen on (DEFAULT or SERVER mode).
 
@@ -40,188 +49,60 @@ python3 -m visionatrix [--verbose=LEVEL] run [options]
 
         This corresponds to ComfyUI's `--listen` argument.
 
-- `--port=PORT`: Port to listen on (DEFAULT or SERVER mode).
-- `--server=SERVER_ADDRESS`: Address of Vix Server (WORKER mode).
+- `--port=PORT`: Port number to bind to (used in DEFAULT or SERVER mode).
+- `--server=SERVER_ADDRESS`: Address of the Vix Server (used in WORKER mode).
 - `--mode {DEFAULT,WORKER,SERVER}`: Visionatrix operating mode.
 
     Choices: [DEFAULT](WorkingModes/working_modes.md#default), [WORKER](WorkingModes/working_modes.md#worker), [SERVER](WorkingModes/working_modes.md#server)
 
-- `--ui [UI_DIR]`: Enable WebUI (DEFAULT or SERVER mode).
-    - If `--ui` is provided **without** a value, the default UI is enabled.
-    - If `--ui` is provided **with** a directory, it specifies the UI directory.
-- `--tasks_files_dir=FILES_DIR`: Directory for input/output files. Default: `vix_task_files`
-- `--disable-device-detection`: Disable automatic device detection.
-- `--verbose [LEVEL]`: Set the logging level.
+- `--ui [UI_DIR]`: Enables the web user interface.
+  - When provided **without** a value, the default UI is enabled.
+  - When provided with a directory, it specifies a custom UI.
+- `--disable-device-detection`: Disables automatic device detection.
 
-    Choices: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `CRITICAL`.
+Additionally, ComfyUI-specific options (except those unsupported) can be passed; these will be forwarded to ComfyUI. Unsupported ComfyUI options include:
+  - `--tls-keyfile`
+  - `--tls-certfile`
+  - `--enable-cors-header`
+  - `--verbose` (use Visionatrix’s `--verbose` instead)
+  - `--dont-print-server`
+  - `--quick-test-for-ci`
+  - `--windows-standalone-build`
+  - `--auto-launch`
+  - `--disable-auto-launch`
+  - `--multi-user` (Visionatrix always supports multiple users)
 
-    Default: `INFO` or the value of the `LOG_LEVEL` environment variable.
-
-    !!! note
-
-        **Note:** The `--verbose` option should be specified **before** any command (e.g., `run`, `install`, `update`).
-
-- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
-
-#### ComfyUI Options
-
-Visionatrix supports most of ComfyUI's command-line options for the `run` command. You can pass ComfyUI options when starting Visionatrix, and they will be forwarded to ComfyUI.
-
-**Note:** The following ComfyUI options are **not supported** in Visionatrix:
-
-- `--tls-keyfile`
-- `--tls-certfile`
-- `--enable-cors-header`
-- `--verbose` (Visionatrix uses its own `--verbose` option)
-- `--dont-print-server`
-- `--quick-test-for-ci`
-- `--windows-standalone-build`
-- `--auto-launch`
-- `--disable-auto-launch`
-- `--multi-user` (Visionatrix always supports multiple users)
-
-All other ComfyUI options can be used. Below is a list of supported ComfyUI options:
-
-##### Device and Performance Options
-
-- `--cuda-device DEVICE_ID`: Set the ID of the CUDA device this instance will use.
-- `--cuda-malloc`: Enable cudaMallocAsync (enabled by default for PyTorch 2.0 and up).
-- `--disable-cuda-malloc`: Disable cudaMallocAsync.
-- `--force-fp32`: Force fp32 precision (If this makes your GPU work better, please report it).
-- `--force-fp16`: Force fp16 precision.
-
-##### UNET Precision Options
-
-- `--bf16-unet`: Run the UNET in bf16 precision. This should only be used for testing purposes.
-- `--fp16-unet`: Store UNET weights in fp16 precision.
-- `--fp8_e4m3fn-unet`: Store UNET weights in fp8_e4m3fn format.
-- `--fp8_e5m2-unet`: Store UNET weights in fp8_e5m2 format.
-
-##### VAE Precision Options
-
-- `--fp16-vae`: Run the VAE in fp16 precision (might cause black images).
-- `--fp32-vae`: Run the VAE in full precision fp32.
-- `--bf16-vae`: Run the VAE in bf16 precision.
-- `--cpu-vae`: Run the VAE on the CPU.
-
-##### Text Encoder Precision Options
-
-- `--fp8_e4m3fn-text-enc`: Store text encoder weights in fp8 (e4m3fn variant).
-- `--fp8_e5m2-text-enc`: Store text encoder weights in fp8 (e5m2 variant).
-- `--fp16-text-enc`: Store text encoder weights in fp16.
-- `--fp32-text-enc`: Store text encoder weights in fp32.
-
-##### Other Performance Options
-
-- `--force-channels-last`: Force channels-last format when inferring the models.
-- `--disable-ipex-optimize`: Disable `ipex.optimize` when loading models with Intel GPUs.
-
-##### Caching Options
-
-- `--cache-classic`: Use the old style (aggressive) caching.
-- `--cache-lru N`: Use LRU caching with a maximum of N node results cached. May use more RAM/VRAM.
-
-##### Attention Optimization Options
-
-- `--use-split-cross-attention`: Use the split cross-attention optimization. Ignored when xformers is used.
-- `--use-quad-cross-attention`: Use the sub-quadratic cross-attention optimization. Ignored when xformers is used.
-- `--use-pytorch-cross-attention`: Use the new PyTorch 2.0 cross-attention function.
-- `--disable-xformers`: Disable xformers.
-- `--force-upcast-attention`: Force enable attention upcasting (please report if it fixes black images).
-- `--dont-upcast-attention`: Disable all upcasting of attention. Should be unnecessary except for debugging.
-
-##### Memory and Device Options
-
-- `--gpu-only`: Store and run everything (text encoders/CLIP models, etc.) on the GPU.
-- `--highvram`: Keep models in GPU memory instead of unloading to CPU memory after use.
-- `--normalvram`: Force normal VRAM usage if low VRAM gets automatically enabled.
-- `--lowvram`: Split the UNET into parts to use less VRAM.
-- `--novram`: Use when `--lowvram` isn't enough.
-- `--cpu`: Use the CPU for everything (slow).
-- `--reserve-vram VRAM_GB`: Set the amount of VRAM in GB you want to reserve for use by your OS/other software.
-- `--disable-smart-memory`: Force ComfyUI to aggressively offload to regular RAM instead of keeping models in VRAM when it can.
-
-##### Other Options
-
-- `--fast`: Enable some untested and potentially quality-deteriorating optimizations.
-
-### Examples
-
-#### Running Visionatrix with Specific GPU Settings
-
-To run Visionatrix using the first CUDA device and enable split cross-attention optimization:
-
-```shell
-python3 -m visionatrix run --cuda-device 0 --use-split-cross-attention
-```
-
-#### Running in WORKER Mode
-
-To run Visionatrix in WORKER mode, connecting to a Vix Server:
-
-```shell
-python3 -m visionatrix run --mode WORKER --server http://your_vix_server_address
-```
-
-#### Enabling the Web UI
-
-To start Visionatrix with the default Web UI:
-
-```shell
-python3 -m visionatrix run --ui
-```
-
-To specify a custom UI directory:
-
-```shell
-python3 -m visionatrix run --ui /path/to/your/ui_directory
-```
+---
 
 ## The `install` Command
 
-Performs cleanup and initialization.
+Performs a clean installation by removing existing flows and reinstalling ComfyUI and related components.
 
 ### Syntax
 
 ```shell
-python3 -m visionatrix [--verbose=LEVEL] install [options]
+python3 -m visionatrix [--verbose=LEVEL] install
 ```
 
-### Options
+During installation, if a ComfyUI folder is already present, you will be prompted to confirm its removal.
 
-- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
-
-### Example
-
-```shell
-python3 -m visionatrix install
-```
-
-During installation, you will be prompted to confirm whether to clear flows and ComfyUI folder.
+---
 
 ## The `update` Command
 
-Performs an update to the latest version.
+Updates components such as ComfyUI, ComfyUI-Manager and custom nodes to the pinned versions that comes with this version of Visionatrix.
 
 ### Syntax
 
 ```shell
-python3 -m visionatrix [--verbose=LEVEL] update [options]
+python3 -m visionatrix [--verbose=LEVEL] update
 ```
 
-### Options
-
-- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
-
-### Example
-
-```shell
-python3 -m visionatrix update
-```
+---
 
 ## The `install-flow` Command
 
-Installs a flow by name, tag, or from a file. Useful for workers that do not have a user interface.
+Installs a flow by specifying a file, flow name, or flow tag. This command is particularly useful in environments without a user interface.
 
 ### Syntax
 
@@ -231,45 +112,17 @@ python3 -m visionatrix [--verbose=LEVEL] install-flow [options]
 
 ### Options
 
-You must specify one of the following options:
+You must provide one of the following:
 
-- `--file=FILE_PATH`: Path to `comfyui_flow.json` file or a directory containing flow files.
-  - The file should contain a ComfyUI workflow with the [metadata](../FlowsDeveloping/vix_workflows.md#vix-workflow-overview) needed for Visionatrix.
-- `--name=FLOW_NAME`: Flow name mask of the flow(s).
-  - This will install the flow by its `ID`, which is equal to its folder name [here](https://github.com/Visionatrix/VixFlows/tree/main/flows).
-- `--tag=TAG`: Flow tags mask of the flow(s).
+- `--file=FILE_PATH`: Path to a `comfyui_flow.json` file or a directory containing flow files.
+- `--name=FLOW_NAME`: A flow name mask to identify flows by their ID.
+- `--tag=TAG`: A flow tag mask to identify flows by tag.
 
-Additional options:
-
-- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
-
-### Examples
-
-#### Installing from a File
-
-```shell
-python3 -m visionatrix install-flow --file=path_to_comfyui_flow.json
-```
-
-The file should contain a ComfyUI workflow with the [metadata](../FlowsDeveloping/vix_workflows.md#vix-workflow-overview) needed for Visionatrix.
-
-#### Installing by Name
-
-```shell
-python3 -m visionatrix install-flow --name=photo_stickers
-```
-
-This will install the flow by its `ID`, which is equal to its folder name [here](https://github.com/Visionatrix/VixFlows/tree/main/flows).
-
-#### Installing by Tag
-
-```shell
-python3 -m visionatrix install-flow --tag=your_tag
-```
+---
 
 ## The `create-user` Command
 
-Creates a new user.
+Creates a new user in the Visionatrix system.
 
 ### Syntax
 
@@ -279,22 +132,22 @@ python3 -m visionatrix [--verbose=LEVEL] create-user [options]
 
 ### Options
 
-- `--name=USERNAME` (required): User name (ID).
+- `--name=USERNAME` (required): User ID.
 - `--password=PASSWORD` (required): User password.
-- `--full_name=FULL_NAME`: Full user name. Default: `John Doe`.
-- `--email=EMAIL`: User's email address. Default: `user@example.com`.
-- `--admin=BOOLEAN`: Should the user be an admin. Default: `True`.
-- `--disabled=BOOLEAN`: Should the account be disabled. Default: `False`.
+- `--full_name=FULL_NAME`: Full name of the user.
+  *Default:* `John Doe`
+- `--email=EMAIL`: User's email address.
+  *Default:* `user@example.com`
+- `--admin=BOOLEAN`: Whether the user should be an administrator.
+  *Default:* `True`
+- `--disabled=BOOLEAN`: Whether the account should be disabled.
+  *Default:* `False`
 
-### Example
-
-```shell
-python3 -m visionatrix create-user --name=username --password=userpassword --email=user@example.com
-```
+---
 
 ## The `orphan-models` Command
 
-Removes orphan models.
+Removes orphan models that are no longer needed by the system.
 
 ### Syntax
 
@@ -304,20 +157,15 @@ python3 -m visionatrix [--verbose=LEVEL] orphan-models [options]
 
 ### Options
 
-- `--no-confirm`: Do not ask for confirmation for each model.
-- `--dry-run`: Perform cleaning without actually removing models.
-- `--include-useful-models`: Include orphaned models that can be used in future flows for removal.
-- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
+- `--no-confirm`: Do not prompt for confirmation for each model.
+- `--dry-run`: Execute a trial run without actually removing models.
+- `--include-useful-models`: Include orphaned models that may be useful for future flows.
 
-### Example
-
-```shell
-python3 -m visionatrix orphan-models --no-confirm --dry-run
-```
+---
 
 ## The `openapi` Command
 
-Generates OpenAPI specifications.
+Generates OpenAPI specifications for the Visionatrix API, covering endpoints for flows and other features.
 
 ### Syntax
 
@@ -327,32 +175,137 @@ python3 -m visionatrix [--verbose=LEVEL] openapi [options]
 
 ### Options
 
-- `--file=FILENAME`: Filename to save. Default: `openapi.json`.
-- `--indentation=SIZE`: Indentation size. Default: `2`.
-- `--flows=FLOWS`: Flows to include in OpenAPI specs (comma-separated list or `*`).
-    - If `--flows` is `*`, include all endpoints and all installed flows.
-    - If `--flows` is specified but empty (e.g., `--flows=""`), do not include any flows.
-    - If `--flows` is a comma-separated list of flow names (e.g., `--flows=flow1,flow2`), include those flows.
-- `--skip-not-installed`: Skip flows that are not installed. Default: `True`.
-- `--exclude-base`: Exclude base application endpoints from OpenAPI specs.
-- `--comfyui_dir=COMFYUI_DIR`: Directory for the folder with ComfyUI. Default: `ComfyUI`
+- `--file=FILENAME`: Output filename for the OpenAPI specification.
+  *Default:* `openapi.json`
+- `--indentation=SIZE`: Indentation size for the generated JSON.
+  *Default:* `2`
+- `--flows=FLOWS`: Comma-separated list of flows to include in the spec.
+  - Use `*` to include all flows.
+  - An empty string (e.g., `--flows=""`) will exclude flows.
+- `--skip-not-installed`: Skip flows that are not installed.
+  *Default:* Enabled.
+- `--exclude-base`: Exclude base application endpoints from the specification.
 
-### Examples
+---
 
-#### Generate OpenAPI Specs for All Endpoints and All Installed Flows
+## Global Settings Commands
+
+Visionatrix allows you to manage global settings directly from the command line.
+
+### The `list-global-settings` Command
+
+Lists all global settings stored in the database.
+
+#### Syntax
 
 ```shell
-python3 -m visionatrix openapi --flows="*" --file=my_openapi.json
+python3 -m visionatrix [--verbose=LEVEL] list-global-settings
 ```
 
-#### Generate OpenAPI Specs for Specific Flows Only
+This command displays each setting in the following format:
 
-```shell
-python3 -m visionatrix openapi --flows=flow1,flow2 --exclude-base --file=my_openapi.json
+```
+ - setting_name = "value"
 ```
 
-#### Generate OpenAPI Specs Without Any Flows
+---
+
+### The `get-global-setting` Command
+
+Retrieves the value of a specific global setting.
+
+#### Syntax
 
 ```shell
-python3 -m visionatrix openapi --file=my_openapi.json
+python3 -m visionatrix [--verbose=LEVEL] get-global-setting --key=SETTING_NAME
+```
+
+---
+
+### The `set-global-setting` Command
+
+Creates or updates a global setting.
+
+#### Syntax
+
+```shell
+python3 -m visionatrix [--verbose=LEVEL] set-global-setting --key=SETTING_NAME --value=VALUE [--sensitive]
+```
+
+- The `--sensitive` flag marks the setting as sensitive (hiding it from non-admin users).
+
+---
+
+## Examples
+
+### Running Visionatrix with Custom Options
+
+Start Visionatrix in SERVER mode on a specific host and port with the default Web UI:
+
+```shell
+python3 -m visionatrix --verbose=WARNING run --host=0.0.0.0 --port=8000 --ui
+```
+
+### Running Visionatrix in WORKER Mode
+
+Connect a worker instance to a Vix Server:
+
+```shell
+python3 -m visionatrix --verbose=INFO run --mode WORKER --server=http://your_vix_server_address
+```
+
+### Installing a Flow from a File
+
+Install a flow by providing the path to a flow JSON file:
+
+```shell
+python3 -m visionatrix install-flow --file=/path/to/comfyui_flow.json
+```
+
+### Creating a New User
+
+Create a new administrator user:
+
+```shell
+python3 -m visionatrix create-user --name=admin --password=secret --email=admin@example.com
+```
+
+### Removing Orphan Models
+
+Perform a dry-run cleanup of orphan models without confirmation prompts:
+
+```shell
+python3 -m visionatrix orphan-models --no-confirm --dry-run
+```
+
+### Generating OpenAPI Specifications
+
+Generate an OpenAPI specification that includes all flows:
+
+```shell
+python3 -m visionatrix openapi --flows="*" --file=openapi.json
+```
+
+### Listing Global Settings
+
+Display all global settings:
+
+```shell
+python3 -m visionatrix list-global-settings
+```
+
+### Retrieving a Specific Global Setting
+
+Retrieve the value of a global setting:
+
+```shell
+python3 -m visionatrix get-global-setting --key=comfyui_folder
+```
+
+### Setting a Global Setting
+
+Update or create a global setting (marking it as sensitive if needed):
+
+```shell
+python3 -m visionatrix set-global-setting --key=comfyui_folder --value=/new/path/to/ComfyUI --sensitive
 ```

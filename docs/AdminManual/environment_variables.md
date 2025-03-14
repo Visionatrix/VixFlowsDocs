@@ -27,16 +27,54 @@ VARIABLE_NAME=value
 
     !!! note
 
-        The command-line argument `--comfyui_dir=COMFYUI_DIR` takes precedence over the environment variable.
+        The database value `comfyui_folder` takes precedence over the environment variable.
 
-### TASKS_FILES_DIR
+### BASE_DATA_DIR
 
-- **Description**: Directory for input/output files. The path can be absolute or relative.
-- **Default**: Absolute path to `./vix_tasks_files`
+- **Description**: Base directory for input,output, models and user directories. The path can be absolute or relative.
+- **Default**: `./ComfyUI-Data`
 
     !!! note
 
-        The command-line argument `--tasks_files_dir=FILES_DIR` takes precedence over the environment variable.
+        The database value `comfyui_base_data_folder` takes precedence over the environment variable.
+
+        Setting the values of `INPUT_DIR`, `OUTPUT_DIR`, `USER_DIR`, `MODELS_DIR` overrides the corresponding subdirectories and the value of `BASE_DATA_DIR` in them is no longer taken into account.
+
+### INPUT_DIR
+
+- **Description**: Directory for input files. The path can be absolute or relative.
+- **Default**: `ComfyUI-Data/input`
+
+    !!! note
+
+        The database value `comfyui_input_folder` takes precedence over the environment variable.
+
+### OUTPUT_DIR
+
+- **Description**: Directory for output files. The path can be absolute or relative.
+- **Default**: `ComfyUI-Data/output`
+
+    !!! note
+
+        The database value `comfyui_output_folder` takes precedence over the environment variable.
+
+### USER_DIR
+
+- **Description**: Directory with user data. The path can be absolute or relative.
+- **Default**: `ComfyUI-Data/user`
+
+    !!! note
+
+        The database value `comfyui_user_folder` takes precedence over the environment variable.
+
+### MODELS_DIR
+
+- **Description**: Directory with models. The path can be absolute or relative.
+- **Default**: `ComfyUI-Data/models`
+
+    !!! note
+
+        The database value `comfyui_models_folder` takes precedence over the environment variable.
 
 ### UI_DIR
 
@@ -64,7 +102,7 @@ VARIABLE_NAME=value
 
     !!! note
 
-        Authentication is enabled. Requires a PostgreSQL database.
+        Authentication is enabled. Reccomend to use a PostgreSQL database.
 
   - `WORKER`: Only processes tasks from the Server (client consuming mode, no backend).
 - **Default**: `DEFAULT`
@@ -111,11 +149,6 @@ Please refer to the [Working Modes](WorkingModes/working_modes.md) documentation
 #### DATABASE_URI
 
 - **Description**: URI for the database used by Visionatrix. Required in `SERVER` mode.
-
-    !!! warning
-
-        SQLite is **not supported** in the `SERVER` mode.
-
 - **Default**: `sqlite:///./tasks_history.db`
   - For SQLite: If the path is relative, it is relative to the current directory.
 - **Note**: For PostgreSQL, the format is: `postgresql+psycopg://user:password@host:port/database`
@@ -169,7 +202,7 @@ When running in `WORKER` mode, the following variables are relevant:
 
 #### MODELS_CATALOG_URL
 
-- **Description**: URL or file path to fetch the models catalog for ComfyUI workflows. This catalog specifies available models.
+- **Description**: URLs or file paths (separated by semicolons `;`) to fetch the models catalog for ComfyUI workflows. This catalog specifies available models.
 - **Default**: `https://visionatrix.github.io/VixFlowsDocs/models_catalog.json`
 
 #### MIN_PAUSE_INTERVAL
@@ -202,11 +235,6 @@ When running in `WORKER` mode, the following variables are relevant:
 
 - **Description**: Maximum number of parallel downloads allowed during workflow installation.
 - **Default**: `2`
-
-#### MAX_GIT_CLONE_ATTEMPTS
-
-- **Description**: Maximum number of attempts to perform `git clone` operations during installation or updates.
-- **Default**: `3`
 
 #### CORS_ORIGINS
 

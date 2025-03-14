@@ -118,7 +118,7 @@ title: Worker to Database-FS Mode
       COMPUTE_DEVICE=NVIDIA DEV_VERSION=1 BUILD_RELEASE=1 python3 easy_install.py && \
       cd Visionatrix && source venv/bin/activate && \
       pip install ".[pgsql]" && \
-      AUTO_INIT_CONFIG_MODELS_DIR="$(pwd)/../VixModels" python3 scripts/easy_install.py && \
+      python3 scripts/easy_install.py && \
       \
       USER_PASSWORD=$(openssl rand -base64 32 | tr -dc 'A-Za-z0-9' | head -c 16) && \
       DATABASE_URI="postgresql+psycopg://vix_user:vix_password@localhost:5432/vix_db" \

@@ -35,7 +35,7 @@ task separately.
 
 !!! warning
 
-    **SQLite is not supported as a database in this mode.**
+    **We recommend using PgSQL database in this mode, as SQLite does not support parallel data writing..**
 
 
 Steps to run `Vix` in a Server mode:

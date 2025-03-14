@@ -12,8 +12,7 @@ follow.
 
 First, it is recommended to install our custom
 [ComfyUI-Visionatrix](https://github.com/Visionatrix/ComfyUI-Visionatrix)
-nodes. Otherwise, you will have to use custom nodes titles which are will
-be parsed by Visionatrix.
+nodes. Otherwise, you will have to use custom nodes titles which will be parsed by Visionatrix.
 
 ``` bash
 git clone https://github.com/Visionatrix/ComfyUI-Visionatrix.git
@@ -73,19 +72,23 @@ The parameters list:
 
 ---
 
-### 2.2 External nodes used via Node to Input mapping
+### 2.2 Defining file inputs
 
-In our workflows, we use some external nodes mapped as input params,
-that you can use as example:
-
--   `SDXLAspectRatioSelector` - select input field used from
-    [comfyui-art-venture](https://github.com/Visionatrix/comfyui-art-venture)
-    for Aspect Ratio select. Usually it's an optional and hidden to the
-    advanced prompt options:
-    `input;Aspect Ratio;optional;advanced;custom_id=aspect_ratio`;
 -   `LoadImage` - default ComfyUI image loader node as image file input
     field. As required title: `input;Input image;order=1`, or optional
     advanced: `input;Optional helper image;optional;advanced;order=20`;
+
+    !!! note
+
+        We recommend to always define `custom_id` value as it greatly helps to have a constant name for input parameter for API.
+        Like: `input;Person's face;order=1;custom_id=person_face`
+
+-   You can make a mask from `LoadImage` using `mask` word. When you do so you need to specify `source_input_name` which point to `custom_id` of input for which this mask belongs.
+
+    Full input for inpainting and mask definition will be:
+
+        `input;Image to redraw;order=1;custom_id=source_image;`
+        `input;Mask to redraw;order=2;custom_id=mask_redraw;mask;source_input_name=source_image`
 
 ---
 
