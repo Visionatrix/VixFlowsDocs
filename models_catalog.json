@@ -1519,5 +1519,20 @@
     "types": [
       "text_encoders"
     ]
+  },
+  "Hunyuan3d-DiT-v2-mv": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?hunyuan3d\\-dit\\-v2\\-mv\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/tencent/Hunyuan3D-2mv/resolve/main/hunyuan3d-dit-v2-mv/model.fp16.safetensors",
+    "homepage": "https://huggingface.co/tencent/Hunyuan3D-2mv",
+    "hash": "d36f5881bcdc56726b73e517cd444c13c60732431622da7268145355c8d38e9c",
+    "file_size": 4928151562,
+    "filename": "hunyuan3d-dit-v2-mv.safetensors",
+    "types": [
+      "checkpoints"
+    ]
   }
 }
