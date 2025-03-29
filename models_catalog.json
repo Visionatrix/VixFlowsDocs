@@ -1534,5 +1534,61 @@
     "types": [
       "checkpoints"
     ]
+  },
+  "InfiniteYou-ControlNet-Similarity": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?sim_stage1_control_net\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/vuongminhkhoi4/ComfyUI_InfiniteYou/resolve/main/sim_stage1_control_net/sim_stage1_control_net.safetensors",
+    "homepage": "https://huggingface.co/vuongminhkhoi4/ComfyUI_InfiniteYou",
+    "hash": "8ee8efc6d6e4eb746ea4634318a09c96f4b7c61318d04e644a5351f6e26b5fb5",
+    "file_size": 5905345320,
+    "types": [
+      "controlnet"
+    ]
+  },
+  "InfiniteYou-Projection-Similarity": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?sim_stage1_img_proj\\.bin$"
+      }
+    ],
+    "url": "https://huggingface.co/vuongminhkhoi4/ComfyUI_InfiniteYou/resolve/main/sim_stage1_control_net/sim_stage1_img_proj.bin",
+    "homepage": "https://huggingface.co/vuongminhkhoi4/ComfyUI_InfiniteYou",
+    "hash": "b7a8a1b6fecf2731b2ac64bde33a1885014949c8c08f3efaebd0665bb0e8ad8f",
+    "file_size": 338413026,
+    "types": [
+      "InfiniteYou"
+    ]
+  },
+  "InfiniteYou-ControlNet-Aesthetics": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?aes_stage2_control\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/vuongminhkhoi4/ComfyUI_InfiniteYou/resolve/main/aes_stage2_control_net/aes_stage2_control.safetensors",
+    "homepage": "https://huggingface.co/vuongminhkhoi4/ComfyUI_InfiniteYou",
+    "hash": "62ec6e658775747ae2eea8abec8af30eb92b74a57ce0a7087693d3381626e727",
+    "file_size": 5905345320,
+    "types": [
+      "controlnet"
+    ]
+  },
+  "InfiniteYou-Projection-Aesthetics": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?aes_stage2_img_proj\\.bin$"
+      }
+    ],
+    "url": "https://huggingface.co/vuongminhkhoi4/ComfyUI_InfiniteYou/resolve/main/aes_stage2_control_net/aes_stage2_img_proj.bin",
+    "homepage": "https://huggingface.co/vuongminhkhoi4/ComfyUI_InfiniteYou",
+    "hash": "f85518431d7367de30b9558a939c003462a7e331e8c8b929146916dc27e471d6",
+    "file_size": 338413026,
+    "types": [
+      "InfiniteYou"
+    ]
   }
 }

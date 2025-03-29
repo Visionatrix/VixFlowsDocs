@@ -1,0 +1,498 @@
+{
+  "6": {
+    "inputs": {
+      "text": [
+        "31",
+        0
+      ],
+      "clip": [
+        "38",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "57",
+        0
+      ],
+      "vae": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "9": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "43",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "10": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "11": {
+    "inputs": {
+      "clip_name1": "t5xxl_fp16.safetensors",
+      "clip_name2": "clip_l.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "12": {
+    "inputs": {
+      "unet_name": "flux1-dev.sft",
+      "weight_dtype": [
+        "41",
+        0
+      ]
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "27": {
+    "inputs": {
+      "width": [
+        "40",
+        1
+      ],
+      "height": [
+        "40",
+        2
+      ],
+      "batch_size": [
+        "37",
+        0
+      ]
+    },
+    "class_type": "EmptySD3LatentImage",
+    "_meta": {
+      "title": "EmptySD3LatentImage"
+    }
+  },
+  "31": {
+    "inputs": {
+      "text": "Fantasy portrait of a mystical character with captivating eyes, soft lighting, detailed facial features, ethereal atmosphere, subtle background",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 2,
+      "custom_id": "prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "34": {
+    "inputs": {
+      "value": 25,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 20,
+      "max": 50,
+      "step": 1,
+      "order": 98,
+      "custom_id": "steps_count",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "37": {
+    "inputs": {
+      "value": 1,
+      "display_name": "Batch size",
+      "optional": true,
+      "advanced": true,
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "order": 99,
+      "custom_id": "batch_size",
+      "hidden": true
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  },
+  "38": {
+    "inputs": {
+      "base_model_type": "Flux.1 D",
+      "description": "LoRAs to apply",
+      "model": [
+        "12",
+        0
+      ],
+      "clip": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "VixDynamicLoraDefinition",
+    "_meta": {
+      "title": "VixUI-VixDynamicLoraDefinition"
+    }
+  },
+  "40": {
+    "inputs": {
+      "aspect_ratio": "1:1 (1024x1024)",
+      "display_name": "Aspect Ratio",
+      "optional": true,
+      "advanced": true,
+      "order": 2,
+      "custom_id": "aspect_ratio",
+      "hidden": false
+    },
+    "class_type": "VixUiAspectRatioSelector",
+    "_meta": {
+      "title": "VixUI-Aspect Ratio"
+    }
+  },
+  "41": {
+    "inputs": {
+      "default_value": "fp8_e4m3fn",
+      "possible_values": "[\"default\", \"fp8_e4m3fn\", \"fp8_e4m3fn_fast\", \"fp8_e5m2\"]",
+      "display_name": "Diffusion precision",
+      "optional": true,
+      "advanced": true,
+      "order": 30,
+      "custom_id": "diffusion_precision",
+      "hidden": false
+    },
+    "class_type": "VixUiList",
+    "_meta": {
+      "title": "VixUI-List"
+    }
+  },
+  "43": {
+    "inputs": {
+      "state": false,
+      "input_off_state": [
+        "8",
+        0
+      ],
+      "input_on_state": [
+        "44",
+        0
+      ]
+    },
+    "class_type": "VixCheckboxLogic",
+    "_meta": {
+      "title": "remote_vae"
+    }
+  },
+  "44": {
+    "inputs": {
+      "vae_type": "Flux",
+      "samples": [
+        "57",
+        0
+      ]
+    },
+    "class_type": "RemoteVAEDecode",
+    "_meta": {
+      "title": "VAE Decode (Remote)"
+    }
+  },
+  "45": {
+    "inputs": {
+      "name": "photomaker_flux1_dev",
+      "display_name": "Photomaker",
+      "description": "HQ Photomaker based on Flux",
+      "author": "ZenAI",
+      "homepage": "https://github.com/ZenAI-Vietnam/ComfyUI_InfiniteYou?tab=readme-ov-file",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"general\", \"photomaker\", \"loras\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": true,
+      "is_macos_supported": false,
+      "required_memory_gb": 16,
+      "hidden": false,
+      "remote_vae": true
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "46": {
+    "inputs": {
+      "control_net_name": "sim_stage1_control_net.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "47": {
+    "inputs": {
+      "adapter_file": "sim_stage1_img_proj.bin",
+      "insightface": "CPU",
+      "weight": 1.0000000000000002,
+      "start_at": 0,
+      "end_at": 1,
+      "fixed_face_pose": false,
+      "control_net": [
+        "46",
+        0
+      ],
+      "model": [
+        "38",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "49",
+        0
+      ],
+      "ref_image": [
+        "56",
+        0
+      ],
+      "latent_image": [
+        "27",
+        0
+      ],
+      "vae": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "InfiniteYouApply",
+    "_meta": {
+      "title": "InfiniteYou Apply"
+    }
+  },
+  "49": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "50": {
+    "inputs": {
+      "seed": 1,
+      "steps": [
+        "34",
+        0
+      ],
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "47",
+        0
+      ],
+      "positive": [
+        "47",
+        1
+      ],
+      "negative": [
+        "47",
+        2
+      ],
+      "latent_image": [
+        "47",
+        3
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "51": {
+    "inputs": {
+      "control_net_name": "aes_stage2_control.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "52": {
+    "inputs": {
+      "adapter_file": "aes_stage2_img_proj.bin",
+      "insightface": "CPU",
+      "weight": 1.0000000000000002,
+      "start_at": 0,
+      "end_at": 1,
+      "fixed_face_pose": false,
+      "control_net": [
+        "51",
+        0
+      ],
+      "model": [
+        "38",
+        0
+      ],
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "49",
+        0
+      ],
+      "ref_image": [
+        "56",
+        0
+      ],
+      "latent_image": [
+        "27",
+        0
+      ],
+      "vae": [
+        "10",
+        0
+      ]
+    },
+    "class_type": "InfiniteYouApply",
+    "_meta": {
+      "title": "InfiniteYou Apply"
+    }
+  },
+  "53": {
+    "inputs": {
+      "seed": 1,
+      "steps": [
+        "34",
+        0
+      ],
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "52",
+        0
+      ],
+      "positive": [
+        "52",
+        1
+      ],
+      "negative": [
+        "52",
+        2
+      ],
+      "latent_image": [
+        "52",
+        3
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "55": {
+    "inputs": {
+      "model": "General.safetensors",
+      "device": "AUTO",
+      "use_weight": false,
+      "dtype": "float32"
+    },
+    "class_type": "LoadRembgByBiRefNetModel",
+    "_meta": {
+      "title": "LoadRembgByBiRefNetModel"
+    }
+  },
+  "56": {
+    "inputs": {
+      "model": [
+        "55",
+        0
+      ],
+      "images": [
+        "58",
+        0
+      ]
+    },
+    "class_type": "RembgByBiRefNet",
+    "_meta": {
+      "title": "RembgByBiRefNet"
+    }
+  },
+  "57": {
+    "inputs": {
+      "state": false,
+      "display_name": "Aesthetic version",
+      "optional": true,
+      "advanced": true,
+      "order": 80,
+      "custom_id": "aesthetic_version",
+      "hidden": false,
+      "input_off_state": [
+        "50",
+        0
+      ],
+      "input_on_state": [
+        "53",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
+    }
+  },
+  "58": {
+    "inputs": {
+      "image": ""
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Person's face;order=1;custom_id=person_face"
+    }
+  }
+}
