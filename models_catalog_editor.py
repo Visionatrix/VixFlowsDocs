@@ -580,10 +580,17 @@ class ModelCatalogEditor(QWidget):
         form_layout.addWidget(QLabel("Types:"), 9, 0)
         form_layout.addWidget(self.types_group, 9, 1)
 
+        # Custom Type field (allows entering types not present in checkboxes)
+        self.custom_type_edit = create_stretching_line_edit(
+            "Enter custom type(s), comma-separated"
+        )
+        form_layout.addWidget(QLabel("Custom Type:"), 10, 0)
+        form_layout.addWidget(self.custom_type_edit, 10, 1)
+
         # Gated checkbox
         self.gated_checkbox = QCheckBox()
-        form_layout.addWidget(QLabel("Gated model:"), 10, 0)
-        form_layout.addWidget(self.gated_checkbox, 10, 1)
+        form_layout.addWidget(QLabel("Gated model:"), 11, 0)
+        form_layout.addWidget(self.gated_checkbox, 11, 1)
 
         # Regexes
         regexes_layout = QGridLayout()
@@ -601,13 +608,13 @@ class ModelCatalogEditor(QWidget):
         regexes_layout.addWidget(QLabel("input_value:"), 2, 0)
         regexes_layout.addWidget(self.input_value_edit, 2, 1)
 
-        form_layout.addWidget(QLabel("Regexes:"), 11, 0)
-        form_layout.addLayout(regexes_layout, 11, 1)
+        form_layout.addWidget(QLabel("Regexes:"), 12, 0)
+        form_layout.addLayout(regexes_layout, 12, 1)
 
         # Save button
         self.save_button = QPushButton("Save")
         self.save_button.clicked.connect(self.save_model)
-        form_layout.addWidget(self.save_button, 12, 1)
+        form_layout.addWidget(self.save_button, 13, 1)
 
         main_layout.addLayout(form_layout)
 
@@ -656,6 +663,13 @@ class ModelCatalogEditor(QWidget):
             for type_name, checkbox in self.type_checkboxes.items()
             if checkbox.isChecked()
         ]
+        # Gather custom types (allow comma-separated values)
+        custom_types = self.custom_type_edit.text().strip()
+        if custom_types:
+            custom_types_list = [
+                t.strip() for t in custom_types.split(",") if t.strip()
+            ]
+            types.extend(custom_types_list)
 
         class_type = self.class_type_edit.text().strip()
         input_name = self.input_name_edit.text().strip()
@@ -1063,6 +1077,8 @@ class ModelCatalogEditor(QWidget):
         self.class_type_edit.clear()
         self.input_name_edit.clear()
         self.input_value_edit.clear()
+        # Clear custom type field
+        self.custom_type_edit.clear()
         for checkbox in self.type_checkboxes.values():
             checkbox.setChecked(False)
         self.log_widget.clear()
