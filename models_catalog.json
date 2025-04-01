@@ -1250,8 +1250,8 @@
     ],
     "url": "https://huggingface.co/ZhengPeng7/BiRefNet/resolve/main/model.safetensors",
     "homepage": "https://huggingface.co/ZhengPeng7/BiRefNet",
-    "hash": "77277264c0e8c74149d3ff2fade4fd8176965b7108f3c5fc3b8c9c811edb4519",
-    "file_size": 884878856,
+    "hash": "9ab37426bf4de0567af6b5d21b16151357149139362e6e8992021b8ce356a154",
+    "file_size": 444473596,
     "filename": "General.safetensors",
     "types": [
       "birefnet"
