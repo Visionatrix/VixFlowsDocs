@@ -1,0 +1,146 @@
+[
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 12.951779844501289,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 17.111560248999012,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 2.298035112999969,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 37.875202118500056,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 4.067760035500214,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 33.98451782099983,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 12.893775830000322,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 20.311842976499975,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 19.543429239000034,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 30.043286963499668,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 17.26516009849911,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 19.255800852502944,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 3.375977750999482,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 22.46689156499997,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.2394652425000459,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 28.266981569499876,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": true
+  }
+]

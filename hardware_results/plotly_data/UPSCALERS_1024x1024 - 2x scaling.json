@@ -1,0 +1,146 @@
+[
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 185.7282685424998,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 193.32115568100016,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 154.208479849,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 147.58608751599968,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 221.4562859104999,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 228.3512287980002,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 160.59535155899994,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 158.18016223449922,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 193.73355600700006,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 195.92801903750023,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 144.66192763149957,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 146.82794378299968,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 236.16320335850014,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 238.91616089500076,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 208.42149134700048,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "supir_upscaler",
+    "flow_display_name": "SUPIR Upscaler",
+    "test_case": "1024x1024 - 2x scaling",
+    "avg_exec_time": 208.72262511100053,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": true
+  }
+]

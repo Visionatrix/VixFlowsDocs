@@ -1,0 +1,39 @@
+{
+  "SDXL": [
+    "default",
+    "fast_run",
+    "lighting"
+  ],
+  "AURA_FLOW": [
+    "default"
+  ],
+  "CASCADE": [
+    "1 pass",
+    "2 passes",
+    "3 passes"
+  ],
+  "DIT_8_BIT": [
+    "default",
+    "lighting"
+  ],
+  "DIT": [
+    "default",
+    "lighting"
+  ],
+  "PORTRAITS": [
+    "default"
+  ],
+  "UPSCALERS": [
+    "1024x1024 - 1.5x scaling",
+    "1024x1024 - 2x scaling"
+  ],
+  "OTHER": [
+    "Remove Background"
+  ],
+  "OLLAMA": [
+    "Generate prompt (falcon3:7b-instruct-fp16)",
+    "Generate prompt (falcon3:7b-instruct-fp16) (unload=True)",
+    "Generate prompt (phi4:14b-q4_K_M)",
+    "Generate prompt (phi4:14b-q4_K_M) (unload=True)"
+  ]
+}
