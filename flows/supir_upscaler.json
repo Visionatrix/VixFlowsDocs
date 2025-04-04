@@ -28,14 +28,23 @@
   "7": {
     "inputs": {
       "seed": 269969961859830,
-      "steps": 45,
+      "steps": [
+        "147",
+        0
+      ],
       "cfg_scale_start": 4,
       "cfg_scale_end": 4,
       "EDM_s_churn": 5,
       "s_noise": 1.0030000000000001,
       "DPMPP_eta": 1,
-      "control_scale_start": 1,
-      "control_scale_end": 1,
+      "control_scale_start": [
+        "144",
+        0
+      ],
+      "control_scale_end": [
+        "144",
+        0
+      ],
       "restore_cfg": 1,
       "keep_model_loaded": false,
       "sampler": [
@@ -168,7 +177,7 @@
   },
   "22": {
     "inputs": {
-      "ckpt_name": "leosamsHelloworldXL_helloworldXL60.safetensors"
+      "ckpt_name": "RealVisXL_V5.0_fp16.safetensors"
     },
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
@@ -326,9 +335,15 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SupirUpscaler/",
       "license": "",
       "tags": "[\"upscaler\", \"postprocess\"]",
-      "version": "1.0.1",
+      "version": "2.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": false,
       "is_macos_supported": true,
-      "required_memory_gb": 12
+      "required_memory_gb": 12,
+      "hidden": false,
+      "remote_vae": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -342,8 +357,9 @@
       "display_name": "Diffusion Type(set to \"fp32\" on macOS)",
       "optional": true,
       "advanced": true,
-      "order": 99,
-      "custom_id": ""
+      "order": 97,
+      "custom_id": "",
+      "hidden": false
     },
     "class_type": "VixUiList",
     "_meta": {
@@ -371,7 +387,8 @@
       "max": 3,
       "step": 0.1,
       "order": 2,
-      "custom_id": "scale_factor"
+      "custom_id": "scale_factor",
+      "hidden": false
     },
     "class_type": "VixUiRangeScaleFloat",
     "_meta": {
@@ -385,8 +402,9 @@
       "display_name": "Scaling option",
       "optional": true,
       "advanced": true,
-      "order": 99,
-      "custom_id": ""
+      "order": 98,
+      "custom_id": "",
+      "hidden": false
     },
     "class_type": "VixUiList",
     "_meta": {
@@ -416,7 +434,8 @@
       "optional": true,
       "advanced": true,
       "order": 99,
-      "custom_id": ""
+      "custom_id": "",
+      "hidden": false
     },
     "class_type": "VixUiCheckbox",
     "_meta": {
@@ -437,6 +456,42 @@
     "class_type": "Evaluate Integers",
     "_meta": {
       "title": "Evaluate Integers"
+    }
+  },
+  "144": {
+    "inputs": {
+      "value": 1,
+      "display_name": "Strictness (High = Less Freedom)",
+      "optional": true,
+      "advanced": true,
+      "min": 0.9,
+      "max": 1,
+      "step": 0.01,
+      "order": 95,
+      "custom_id": "supir_control_scale",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "147": {
+    "inputs": {
+      "value": 45,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 25,
+      "max": 50,
+      "step": 1,
+      "order": 90,
+      "custom_id": "steps_count",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
     }
   }
 }
