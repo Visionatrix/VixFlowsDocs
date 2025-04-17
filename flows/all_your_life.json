@@ -497,19 +497,10 @@
       "title": "Text Find and Replace"
     }
   },
-  "446": {
-    "inputs": {
-      "text": "Analyze the image and return one word for each, focusing only on the main person:  \n1. Race: Choose only from 'White', 'Black', 'Asian', 'Hispanic', 'Indian', or 'Neutral' (if unclear).\n2. Gender: Choose only from 'Male' or 'Female' (default to 'Female' if unclear). Do not use 'Neutral' for gender.\n\nPlease respond in this format:\n\"Race\": \"YourRaceHere\", \"Gender\": \"YourGenderHere\"."
-    },
-    "class_type": "Text Multiline",
-    "_meta": {
-      "title": "Text Multiline"
-    }
-  },
   "447": {
     "inputs": {
       "query": [
-        "446",
+        "492",
         0
       ],
       "debug": "enable",
@@ -649,13 +640,15 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/AllYourLife",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"sketch\", \"video\"]",
-      "version": "1.1.1",
+      "version": "1.2.0",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 16
+      "required_memory_gb": 16,
+      "hidden": false,
+      "remote_vae": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -687,16 +680,17 @@
   "486": {
     "inputs": {
       "prompt": [
-        "446",
+        "492",
         0
       ],
       "safety_settings": "BLOCK_NONE",
       "response_type": "json",
-      "model": "gemini-1.5-flash-002",
+      "model": "gemini-2.0-flash-lite-001",
       "api_key": "",
       "proxy": "",
       "system_instruction": "",
       "error_fallback_value": "",
+      "seed": 1966185507,
       "image_1": [
         "378",
         0
@@ -762,6 +756,28 @@
     "class_type": "Text Find and Replace",
     "_meta": {
       "title": "Text Find and Replace(if LLM is dumb)"
+    }
+  },
+  "491": {
+    "inputs": {
+      "text": "{\n\"Race\": \"White\", \"Gender\": \"Male\"\n}",
+      "anything": [
+        "486",
+        0
+      ]
+    },
+    "class_type": "easy showAnything",
+    "_meta": {
+      "title": "Show Any"
+    }
+  },
+  "492": {
+    "inputs": {
+      "text": "Analyze the image and return one word for each, focusing only on the main person:  \n1. Race: Choose only from 'White', 'Black', 'Asian', 'Hispanic', 'Indian', or 'Neutral' (if unclear).\n2. Gender: Choose only from 'Male' or 'Female' (default to 'Female' if unclear). Do not use 'Neutral' for gender.\n\nRespond with a single dictionary, using this exact format:\n{\"Race\": \"YourRaceHere\", \"Gender\": \"YourGenderHere\"}\n"
+    },
+    "class_type": "Text Multiline (Code Compatible)",
+    "_meta": {
+      "title": "Text Multiline (Code Compatible)"
     }
   }
 }

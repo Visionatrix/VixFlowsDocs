@@ -1067,7 +1067,7 @@
         "input_value": "rife47\\.pth$"
       }
     ],
-    "filename": "custom_nodes/ComfyUI-Frame-Interpolation/ckpts/rife/rife47.pth",
+    "filename": "custom_nodes/comfyui-frame-interpolation/ckpts/rife/rife47.pth",
     "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/video/rife/rife47.pth",
     "homepage": "https://www.svp-team.com/wiki/RIFE_AI_interpolation",
     "hash": "6a8a825ab2750558bdd20dcced386fd82b7222c7ba58c11d3b611d9c44f1be63",
@@ -1080,7 +1080,7 @@
         "input_value": "rife49\\.pth$"
       }
     ],
-    "filename": "custom_nodes/ComfyUI-Frame-Interpolation/ckpts/rife/rife49.pth",
+    "filename": "custom_nodes/comfyui-frame-interpolation/ckpts/rife/rife49.pth",
     "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/video/rife/rife49.pth",
     "homepage": "https://www.svp-team.com/wiki/RIFE_AI_interpolation",
     "hash": "e55fd00f3cc184e3c65961f4bb827a9da022e78eed36b055242c0ac30000d533",
