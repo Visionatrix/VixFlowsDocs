@@ -1,0 +1,146 @@
+[
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 6.402744628499931,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 10.993937814000219,
+    "hardware_desc": "5900X-4090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 7.932215085001371,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 8.857723862998318,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/02/02",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 8.124286486999608,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 14.903054980999968,
+    "hardware_desc": "EPYC7513-A100",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 6.793316496999978,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 11.400966113999857,
+    "hardware_desc": "XEON8470-H100",
+    "test_time": "2025/02/22",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 6.16880085899993,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 7.717761522000046,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/02/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 8.528345904000616,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 14.759023812000123,
+    "hardware_desc": "EPYC75F3-3090",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 7.325933523000003,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 11.400095778500145,
+    "hardware_desc": "EPYC7443-6000A",
+    "test_time": "2025/02/18",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 8.510542285499923,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "stable_cascade",
+    "flow_display_name": "Stable Cascade",
+    "test_case": "1 pass",
+    "avg_exec_time": 15.514806122499976,
+    "hardware_desc": "EPYC7763-6000",
+    "test_time": "2025/02/17",
+    "disable_smart_memory": true
+  }
+]
