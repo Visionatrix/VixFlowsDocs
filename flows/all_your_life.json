@@ -758,19 +758,6 @@
       "title": "Text Find and Replace(if LLM is dumb)"
     }
   },
-  "491": {
-    "inputs": {
-      "text": "{\n\"Race\": \"White\", \"Gender\": \"Male\"\n}",
-      "anything": [
-        "486",
-        0
-      ]
-    },
-    "class_type": "easy showAnything",
-    "_meta": {
-      "title": "Show Any"
-    }
-  },
   "492": {
     "inputs": {
       "text": "Analyze the image and return one word for each, focusing only on the main person:  \n1. Race: Choose only from 'White', 'Black', 'Asian', 'Hispanic', 'Indian', or 'Neutral' (if unclear).\n2. Gender: Choose only from 'Male' or 'Female' (default to 'Female' if unclear). Do not use 'Neutral' for gender.\n\nRespond with a single dictionary, using this exact format:\n{\"Race\": \"YourRaceHere\", \"Gender\": \"YourGenderHere\"}\n"
