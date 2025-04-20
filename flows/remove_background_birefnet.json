@@ -22,15 +22,6 @@
       "title": "Save Image"
     }
   },
-  "15": {
-    "inputs": {
-      "text": "[\n  {\n    \"display_name\": \"Remove background (BiRefNet)\"\n,    \"type\": \"image\"\n  }\n]"
-    },
-    "class_type": "Text Multiline (Code Compatible)",
-    "_meta": {
-      "title": "WF_SUBFLOWS"
-    }
-  },
   "16": {
     "inputs": {
       "name": "remove_background_birefnet",
@@ -41,13 +32,15 @@
       "documentation": "",
       "license": "",
       "tags": "[\"background\", \"postprocess\"]",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "requires": "[]",
       "is_seed_supported": false,
       "is_count_supported": false,
       "is_translations_supported": false,
       "is_macos_supported": false,
-      "required_memory_gb": 6
+      "required_memory_gb": 6,
+      "hidden": false,
+      "remote_vae": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -74,11 +67,21 @@
     "inputs": {
       "model": "General.safetensors",
       "device": "AUTO",
-      "use_weight": false
+      "use_weight": false,
+      "dtype": "float32"
     },
     "class_type": "LoadRembgByBiRefNetModel",
     "_meta": {
       "title": "LoadRembgByBiRefNetModel"
+    }
+  },
+  "25": {
+    "inputs": {
+      "text": "[\n  {\n    \"display_name\": \"Remove background (BiRefNet)\"\n,    \"type\": \"image\"\n  }\n]"
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "WF_SUBFLOWS"
     }
   }
 }

@@ -2,7 +2,7 @@
   "5": {
     "inputs": {
       "text": [
-        "45",
+        "63",
         0
       ],
       "clip": [
@@ -280,12 +280,12 @@
   "41": {
     "inputs": {
       "prompt": [
-        "42",
+        "62",
         0
       ],
       "safety_settings": "BLOCK_NONE",
       "response_type": "text",
-      "model": "gemini-1.5-flash-002",
+      "model": "gemini-2.0-flash-lite-001",
       "api_key": "",
       "proxy": "",
       "system_instruction": "",
@@ -301,19 +301,10 @@
       "title": "Ask Gemini"
     }
   },
-  "42": {
-    "inputs": {
-      "text": "Generate a structured caption for the given image.\n\n    Detect and describe the position of all visible subjects or objects relative to the frame.\n    Provide description of the subjects, including physical appearance, attire, accessories, and expressions.\n    Detect and transcribe visible text, specifying its position and font style.\n    Conclude with the overall mood or atmosphere.\n\nDo not describe or pay attention to the background.\n\nThe description must be accurate, comprehensive, logically organized, and contain no more than 46 words.\n"
-    },
-    "class_type": "Text Multiline",
-    "_meta": {
-      "title": "Text Multiline"
-    }
-  },
   "43": {
     "inputs": {
       "query": [
-        "42",
+        "62",
         0
       ],
       "debug": "enable",
@@ -332,33 +323,6 @@
       "title": "Ollama Vision"
     }
   },
-  "44": {
-    "inputs": {
-      "text": "pencil sketch, minimalist, impressionism, negative space"
-    },
-    "class_type": "Text Multiline",
-    "_meta": {
-      "title": "Male"
-    }
-  },
-  "45": {
-    "inputs": {
-      "delimiter": ", ",
-      "clean_whitespace": "true",
-      "text_a": [
-        "44",
-        0
-      ],
-      "text_b": [
-        "40",
-        0
-      ]
-    },
-    "class_type": "Text Concatenate",
-    "_meta": {
-      "title": "Text Concatenate"
-    }
-  },
   "46": {
     "inputs": {
       "name": "pencil_sketch_portrait",
@@ -369,7 +333,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"sketch\"]",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -495,6 +459,42 @@
     "class_type": "VixUiList",
     "_meta": {
       "title": "VixUI-List"
+    }
+  },
+  "61": {
+    "inputs": {
+      "text": "pencil sketch, minimalist, impressionism, negative space"
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "62": {
+    "inputs": {
+      "text": "Generate a structured caption for the given image.\n\n    Detect and describe the position of all visible subjects or objects relative to the frame.\n    Provide description of the subjects, including physical appearance, attire, accessories, and expressions.\n    Detect and transcribe visible text, specifying its position and font style.\n    Conclude with the overall mood or atmosphere.\n\nDo not describe or pay attention to the background.\n\nThe description must be accurate, comprehensive, logically organized, and contain no more than 46 words.\n"
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "63": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "61",
+        0
+      ],
+      "text_b": [
+        "40",
+        0
+      ]
+    },
+    "class_type": "VixTextConcatenate",
+    "_meta": {
+      "title": "Text Concatenate"
     }
   }
 }
