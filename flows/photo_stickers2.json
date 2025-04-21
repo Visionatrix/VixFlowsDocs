@@ -54,8 +54,7 @@
   },
   "326": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -107,7 +106,7 @@
       "max_frames": 4,
       "print_output": true,
       "pre_text": [
-        "547",
+        "591",
         0
       ],
       "app_text": [
@@ -315,7 +314,7 @@
   "519": {
     "inputs": {
       "query": [
-        "585",
+        "592",
         0
       ],
       "debug": "enable",
@@ -369,15 +368,6 @@
     "class_type": "Lora Loader Stack (rgthree)",
     "_meta": {
       "title": "Lora Loader Stack (rgthree)"
-    }
-  },
-  "547": {
-    "inputs": {
-      "text": ", Stickers, Sticker, chibi:1.5, flat:1.5, (full body:1.5), simple details，empty background, black background, "
-    },
-    "class_type": "Text Multiline (Code Compatible)",
-    "_meta": {
-      "title": "Text Multiline (Code Compatible)"
     }
   },
   "556": {
@@ -485,14 +475,15 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.2.3",
+      "version": "1.2.4",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": false,
       "required_memory_gb": 16,
-      "hidden": false
+      "hidden": false,
+      "remote_vae": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -617,19 +608,10 @@
       "title": "VixUI-CheckboxLogic"
     }
   },
-  "585": {
-    "inputs": {
-      "text": "Ignore the artistic style of the picture.\n\nDescribe the person in detail, including any interesting features or characteristics, such as gender, age, facial expression, race, color, hairstyle, hair color, hat, eye color, beard. \n\nIf it is wearing glasses, describe the style of glasses.\n\nDo not describe anything else, such as background.\n\nPlease create an image generation prompt in English less than 46 words to fit the description above."
-    },
-    "class_type": "Text Multiline (Code Compatible)",
-    "_meta": {
-      "title": "Text Multiline (Code Compatible)"
-    }
-  },
   "586": {
     "inputs": {
       "prompt": [
-        "585",
+        "592",
         0
       ],
       "safety_settings": "BLOCK_NONE",
@@ -690,6 +672,24 @@
     "class_type": "ImageScaleToTotalPixels",
     "_meta": {
       "title": "Scale Image to Total Pixels"
+    }
+  },
+  "591": {
+    "inputs": {
+      "text": ", Stickers, Sticker, chibi:1.5, flat:1.5, (full body:1.5), simple details，empty background, black background, "
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "592": {
+    "inputs": {
+      "text": "Ignore the artistic style of the picture.\n\nDescribe the person in detail, including any interesting features or characteristics, such as gender, age, facial expression, race, color, hairstyle, hair color, hat, eye color, beard. \n\nIf it is wearing glasses, describe the style of glasses.\n\nDo not describe anything else, such as background.\n\nPlease create an image generation prompt in English less than 46 words to fit the description above."
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
     }
   }
 }

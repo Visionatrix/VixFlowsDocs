@@ -1,8 +1,7 @@
 {
   "2": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -61,8 +60,7 @@
   },
   "11": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -206,7 +204,7 @@
   "24": {
     "inputs": {
       "query": [
-        "44",
+        "51",
         0
       ],
       "debug": "enable",
@@ -335,14 +333,15 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MadScientist/",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.2.4",
+      "version": "1.2.5",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": false,
       "is_macos_supported": true,
       "required_memory_gb": 6,
-      "hidden": false
+      "hidden": false,
+      "remote_vae": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -372,15 +371,6 @@
       "title": "VixUI-CheckboxLogic"
     }
   },
-  "44": {
-    "inputs": {
-      "text": "Write a short prompt in English (less than 46 words) that defines the style (painting, 3DCG, or photography) and describes the artistic style of the image. Focus on the main subject, ignoring the background description. Only output the prompt itself."
-    },
-    "class_type": "Text Multiline (Code Compatible)",
-    "_meta": {
-      "title": "Text Multiline (Code Compatible)"
-    }
-  },
   "46": {
     "inputs": {
       "upscale_method": "lanczos",
@@ -400,7 +390,7 @@
   "47": {
     "inputs": {
       "prompt": [
-        "44",
+        "51",
         0
       ],
       "safety_settings": "BLOCK_NONE",
@@ -433,6 +423,15 @@
     "class_type": "ImageScaleToTotalPixels",
     "_meta": {
       "title": "Scale Image to Total Pixels"
+    }
+  },
+  "51": {
+    "inputs": {
+      "text": "Write a short prompt in English (less than 46 words) that defines the style (painting, 3DCG, or photography) and describes the artistic style of the image. Focus on the main subject, ignoring the background description. Only output the prompt itself."
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
     }
   }
 }

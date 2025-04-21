@@ -22,7 +22,7 @@
   "6": {
     "inputs": {
       "text": [
-        "127",
+        "134",
         0
       ],
       "clip": [
@@ -38,7 +38,7 @@
   "7": {
     "inputs": {
       "text": [
-        "120",
+        "138",
         0
       ],
       "clip": [
@@ -186,7 +186,7 @@
   "73": {
     "inputs": {
       "text": [
-        "118",
+        "137",
         0
       ],
       "photomaker": [
@@ -288,13 +288,15 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_1/",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"cartoon\"]",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 6
+      "required_memory_gb": 6,
+      "hidden": false,
+      "remote_vae": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -303,8 +305,7 @@
   },
   "100": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -345,142 +346,6 @@
       "title": "VixUI-List"
     }
   },
-  "108": {
-    "inputs": {
-      "key": [
-        "107",
-        0
-      ],
-      "default_value": "",
-      "dictionary": [
-        "113",
-        0
-      ]
-    },
-    "class_type": "Text Dictionary Get",
-    "_meta": {
-      "title": "Text Dictionary Get"
-    }
-  },
-  "112": {
-    "inputs": {
-      "key_1": "Cinematic",
-      "value_1": "{negative_prompt}, anime, cartoon, graphic, text, painting, crayon, graphite, abstract, glitch, deformed, mutated, ugly, disfigured",
-      "key_2": "Disney Character",
-      "value_2": "{negative_prompt}, lowres, bad anatomy, bad hands, text, bad eyes, bad arms, bad legs, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, blurry, grayscale, noisy, sloppy, messy, grainy, highly detailed, ultra textured, photo",
-      "key_3": "Digital Art",
-      "value_3": "{negative_prompt}, photo, photorealistic, realism, ugly",
-      "key_4": "Photographic",
-      "value_4": "{negative_prompt}, drawing, painting, crayon, sketch, graphite, impressionist, noisy, blurry, soft, deformed, ugly",
-      "key_5": "Fantasy art",
-      "value_5": "{negative_prompt}, photographic, realistic, realism, 35mm film, dslr, cropped, frame, text, deformed, glitch, noise, noisy, off-center, deformed, cross-eyed, closed eyes, bad anatomy, ugly, disfigured, sloppy, duplicate, mutated, black and white"
-    },
-    "class_type": "Text Dictionary New",
-    "_meta": {
-      "title": "Text Dictionary New"
-    }
-  },
-  "113": {
-    "inputs": {
-      "dictionary_a": [
-        "112",
-        0
-      ],
-      "dictionary_b": [
-        "114",
-        0
-      ]
-    },
-    "class_type": "Text Dictionary Update",
-    "_meta": {
-      "title": "Text Dictionary Update"
-    }
-  },
-  "114": {
-    "inputs": {
-      "key_1": "Neonpunk",
-      "value_1": "{negative_prompt}, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, ugly, disfigured",
-      "key_2": "Comic book",
-      "value_2": "{negative_prompt}, photograph, deformed, glitch, noisy, realistic, stock photo",
-      "key_3": "Lowpoly",
-      "value_3": "{negative_prompt}, noisy, sloppy, messy, grainy, highly detailed, ultra textured, photo",
-      "key_4": "Line art",
-      "value_4": "{negative_prompt}, anime, photorealistic, 35mm film, deformed, glitch, blurry, noisy, off-center, deformed, cross-eyed, closed eyes, bad anatomy, ugly, disfigured, mutated, realism, realistic, impressionism, expressionism, oil, acrylic",
-      "key_5": "",
-      "value_5": ""
-    },
-    "class_type": "Text Dictionary New",
-    "_meta": {
-      "title": "Text Dictionary New"
-    }
-  },
-  "117": {
-    "inputs": {
-      "dictionary_a": [
-        "129",
-        0
-      ],
-      "dictionary_b": [
-        "131",
-        0
-      ]
-    },
-    "class_type": "Text Dictionary Update",
-    "_meta": {
-      "title": "Text Dictionary Update"
-    }
-  },
-  "118": {
-    "inputs": {
-      "text": [
-        "119",
-        0
-      ],
-      "find": "{prompt}",
-      "replace": [
-        "122",
-        0
-      ]
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
-  "119": {
-    "inputs": {
-      "key": [
-        "107",
-        0
-      ],
-      "default_value": "",
-      "dictionary": [
-        "117",
-        0
-      ]
-    },
-    "class_type": "Text Dictionary Get",
-    "_meta": {
-      "title": "Text Dictionary Get"
-    }
-  },
-  "120": {
-    "inputs": {
-      "text": [
-        "108",
-        0
-      ],
-      "find": "{negative_prompt}",
-      "replace": [
-        "123",
-        0
-      ]
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
   "122": {
     "inputs": {
       "text": "portrait of girl",
@@ -513,73 +378,6 @@
       "title": "VixUI-Prompt"
     }
   },
-  "126": {
-    "inputs": {
-      "text": [
-        "119",
-        0
-      ],
-      "find": ", photomaker",
-      "replace": ""
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
-  "127": {
-    "inputs": {
-      "text": [
-        "126",
-        0
-      ],
-      "find": "{prompt}",
-      "replace": [
-        "122",
-        0
-      ]
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
-  "129": {
-    "inputs": {
-      "key_1": "Cinematic",
-      "value_1": "cinematic still {prompt} . emotional, harmonious, vignette, highly detailed, high budget, bokeh, cinemascope, moody, epic, gorgeous, film grain, grainy, photomaker",
-      "key_2": "Disney Character",
-      "value_2": "Pixar animation character of {prompt} . pixar-style, studio anime, Disney, high-quality, photomaker",
-      "key_3": "Digital Art",
-      "value_3": "concept art {prompt} . digital artwork, illustrative, painterly, matte painting, highly detailed, photomaker",
-      "key_4": "Photographic",
-      "value_4": "cinematic photo {prompt} . 35mm photograph, film, bokeh, professional, 4k, highly detailed, photomaker",
-      "key_5": "Fantasy art",
-      "value_5": "ethereal fantasy concept art of {prompt} . magnificent, celestial, ethereal, painterly, epic, majestic, magical, fantasy art, cover art, dreamy, photomaker"
-    },
-    "class_type": "Text Dictionary New",
-    "_meta": {
-      "title": "Text Dictionary New"
-    }
-  },
-  "131": {
-    "inputs": {
-      "key_1": "Neonpunk",
-      "value_1": "neonpunk style {prompt} . cyberpunk, vaporwave, neon, vibes, vibrant, stunningly beautiful, crisp, detailed, sleek, ultramodern, magenta highlights, dark purple shadows, high contrast, cinematic, ultra detailed, intricate, professional, photomaker",
-      "key_2": "Comic book",
-      "value_2": "comic {prompt} . graphic illustration, comic art, graphic novel art, vibrant, highly detailed, photomaker",
-      "key_3": "Lowpoly",
-      "value_3": "low-poly style {prompt} . low-poly game art, polygon mesh, jagged, blocky, wireframe edges, centered composition, photomaker",
-      "key_4": "Line art",
-      "value_4": "line art drawing {prompt} . professional, sleek, modern, minimalist, graphic, line art, vector graphics, photomaker",
-      "key_5": "",
-      "value_5": ""
-    },
-    "class_type": "Text Dictionary New",
-    "_meta": {
-      "title": "Text Dictionary New"
-    }
-  },
   "133": {
     "inputs": {
       "number_of_faces": 1,
@@ -596,6 +394,157 @@
     "class_type": "AutoCropFaces",
     "_meta": {
       "title": "Auto Crop Faces"
+    }
+  },
+  "134": {
+    "inputs": {
+      "text": [
+        "135",
+        0
+      ],
+      "find": "{prompt}",
+      "replace": [
+        "122",
+        0
+      ]
+    },
+    "class_type": "VixTextReplace",
+    "_meta": {
+      "title": "Text Replace"
+    }
+  },
+  "135": {
+    "inputs": {
+      "text": [
+        "140",
+        0
+      ],
+      "find": ", photomaker",
+      "replace": ""
+    },
+    "class_type": "VixTextReplace",
+    "_meta": {
+      "title": "Text Replace"
+    }
+  },
+  "137": {
+    "inputs": {
+      "text": [
+        "140",
+        0
+      ],
+      "find": "{prompt}",
+      "replace": [
+        "122",
+        0
+      ]
+    },
+    "class_type": "VixTextReplace",
+    "_meta": {
+      "title": "Text Replace"
+    }
+  },
+  "138": {
+    "inputs": {
+      "text": [
+        "139",
+        0
+      ],
+      "find": "{negative_prompt}",
+      "replace": [
+        "123",
+        0
+      ]
+    },
+    "class_type": "VixTextReplace",
+    "_meta": {
+      "title": "Text Replace"
+    }
+  },
+  "139": {
+    "inputs": {
+      "key": [
+        "107",
+        0
+      ],
+      "default_value": "",
+      "dictionary": [
+        "141",
+        0
+      ]
+    },
+    "class_type": "VixDictionaryGet",
+    "_meta": {
+      "title": "Dictionary Get"
+    }
+  },
+  "140": {
+    "inputs": {
+      "key": [
+        "107",
+        0
+      ],
+      "default_value": "",
+      "dictionary": [
+        "143",
+        0
+      ]
+    },
+    "class_type": "VixDictionaryGet",
+    "_meta": {
+      "title": "Dictionary Get"
+    }
+  },
+  "141": {
+    "inputs": {
+      "key_1": "Cinematic",
+      "value_1": "{negative_prompt}, anime, cartoon, graphic, text, painting, crayon, graphite, abstract, glitch, deformed, mutated, ugly, disfigured",
+      "key_2": "Disney Character",
+      "value_2": "{negative_prompt}, lowres, bad anatomy, bad hands, text, bad eyes, bad arms, bad legs, error, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality, normal quality, jpeg artifacts, signature, watermark, blurry, grayscale, noisy, sloppy, messy, grainy, highly detailed, ultra textured, photo",
+      "key_3": "Digital Art",
+      "value_3": "{negative_prompt}, photo, photorealistic, realism, ugly",
+      "key_4": "Photographic",
+      "value_4": "{negative_prompt}, drawing, painting, crayon, sketch, graphite, impressionist, noisy, blurry, soft, deformed, ugly",
+      "key_5": "Fantasy art",
+      "value_5": "{negative_prompt}, photographic, realistic, realism, 35mm film, dslr, cropped, frame, text, deformed, glitch, noise, noisy, off-center, deformed, cross-eyed, closed eyes, bad anatomy, ugly, disfigured, sloppy, duplicate, mutated, black and white",
+      "key_6": "Neonpunk",
+      "value_6": "{negative_prompt}, painting, drawing, illustration, glitch, deformed, mutated, cross-eyed, ugly, disfigured",
+      "key_7": "Comic book",
+      "value_7": "{negative_prompt}, photograph, deformed, glitch, noisy, realistic, stock photo",
+      "key_8": "Lowpoly",
+      "value_8": "{negative_prompt}, noisy, sloppy, messy, grainy, highly detailed, ultra textured, photo",
+      "key_9": "Line art",
+      "value_9": "{negative_prompt}, anime, photorealistic, 35mm film, deformed, glitch, blurry, noisy, off-center, deformed, cross-eyed, closed eyes, bad anatomy, ugly, disfigured, mutated, realism, realistic, impressionism, expressionism, oil, acrylic"
+    },
+    "class_type": "VixDictionaryNew",
+    "_meta": {
+      "title": "Dictionary New"
+    }
+  },
+  "143": {
+    "inputs": {
+      "key_1": "Cinematic",
+      "value_1": "cinematic still {prompt} . emotional, harmonious, vignette, highly detailed, high budget, bokeh, cinemascope, moody, epic, gorgeous, film grain, grainy, photomaker",
+      "key_2": "Disney Character",
+      "value_2": "Pixar animation character of {prompt} . pixar-style, studio anime, Disney, high-quality, photomaker",
+      "key_3": "Digital Art",
+      "value_3": "concept art {prompt} . digital artwork, illustrative, painterly, matte painting, highly detailed, photomaker",
+      "key_4": "Photographic",
+      "value_4": "cinematic photo {prompt} . 35mm photograph, film, bokeh, professional, 4k, highly detailed, photomaker",
+      "key_5": "Fantasy art",
+      "value_5": "ethereal fantasy concept art of {prompt} . magnificent, celestial, ethereal, painterly, epic, majestic, magical, fantasy art, cover art, dreamy, photomaker",
+      "key_6": "Neonpunk",
+      "value_6": "neonpunk style {prompt} . cyberpunk, vaporwave, neon, vibes, vibrant, stunningly beautiful, crisp, detailed, sleek, ultramodern, magenta highlights, dark purple shadows, high contrast, cinematic, ultra detailed, intricate, professional, photomaker",
+      "key_7": "Comic book",
+      "value_7": "comic {prompt} . graphic illustration, comic art, graphic novel art, vibrant, highly detailed, photomaker",
+      "key_8": "Lowpoly",
+      "value_8": "low-poly style {prompt} . low-poly game art, polygon mesh, jagged, blocky, wireframe edges, centered composition, photomaker",
+      "key_9": "Line art",
+      "value_9": "line art drawing {prompt} . professional, sleek, modern, minimalist, graphic, line art, vector graphics, photomaker"
+    },
+    "class_type": "VixDictionaryNew",
+    "_meta": {
+      "title": "Dictionary New"
     }
   }
 }

@@ -11,7 +11,7 @@
   "290": {
     "inputs": {
       "text": [
-        "401",
+        "406",
         0
       ],
       "clip": [
@@ -238,13 +238,15 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SketchPortrait/",
       "license": "",
       "tags": "[\"anime\", \"sketch\", \"portrait\"]",
-      "version": "2.1.0",
+      "version": "2.1.1",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 6
+      "required_memory_gb": 6,
+      "hidden": false,
+      "remote_vae": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -253,8 +255,7 @@
   },
   "394": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -263,8 +264,7 @@
   },
   "396": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -287,32 +287,6 @@
       "title": "VixUI-List"
     }
   },
-  "398": {
-    "inputs": {
-      "text": "[1{gender}] {prompt}, line-sketch, ((looking at viewer, clear background, white background)), best quality"
-    },
-    "class_type": "Text Multiline (Code Compatible)",
-    "_meta": {
-      "title": "Text Multiline (Code Compatible)"
-    }
-  },
-  "399": {
-    "inputs": {
-      "text": [
-        "398",
-        0
-      ],
-      "find": "{gender}",
-      "replace": [
-        "397",
-        0
-      ]
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
   "400": {
     "inputs": {
       "text": "",
@@ -327,23 +301,6 @@
     "class_type": "VixUiPrompt",
     "_meta": {
       "title": "VixUI-Prompt"
-    }
-  },
-  "401": {
-    "inputs": {
-      "text": [
-        "399",
-        0
-      ],
-      "find": "{prompt}",
-      "replace": [
-        "400",
-        0
-      ]
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
     }
   },
   "402": {
@@ -380,6 +337,49 @@
     "class_type": "VixUiRangeFloat",
     "_meta": {
       "title": "VixUI-RangeFloat"
+    }
+  },
+  "405": {
+    "inputs": {
+      "text": "[1{gender}] {prompt}, line-sketch, ((looking at viewer, clear background, white background)), best quality"
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "406": {
+    "inputs": {
+      "text": [
+        "407",
+        0
+      ],
+      "find": "{prompt}",
+      "replace": [
+        "400",
+        0
+      ]
+    },
+    "class_type": "VixTextReplace",
+    "_meta": {
+      "title": "Text Replace"
+    }
+  },
+  "407": {
+    "inputs": {
+      "text": [
+        "405",
+        0
+      ],
+      "find": "{gender}",
+      "replace": [
+        "397",
+        0
+      ]
+    },
+    "class_type": "VixTextReplace",
+    "_meta": {
+      "title": "Text Replace"
     }
   }
 }

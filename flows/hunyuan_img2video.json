@@ -268,15 +268,6 @@
       "title": "input;First frame;order=1;custom_id=image"
     }
   },
-  "94": {
-    "inputs": {
-      "text": "[\n  {\n    \"display_name\": \"Animate(Hunyuan-720p)\",\n    \"type\": \"image\"\n  }\n]"
-    },
-    "class_type": "Text Multiline (Code Compatible)",
-    "_meta": {
-      "title": "WF_SUBFLOWS"
-    }
-  },
   "95": {
     "inputs": {
       "name": "hunyuan_img2video",
@@ -287,7 +278,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"video\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -378,6 +369,15 @@
     "class_type": "RemoteVAEDecode",
     "_meta": {
       "title": "VAE Decode (Remote)"
+    }
+  },
+  "101": {
+    "inputs": {
+      "text": "[\n  {\n    \"display_name\": \"Animate(Hunyuan-720p)\",\n    \"type\": \"image\"\n  }\n]"
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "WF_SUBFLOWS"
     }
   }
 }

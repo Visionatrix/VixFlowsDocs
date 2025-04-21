@@ -11,7 +11,7 @@
   "290": {
     "inputs": {
       "text": [
-        "394",
+        "400",
         0
       ],
       "clip": [
@@ -196,13 +196,15 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/GhibliPortrait/",
       "license": "",
       "tags": "[\"anime\", \"portrait\"]",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 6
+      "required_memory_gb": 6,
+      "hidden": false,
+      "remote_vae": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -211,8 +213,7 @@
   },
   "387": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -221,8 +222,7 @@
   },
   "389": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -245,49 +245,6 @@
       "title": "VixUI-Prompt"
     }
   },
-  "393": {
-    "inputs": {
-      "text": [
-        "395",
-        0
-      ],
-      "find": "{gender}",
-      "replace": [
-        "396",
-        0
-      ]
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
-  "394": {
-    "inputs": {
-      "text": [
-        "393",
-        0
-      ],
-      "find": "{prompt}",
-      "replace": [
-        "391",
-        0
-      ]
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
-  "395": {
-    "inputs": {
-      "text": "anime, studio ghibli, ghibli style, {gender} {prompt}, split solid color background, portrait, close up, f1.2"
-    },
-    "class_type": "Text Multiline (Code Compatible)",
-    "_meta": {
-      "title": "Text Multiline (Code Compatible)"
-    }
-  },
   "396": {
     "inputs": {
       "default_value": "girl",
@@ -302,6 +259,49 @@
     "class_type": "VixUiList",
     "_meta": {
       "title": "VixUI-List"
+    }
+  },
+  "398": {
+    "inputs": {
+      "text": "anime, studio ghibli, ghibli style, {gender} {prompt}, split solid color background, portrait, close up, f1.2"
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "399": {
+    "inputs": {
+      "text": [
+        "398",
+        0
+      ],
+      "find": "{gender}",
+      "replace": [
+        "396",
+        0
+      ]
+    },
+    "class_type": "VixTextReplace",
+    "_meta": {
+      "title": "Text Replace"
+    }
+  },
+  "400": {
+    "inputs": {
+      "text": [
+        "399",
+        0
+      ],
+      "find": "{prompt}",
+      "replace": [
+        "391",
+        0
+      ]
+    },
+    "class_type": "VixTextReplace",
+    "_meta": {
+      "title": "Text Replace"
     }
   }
 }

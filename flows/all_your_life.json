@@ -132,7 +132,7 @@
   "224": {
     "inputs": {
       "text": [
-        "490",
+        "503",
         0
       ],
       "max_frames": 8,
@@ -151,28 +151,6 @@
     "class_type": "BatchPromptSchedule",
     "_meta": {
       "title": "Batch Prompt Schedule 📅🅕🅝"
-    }
-  },
-  "225": {
-    "inputs": {
-      "frame_rate": 12,
-      "loop_count": 0,
-      "filename_prefix": "ComfyUI",
-      "format": "video/h264-mp4",
-      "pix_fmt": "yuv420p",
-      "crf": 19,
-      "save_metadata": true,
-      "trim_to_audio": false,
-      "pingpong": false,
-      "save_output": true,
-      "images": [
-        "361",
-        0
-      ]
-    },
-    "class_type": "VHS_VideoCombine",
-    "_meta": {
-      "title": "Video Combine 🎥🅥🅗🅢"
     }
   },
   "226": {
@@ -218,26 +196,6 @@
     "class_type": "LoraLoaderModelOnly",
     "_meta": {
       "title": "LoraLoaderModelOnly"
-    }
-  },
-  "361": {
-    "inputs": {
-      "brightness": -0.05,
-      "contrast": 1.1,
-      "saturation": 0.5,
-      "sharpness": 1.2,
-      "blur": 0,
-      "gaussian_blur": 0,
-      "edge_enhance": 0.3,
-      "detail_enhance": "false",
-      "image": [
-        "407",
-        0
-      ]
-    },
-    "class_type": "Image Filter Adjustments",
-    "_meta": {
-      "title": "Image Filter Adjustments"
     }
   },
   "378": {
@@ -332,7 +290,7 @@
   },
   "389": {
     "inputs": {
-      "seed": 88566838126408,
+      "seed": 1,
       "steps": 8,
       "cfg": 2,
       "sampler_name": "dpmpp_sde",
@@ -445,62 +403,10 @@
       "title": "RIFE VFI (recommend rife47 and rife49)"
     }
   },
-  "417": {
-    "inputs": {
-      "text": "\"0\" :\"6-year,litte girl，kawaii:2,short hair\",\n\"1\" :\"10-year-old,cute kid,girl\",\n\"2\" :\"16-year-old,young girl,long hair\",\n\"3\" :\"26-year-old,woman,long hair\",\n\"4\" :\"44-year-old,old woman\",\n\"5\" :\"64-year-old,old woman,gray hair\",\n\"6\" :\"84-year-old,old woman,wrinkles,white hair\",\n\"7\" :\"104-year-old,very old woman,wrinkles:2,white hair\","
-    },
-    "class_type": "Text Multiline (Code Compatible)",
-    "_meta": {
-      "title": "Female"
-    }
-  },
-  "418": {
-    "inputs": {
-      "text": "\"0\" :\"6-year,litte boy,kawaii:2,very short hair\",\n\"1\" :\"10-year-old,cute boy,short hair\",\n\"2\" :\"16-year-old,handsome man\",\n\"3\" :\"26-year-old,handsome man\",\n\"4\" :\"44-year-old,old man\",\n\"5\" :\"64-year-old,old man,gray hair\",\n\"6\" :\"84-year-old,old man,wrinkles,white hair\",\n\"7\" :\"104-year-old,very old man,wrinkles:2,bald,white hair\","
-    },
-    "class_type": "Text Multiline",
-    "_meta": {
-      "title": "Male"
-    }
-  },
-  "439": {
-    "inputs": {
-      "text": [
-        "489",
-        0
-      ],
-      "find": "Female",
-      "replace": [
-        "417",
-        0
-      ]
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
-  "441": {
-    "inputs": {
-      "text": [
-        "439",
-        0
-      ],
-      "find": "Male",
-      "replace": [
-        "418",
-        0
-      ]
-    },
-    "class_type": "Text Find and Replace",
-    "_meta": {
-      "title": "Text Find and Replace"
-    }
-  },
   "447": {
     "inputs": {
       "query": [
-        "492",
+        "493",
         0
       ],
       "debug": "enable",
@@ -508,7 +414,7 @@
       "model": "llava:7b-v1.6-vicuna-q8_0",
       "keep_alive": 0,
       "format": "json",
-      "seed": 735649772,
+      "seed": 1,
       "images": [
         "378",
         0
@@ -539,7 +445,7 @@
     },
     "class_type": "VixUiCheckboxLogic",
     "_meta": {
-      "title": "VixUI-CheckboxLogic"
+      "title": "Checkbox Logic (VixUI)"
     }
   },
   "454": {
@@ -552,7 +458,7 @@
       ],
       "text_b": ", ",
       "text_c": [
-        "488",
+        "501",
         0
       ]
     },
@@ -571,7 +477,7 @@
       ],
       "text_b": ", ",
       "text_c": [
-        "489",
+        "500",
         0
       ]
     },
@@ -611,7 +517,7 @@
     },
     "class_type": "VixUiRangeFloat",
     "_meta": {
-      "title": "VixUI-RangeFloat"
+      "title": "Range Float (VixUI)"
     }
   },
   "480": {
@@ -627,7 +533,7 @@
     },
     "class_type": "VixUiPrompt",
     "_meta": {
-      "title": "VixUI-Prompt"
+      "title": "Prompt (VixUI)"
     }
   },
   "481": {
@@ -640,7 +546,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/AllYourLife",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"sketch\", \"video\"]",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -652,13 +558,12 @@
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
-      "title": "VixUI-WorkflowMetadata"
+      "title": "Workflow Metadata (VixUI)"
     }
   },
   "482": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -680,7 +585,7 @@
   "486": {
     "inputs": {
       "prompt": [
-        "492",
+        "493",
         0
       ],
       "safety_settings": "BLOCK_NONE",
@@ -690,7 +595,7 @@
       "proxy": "",
       "system_instruction": "",
       "error_fallback_value": "",
-      "seed": 1966185507,
+      "seed": 1,
       "image_1": [
         "378",
         0
@@ -701,70 +606,163 @@
       "title": "Ask Gemini"
     }
   },
-  "487": {
+  "493": {
+    "inputs": {
+      "text": "Analyze the image and return one word for each, focusing only on the main person:  \n1. Race: Choose only from 'White', 'Black', 'Asian', 'Hispanic', 'Indian', or 'Neutral' (if unclear).\n2. Gender: Choose only from 'Male' or 'Female' (default to 'Female' if unclear). Do not use 'Neutral' for gender.\n\nRespond with a single dictionary, using this exact format:\n{\"Race\": \"YourRaceHere\", \"Gender\": \"YourGenderHere\"}"
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "494": {
+    "inputs": {
+      "text": "\"0\" :\"6-year,litte boy,kawaii:2,very short hair\",\n\"1\" :\"10-year-old,cute boy,short hair\",\n\"2\" :\"16-year-old,handsome man\",\n\"3\" :\"26-year-old,handsome man\",\n\"4\" :\"44-year-old,old man\",\n\"5\" :\"64-year-old,old man,gray hair\",\n\"6\" :\"84-year-old,old man,wrinkles,white hair\",\n\"7\" :\"104-year-old,very old man,wrinkles:2,bald,white hair\","
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "495": {
+    "inputs": {
+      "text": "\"0\" :\"6-year,litte girl，kawaii:2,short hair\",\n\"1\" :\"10-year-old,cute kid,girl\",\n\"2\" :\"16-year-old,young girl,long hair\",\n\"3\" :\"26-year-old,woman,long hair\",\n\"4\" :\"44-year-old,old woman\",\n\"5\" :\"64-year-old,old woman,gray hair\",\n\"6\" :\"84-year-old,old woman,wrinkles,white hair\",\n\"7\" :\"104-year-old,very old woman,wrinkles:2,white hair\","
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "497": {
+    "inputs": {
+      "text": [
+        "498",
+        0
+      ],
+      "find": "Male",
+      "replace": [
+        "494",
+        0
+      ]
+    },
+    "class_type": "VixTextReplace",
+    "_meta": {
+      "title": "Text Replace"
+    }
+  },
+  "498": {
+    "inputs": {
+      "text": [
+        "500",
+        0
+      ],
+      "find": "Female",
+      "replace": [
+        "495",
+        0
+      ]
+    },
+    "class_type": "VixTextReplace",
+    "_meta": {
+      "title": "Text Replace"
+    }
+  },
+  "499": {
     "inputs": {
       "dictionary_text": [
         "452",
         0
       ]
     },
-    "class_type": "Text Dictionary Convert",
+    "class_type": "VixDictionaryConvert",
     "_meta": {
-      "title": "Text Dictionary Convert"
+      "title": "Convert to Dictionary"
     }
   },
-  "488": {
-    "inputs": {
-      "key": "Race",
-      "default_value": "Neutral",
-      "dictionary": [
-        "487",
-        0
-      ]
-    },
-    "class_type": "Text Dictionary Get",
-    "_meta": {
-      "title": "Text Dictionary Get"
-    }
-  },
-  "489": {
+  "500": {
     "inputs": {
       "key": "Gender",
       "default_value": "Female",
       "dictionary": [
-        "487",
+        "499",
         0
       ]
     },
-    "class_type": "Text Dictionary Get",
+    "class_type": "VixDictionaryGet",
     "_meta": {
-      "title": "Text Dictionary Get"
+      "title": "Dictionary Get"
     }
   },
-  "490": {
+  "501": {
+    "inputs": {
+      "key": "Race",
+      "default_value": "Neutral",
+      "dictionary": [
+        "499",
+        0
+      ]
+    },
+    "class_type": "VixDictionaryGet",
+    "_meta": {
+      "title": "Dictionary Get"
+    }
+  },
+  "503": {
     "inputs": {
       "text": [
-        "441",
+        "497",
         0
       ],
       "find": "Neutral",
       "replace": [
-        "417",
+        "495",
         0
       ]
     },
-    "class_type": "Text Find and Replace",
+    "class_type": "VixTextReplace",
     "_meta": {
-      "title": "Text Find and Replace(if LLM is dumb)"
+      "title": "Text Replace (if LLM is dumb)"
     }
   },
-  "492": {
+  "505": {
     "inputs": {
-      "text": "Analyze the image and return one word for each, focusing only on the main person:  \n1. Race: Choose only from 'White', 'Black', 'Asian', 'Hispanic', 'Indian', or 'Neutral' (if unclear).\n2. Gender: Choose only from 'Male' or 'Female' (default to 'Female' if unclear). Do not use 'Neutral' for gender.\n\nRespond with a single dictionary, using this exact format:\n{\"Race\": \"YourRaceHere\", \"Gender\": \"YourGenderHere\"}\n"
+      "brightness": -0.05,
+      "contrast": 1.1,
+      "saturation": 0.5,
+      "sharpness": 1.2,
+      "blur": 0,
+      "gaussian_blur": 0,
+      "edge_enhance": 0.3,
+      "image": [
+        "407",
+        0
+      ]
     },
-    "class_type": "Text Multiline (Code Compatible)",
+    "class_type": "VixImageFilters",
     "_meta": {
-      "title": "Text Multiline (Code Compatible)"
+      "title": "Image Filters"
+    }
+  },
+  "506": {
+    "inputs": {
+      "frame_rate": 12,
+      "loop_count": 0,
+      "filename_prefix": "ComfyUI",
+      "format": "video/h264-mp4",
+      "pix_fmt": "yuv420p",
+      "crf": 19,
+      "save_metadata": true,
+      "trim_to_audio": false,
+      "pingpong": false,
+      "save_output": true,
+      "images": [
+        "505",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine",
+    "_meta": {
+      "title": "Video Combine 🎥🅥🅗🅢"
     }
   }
 }
