@@ -203,8 +203,7 @@
   },
   "32": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -213,8 +212,7 @@
   },
   "33": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -350,7 +348,7 @@
         0
       ],
       "positive": [
-        "215",
+        "255",
         0
       ],
       "negative": [
@@ -472,33 +470,6 @@
       "title": "Auto Crop Faces"
     }
   },
-  "215": {
-    "inputs": {
-      "delimiter": " ",
-      "clean_whitespace": "true",
-      "text_a": [
-        "226",
-        0
-      ],
-      "text_b": [
-        "218",
-        0
-      ]
-    },
-    "class_type": "Text Concatenate",
-    "_meta": {
-      "title": "Text Concatenate"
-    }
-  },
-  "218": {
-    "inputs": {
-      "text": "img"
-    },
-    "class_type": "Text Multiline",
-    "_meta": {
-      "title": "Text Multiline"
-    }
-  },
   "225": {
     "inputs": {
       "name": "photomaker_2",
@@ -509,13 +480,15 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_2/",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
       "is_translations_supported": true,
       "is_macos_supported": true,
-      "required_memory_gb": 8
+      "required_memory_gb": 8,
+      "hidden": false,
+      "remote_vae": false
     },
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
@@ -616,8 +589,7 @@
   },
   "240": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -626,8 +598,7 @@
   },
   "241": {
     "inputs": {
-      "image": "",
-      "upload": "image"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
@@ -693,6 +664,33 @@
     "class_type": "ImageBatchMultiple+",
     "_meta": {
       "title": "🔧 Images Batch Multiple"
+    }
+  },
+  "255": {
+    "inputs": {
+      "delimiter": " ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "226",
+        0
+      ],
+      "text_b": [
+        "256",
+        0
+      ]
+    },
+    "class_type": "VixTextConcatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "256": {
+    "inputs": {
+      "text": "img"
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
     }
   }
 }
