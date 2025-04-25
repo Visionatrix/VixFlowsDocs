@@ -2,7 +2,7 @@
   "6": {
     "inputs": {
       "text": [
-        "77",
+        "102",
         0
       ],
       "clip": [
@@ -107,7 +107,7 @@
   "59": {
     "inputs": {
       "lora_name": "aidmaFLUXpro1.1-FLUX-V0.2.safetensors",
-      "strength_model": 0.7000000000000001,
+      "strength_model": 0.7,
       "strength_clip": 1,
       "model": [
         "62",
@@ -157,7 +157,7 @@
   "68": {
     "inputs": {
       "query": [
-        "92",
+        "105",
         0
       ],
       "debug": "enable",
@@ -179,7 +179,7 @@
   "69": {
     "inputs": {
       "query": [
-        "91",
+        "104",
         0
       ],
       "debug": "enable",
@@ -198,32 +198,10 @@
       "title": "Ollama Vision"
     }
   },
-  "73": {
-    "inputs": {
-      "delimiter": ", ",
-      "clean_whitespace": "true",
-      "text_a": [
-        "84",
-        0
-      ],
-      "text_b": [
-        "68",
-        0
-      ],
-      "text_c": [
-        "69",
-        0
-      ]
-    },
-    "class_type": "Text Concatenate",
-    "_meta": {
-      "title": "Text Concatenate"
-    }
-  },
   "75": {
     "inputs": {
       "prompt": [
-        "73",
+        "107",
         0
       ],
       "debug": "enable",
@@ -237,24 +215,6 @@
       "title": "Ollama Generate"
     }
   },
-  "77": {
-    "inputs": {
-      "delimiter": ", ",
-      "clean_whitespace": "true",
-      "text_a": [
-        "85",
-        0
-      ],
-      "text_b": [
-        "86",
-        0
-      ]
-    },
-    "class_type": "Text Concatenate",
-    "_meta": {
-      "title": "Text Concatenate"
-    }
-  },
   "80": {
     "inputs": {
       "name": "animal_clothing",
@@ -265,7 +225,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"animals\", \"clothing\"]",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -298,24 +258,6 @@
       "title": "input;Person or animal;order=1;custom_id=person_image"
     }
   },
-  "84": {
-    "inputs": {
-      "text": "Please rewrite the following information into an AI painting prompt. The content is a fashion magazine cover photo taken by an anthropomorphic animal model. Keep the description of the animal characteristics and the description of the clothing. The exposed parts of the model's body have animal characteristics. The photo The background is a solid color background that echoes the clothing. \n\nDon't output anything else, such as \"Here's a rewritten AI painting prompt based on the provided information:\"\n\n---\n."
-    },
-    "class_type": "Text Multiline",
-    "_meta": {
-      "title": "Text Multiline"
-    }
-  },
-  "85": {
-    "inputs": {
-      "text": " fashion magazine shoots, aidmafluxpro1.1, solo,"
-    },
-    "class_type": "Text Multiline",
-    "_meta": {
-      "title": "Text Multiline"
-    }
-  },
   "86": {
     "inputs": {
       "state": false,
@@ -342,7 +284,7 @@
   "87": {
     "inputs": {
       "prompt": [
-        "88",
+        "108",
         0
       ],
       "safety_settings": "BLOCK_NONE",
@@ -359,37 +301,15 @@
       "title": "Ask Gemini"
     }
   },
-  "88": {
-    "inputs": {
-      "delimiter": ", ",
-      "clean_whitespace": "true",
-      "text_a": [
-        "84",
-        0
-      ],
-      "text_b": [
-        "90",
-        0
-      ],
-      "text_c": [
-        "89",
-        0
-      ]
-    },
-    "class_type": "Text Concatenate",
-    "_meta": {
-      "title": "Text Concatenate"
-    }
-  },
   "89": {
     "inputs": {
       "prompt": [
-        "91",
+        "104",
         0
       ],
       "safety_settings": "BLOCK_NONE",
       "response_type": "text",
-      "model": "gemini-1.5-flash-002",
+      "model": "gemini-2.0-flash-lite-001",
       "api_key": "",
       "proxy": "",
       "system_instruction": "",
@@ -408,12 +328,12 @@
   "90": {
     "inputs": {
       "prompt": [
-        "92",
+        "105",
         0
       ],
       "safety_settings": "BLOCK_NONE",
       "response_type": "text",
-      "model": "gemini-1.5-flash-002",
+      "model": "gemini-2.0-flash-lite-001",
       "api_key": "",
       "proxy": "",
       "system_instruction": "",
@@ -427,24 +347,6 @@
     "class_type": "Ask_Gemini",
     "_meta": {
       "title": "Ask Gemini"
-    }
-  },
-  "91": {
-    "inputs": {
-      "text": "Ignoring other information, describe the clothing in the picture."
-    },
-    "class_type": "Text Multiline",
-    "_meta": {
-      "title": "Text Multiline"
-    }
-  },
-  "92": {
-    "inputs": {
-      "text": "Describe in detail the animal depicted in the image. If no animal is present, provide a detailed description of the person in the image. Focus only on the subject and their characteristics, ignoring other elements in the scene."
-    },
-    "class_type": "Text Multiline",
-    "_meta": {
-      "title": "Text Multiline"
     }
   },
   "93": {
@@ -540,6 +442,104 @@
     "class_type": "RemoteVAEDecode",
     "_meta": {
       "title": "VAE Decode (Remote)"
+    }
+  },
+  "102": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "103",
+        0
+      ],
+      "text_b": [
+        "86",
+        0
+      ]
+    },
+    "class_type": "VixTextConcatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "103": {
+    "inputs": {
+      "text": " fashion magazine shoots, aidmafluxpro1.1, solo,"
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "104": {
+    "inputs": {
+      "text": "Ignoring other information, describe the clothing in the picture."
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "105": {
+    "inputs": {
+      "text": "Describe in detail the animal depicted in the image. If no animal is present, provide a detailed description of the person in the image. Focus only on the subject and their characteristics, ignoring other elements in the scene."
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "106": {
+    "inputs": {
+      "text": "Please rewrite the following information into an AI painting prompt. The content is a fashion magazine cover photo taken by an anthropomorphic animal model. Keep the description of the animal characteristics and the description of the clothing. The exposed parts of the model's body have animal characteristics. The photo The background is a solid color background that echoes the clothing. \n\nDon't output anything else, such as \"Here's a rewritten AI painting prompt based on the provided information:\"\n\n---\n."
+    },
+    "class_type": "VixMultilineText",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  },
+  "107": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "106",
+        0
+      ],
+      "text_b": [
+        "68",
+        0
+      ],
+      "text_c": [
+        "69",
+        0
+      ]
+    },
+    "class_type": "VixTextConcatenate",
+    "_meta": {
+      "title": "Text Concatenate"
+    }
+  },
+  "108": {
+    "inputs": {
+      "delimiter": ", ",
+      "clean_whitespace": "true",
+      "text_a": [
+        "106",
+        0
+      ],
+      "text_b": [
+        "90",
+        0
+      ],
+      "text_c": [
+        "89",
+        0
+      ]
+    },
+    "class_type": "VixTextConcatenate",
+    "_meta": {
+      "title": "Text Concatenate"
     }
   }
 }
