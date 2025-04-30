@@ -187,6 +187,7 @@
         0
       ],
       "batch_size": 1,
+      "strength": 1,
       "positive": [
         "6",
         0
@@ -303,7 +304,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"video\"]",
-      "version": "1.0.1",
+      "version": "1.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
