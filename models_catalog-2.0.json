@@ -1,0 +1,1523 @@
+{
+  "InstantID-ControlNet": {
+    "regexes": [
+      {
+        "class_name": "ControlNetLoader",
+        "input_value": "^(?=.*(?i:instantid)).*"
+      }
+    ],
+    "url": "https://huggingface.co/InstantX/InstantID/resolve/main/ControlNetModel/diffusion_pytorch_model.safetensors",
+    "homepage": "https://huggingface.co/InstantX/InstantID",
+    "hash": "c8127be9f174101ebdafee9964d856b49b634435cf6daa396d3f593cf0bbbb05",
+    "types": [
+      "controlnet"
+    ],
+    "filename": "instantid-controlnet.safetensors",
+    "file_size": 2502139136
+  },
+  "InstantID-IP-Adapter": {
+    "regexes": [
+      {
+        "class_name": "InstantIDModelLoader",
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:ip\\-adapter\\.bin|instantIDSDXL_controlInstantIdSdxl\\.safetensors|instantid\\-ip\\-adapter\\.bin)$"
+      }
+    ],
+    "url": "https://huggingface.co/InstantX/InstantID/resolve/main/ip-adapter.bin",
+    "homepage": "https://huggingface.co/InstantX/InstantID",
+    "hash": "02b3618e36d803784166660520098089a81388e61a93ef8002aa79a5b1c546e1",
+    "file_size": 1691134141,
+    "filename": "instantid-ip-adapter.bin",
+    "types": [
+      "instantid"
+    ]
+  },
+  "Lora-Canny-Rank256": {
+    "regexes": [
+      {
+        "class_name": "ControlNetLoader",
+        "input_value": "^(?=.*(?i:control))(?=.*(?i:lora))(?=.*(?i:canny))(?=.*(?i:rank256)).*"
+      }
+    ],
+    "url": "https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank256/control-lora-canny-rank256.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/control-lora",
+    "hash": "21f79f7368eff07f57bcd507ca91c0fc89070d7da182960ff24ed1d58310c3a7",
+    "types": [
+      "controlnet"
+    ],
+    "file_size": 774450192
+  },
+  "Lora-Depth-Rank256": {
+    "regexes": [
+      {
+        "class_name": "ControlNetLoader",
+        "input_value": "^(?=.*(?i:control))(?=.*(?i:lora))(?=.*(?i:depth))(?=.*(?i:rank256)).*"
+      }
+    ],
+    "url": "https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank256/control-lora-depth-rank256.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/control-lora",
+    "hash": "559d2468951bf254c13bacd9c5d05d01ad67b060f6a73e8131d26ebf459c1c79",
+    "types": [
+      "controlnet"
+    ],
+    "file_size": 774445779
+  },
+  "Lora-Recolor-Rank256": {
+    "regexes": [
+      {
+        "class_name": "ControlNetLoader",
+        "input_value": "^(?=.*(?i:control))(?=.*(?i:lora))(?=.*(?i:recolor))(?=.*(?i:rank256)).*"
+      }
+    ],
+    "url": "https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank256/control-lora-recolor-rank256.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/control-lora",
+    "hash": "b0bf3c163b6f578b3a73e9cf61c3e4219ae9c2a06903663205d1251cf2498925",
+    "types": [
+      "controlnet"
+    ],
+    "file_size": 774446618
+  },
+  "Lora-Sketch-Rank256": {
+    "regexes": [
+      {
+        "class_name": "ControlNetLoader",
+        "input_value": "^(?=.*(?i:control))(?=.*(?i:lora))(?=.*(?i:sketch))(?=.*(?i:rank256)).*"
+      }
+    ],
+    "url": "https://huggingface.co/stabilityai/control-lora/resolve/main/control-LoRAs-rank256/control-lora-sketch-rank256.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/control-lora",
+    "hash": "cf741a672fc3f753956260cb16101250f16c3c5bb3690a3d736bef66eafa7515",
+    "types": [
+      "controlnet"
+    ],
+    "file_size": 774454911
+  },
+  "OpenPose-XL2-1.0": {
+    "regexes": [
+      {
+        "class_name": "ControlNetLoader",
+        "input_value": "^(?=.*(?i:control))(?=.*(?i:lora))(?=.*(?i:openposeXL2))(?=.*(?i:rank256)).*"
+      }
+    ],
+    "url": "https://huggingface.co/thibaud/controlnet-openpose-sdxl-1.0/resolve/main/control-lora-openposeXL2-rank256.safetensors",
+    "homepage": "https://huggingface.co/thibaud/controlnet-openpose-sdxl-1.0",
+    "hash": "8afa079285bf9384eaf8f6322884cb4f24bbe405da490f91f5540d3bff585e75",
+    "types": [
+      "controlnet"
+    ],
+    "file_size": 774423024
+  },
+  "StickersRedmond": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:Stickers))(?=.*(?i:Redmond)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://huggingface.co/artificialguybr/StickersRedmond/resolve/main/StickersRedmond.safetensors",
+    "homepage": "https://huggingface.co/artificialguybr/StickersRedmond",
+    "hash": "927a840722d1ac9103223c09da55cc3ae750300e1c0e22a15ffcf460ac6f8a56",
+    "types": [
+      "loras"
+    ],
+    "file_size": 170540036
+  },
+  "DreamShaperXL_Lightning": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:DreamShaper))(?=.*(?i:XL))(?=.*(?i:Lightning)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/Lykon/dreamshaper-xl-lightning/resolve/main/DreamShaperXL_Lightning.safetensors",
+    "homepage": "https://huggingface.co/Lykon/dreamshaper-xl-lightning",
+    "hash": "fdbe56354b8f876b736f24d3ad867ecd4140c019f57642ec8ddd878088d44f64",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 6939220250
+  },
+  "The-Simplest": {
+    "regexes": [
+      {
+        "input_value": "(?i)the[-_]?simplest",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/lora/loras/The_Simplest.safetensors",
+    "homepage": "https://civitai.com/models/336225/the-simplest",
+    "hash": "ec43d26e93173195bf6873be6ad829ec3c4de3f2a1f5d7f3a31e83b5bdd6c6ea",
+    "types": [
+      "loras"
+    ],
+    "file_size": 456504156
+  },
+  "PE-PencilDrawing": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:PE))(?=.*(?i:Pencil))(?=.*(?i:Drawing)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://civitai.com/api/download/models/145610?type=Model&format=SafeTensor",
+    "homepage": "https://civitai.com/models/132383",
+    "hash": "002EC698232DC1CB50B27E7B56B32F397E6528E07B0BCB4AB8A421C866C1E7BC",
+    "types": [
+      "loras"
+    ],
+    "filename": "PE_PencilDrawing.safetensors",
+    "file_size": 228453876
+  },
+  "animagine-xl-3.1": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:animagine))(?=.*(?i:xl))(?=.*(?:v3\\.1|v31|3\\.1|31)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/cagliostrolab/animagine-xl-3.1/resolve/main/animagine-xl-3.1.safetensors",
+    "homepage": "https://huggingface.co/cagliostrolab/animagine-xl-3.1",
+    "hash": "e3c47aedb06418c6c331443cd89f2b3b3b34b7ed2102a3d4c4408a8d35aad6b0",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 6938325776
+  },
+  "animagine-xl-4.0-opt": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:animagineXL40_v4Opt\\.safetensors|animagine\\-xl\\-4\\.0\\-opt\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/cagliostrolab/animagine-xl-4.0/resolve/main/animagine-xl-4.0-opt.safetensors",
+    "homepage": "https://huggingface.co/cagliostrolab/animagine-xl-4.0",
+    "hash": "6327eca98bfb6538dd7a4edce22484a1bbc57a8cff6b11d075d40da1afb847ac",
+    "file_size": 6938350040,
+    "types": [
+      "checkpoints"
+    ]
+  },
+  "StudioGhibli.Redmond": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:StudioGhibli))(?=.*(?i:Redmond)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://huggingface.co/artificialguybr/StudioGhibli.Redmond-V2/resolve/main/StudioGhibli.Redmond-StdGBRRedmAF-StudioGhibli.safetensors",
+    "homepage": "https://huggingface.co/artificialguybr/StudioGhibli.Redmond-V2",
+    "hash": "516fe22303b8a24f800a0a24a8f4c864121411b7261206c406183c1103b7bf37",
+    "types": [
+      "loras"
+    ],
+    "file_size": 228450868
+  },
+  "Juggernaut_RunDiffusionPhoto2_Lightning_4Steps": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:juggernaut))(?=.*(?i:Rundiffusion))(?=.*(?i:Lightning))(?=.*(?i:4Steps)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/RunDiffusion/Juggernaut-XL-Lightning/resolve/main/Juggernaut_RunDiffusionPhoto2_Lightning_4Steps.safetensors",
+    "homepage": "https://huggingface.co/RunDiffusion/Juggernaut-XL-Lightning",
+    "hash": "c8df560d2992ac04299412be6a36fa53a4e7a1b74f27b94867ad3f84f4b425a5",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 7105348284
+  },
+  "JuggernautXL_v8RunDiffusion": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:juggernaut))(?=.*(?i:XL))(?=.*(?i:v8))(?=.*(?i:Rundiffusion)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/RunDiffusion/Juggernaut-XL-v8/resolve/main/juggernautXL_v8Rundiffusion.safetensors",
+    "homepage": "https://huggingface.co/RunDiffusion/Juggernaut-XL-v8",
+    "hash": "aeb7e9e6897a1e58b10494bd989d001e3d4bc9b634633cd7b559838f612c2867",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 7105348592
+  },
+  "JuggernautXL_v9RunDiffusionPhoto2": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:juggernaut))(?=.*(?i:XL))(?=.*(?i:v9))(?=.*(?i:Rundiffusion)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/RunDiffusion/Juggernaut-XL-v9/resolve/main/Juggernaut-XL_v9_RunDiffusionPhoto_v2.safetensors",
+    "homepage": "https://huggingface.co/RunDiffusion/Juggernaut-XL-v9",
+    "hash": "c9e3e68f89b8e38689e1097d4be4573cf308de4e3fd044c64ca697bdb4aa8bca",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 7105348188
+  },
+  "Juggernaut_X_RunDiffusion_NSFW": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:juggernaut))(?=.*(?i:X))(?=.*(?i:Rundiffusion))(?=.*(?i:NSFW)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/RunDiffusion/Juggernaut-X-v10/resolve/main/Juggernaut-X-RunDiffusion-NSFW.safetensors",
+    "homepage": "https://huggingface.co/RunDiffusion/Juggernaut-X-v10",
+    "hash": "d91d35736d8f2be038f760a9b0009a771ecf0a417e9b38c244a84ea4cb9c0c45",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 7105348672
+  },
+  "SDXL_lightning_8step_lora": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sdxl))(?=.*(?i:lightning))(?=.*(?i:8step)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step_lora.safetensors",
+    "homepage": "https://huggingface.co/ByteDance/SDXL-Lightning",
+    "hash": "5aa30d94cdf7950a8b53a693682650ee061eddb128c5435a8f88defea73b2ac6",
+    "types": [
+      "loras"
+    ],
+    "file_size": 393854592
+  },
+  "SDXL-VAE": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sdxl)).*",
+        "input_name": "(?i)vae"
+      }
+    ],
+    "url": "https://huggingface.co/stabilityai/sdxl-vae/resolve/main/sdxl_vae.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/sdxl-vae",
+    "hash": "63aeecb90ff7bc1c115395962d3e803571385b61938377bc7089b36e81e92e2e",
+    "types": [
+      "vae"
+    ],
+    "file_size": 334641164
+  },
+  "add-detail-XL": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:add))(?=.*(?i:detail))(?=.*(?i:xl)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://huggingface.co/PvDeep/Add-Detail-XL/resolve/main/add-detail-xl.safetensors",
+    "homepage": "",
+    "hash": "0d9bd1b873a7863e128b4672e3e245838858f71469a3cec58123c16c06f83bd7",
+    "types": [
+      "loras"
+    ],
+    "file_size": 228452344
+  },
+  "4x-UltraSharp": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:4x))(?=.*(?i:UltraSharp))(?=.*\\.pth).*"
+      }
+    ],
+    "url": "https://huggingface.co/lokCX/4x-Ultrasharp/resolve/main/4x-UltraSharp.pth",
+    "homepage": "",
+    "hash": "a5812231fc936b42af08a5edba784195495d303d5b3248c24489ef0c4021fe01",
+    "types": [
+      "upscale_models"
+    ],
+    "file_size": 66961958
+  },
+  "Photomaker-v1": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:photomaker))(?=.*(?i:v1))(?=.*\\.bin).*"
+      }
+    ],
+    "url": "https://huggingface.co/TencentARC/PhotoMaker/resolve/main/photomaker-v1.bin",
+    "homepage": "https://huggingface.co/TencentARC/PhotoMaker",
+    "hash": "529d503fa378bfb3a74e3384ab2064d7269d59f0638324555d22067c31e275bc",
+    "types": [
+      "photomaker",
+      "loras"
+    ],
+    "file_size": 934103417
+  },
+  "Photomaker-v2": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:photomaker))(?=.*(?i:v2))(?=.*\\.bin).*"
+      }
+    ],
+    "url": "https://huggingface.co/TencentARC/PhotoMaker-V2/resolve/main/photomaker-v2.bin",
+    "homepage": "https://huggingface.co/TencentARC/PhotoMaker-V2",
+    "hash": "0eeac57d7e09b95cee670a18e0d939ff303dd6f76d317c950bf584c6c9bdb8f5",
+    "types": [
+      "photomaker"
+    ],
+    "file_size": 1799993138
+  },
+  "AlbedobaseXL_v13": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:albedobaseXL))(?=.*(?i:v13)).*"
+      }
+    ],
+    "url": "https://huggingface.co/frankjoshua/albedobaseXL_v13/resolve/main/albedobaseXL_v13.safetensors",
+    "homepage": "https://civitai.com/models/140737?modelVersionId=281176",
+    "hash": "a40d817f46acc25c88ee0b6f6efa474004cea3fa1868e09a13192342c5bf4df9",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 6939221198
+  },
+  "Playground-v2.5-1024px-aesthetic": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:playground))(?=.*(?i:1024px))(?=.*(?:v2\\.5|v25|2\\.5|25)).*"
+      }
+    ],
+    "url": "https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic/resolve/main/playground-v2.5-1024px-aesthetic.fp16.safetensors",
+    "homepage": "https://huggingface.co/playgroundai/playground-v2.5-1024px-aesthetic",
+    "hash": "bcaa7dd6780974f000b17b5a6c63e6f867a75c51ffa85c67d6b196882c69b992",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 6938040576
+  },
+  "EpicRealism_naturalSinRC1VAE": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?epicrealism_naturalSinRC1VAE\\.safetensors$"
+      }
+    ],
+    "url": "https://civitai.com/api/download/models/143906",
+    "homepage": "https://civitai.com/models/25694",
+    "hash": "84D76A0328EE5A1A2A1D466BA7478AB59183E3FEA385441528AA4C5D567FD43E",
+    "file_size": 2132625612,
+    "filename": "epicrealism_naturalSinRC1VAE.safetensors",
+    "types": [
+      "checkpoints"
+    ]
+  },
+  "SDXL_lightning_4step": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sdxl))(?=.*(?i:lightning))(?=.*(?i:4step)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_4step.safetensors",
+    "homepage": "https://huggingface.co/ByteDance/SDXL-Lightning",
+    "hash": "e0d996ee0013e79d9d3561f50fcafb9a17e3ff07b780358e3b66d67932c4d490",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 6938040682
+  },
+  "SDXL_lightning_8step": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sdxl))(?=.*(?i:lightning))(?=.*(?i:8step)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/ByteDance/SDXL-Lightning/resolve/main/sdxl_lightning_8step.safetensors",
+    "homepage": "https://huggingface.co/ByteDance/SDXL-Lightning",
+    "hash": "43f0501ac4ffcef84f3fc32a47779f24c181647fa97ef7f5ec4428107d732ae9",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 6938040682
+  },
+  "Stable_Cascade_stage_b": {
+    "regexes": [
+      {
+        "input_value": ".*(?i:stable_cascade_stage_b)\\.safetensors"
+      }
+    ],
+    "url": "https://huggingface.co/stabilityai/stable-cascade/resolve/main/comfyui_checkpoints/stable_cascade_stage_b.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/stable-cascade",
+    "hash": "6c218dc948575e3b14b03dffe2014d7870ac505005770ce3abdc28e920a03c05",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 4552331265
+  },
+  "Stable_Cascade_stage_c": {
+    "regexes": [
+      {
+        "input_value": ".*(?i:stable_cascade_stage_c)\\.safetensors"
+      }
+    ],
+    "url": "https://huggingface.co/stabilityai/stable-cascade/resolve/main/comfyui_checkpoints/stable_cascade_stage_c.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/stable-cascade",
+    "hash": "088ddf1e444abf399007b2da2bac87791df165c69f477994f6b3c745a20904b0",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 9224575566
+  },
+  "SUPIR": {
+    "regexes": [
+      {
+        "class_name": "SUPIR_model_loader_v2",
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?SUPIR-v0Q\\.ckpt"
+      }
+    ],
+    "url": "https://huggingface.co/camenduru/SUPIR/resolve/main/SUPIR-v0Q.ckpt",
+    "homepage": "https://github.com/Fanghua-Yu/SUPIR",
+    "hash": "d7f418398bb024d0d3c779c4ee4e9f171eb072306093f5bcfb2bf096aa2738f8",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 5329810432
+  },
+  "RealESRGAN_x2plus": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:RealESRGAN))(?=.*(?i:x2))(?=.*\\.pth).*"
+      }
+    ],
+    "url": "https://huggingface.co/Rainy-hh/Real-ESRGAN/resolve/main/RealESRGAN_x2plus.pth",
+    "homepage": "https://github.com/xinntao/Real-ESRGAN",
+    "hash": "49fafd45f8fd7aa8d31ab2a22d14d91b536c34494a5cfe31eb5d89c2fa266abb",
+    "types": [
+      "upscale_models"
+    ],
+    "file_size": 67061725
+  },
+  "LEOSAMs-HelloWorld-XL-5.0-GPT4V": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:leosams))(?=.*(?i:Helloworld))(?=.*(?i:XL))(?=.*(?i:50GPT4V)).*"
+      }
+    ],
+    "url": "https://civitai.com/api/download/models/338512?type=Model&format=SafeTensor&size=full&fp=fp16",
+    "homepage": "https://civitai.com/models/43977/leosams-helloworld-xl",
+    "hash": "D8FD60692A589F3BE4A4C205AE4FA5A1D686B44A1CC20C7953715A95AB5070CF",
+    "types": [
+      "checkpoints"
+    ],
+    "filename": "leosamsHelloworldXL_helloworldXL50GPT4V.safetensors",
+    "file_size": 6938040682
+  },
+  "LEOSAMs-HelloWorld-XL-6.0": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:leosams))(?=.*(?i:Helloworld))(?=.*(?i:XL))(?=.*(?i:60)).*"
+      }
+    ],
+    "url": "https://civitai.com/api/download/models/456751",
+    "homepage": "https://civitai.com/models/43977/leosams-helloworld-xl",
+    "hash": "8CA0BADE3C3FC4B412D34FB6A0AB99EC7F54AEDD06BF7C61753DEA863F86796F",
+    "types": [
+      "checkpoints"
+    ],
+    "filename": "leosamsHelloworldXL_helloworldXL60.safetensors",
+    "file_size": 6938040706
+  },
+  "Shinkawa-Youji-XL-LoRA": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:shinkawa))(?=.*(?i:youji))(?=.*(?i:XL))(?=.*(?i:v1)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://civitai.com/api/download/models/341486?type=Model&format=SafeTensor",
+    "homepage": "https://civitai.com/models/304168?modelVersionId=341486",
+    "hash": "C64E765AD9E82F1997D897362E8469006985ABCAC925230A6376DF5F6EE42E40",
+    "types": [
+      "loras"
+    ],
+    "filename": "shinkawa_youji_xl_v1f.safetensors",
+    "file_size": 340768396
+  },
+  "CinematicRedmond": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:Cinematic))(?=.*(?i:Redmond))(?=.*(?i:safetensors)).*"
+      }
+    ],
+    "url": "https://huggingface.co/artificialguybr/CinematicRedmond-SDXL/resolve/main/CinematicRedmond.safetensors",
+    "homepage": "https://huggingface.co/artificialguybr/CinematicRedmond-SDXL",
+    "hash": "40b693cfe5831e8097290bb56ee93d7b2ecc644010b1dc78f803cbdbddb6f87e",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 6938050122
+  },
+  "Memoji-PixpiAI": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:memoji))(?=.*(?i:1024))(?=.*(?i:000005))(?=.*(?i:safetensors)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://civitai.com/api/download/models/196413?type=Model&format=SafeTensor",
+    "homepage": "https://civitai.com/models/174943?modelVersionId=196413",
+    "hash": "EA8C050A6DFF41D739C36B6FFB2091762340A8660310916720B6A9DD73C248C9",
+    "types": [
+      "loras"
+    ],
+    "filename": "memoji_1024-000005.safetensors",
+    "file_size": 228550668
+  },
+  "Colorful_XL_v7.2": {
+    "url": "https://huggingface.co/AI-Art-Collab/colorfulxl_v72/resolve/main/colorfulxl_v72-000024.safetensors",
+    "homepage": "https://civitai.com/models/185258",
+    "hash": "731ffe455d730455f63c57bf149743fec5a56397d4e456cb33d699c9b0e744e1",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:colorful))(?=.*(?i:xl))(?=.*(?i:v72)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "types": [
+      "checkpoints"
+    ],
+    "filename": "colorfulxl_v72.safetensors",
+    "file_size": 6938040752
+  },
+  "Colorful_XL_v7.3": {
+    "url": "https://huggingface.co/AI-Art-Collab/colorfulxl_v73/resolve/main/colorfulxl_v73-000004.safetensors",
+    "homepage": "https://civitai.com/models/185258",
+    "hash": "29d21aa537de4c141b13cd7ed584d24566cd34368014a357c6f4f0480b2787df",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:colorful))(?=.*(?i:xl))(?=.*(?i:v73)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "types": [
+      "checkpoints"
+    ],
+    "filename": "colorfulxl_v73.safetensors",
+    "file_size": 6938040752
+  },
+  "Mobius": {
+    "url": "https://huggingface.co/Corcelio/mobius/resolve/main/mobius-fp16.safetensors",
+    "homepage": "https://huggingface.co/Corcelio/mobius",
+    "hash": "746cb5590c179d3673ad2f99df3390f19e221523d28715e54404c2104b0050cf",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:mobius))(?=.*(?i:fp16)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 6938040400
+  },
+  "Prometheus": {
+    "url": "https://huggingface.co/dataautogpt3/PrometheusV1/resolve/main/Prometheus.safetensors",
+    "homepage": "https://huggingface.co/dataautogpt3/PrometheusV1",
+    "hash": "291d64d08112550b10cf7971aa7e7ea646a9c36f70b64f7bb556c8e8131f3813",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:prometheus))(?=.*(?i:v10)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "types": [
+      "checkpoints"
+    ],
+    "filename": "prometheus_v10.safetensors",
+    "file_size": 6938084280
+  },
+  "Proteus-v06": {
+    "url": "https://huggingface.co/dataautogpt3/Proteus-v0.6/resolve/main/Proteus-v0.6.safetensors",
+    "homepage": "https://huggingface.co/dataautogpt3/Proteus-v0.6",
+    "hash": "8c4b5d3be05b1136b69bd61ab6c06f43bc3279614d6325a4622e665ef4dcfd88",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:Proteus))(?=.*(?i:v0\\.6)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 6938049138
+  },
+  "SD3.5-Medium": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:sd3\\.5_medium\\.safetensors|stableDiffusion35_medium\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium/resolve/main/sd3.5_medium.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/stable-diffusion-3.5-medium",
+    "hash": "11fe06e22364b823dfeedc275912336b932b32a293a0b2f35ffac071990cc4de",
+    "file_size": 5107104286,
+    "types": [
+      "checkpoints"
+    ],
+    "gated": true
+  },
+  "SD3.5-Large-FP8": {
+    "url": "https://huggingface.co/Comfy-Org/stable-diffusion-3.5-fp8/resolve/main/sd3.5_large_fp8_scaled.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
+    "hash": "5ad94d6f951556b1ab6b75930fd4effbafaf3130fe9df440e7f2d05a220dd1be",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sd3\\.5))(?=.*(?i:large))(?=.*(?i:fp8)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 14934922866
+  },
+  "NetaArt_XL_1.0": {
+    "url": "https://huggingface.co/neta-art/neta-art-xl-1.0/resolve/main/neta_art_xl_v10.safetensors",
+    "homepage": "https://huggingface.co/neta-art/neta-art-xl-1.0",
+    "hash": "5a268fde845f9bce52111cd05b8241cabe1580af4c96ee5f68fb61f422693cb1",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:neta))(?=.*(?i:art))(?=.*(?i:xl))(?=.*(?i:v10)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 6938073562
+  },
+  "CN-anytest_v4-marged": {
+    "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/CN-anytest_v4-marged/CN-anytest_v4-marged.safetensors",
+    "homepage": "https://huggingface.co/2vXpSwA7/iroiro-lora",
+    "hash": "807aa29189c10660dff77a5bbfcf5cf39d60f7780199db36db36a9096e11ace7",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:CN))(?=.*(?i:anytest))(?=.*(?i:v4))(?=.*(?i:marged)).*",
+        "class_name": "ControlNetLoader"
+      }
+    ],
+    "types": [
+      "controlnet"
+    ],
+    "file_size": 2502139104
+  },
+  "CLIP-ViT-H-14-laion2B-s32B-b79K": {
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/models/image_encoder/model.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "6ca9667da1ca9e0b0f75e46bb030f7e011f44f86cbfb8d5a36590fcd7507b030",
+    "regexes": [
+      {
+        "input_value": "(?i)^(?!vit-g).*",
+        "class_name": "IPAdapterUnifiedLoader"
+      }
+    ],
+    "types": [
+      "clip_vision"
+    ],
+    "filename": "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors",
+    "file_size": 2528373448
+  },
+  "CLIP-ViT-bigG-14-laion2B-39B-b160k": {
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/image_encoder/model.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "657723e09f46a7c3957df651601029f66b1748afb12b419816330f16ed45d64d",
+    "regexes": [
+      {
+        "input_value": "(?i)^vit-g.*",
+        "class_name": "IPAdapterUnifiedLoader"
+      }
+    ],
+    "types": [
+      "clip_vision"
+    ],
+    "filename": "CLIP-ViT-bigG-14-laion2B-39B-b160k.safetensors",
+    "file_size": 3689912664
+  },
+  "ip-adapter_sdxl_vit-h": {
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl_vit-h.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "ebf05d918348aec7abb02a5e9ecef77e0aaea6914a5c4ea13f50d45eb1681831",
+    "regexes": [
+      {
+        "input_value": "(?i)^standard.*",
+        "class_name": "IPAdapterUnifiedLoader"
+      }
+    ],
+    "types": [
+      "ipadapter"
+    ],
+    "file_size": 698391064
+  },
+  "ip-adapter_sdxl": {
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter_sdxl.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "ba1002529e783604c5f326d49f0122025392d1d20ac8d573b3eeb3e6dea4ebb6",
+    "regexes": [
+      {
+        "input_value": "(?i)^vit-g.*",
+        "class_name": "IPAdapterUnifiedLoader"
+      }
+    ],
+    "types": [
+      "ipadapter"
+    ],
+    "file_size": 702585376
+  },
+  "ip-adapter-plus_sdxl_vit_h": {
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus_sdxl_vit-h.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "3f5062b8400c94b7159665b21ba5c62acdcd7682262743d7f2aefedef00e6581",
+    "regexes": [
+      {
+        "input_value": "(?i)^plus \\(.*",
+        "class_name": "IPAdapterUnifiedLoader"
+      }
+    ],
+    "types": [
+      "ipadapter"
+    ],
+    "file_size": 847517512
+  },
+  "ip-adapter-plus_face_sdxl_vit_h": {
+    "url": "https://huggingface.co/h94/IP-Adapter/resolve/main/sdxl_models/ip-adapter-plus-face_sdxl_vit-h.safetensors",
+    "homepage": "https://huggingface.co/h94/IP-Adapter",
+    "hash": "677ad8860204f7d0bfba12d29e6c31ded9beefdf3e4bbd102518357d31a292c1",
+    "regexes": [
+      {
+        "input_value": "(?i)^plus face.*",
+        "class_name": "IPAdapterUnifiedLoader"
+      }
+    ],
+    "types": [
+      "ipadapter"
+    ],
+    "file_size": 847517512
+  },
+  "ip-adapter-pulid": {
+    "url": "https://huggingface.co/huchenlei/ipadapter_pulid/resolve/main/ip-adapter_pulid_sdxl_fp16.safetensors",
+    "homepage": "https://huggingface.co/huchenlei/ipadapter_pulid",
+    "hash": "b258a5cd2c0c7d35f4d3e59909d7648498686afae4d0c74917e9c47d7704fbf5",
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:pulid))(?=.*(?i:sdxl))(?=.*(?i:fp16)).*",
+        "class_name": "PulidModelLoader"
+      }
+    ],
+    "types": [
+      "pulid"
+    ],
+    "file_size": 791372856
+  },
+  "baulab-lora-smiling": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sliders))(?=.*(?i:smiling))(?=.*(?i:pt)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://huggingface.co/andrey18106/visionatrix_models/resolve/main/loras/smiling.pt",
+    "homepage": "https://baulab.info/",
+    "hash": "6430ab47393ba15222ea0988c3479f547c8b59f93a41024bcddd7121ef7147d1",
+    "types": [
+      "loras"
+    ],
+    "filename": "sliders/smiling.pt",
+    "file_size": 9146507
+  },
+  "baulab-lora-cartoon-style": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sliders))(?=.*(?i:cartoon_style))(?=.*(?i:pt)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://huggingface.co/andrey18106/visionatrix_models/resolve/main/loras/cartoon_style.pt",
+    "homepage": "https://baulab.info/",
+    "hash": "e07c30e4f82f709a474ae11dc5108ac48f81b6996b937757c8dd198920ea9b4d",
+    "types": [
+      "loras"
+    ],
+    "filename": "sliders/cartoon_style.pt",
+    "file_size": 9146507
+  },
+  "baulab-lora-professional": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:sliders))(?=.*(?i:professional))(?=.*(?i:pt)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://huggingface.co/andrey18106/visionatrix_models/resolve/main/loras/professional.pt",
+    "homepage": "https://baulab.info/",
+    "hash": "2d4289f4c60dd008fe487369ddccf3492bd678cc1e6b30de2c17f9ce802b12ac",
+    "types": [
+      "loras"
+    ],
+    "filename": "sliders/professional.pt",
+    "file_size": 9151707
+  },
+  "FLUX-VAE": {
+    "regexes": [
+      {
+        "input_value": "^(?i:ae\\.safetensors)$",
+        "input_name": "(?i)vae"
+      }
+    ],
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/ae.safetensors",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+    "hash": "afc8e28272cd15db3919bacdb6918ce9c1ed22e96cb12c4d5ed0fba823529e38",
+    "types": [
+      "vae"
+    ],
+    "file_size": 335304388
+  },
+  "FLUX-CLIP-CLIP_L": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:clip_l))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors",
+    "homepage": "https://huggingface.co/comfyanonymous/flux_text_encoders",
+    "hash": "660c6f5b1abae9dc498ac2d21e1347d2abdb0cf6c0c0c8576cd796491d9a6cdd",
+    "types": [
+      "text_encoders",
+      "clip"
+    ],
+    "file_size": 246144152
+  },
+  "CLIP-CLIP_G": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:clip_g))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/stable-diffusion-3.5-fp8/resolve/main/text_encoders/clip_g.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/stable-diffusion-3-medium",
+    "hash": "ec310df2af79c318e24d20511b601a591ca8cd4f1fce1d8dff822a356bcdb1f4",
+    "types": [
+      "text_encoders",
+      "clip"
+    ],
+    "file_size": 1389382176
+  },
+  "FLUX-CLIP-T5XXL-FP16": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:t5xxl_fp16\\.safetensors|stableDiffusion3SD3_textEncoderT5XXLFP16\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp16.safetensors",
+    "homepage": "https://huggingface.co/comfyanonymous/flux_text_encoders",
+    "hash": "6e480b09fae049a72d2a8c5fbccb8d3e92febeb233bbe9dfe7256958a9167635",
+    "file_size": 9787841024,
+    "types": [
+      "text_encoders"
+    ]
+  },
+  "FLUX-CLIP-T5XXL-FP8": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:t5xxl_fp8_e4m3fn))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/t5xxl_fp8_e4m3fn.safetensors",
+    "homepage": "https://huggingface.co/comfyanonymous/flux_text_encoders",
+    "hash": "7d330da4816157540d6bb7838bf63a0f02f573fc48ca4d8de34bb0cbfd514f09",
+    "types": [
+      "text_encoders",
+      "clip"
+    ],
+    "file_size": 4893934904
+  },
+  "FLUX-1-Schnell": {
+    "regexes": [
+      {
+        "input_value": "^(?!.*(?i:fp8))(?=.*(?i:flux1))(?=.*(?i:schnell))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-schnell/resolve/main/flux1-schnell.safetensors",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-schnell",
+    "hash": "9403429e0052277ac2a87ad800adece5481eecefd9ed334e1f348723621d2a0a",
+    "types": [
+      "diffusion_models",
+      "unet"
+    ],
+    "file_size": 23782506688
+  },
+  "FLUX-1-Schnell-FP8": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:flux1))(?=.*(?i:schnell))(?=.*(?i:fp8))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-schnell-fp8-e4m3fn.safetensors",
+    "homepage": "https://huggingface.co/Kijai/flux-fp8",
+    "hash": "bbdfba27fed8ff3be237523fb37b83821a6c4bbaa1db43ef9288767d0e4042fb",
+    "types": [
+      "diffusion_models",
+      "unet"
+    ],
+    "filename": "flux1-schnell-fp8.safetensors",
+    "file_size": 11891329784
+  },
+  "FLUX-1-Dev": {
+    "regexes": [
+      {
+        "input_value": "^(?!.*(?i:fp8))(?=.*(?i:flux1))(?=.*(?i:dev))(?=.*(?i:sft)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/camenduru/FLUX.1-dev/resolve/main/flux1-dev.sft",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-dev",
+    "hash": "4610115bb0c89560703c892c59ac2742fa821e60ef5871b33493ba544683abd7",
+    "types": [
+      "diffusion_models",
+      "unet"
+    ],
+    "file_size": 23802932552
+  },
+  "FLUX-1-Dev-FP8": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:flux1))(?=.*(?i:dev))(?=.*(?i:fp8))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/Kijai/flux-fp8/resolve/main/flux1-dev-fp8.safetensors",
+    "homepage": "https://huggingface.co/Kijai/flux-fp8",
+    "hash": "1be961341be8f5307ef26c787199f80bf4e0de3c1c0b4617095aa6ee5550dfce",
+    "types": [
+      "diffusion_models",
+      "unet"
+    ],
+    "file_size": 11901525888
+  },
+  "Flux-RealismLora": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:flux_realism_lora))(?=.*(?i:safetensors)).*",
+        "input_name": "(?i)lora"
+      }
+    ],
+    "url": "https://huggingface.co/comfyanonymous/flux_RealismLora_converted_comfyui/resolve/main/flux_realism_lora.safetensors",
+    "homepage": "https://huggingface.co/XLabs-AI/flux-RealismLora",
+    "hash": "379e73dccfb57822ee3b12f374e141ce1c79a13b7ff19da4219ef2a2a610038e",
+    "types": [
+      "loras"
+    ],
+    "file_size": 22433528
+  },
+  "HunyuanDiT": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:hunyuan_dit_1\\.2))(?=.*(?i:safetensors)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/comfyanonymous/hunyuan_dit_comfyui/resolve/main/hunyuan_dit_1.2.safetensors",
+    "homepage": "https://huggingface.co/Tencent-Hunyuan/HunyuanDiT",
+    "hash": "4fb84f84079cda457d171b3c6b15d1be95b5a3e5d9825703951a99ddf92d1787",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 8240228270
+  },
+  "RealVisXL_V5.0_fp16": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:RealVisXL_V5\\.0_fp16\\.safetensors|realvisxlV50_v50Bakedvae\\.safetensors)$",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/SG161222/RealVisXL_V5.0/resolve/main/RealVisXL_V5.0_fp16.safetensors",
+    "homepage": "https://huggingface.co/SG161222/RealVisXL_V5.0",
+    "hash": "6a35a7855770ae9820a3c931d4964c3817b6d9e3c6f9c4dabb5b3a94e5643b80",
+    "file_size": 6938065488,
+    "types": [
+      "checkpoints"
+    ]
+  },
+  "RealVisXL_V5.0_Lightning_fp16": {
+    "regexes": [
+      {
+        "input_value": "^(?=.*(?i:RealVis))(?=.*(?i:XL))(?=.*(?i:V5\\.0))(?=.*(?i:Lightning))(?=.*(?i:fp16)).*",
+        "input_name": "^(?!.*(?i:lora)).*"
+      }
+    ],
+    "url": "https://huggingface.co/SG161222/RealVisXL_V5.0_Lightning/resolve/main/RealVisXL_V5.0_Lightning_fp16.safetensors",
+    "homepage": "https://huggingface.co/SG161222/RealVisXL_V5.0_Lightning",
+    "hash": "fabcadd9330dcc4f9702063428d40b9d4d07168d8acefc819b8d1d9db466b3ec",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 6938065512
+  },
+  "Rife-47": {
+    "regexes": [
+      {
+        "class_name": "RIFE VFI",
+        "input_value": "rife47\\.pth$"
+      }
+    ],
+    "filename": "custom_nodes/ComfyUI-Frame-Interpolation/ckpts/rife/rife47.pth",
+    "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/video/rife/rife47.pth",
+    "homepage": "https://www.svp-team.com/wiki/RIFE_AI_interpolation",
+    "hash": "6a8a825ab2750558bdd20dcced386fd82b7222c7ba58c11d3b611d9c44f1be63",
+    "file_size": 21344827
+  },
+  "Rife-49": {
+    "regexes": [
+      {
+        "class_name": "RIFE VFI",
+        "input_value": "rife49\\.pth$"
+      }
+    ],
+    "filename": "custom_nodes/ComfyUI-Frame-Interpolation/ckpts/rife/rife49.pth",
+    "url": "https://huggingface.co/andrey18106/vix_models/resolve/main/video/rife/rife49.pth",
+    "homepage": "https://www.svp-team.com/wiki/RIFE_AI_interpolation",
+    "hash": "e55fd00f3cc184e3c65961f4bb827a9da022e78eed36b055242c0ac30000d533",
+    "file_size": 21345274
+  },
+  "Yolox_l.pt": {
+    "regexes": [
+      {
+        "class_name": "DWPreprocessor",
+        "input_value": ".*yolox_l\\.torchscript\\.pt$"
+      }
+    ],
+    "filename": "custom_nodes/comfyui_controlnet_aux/ckpts/hr16/yolox-onnx/yolox_l.torchscript.pt",
+    "url": "https://huggingface.co/hr16/yolox-onnx/resolve/main/yolox_l.torchscript.pt",
+    "homepage": "https://github.com/Megvii-BaseDetection/YOLOX",
+    "hash": "80bc14b13c260c24b3014cd42c02994bf52296ab8fa2d80a60b6afe08c93ef42",
+    "file_size": 217697649
+  },
+  "Yolox_l.onnx": {
+    "regexes": [
+      {
+        "class_name": "DWPreprocessor",
+        "input_value": ".*yolox_l\\.onnx$"
+      }
+    ],
+    "filename": "custom_nodes/comfyui_controlnet_aux/ckpts/hr16/yolox-onnx/yolox_l.onnx",
+    "url": "https://huggingface.co/yzd-v/DWPose/resolve/main/yolox_l.onnx",
+    "homepage": "https://github.com/Megvii-BaseDetection/YOLOX",
+    "hash": "7860ae79de6c89a3c1eb72ae9a2756c0ccfbe04b7791bb5880afabd97855a411",
+    "file_size": 216746733
+  },
+  "DW-ll_ucoco_384_bs5": {
+    "regexes": [
+      {
+        "class_name": "DWPreprocessor",
+        "input_value": ".*dw-ll_ucoco_384_bs5\\.torchscript\\.pt$"
+      }
+    ],
+    "filename": "custom_nodes/comfyui_controlnet_aux/ckpts/hr16/DWPose-TorchScript-BatchSize5/dw-ll_ucoco_384_bs5.torchscript.pt",
+    "url": "https://huggingface.co/hr16/DWPose-TorchScript-BatchSize5/resolve/main/dw-ll_ucoco_384_bs5.torchscript.pt",
+    "homepage": "https://github.com/Megvii-BaseDetection/YOLOX",
+    "hash": "d86a0b2b59fddc0901a7076e9f59c9f8602602133ed72511c693fd11eea23d91",
+    "file_size": 135059124
+  },
+  "FLUX-1-Fill-Dev": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:fluxToolsFill_fillDev\\.safetensors|flux1\\-fill\\-dev\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev/resolve/main/flux1-fill-dev.safetensors",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev",
+    "hash": "03e289f530df51d014f48e675a9ffa2141bc003259bf5f25d75b957e920a41ca",
+    "types": [
+      "diffusion_models"
+    ],
+    "gated": true,
+    "file_size": 23804922408
+  },
+  "FLUX-1-Turbo-Alpha": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:alimama\\-creative\\-FLUX\\.1\\-Turbo\\-Alpha\\.safetensors|FLUX\\.1\\-Turbo\\-Alpha\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/alimama-creative/FLUX.1-Turbo-Alpha/resolve/main/diffusion_pytorch_model.safetensors",
+    "homepage": "https://huggingface.co/alimama-creative/FLUX.1-Turbo-Alpha",
+    "hash": "77f7523a5e9c3da6cfc730c6b07461129fa52997ea06168e9ed5312228aa0bff",
+    "filename": "alimama-creative-FLUX.1-Turbo-Alpha.safetensors",
+    "types": [
+      "loras"
+    ],
+    "file_size": 694082424
+  },
+  "Shou-Xin": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?shou_xin\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Datou1111/shou_xin/resolve/main/shou_xin.safetensors",
+    "homepage": "https://huggingface.co/Datou1111/shou_xin",
+    "hash": "e59714179016388dee044952d92a733f5cdf462d815be67fe87259e88fdb4703",
+    "types": [
+      "loras"
+    ],
+    "file_size": 171969400,
+    "gated": true
+  },
+  "FLUX-1-Dev-FP8-CLIPS": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?flux1\\-dev\\-fp8\\.safetensors$",
+        "class_name": "CheckpointLoaderSimple"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/flux1-dev/resolve/main/flux1-dev-fp8.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/flux1-dev",
+    "hash": "8e91b68084b53a7fc44ed2a3756d821e355ac1a7b6fe29be760c1db532f3d88a",
+    "types": [
+      "checkpoints"
+    ],
+    "file_size": 17246524772
+  },
+  "BRIA-RMBG-2": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?bria\\-rmbg\\-2\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/briaai/RMBG-2.0/resolve/main/model.safetensors",
+    "homepage": "https://huggingface.co/briaai/RMBG-2.0",
+    "hash": "566ed80c3d95f87ada6864d4cbe2290a1c5eb1c7bb0b123e984f60f76b02c3a7",
+    "file_size": 884878856,
+    "filename": "bria-rmbg-2.safetensors",
+    "types": [
+      "birefnet"
+    ]
+  },
+  "LTX-Video-2b-0.9": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?ltx\\-video\\-2b\\-v0\\.9\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltx-video-2b-v0.9.safetensors",
+    "homepage": "https://huggingface.co/Lightricks/LTX-Video",
+    "hash": "45369c2ae94e3949b127ef99ca9fe173b077f1ca0fecf8185e4115afcbc09581",
+    "file_size": 9370442108,
+    "types": [
+      "checkpoints"
+    ]
+  },
+  "LTX-Video-2b-0.9.1": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:ltx\\-video\\-2b\\-v0\\.9\\.1\\.safetensors|lightricksLTXV_2b091\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltx-video-2b-v0.9.1.safetensors",
+    "homepage": "https://huggingface.co/Lightricks/LTX-Video",
+    "hash": "a23200896c5eddf215c7cb9517820c5763a2b054eb62ba86cbce6b871a4577e3",
+    "file_size": 5716863844,
+    "types": [
+      "checkpoints"
+    ]
+  },
+  "LTX-Video-2b-0.95": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:lightricksLTXV_2b095\\.safetensors|ltx\\-video\\-2b\\-v0\\.9\\.5\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/Lightricks/LTX-Video/resolve/main/ltx-video-2b-v0.9.5.safetensors",
+    "homepage": "https://huggingface.co/Lightricks/LTX-Video",
+    "hash": "720d15c9f19f7d0f6b2a92bbbc34410e2cfb2f6856a100b38f734fbf973d4adf",
+    "file_size": 6340729500,
+    "types": [
+      "checkpoints"
+    ]
+  },
+  "BiRefNet-General": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?General\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/ZhengPeng7/BiRefNet/resolve/main/model.safetensors",
+    "homepage": "https://huggingface.co/ZhengPeng7/BiRefNet",
+    "hash": "9ab37426bf4de0567af6b5d21b16151357149139362e6e8992021b8ce356a154",
+    "file_size": 444473596,
+    "filename": "General.safetensors",
+    "types": [
+      "birefnet"
+    ]
+  },
+  "BiRefNet-General-Lite": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?General\\-Lite\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/ZhengPeng7/BiRefNet_lite/resolve/main/model.safetensors",
+    "homepage": "https://huggingface.co/ZhengPeng7/BiRefNet_lite",
+    "hash": "4417d89795250e698c3cb0ae8df15743810065f646f48a694fdfa7ca052d0815",
+    "file_size": 177634392,
+    "filename": "General-Lite.safetensors",
+    "types": [
+      "birefnet"
+    ]
+  },
+  "BiRefNet-1": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?BiRefNet\\-ep480\\.pth$"
+      }
+    ],
+    "url": "https://huggingface.co/ViperYX/BiRefNet/resolve/main/BiRefNet-ep480.pth",
+    "homepage": "https://huggingface.co/ViperYX/BiRefNet",
+    "hash": "367a738b27e0556e703991e8160fe6b5217bec6c158a72a890d131dd11ba74f6",
+    "file_size": 848968257,
+    "types": [
+      "birefnet"
+    ]
+  },
+  "LLAVA-LLAMA3-FP8": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?llava_llama3_fp8_scaled\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/text_encoders/llava_llama3_fp8_scaled.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged",
+    "hash": "2f0c3ad255c282cead3f078753af37d19099cafcfc8265bbbd511f133e7af250",
+    "file_size": 9091392483,
+    "types": [
+      "text_encoders"
+    ]
+  },
+  "LLAVA-LLAMA3-Vision": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?llava_llama3_vision\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/clip_vision/llava_llama3_vision.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged",
+    "hash": "7d0f89bf7860815f3a994b9bdae8ebe3a29c161825d03ca9262cb13b0c973aa6",
+    "file_size": 649022376,
+    "types": [
+      "clip_vision"
+    ]
+  },
+  "Hunyuan-t2v-720p-bf16": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?hunyuan_video_t2v_720p_bf16\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/diffusion_models/hunyuan_video_t2v_720p_bf16.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged",
+    "hash": "c6ff2d107f0fec571fe276ad847468404ed01855c28c0be8859c3b311daec52a",
+    "file_size": 25642131432,
+    "types": [
+      "diffusion_models"
+    ]
+  },
+  "Hunyuan-i2v-720p-bf16": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?hunyuan_video_v2_replace_image_to_video_720p_bf16\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/diffusion_models/hunyuan_video_v2_replace_image_to_video_720p_bf16.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged",
+    "hash": "d27fd41305825558b4c174bc13782275a947b29a7d5ad4b7c43ae56f1f431205",
+    "file_size": 25642120808,
+    "types": [
+      "diffusion_models"
+    ]
+  },
+  "Hunyuan-Video-VAE": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?hunyuan_video_vae_bf16\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged/resolve/main/split_files/vae/hunyuan_video_vae_bf16.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/HunyuanVideo_repackaged",
+    "hash": "e8f8553275406d84ccf22e7a47601650d8f98bdb8aa9ccfdd6506b57a9701aed",
+    "file_size": 492984198,
+    "types": [
+      "vae"
+    ]
+  },
+  "IPAdapter-Pulid-Flux1": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?pulid_flux_v0\\.9\\.1\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/guozinan/PuLID/resolve/main/pulid_flux_v0.9.1.safetensors",
+    "homepage": "https://huggingface.co/guozinan/PuLID",
+    "hash": "92c41c3af322b02e58e1b32842e4601e08c8f16ec1fe80089dbe957df510f51d",
+    "file_size": 1142099520,
+    "types": [
+      "pulid"
+    ]
+  },
+  "CLIP-Vision-patch14_384": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?sigclip_vision_patch14_384\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/sigclip_vision_384/resolve/main/sigclip_vision_patch14_384.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/sigclip_vision_384",
+    "hash": "1fee501deabac72f0ed17610307d7131e3e9d1e838d0363aa3c2b97a6e03fb33",
+    "file_size": 856505640,
+    "types": [
+      "clip_vision"
+    ]
+  },
+  "Flux1-Depth-Dev-Lora": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?flux1\\-depth\\-dev\\-lora\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev-lora/resolve/main/flux1-depth-dev-lora.safetensors",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-Depth-dev-lora",
+    "hash": "1938b38ea0fdd98080fa3e48beb2bedfbc7ad102d8b65e6614de704a46d8b907",
+    "file_size": 1244440512,
+    "types": [
+      "loras"
+    ],
+    "gated": true
+  },
+  "Flux1-Lora-PencilBox": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?pencilbox\\.safetensors$"
+      }
+    ],
+    "url": "https://civitai.com/api/download/models/1161306",
+    "homepage": "https://civitai.com/models/1035390",
+    "hash": "4E606BFF0E116455745B90A87ABB77CA3942C1DCBCE6C718C48AAE19BECA5D03",
+    "file_size": 153285728,
+    "filename": "pencilbox.safetensors",
+    "types": [
+      "loras"
+    ],
+    "gated": true
+  },
+  "Flux1-Style-Redux": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?flux1\\-redux\\-dev\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev/resolve/main/flux1-redux-dev.safetensors",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-Redux-dev",
+    "hash": "a1b3bdcb4bdc58ce04874b9ca776d61fc3e914bb6beab41efb63e4e2694dca45",
+    "file_size": 129063232,
+    "types": [
+      "style_models"
+    ],
+    "gated": true
+  },
+  "SD3.5-Large": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:sd3\\.5_large\\.safetensors|stableDiffusion35_large\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large/resolve/main/sd3.5_large.safetensors",
+    "homepage": "https://huggingface.co/stabilityai/stable-diffusion-3.5-large",
+    "hash": "ffef7a279d9134626e6ce0d494fba84fc1c7e720b3c7df2d19a09dc3796d8f93",
+    "file_size": 16460379262,
+    "types": [
+      "checkpoints"
+    ],
+    "gated": true
+  },
+  "FLUX-ExtremeDetailer-LoRA": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?aidmaFLUXpro1\\.1\\-FLUX\\-V0\\.2\\.safetensors$"
+      }
+    ],
+    "url": "https://civitai.com/api/download/models/955535",
+    "homepage": "https://civitai.com/models/832683",
+    "hash": "22EEBDF2AA11B67C4130ADD08ABE686C60E08900CCAC220DA499D87DAD53CBF4",
+    "file_size": 76691944,
+    "filename": "aidmaFLUXpro1.1-FLUX-V0.2.safetensors",
+    "types": [
+      "loras"
+    ],
+    "gated": true
+  },
+  "PixArt-E-Realistic": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:900mPixartSigma_base\\.safetensors|900M\\-base\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/dataautogpt3/PixArt-Sigma-900M/resolve/main/900M-base.safetensors",
+    "homepage": "https://huggingface.co/dataautogpt3/PixArt-Sigma-900M",
+    "hash": "8e38bc33dc46924a967e1a698f9135aa1f029d2fc7078c715db35de5a6ce555b",
+    "file_size": 3633837024,
+    "filename": "900mPixartSigma_base.safetensors",
+    "types": [
+      "diffusion_models"
+    ]
+  },
+  "AuraFlow-v0.3": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:aura_flow_0\\.3\\.safetensors|auraflow_v03\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/fal/AuraFlow-v0.3/resolve/main/aura_flow_0.3.safetensors",
+    "homepage": "https://huggingface.co/fal/AuraFlow-v0.3",
+    "hash": "526be97cf581c89ad87c6b19c1f7c2378851137698f7ec436596d061a382d37b",
+    "file_size": 16463323066,
+    "types": [
+      "checkpoints"
+    ]
+  },
+  "Stable-Audio-Open-1.0": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?stable\\-audio\\-open\\-1\\.0\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/audo/stable-audio-open-1.0/resolve/main/model.safetensors",
+    "homepage": "https://huggingface.co/audo/stable-audio-open-1.0",
+    "hash": "7b20458a071231aaf32613b6fbc7945f28f34dbba4f295bb49bad56f5f66b57e",
+    "file_size": 4853889016,
+    "filename": "stable-audio-open-1.0.safetensors",
+    "types": [
+      "checkpoints"
+    ]
+  },
+  "Google-T5-Base": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?t5_base\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/google-t5/t5-base/resolve/main/model.safetensors",
+    "homepage": "https://huggingface.co/google-t5/t5-base",
+    "hash": "a90903540cc02cbeb7ff9f823f1a80eb778c7e22426a0e620b01c77a5ec8f5b4",
+    "file_size": 891646390,
+    "filename": "t5_base.safetensors",
+    "types": [
+      "text_encoders"
+    ]
+  }
+}
