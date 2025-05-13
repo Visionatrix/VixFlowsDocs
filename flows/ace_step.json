@@ -1,0 +1,226 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 113,
+      "steps": [
+        "54",
+        0
+      ],
+      "cfg": 4,
+      "sampler_name": "res_multistep",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "45",
+        0
+      ],
+      "positive": [
+        "14",
+        0
+      ],
+      "negative": [
+        "44",
+        0
+      ],
+      "latent_image": [
+        "17",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "14": {
+    "inputs": {
+      "tags": [
+        "52",
+        0
+      ],
+      "lyrics": [
+        "51",
+        0
+      ],
+      "lyrics_strength": 1,
+      "clip": [
+        "40",
+        1
+      ]
+    },
+    "class_type": "TextEncodeAceStepAudio",
+    "_meta": {
+      "title": "TextEncodeAceStepAudio"
+    }
+  },
+  "17": {
+    "inputs": {
+      "seconds": [
+        "53",
+        0
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyAceStepLatentAudio",
+    "_meta": {
+      "title": "EmptyAceStepLatentAudio"
+    }
+  },
+  "18": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "40",
+        2
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "VAEDecodeAudio"
+    }
+  },
+  "19": {
+    "inputs": {
+      "filename_prefix": "audio/1",
+      "audioUI": "",
+      "audio": [
+        "18",
+        0
+      ]
+    },
+    "class_type": "SaveAudio",
+    "_meta": {
+      "title": "SaveAudio"
+    }
+  },
+  "40": {
+    "inputs": {
+      "ckpt_name": "ace_step_v1_3.5b.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "44": {
+    "inputs": {
+      "conditioning": [
+        "14",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "45": {
+    "inputs": {
+      "shift": 4.0,
+      "model": [
+        "40",
+        0
+      ]
+    },
+    "class_type": "ModelSamplingSD3",
+    "_meta": {
+      "title": "ModelSamplingSD3"
+    }
+  },
+  "49": {
+    "inputs": {
+      "name": "ace_step",
+      "display_name": " ACE-Step Audio",
+      "description": "Generate music songs",
+      "author": "ComfyOrg",
+      "homepage": "https://docs.comfy.org/tutorials/audio/ace-step/ace-step-v1",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"audio\"]",
+      "version": "1.0.0",
+      "requires": "[]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": false,
+      "is_macos_supported": true,
+      "required_memory_gb": 8,
+      "hidden": false,
+      "remote_vae": false
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "51": {
+    "inputs": {
+      "text": "[Verse 1]\nAcross the skies, across the lands\nOur data rests in trusted hands\nNo distant clouds we can’t define\nWith Nextcloud, the power’s mine\n\n[Chorus]\nNextcloud, our freedom and shield\nIn open code, the truth’s revealed\nSharing dreams with hearts aligned\nA brighter world for humankind",
+      "display_name": "Lyrics",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "lyrics",
+      "hidden": false,
+      "translatable": false
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "52": {
+    "inputs": {
+      "text": "background music for parties, radio broadcasts, streaming platforms, female voice",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt",
+      "hidden": false,
+      "translatable": false
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "53": {
+    "inputs": {
+      "value": 45.0,
+      "display_name": "Length(in seconds)",
+      "optional": true,
+      "advanced": false,
+      "min": 5.0,
+      "max": 180.0,
+      "step": 1.0,
+      "order": 3,
+      "custom_id": "length",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "VixUI-RangeFloat"
+    }
+  },
+  "54": {
+    "inputs": {
+      "value": 50,
+      "display_name": "Steps number to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 40,
+      "max": 500,
+      "step": 1,
+      "order": 98,
+      "custom_id": "steps_count",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "VixUI-RangeInt"
+    }
+  }
+}
