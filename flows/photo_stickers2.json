@@ -26,11 +26,11 @@
   "309": {
     "inputs": {
       "b1": 1.3,
-      "b2": 1.4000000000000001,
+      "b2": 1.4,
       "s1": 0.9,
       "s2": 0.2,
       "model": [
-        "539",
+        "599",
         0
       ]
     },
@@ -43,7 +43,7 @@
     "inputs": {
       "text": "realism, photo-realism, real materials,   half body",
       "clip": [
-        "539",
+        "599",
         1
       ]
     },
@@ -105,6 +105,12 @@
       ],
       "max_frames": 4,
       "print_output": true,
+      "start_frame": 0,
+      "end_frame": 0,
+      "clip": [
+        "599",
+        1
+      ],
       "pre_text": [
         "591",
         0
@@ -112,12 +118,6 @@
       "app_text": [
         "517",
         0
-      ],
-      "start_frame": 0,
-      "end_frame": 0,
-      "clip": [
-        "539",
-        1
       ]
     },
     "class_type": "BatchPromptSchedule",
@@ -337,37 +337,13 @@
     "inputs": {
       "filename_prefix": "stickers/img_",
       "images": [
-        "575",
+        "593",
         0
       ]
     },
     "class_type": "SaveImage",
     "_meta": {
       "title": "Save Image"
-    }
-  },
-  "539": {
-    "inputs": {
-      "lora_01": "StudioGhibli.Redmond-StdGBRRedmAF-StudioGhibli.safetensors",
-      "strength_01": 1,
-      "lora_02": "sliders/cartoon_style.pt",
-      "strength_02": 1,
-      "lora_03": "sliders/smiling.pt",
-      "strength_03": 1,
-      "lora_04": "None",
-      "strength_04": 1,
-      "model": [
-        "305",
-        0
-      ],
-      "clip": [
-        "305",
-        1
-      ]
-    },
-    "class_type": "Lora Loader Stack (rgthree)",
-    "_meta": {
-      "title": "Lora Loader Stack (rgthree)"
     }
   },
   "556": {
@@ -436,29 +412,29 @@
   },
   "572": {
     "inputs": {
+      "frame_a": 0,
+      "frame_b": 1,
+      "frame_c": 2,
+      "frame_d": 3,
+      "frame_e": 4,
+      "frame_f": 5,
+      "frame_g": 6,
       "text_a": [
         "556",
         0
       ],
-      "frame_a": 0,
       "text_b": [
         "558",
         0
       ],
-      "frame_b": 1,
       "text_c": [
         "559",
         0
       ],
-      "frame_c": 2,
       "text_d": [
         "557",
         0
-      ],
-      "frame_d": 3,
-      "frame_e": 4,
-      "frame_f": 5,
-      "frame_g": 6
+      ]
     },
     "class_type": "StringConcatenate",
     "_meta": {
@@ -475,7 +451,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.2.4",
+      "version": "1.2.5",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -495,8 +471,8 @@
       "batch_index": 0,
       "length": 1,
       "image": [
-        "589",
-        0
+        "378",
+        5
       ]
     },
     "class_type": "ImageFromBatch",
@@ -509,8 +485,8 @@
       "batch_index": 1,
       "length": 1,
       "image": [
-        "589",
-        0
+        "378",
+        5
       ]
     },
     "class_type": "ImageFromBatch",
@@ -523,8 +499,8 @@
       "batch_index": 2,
       "length": 1,
       "image": [
-        "589",
-        0
+        "378",
+        5
       ]
     },
     "class_type": "ImageFromBatch",
@@ -537,8 +513,8 @@
       "batch_index": 3,
       "length": 1,
       "image": [
-        "589",
-        0
+        "378",
+        5
       ]
     },
     "class_type": "ImageFromBatch",
@@ -550,7 +526,7 @@
     "inputs": {
       "filename_prefix": "stickers/img_",
       "images": [
-        "576",
+        "595",
         0
       ]
     },
@@ -563,7 +539,7 @@
     "inputs": {
       "filename_prefix": "stickers/img_",
       "images": [
-        "577",
+        "596",
         0
       ]
     },
@@ -576,7 +552,7 @@
     "inputs": {
       "filename_prefix": "stickers/img_",
       "images": [
-        "578",
+        "594",
         0
       ]
     },
@@ -644,22 +620,6 @@
       "title": "LoadRembgByBiRefNetModel"
     }
   },
-  "589": {
-    "inputs": {
-      "model": [
-        "588",
-        0
-      ],
-      "images": [
-        "378",
-        5
-      ]
-    },
-    "class_type": "RembgByBiRefNet",
-    "_meta": {
-      "title": "RembgByBiRefNet"
-    }
-  },
   "590": {
     "inputs": {
       "upscale_method": "bicubic",
@@ -690,6 +650,127 @@
     "class_type": "VixMultilineText",
     "_meta": {
       "title": "Text Multiline"
+    }
+  },
+  "593": {
+    "inputs": {
+      "model": [
+        "588",
+        0
+      ],
+      "images": [
+        "575",
+        0
+      ]
+    },
+    "class_type": "RembgByBiRefNet",
+    "_meta": {
+      "title": "RembgByBiRefNet"
+    }
+  },
+  "594": {
+    "inputs": {
+      "model": [
+        "588",
+        0
+      ],
+      "images": [
+        "578",
+        0
+      ]
+    },
+    "class_type": "RembgByBiRefNet",
+    "_meta": {
+      "title": "RembgByBiRefNet"
+    }
+  },
+  "595": {
+    "inputs": {
+      "model": [
+        "588",
+        0
+      ],
+      "images": [
+        "576",
+        0
+      ]
+    },
+    "class_type": "RembgByBiRefNet",
+    "_meta": {
+      "title": "RembgByBiRefNet"
+    }
+  },
+  "596": {
+    "inputs": {
+      "model": [
+        "588",
+        0
+      ],
+      "images": [
+        "577",
+        0
+      ]
+    },
+    "class_type": "RembgByBiRefNet",
+    "_meta": {
+      "title": "RembgByBiRefNet"
+    }
+  },
+  "597": {
+    "inputs": {
+      "lora_name": "StudioGhibli.Redmond-StdGBRRedmAF-StudioGhibli.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "305",
+        0
+      ],
+      "clip": [
+        "305",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "598": {
+    "inputs": {
+      "lora_name": "sliders/cartoon_style.pt",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "597",
+        0
+      ],
+      "clip": [
+        "597",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "599": {
+    "inputs": {
+      "lora_name": "sliders/smiling.pt",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "598",
+        0
+      ],
+      "clip": [
+        "598",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
     }
   }
 }
