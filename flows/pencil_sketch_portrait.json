@@ -6,7 +6,7 @@
         0
       ],
       "clip": [
-        "50",
+        "67",
         1
       ]
     },
@@ -66,7 +66,7 @@
   },
   "9": {
     "inputs": {
-      "seed": 420760748224250,
+      "seed": 1,
       "steps": 12,
       "cfg": 1,
       "sampler_name": "dpmpp_2m",
@@ -177,7 +177,7 @@
       "start_at": 0,
       "end_at": 1,
       "model": [
-        "50",
+        "67",
         0
       ],
       "pulid_flux": [
@@ -312,7 +312,7 @@
       "model": "llava:7b-v1.6-vicuna-q8_0",
       "keep_alive": 0,
       "format": "text",
-      "seed": 2130378911,
+      "seed": 1,
       "images": [
         "37",
         0
@@ -333,7 +333,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"sketch\"]",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "requires": "[\"Ollama:llava:7b-v1.6-vicuna-q8_0\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -355,30 +355,6 @@
     "class_type": "LoadImage",
     "_meta": {
       "title": "input;Person's face;order=1;custom_id=person_face"
-    }
-  },
-  "50": {
-    "inputs": {
-      "lora_01": "pencilbox.safetensors",
-      "strength_01": 1,
-      "lora_02": "flux1-depth-dev-lora.safetensors",
-      "strength_02": 0.8,
-      "lora_03": "FLUX.1-Turbo-Alpha.safetensors",
-      "strength_03": 1,
-      "lora_04": "None",
-      "strength_04": 1,
-      "model": [
-        "59",
-        0
-      ],
-      "clip": [
-        "58",
-        0
-      ]
-    },
-    "class_type": "Lora Loader Stack (rgthree)",
-    "_meta": {
-      "title": "Lora Loader Stack (rgthree)"
     }
   },
   "51": {
@@ -495,6 +471,63 @@
     "class_type": "VixTextConcatenate",
     "_meta": {
       "title": "Text Concatenate"
+    }
+  },
+  "64": {
+    "inputs": {
+      "lora_name": "pencilbox.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "59",
+        0
+      ],
+      "clip": [
+        "58",
+        0
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "66": {
+    "inputs": {
+      "lora_name": "flux1-depth-dev-lora.safetensors",
+      "strength_model": 0.8,
+      "strength_clip": 1,
+      "model": [
+        "64",
+        0
+      ],
+      "clip": [
+        "64",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
+    }
+  },
+  "67": {
+    "inputs": {
+      "lora_name": "FLUX.1-Turbo-Alpha.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "66",
+        0
+      ],
+      "clip": [
+        "66",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA"
     }
   }
 }
