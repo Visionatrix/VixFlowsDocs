@@ -72,7 +72,7 @@
       "preview_method": "none",
       "vae_decode": "true",
       "model": [
-        "347",
+        "610",
         0
       ],
       "positive": [
@@ -120,38 +120,6 @@
     "class_type": "PulidEvaClipLoader",
     "_meta": {
       "title": "Load Eva Clip (PuLID)"
-    }
-  },
-  "347": {
-    "inputs": {
-      "method": "style",
-      "weight": 1,
-      "start_at": 0,
-      "end_at": 1,
-      "model": [
-        "307",
-        0
-      ],
-      "pulid": [
-        "344",
-        0
-      ],
-      "eva_clip": [
-        "346",
-        0
-      ],
-      "face_analysis": [
-        "345",
-        0
-      ],
-      "image": [
-        "590",
-        0
-      ]
-    },
-    "class_type": "ApplyPulid",
-    "_meta": {
-      "title": "Apply PuLID"
     }
   },
   "378": {
@@ -895,7 +863,7 @@
       "preview_method": "none",
       "vae_decode": "true",
       "model": [
-        "611",
+        "610",
         0
       ],
       "positive": [
@@ -967,7 +935,7 @@
       "preview_method": "none",
       "vae_decode": "true",
       "model": [
-        "609",
+        "610",
         0
       ],
       "positive": [
@@ -992,71 +960,7 @@
       "title": "KSampler (Efficient)"
     }
   },
-  "609": {
-    "inputs": {
-      "method": "style",
-      "weight": 1,
-      "start_at": 0,
-      "end_at": 1,
-      "model": [
-        "307",
-        0
-      ],
-      "pulid": [
-        "344",
-        0
-      ],
-      "eva_clip": [
-        "346",
-        0
-      ],
-      "face_analysis": [
-        "345",
-        0
-      ],
-      "image": [
-        "590",
-        0
-      ]
-    },
-    "class_type": "ApplyPulid",
-    "_meta": {
-      "title": "Apply PuLID"
-    }
-  },
   "610": {
-    "inputs": {
-      "method": "style",
-      "weight": 1,
-      "start_at": 0,
-      "end_at": 1,
-      "model": [
-        "307",
-        0
-      ],
-      "pulid": [
-        "344",
-        0
-      ],
-      "eva_clip": [
-        "346",
-        0
-      ],
-      "face_analysis": [
-        "345",
-        0
-      ],
-      "image": [
-        "590",
-        0
-      ]
-    },
-    "class_type": "ApplyPulid",
-    "_meta": {
-      "title": "Apply PuLID"
-    }
-  },
-  "611": {
     "inputs": {
       "method": "style",
       "weight": 1,
