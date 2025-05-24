@@ -12,7 +12,7 @@
     "inputs": {
       "share_norm": "both",
       "share_attn": "q+k",
-      "scale": 0.7000000000000001,
+      "scale": 0.7,
       "model": [
         "309",
         0
@@ -76,7 +76,7 @@
         0
       ],
       "positive": [
-        "339",
+        "612",
         0
       ],
       "negative": [
@@ -84,7 +84,7 @@
         0
       ],
       "latent_image": [
-        "348",
+        "617",
         0
       ],
       "optional_vae": [
@@ -95,34 +95,6 @@
     "class_type": "KSampler (Efficient)",
     "_meta": {
       "title": "KSampler (Efficient)"
-    }
-  },
-  "339": {
-    "inputs": {
-      "text": [
-        "572",
-        0
-      ],
-      "max_frames": 4,
-      "print_output": true,
-      "start_frame": 0,
-      "end_frame": 0,
-      "clip": [
-        "599",
-        1
-      ],
-      "pre_text": [
-        "591",
-        0
-      ],
-      "app_text": [
-        "517",
-        0
-      ]
-    },
-    "class_type": "BatchPromptSchedule",
-    "_meta": {
-      "title": "Batch Prompt Schedule 📅🅕🅝"
     }
   },
   "344": {
@@ -180,17 +152,6 @@
     "class_type": "ApplyPulid",
     "_meta": {
       "title": "Apply PuLID"
-    }
-  },
-  "348": {
-    "inputs": {
-      "width": 1016,
-      "height": 1016,
-      "batch_size": 4
-    },
-    "class_type": "EmptyLatentImage",
-    "_meta": {
-      "title": "Empty Latent Image"
     }
   },
   "378": {
@@ -322,7 +283,7 @@
       "model": "gemma3:12b-it-qat",
       "keep_alive": 0,
       "format": "text",
-      "seed": 564503560,
+      "seed": 1,
       "images": [
         "590",
         0
@@ -410,37 +371,6 @@
       "title": "VixUI-Prompt"
     }
   },
-  "572": {
-    "inputs": {
-      "frame_a": 0,
-      "frame_b": 1,
-      "frame_c": 2,
-      "frame_d": 3,
-      "frame_e": 4,
-      "frame_f": 5,
-      "frame_g": 6,
-      "text_a": [
-        "556",
-        0
-      ],
-      "text_b": [
-        "558",
-        0
-      ],
-      "text_c": [
-        "559",
-        0
-      ],
-      "text_d": [
-        "557",
-        0
-      ]
-    },
-    "class_type": "StringConcatenate",
-    "_meta": {
-      "title": "String Concatenate 📅🅕🅝"
-    }
-  },
   "574": {
     "inputs": {
       "name": "photo_stickers2",
@@ -451,7 +381,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "requires": "[\"Ollama: gemma3:12b-it-qat\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -464,62 +394,6 @@
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
       "title": "VixUI-WorkflowMetadata"
-    }
-  },
-  "575": {
-    "inputs": {
-      "batch_index": 0,
-      "length": 1,
-      "image": [
-        "378",
-        5
-      ]
-    },
-    "class_type": "ImageFromBatch",
-    "_meta": {
-      "title": "ImageFromBatch"
-    }
-  },
-  "576": {
-    "inputs": {
-      "batch_index": 1,
-      "length": 1,
-      "image": [
-        "378",
-        5
-      ]
-    },
-    "class_type": "ImageFromBatch",
-    "_meta": {
-      "title": "ImageFromBatch"
-    }
-  },
-  "577": {
-    "inputs": {
-      "batch_index": 2,
-      "length": 1,
-      "image": [
-        "378",
-        5
-      ]
-    },
-    "class_type": "ImageFromBatch",
-    "_meta": {
-      "title": "ImageFromBatch"
-    }
-  },
-  "578": {
-    "inputs": {
-      "batch_index": 3,
-      "length": 1,
-      "image": [
-        "378",
-        5
-      ]
-    },
-    "class_type": "ImageFromBatch",
-    "_meta": {
-      "title": "ImageFromBatch"
     }
   },
   "579": {
@@ -597,7 +471,7 @@
       "proxy": "",
       "system_instruction": "",
       "error_fallback_value": "",
-      "seed": 1385928074,
+      "seed": 1,
       "image_1": [
         "590",
         0
@@ -645,7 +519,7 @@
   },
   "592": {
     "inputs": {
-      "text": "Ignore the artistic style of the picture.\n\nDescribe the person in detail, including any interesting features or characteristics, such as gender, age, facial expression, race, color, hairstyle, hair color, hat, eye color, beard. \n\nIf it is wearing glasses, describe the style of glasses.\n\nDo not describe anything else, such as background.\n\nPlease create an image generation prompt in English less than 46 words to fit the description above."
+      "text": "Ignore the artistic style of the picture.\n\nDescribe the person in detail, including any interesting features or characteristics, such as gender, age, facial expression, race, color, hairstyle, hair color, hat, eye color, beard. \n\nIf it is wearing glasses, describe the style of glasses.\n\nDo not describe anything else, such as background.\n\nPlease create an image generation prompt in English less than 46 words to fit the description above and do not output anything except the generation prompt."
     },
     "class_type": "VixMultilineText",
     "_meta": {
@@ -659,8 +533,8 @@
         0
       ],
       "images": [
-        "575",
-        0
+        "378",
+        5
       ]
     },
     "class_type": "RembgByBiRefNet",
@@ -675,8 +549,8 @@
         0
       ],
       "images": [
-        "578",
-        0
+        "600",
+        5
       ]
     },
     "class_type": "RembgByBiRefNet",
@@ -691,8 +565,8 @@
         0
       ],
       "images": [
-        "576",
-        0
+        "602",
+        5
       ]
     },
     "class_type": "RembgByBiRefNet",
@@ -707,8 +581,8 @@
         0
       ],
       "images": [
-        "577",
-        0
+        "601",
+        5
       ]
     },
     "class_type": "RembgByBiRefNet",
@@ -771,6 +645,671 @@
     "class_type": "LoraLoader",
     "_meta": {
       "title": "Load LoRA"
+    }
+  },
+  "600": {
+    "inputs": {
+      "seed": 1,
+      "steps": 6,
+      "cfg": 2.5,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "karras",
+      "denoise": 0.6,
+      "preview_method": "none",
+      "vae_decode": "true",
+      "model": [
+        "605",
+        0
+      ],
+      "positive": [
+        "605",
+        1
+      ],
+      "negative": [
+        "605",
+        2
+      ],
+      "latent_image": [
+        "606",
+        3
+      ],
+      "optional_vae": [
+        "606",
+        4
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "601": {
+    "inputs": {
+      "seed": 1,
+      "steps": 6,
+      "cfg": 2.5,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "karras",
+      "denoise": 0.6,
+      "preview_method": "none",
+      "vae_decode": "true",
+      "model": [
+        "604",
+        0
+      ],
+      "positive": [
+        "604",
+        1
+      ],
+      "negative": [
+        "604",
+        2
+      ],
+      "latent_image": [
+        "607",
+        3
+      ],
+      "optional_vae": [
+        "607",
+        4
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "602": {
+    "inputs": {
+      "seed": 1,
+      "steps": 6,
+      "cfg": 2.5,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "karras",
+      "denoise": 0.6,
+      "preview_method": "none",
+      "vae_decode": "true",
+      "model": [
+        "603",
+        0
+      ],
+      "positive": [
+        "603",
+        1
+      ],
+      "negative": [
+        "603",
+        2
+      ],
+      "latent_image": [
+        "608",
+        3
+      ],
+      "optional_vae": [
+        "608",
+        4
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "603": {
+    "inputs": {
+      "weight": 1,
+      "start_at": 0,
+      "end_at": 1,
+      "instantid": [
+        "379",
+        0
+      ],
+      "insightface": [
+        "381",
+        0
+      ],
+      "control_net": [
+        "380",
+        0
+      ],
+      "image": [
+        "590",
+        0
+      ],
+      "model": [
+        "307",
+        0
+      ],
+      "positive": [
+        "608",
+        1
+      ],
+      "negative": [
+        "608",
+        2
+      ],
+      "image_kps": [
+        "608",
+        5
+      ]
+    },
+    "class_type": "ApplyInstantID",
+    "_meta": {
+      "title": "Apply InstantID"
+    }
+  },
+  "604": {
+    "inputs": {
+      "weight": 1,
+      "start_at": 0,
+      "end_at": 1,
+      "instantid": [
+        "379",
+        0
+      ],
+      "insightface": [
+        "381",
+        0
+      ],
+      "control_net": [
+        "380",
+        0
+      ],
+      "image": [
+        "590",
+        0
+      ],
+      "model": [
+        "307",
+        0
+      ],
+      "positive": [
+        "607",
+        1
+      ],
+      "negative": [
+        "607",
+        2
+      ],
+      "image_kps": [
+        "607",
+        5
+      ]
+    },
+    "class_type": "ApplyInstantID",
+    "_meta": {
+      "title": "Apply InstantID"
+    }
+  },
+  "605": {
+    "inputs": {
+      "weight": 1,
+      "start_at": 0,
+      "end_at": 1,
+      "instantid": [
+        "379",
+        0
+      ],
+      "insightface": [
+        "381",
+        0
+      ],
+      "control_net": [
+        "380",
+        0
+      ],
+      "image": [
+        "590",
+        0
+      ],
+      "model": [
+        "307",
+        0
+      ],
+      "positive": [
+        "606",
+        1
+      ],
+      "negative": [
+        "606",
+        2
+      ],
+      "image_kps": [
+        "606",
+        5
+      ]
+    },
+    "class_type": "ApplyInstantID",
+    "_meta": {
+      "title": "Apply InstantID"
+    }
+  },
+  "606": {
+    "inputs": {
+      "seed": 1,
+      "steps": 6,
+      "cfg": 2.5,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "preview_method": "none",
+      "vae_decode": "true",
+      "model": [
+        "611",
+        0
+      ],
+      "positive": [
+        "615",
+        0
+      ],
+      "negative": [
+        "312",
+        0
+      ],
+      "latent_image": [
+        "617",
+        0
+      ],
+      "optional_vae": [
+        "305",
+        2
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "607": {
+    "inputs": {
+      "seed": 1,
+      "steps": 6,
+      "cfg": 2.5,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "preview_method": "none",
+      "vae_decode": "true",
+      "model": [
+        "610",
+        0
+      ],
+      "positive": [
+        "614",
+        0
+      ],
+      "negative": [
+        "312",
+        0
+      ],
+      "latent_image": [
+        "617",
+        0
+      ],
+      "optional_vae": [
+        "305",
+        2
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "608": {
+    "inputs": {
+      "seed": 1,
+      "steps": 6,
+      "cfg": 2.5,
+      "sampler_name": "dpmpp_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "preview_method": "none",
+      "vae_decode": "true",
+      "model": [
+        "609",
+        0
+      ],
+      "positive": [
+        "613",
+        0
+      ],
+      "negative": [
+        "312",
+        0
+      ],
+      "latent_image": [
+        "617",
+        0
+      ],
+      "optional_vae": [
+        "305",
+        2
+      ]
+    },
+    "class_type": "KSampler (Efficient)",
+    "_meta": {
+      "title": "KSampler (Efficient)"
+    }
+  },
+  "609": {
+    "inputs": {
+      "method": "style",
+      "weight": 1,
+      "start_at": 0,
+      "end_at": 1,
+      "model": [
+        "307",
+        0
+      ],
+      "pulid": [
+        "344",
+        0
+      ],
+      "eva_clip": [
+        "346",
+        0
+      ],
+      "face_analysis": [
+        "345",
+        0
+      ],
+      "image": [
+        "590",
+        0
+      ]
+    },
+    "class_type": "ApplyPulid",
+    "_meta": {
+      "title": "Apply PuLID"
+    }
+  },
+  "610": {
+    "inputs": {
+      "method": "style",
+      "weight": 1,
+      "start_at": 0,
+      "end_at": 1,
+      "model": [
+        "307",
+        0
+      ],
+      "pulid": [
+        "344",
+        0
+      ],
+      "eva_clip": [
+        "346",
+        0
+      ],
+      "face_analysis": [
+        "345",
+        0
+      ],
+      "image": [
+        "590",
+        0
+      ]
+    },
+    "class_type": "ApplyPulid",
+    "_meta": {
+      "title": "Apply PuLID"
+    }
+  },
+  "611": {
+    "inputs": {
+      "method": "style",
+      "weight": 1,
+      "start_at": 0,
+      "end_at": 1,
+      "model": [
+        "307",
+        0
+      ],
+      "pulid": [
+        "344",
+        0
+      ],
+      "eva_clip": [
+        "346",
+        0
+      ],
+      "face_analysis": [
+        "345",
+        0
+      ],
+      "image": [
+        "590",
+        0
+      ]
+    },
+    "class_type": "ApplyPulid",
+    "_meta": {
+      "title": "Apply PuLID"
+    }
+  },
+  "612": {
+    "inputs": {
+      "text": [
+        "621",
+        0
+      ],
+      "clip": [
+        "599",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "613": {
+    "inputs": {
+      "text": [
+        "626",
+        0
+      ],
+      "clip": [
+        "599",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "614": {
+    "inputs": {
+      "text": [
+        "627",
+        0
+      ],
+      "clip": [
+        "599",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "615": {
+    "inputs": {
+      "text": [
+        "628",
+        0
+      ],
+      "clip": [
+        "599",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Prompt)"
+    }
+  },
+  "617": {
+    "inputs": {
+      "width": 1016,
+      "height": 1016,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent Image"
+    }
+  },
+  "620": {
+    "inputs": {
+      "string_a": [
+        "556",
+        0
+      ],
+      "string_b": [
+        "591",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  },
+  "621": {
+    "inputs": {
+      "string_a": [
+        "620",
+        0
+      ],
+      "string_b": [
+        "517",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  },
+  "622": {
+    "inputs": {
+      "text_0": "Boxers, with red boxing gloves, swinging their fists, Stickers, Sticker, chibi:1.5, flat:1.5, (full body:1.5), simple details，empty background, black background, A young woman with long brown hair, light brown skin, dark eyes, and a happy expression, wearing a black collared shirt.\n",
+      "text": [
+        "621",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "623": {
+    "inputs": {
+      "string_a": [
+        "557",
+        0
+      ],
+      "string_b": [
+        "591",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  },
+  "624": {
+    "inputs": {
+      "string_a": [
+        "558",
+        0
+      ],
+      "string_b": [
+        "591",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  },
+  "625": {
+    "inputs": {
+      "string_a": [
+        "559",
+        0
+      ],
+      "string_b": [
+        "591",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  },
+  "626": {
+    "inputs": {
+      "string_a": [
+        "623",
+        0
+      ],
+      "string_b": [
+        "517",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  },
+  "627": {
+    "inputs": {
+      "string_a": [
+        "624",
+        0
+      ],
+      "string_b": [
+        "517",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  },
+  "628": {
+    "inputs": {
+      "string_a": [
+        "625",
+        0
+      ],
+      "string_b": [
+        "517",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
     }
   }
 }
