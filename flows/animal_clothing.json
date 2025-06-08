@@ -50,7 +50,7 @@
   },
   "31": {
     "inputs": {
-      "seed": 998168807331720,
+      "seed": 1,
       "steps": 12,
       "cfg": 1,
       "sampler_name": "euler",
@@ -165,7 +165,7 @@
       "model": "gemma3:12b-it-qat",
       "keep_alive": 0,
       "format": "text",
-      "seed": 891938943,
+      "seed": 1,
       "images": [
         "82",
         0
@@ -187,7 +187,7 @@
       "model": "gemma3:12b-it-qat",
       "keep_alive": 0,
       "format": "text",
-      "seed": 891938943,
+      "seed": 1,
       "images": [
         "81",
         0
@@ -208,7 +208,8 @@
       "url": "http://127.0.0.1:11434",
       "model": "gemma3:12b-it-qat",
       "keep_alive": 0,
-      "format": "text"
+      "format": "text",
+      "filter_thinking": true
     },
     "class_type": "OllamaGenerate",
     "_meta": {
@@ -225,7 +226,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"animals\", \"clothing\"]",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "requires": "[\"Ollama: gemma3:12b-it-qat\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -294,7 +295,7 @@
       "proxy": "",
       "system_instruction": "",
       "error_fallback_value": "",
-      "seed": 674099112
+      "seed": 1
     },
     "class_type": "Ask_Gemini",
     "_meta": {
@@ -314,7 +315,7 @@
       "proxy": "",
       "system_instruction": "",
       "error_fallback_value": "",
-      "seed": 674099112,
+      "seed": 1,
       "image_1": [
         "81",
         0
@@ -338,7 +339,7 @@
       "proxy": "",
       "system_instruction": "",
       "error_fallback_value": "",
-      "seed": 674099112,
+      "seed": 1,
       "image_1": [
         "82",
         0
