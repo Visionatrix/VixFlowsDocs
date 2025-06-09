@@ -48,16 +48,12 @@ To install Ollama on Linux if it is not installed use:
 curl -fsSL https://ollama.com/install.sh | sh
 ```
 
-The tests are done with two models:
+The tests are done with `gemma3:12b-it-qat` model.
 
-- falcon3:7b-instruct-fp16
-- phi4:14b-q4_K_M
-
-Please install both of these models in Ollama using the commands:
+Please install  the model in Ollama using the commands:
 
 ```bash
-ollama pull falcon3:7b-instruct-fp16
-ollama pull phi4:14b-q4_K_M
+ollama pull gemma3:12b-it-qat
 ```
 
 ## HuggingFace and CivitAI tokens
@@ -172,8 +168,6 @@ The `UNLOAD_MODELS_BEFORE_WARMUP` variable controls whether models are unloaded 
 
     Setting `UNLOAD_MODELS_BEFORE_WARMUP=0` may cause the `GPU Memory` column to be inaccurate, as models from previous flows could remain loaded in memory.
 
-# Conclusion
+---
 
-By following the steps outlined above, you can successfully benchmark your Visionatrix setup. Adjust the environment variables as needed to suit your specific hardware and network conditions. If you encounter any issues or have results you'd like to share, feel free to contribute to the documentation by opening a pull request.
-
-Happy benchmarking!
+Happy benchmarking! 🏆

@@ -1,0 +1,25 @@
+{
+    "test_time": "2025/06/09",
+    "flows": [
+        {
+            "flow_name": "ask_ai_internal",
+            "flow_display_name": "Ask AI (Internal)",
+            "test_cases": [
+                {
+                    "test_case": "Generate prompt (gemma3:12b-it-qat)",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 18.514523821500006,
+                    "avg_max_memory_usage": 0.0
+                },
+                {
+                    "test_case": "Generate prompt (gemma3:12b-it-qat) (unload=True)",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 20.868519931000037,
+                    "avg_max_memory_usage": 0.0
+                }
+            ]
+        }
+    ]
+}

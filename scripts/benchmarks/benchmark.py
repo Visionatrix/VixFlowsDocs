@@ -90,13 +90,6 @@ class TestCase(BaseModel):
             "If > 0, sleep this many seconds after finishing the test case (while holding the semaphore)."
         ),
     )
-    recalculate_time_per_300_chars: bool = Field(
-        False,
-        description=(
-            "If true, adjust execution time metrics for text generation to reflect the "
-            "time required to generate 300 text symbols based on the output text length."
-        ),
-    )
 
 
 class FlowTest(BaseModel):
@@ -655,51 +648,15 @@ async def save_results(
         )
 
     summary = {}
-    # Determine the summary based on whether we need to recalculate execution times.
-    if getattr(test_case, "recalculate_time_per_300_chars", False):
-        adjusted_times = []
-        for task in valid_main_tasks:
-            exec_time = task.get("execution_time")
-            if exec_time is None:
-                continue
-            adjusted_time = exec_time
-            # Look for a text output to adjust based on its character length.
-            for output in task.get("outputs", []):
-                node_id = output.get("comfy_node_id")
-                if node_id:
-                    output_data = await get_task_results(task.get("task_id"), node_id)
-                    if output_data:
-                        try:
-                            # Decode output to get text content and its length.
-                            text = output_data.content.decode("utf-8")
-                            char_count = len(text)
-                            if char_count > 0:
-                                adjusted_time = (exec_time / char_count) * 300
-                        except Exception as e:
-                            print(
-                                f"Error decoding text output for task {task.get('task_id')}: {e}"
-                            )
-                    break  # Use the first valid text output.
-            adjusted_times.append(adjusted_time)
-        if adjusted_times:
-            summary = {
-                "min_exec_time": min(adjusted_times),
-                "max_exec_time": max(adjusted_times),
-                "avg_exec_time": statistics.mean(adjusted_times),
-                "note": "Execution times recalculated as time per 100 text symbols",
-            }
-    else:
-        execution_times = [
-            task["execution_time"]
-            for task in valid_main_tasks
-            if "execution_time" in task
-        ]
-        if execution_times:
-            summary = {
-                "min_exec_time": min(execution_times),
-                "max_exec_time": max(execution_times),
-                "avg_exec_time": statistics.mean(execution_times),
-            }
+    execution_times = [
+        task["execution_time"] for task in valid_main_tasks if "execution_time" in task
+    ]
+    if execution_times:
+        summary = {
+            "min_exec_time": min(execution_times),
+            "max_exec_time": max(execution_times),
+            "avg_exec_time": statistics.mean(execution_times),
+        }
 
     metadata_file = os.path.join(flow_test_case_dir, "metadata.json")
     if os.path.exists(metadata_file):

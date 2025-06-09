@@ -29,6 +29,12 @@ PROMPTS:
     "solo majestic wild cat, ethereal ambiance, symmetrical eyes, detailed background, photorealistic, ultra-realistic, 8k, artistic creativity, dreamlike textures",
     "sci-fi theme, advanced technology, electromagnetic fields, complex circuits, intricate mechanisms, glowing energy, vibrant colors, masterpiece"
   ]
+  OLLAMA_1024_TOKENS:
+    - |
+      Generate a single, large JSON array containing exactly 300 objects. Do not add any explanatory text, markdown formatting, or preamble. The output must be only the raw JSON, starting with [ and ending with ]. Each object must represent a fictional file and strictly adhere to the following schema: {"file_id": "A unique, sequential integer. The first object must have a file_id of 1, the second must be 2, and so on, incrementing by exactly one for each object up to 30.", "filename": "A fictional filename string ending with an extension like '.csv', '.log', '.zip', or '.json'.", "filesize_kb": "An integer between 100 and 50000.", "creation_date": "A valid ISO 8601 timestamp string from the year 2024.", "tags": ["An array of exactly 4 relevant fictional string tags."]}
+  OLLAMA_2048_TOKENS:
+    - |
+      Generate a single, large JSON array containing exactly 500 objects. Do not add any explanatory text, markdown formatting, or preamble. The output must be only the raw JSON, starting with [ and ending with ]. Each object must represent a fictional file and strictly adhere to the following schema: {"file_id": "A unique, sequential integer. The first object must have a file_id of 1, the second must be 2, and so on, incrementing by exactly one for each object up to 60.", "filename": "A fictional filename string ending with an extension like '.csv', '.log', '.zip', or '.json'.", "filesize_kb": "An integer between 100 and 50000.", "creation_date": "A valid ISO 8601 timestamp string from the year 2024.", "tags": ["An array of exactly 4 relevant fictional string tags."]}
 
 SDXL:
   - flow_name: "sdxl_lighting"
@@ -207,42 +213,50 @@ OTHER:
         input_files:
           input_image: ["boy.png", "girl.png", "man.png", "woman.png"]
 
-OLLAMA:
-  - flow_name: "surprise_me_internal"
+OLLAMA_1024_TOKENS:
+  - flow_name: "ask_ai_internal"
     test_cases:
-      - name: "Generate prompt (falcon3:7b-instruct-fp16)"
+      - name: "Generate prompt (gemma3:12b-it-qat)"
         support_disable_smart_memory: 0
         use_settings:
-          ollama_llm_model: "falcon3:7b-instruct-fp16"
+          ollama_llm_model: "gemma3:12b-it-qat"
           ollama_keepalive: "0.25"
         input_params:
           text_provider: 0
+          num_predict: 1024
+          prompt: []
         sleep_after: 30
-        recalculate_time_per_300_chars: true
-      - name: "Generate prompt (falcon3:7b-instruct-fp16) (unload=True)"
+      - name: "Generate prompt (gemma3:12b-it-qat) (unload=True)"
         support_disable_smart_memory: 0
         use_settings:
-          ollama_llm_model: "falcon3:7b-instruct-fp16"
+          ollama_llm_model: "gemma3:12b-it-qat"
           ollama_keepalive: "0"
         input_params:
           text_provider: 0
+          num_predict: 1024
+          prompt: []
         sleep_after: 30
-        recalculate_time_per_300_chars: true
-      - name: "Generate prompt (phi4:14b-q4_K_M)"
+
+OLLAMA_2048_TOKENS:
+  - flow_name: "ask_ai_internal"
+    test_cases:
+      - name: "Generate prompt (gemma3:12b-it-qat)"
         support_disable_smart_memory: 0
         use_settings:
-          ollama_llm_model: "phi4:14b-q4_K_M"
+          ollama_llm_model: "gemma3:12b-it-qat"
           ollama_keepalive: "0.25"
         input_params:
           text_provider: 0
+          num_predict: 2048
+          prompt: []
         sleep_after: 30
-        recalculate_time_per_300_chars: true
-      - name: "Generate prompt (phi4:14b-q4_K_M) (unload=True)"
+      - name: "Generate prompt (gemma3:12b-it-qat) (unload=True)"
         support_disable_smart_memory: 0
         use_settings:
-          ollama_llm_model: "phi4:14b-q4_K_M"
+          ollama_llm_model: "gemma3:12b-it-qat"
           ollama_keepalive: "0"
         input_params:
           text_provider: 0
+          num_predict: 2048
+          prompt: []
         sleep_after: 30
-        recalculate_time_per_300_chars: true

@@ -25,7 +25,8 @@ SORTING_ORDER = [
     "PORTRAITS",
     "UPSCALERS",
     "OTHER",
-    "OLLAMA",
+    "OLLAMA_1024_TOKENS",
+    "OLLAMA_2048_TOKENS",
 ]
 
 
