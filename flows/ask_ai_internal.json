@@ -1,0 +1,193 @@
+{
+  "16": {
+    "inputs": {
+      "name": "ask_ai_internal",
+      "display_name": "Ask AI (Internal)",
+      "description": "Performs a request to the Ollama",
+      "author": "bigcat88",
+      "homepage": "",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"text\", \"llm\"]",
+      "version": "1.0.0",
+      "requires": "[\"Ollama:gemma3:12b-it-qat\"]",
+      "is_seed_supported": true,
+      "is_count_supported": false,
+      "is_translations_supported": false,
+      "is_macos_supported": true,
+      "required_memory_gb": 16,
+      "hidden": true,
+      "remote_vae": false
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "38": {
+    "inputs": {
+      "system": [
+        "60",
+        0
+      ],
+      "prompt": [
+        "46",
+        0
+      ],
+      "filter_thinking": true,
+      "keep_context": false,
+      "format": "text",
+      "connectivity": [
+        "40",
+        0
+      ],
+      "options": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "OllamaGenerateV2",
+    "_meta": {
+      "title": "Ollama Generate V2"
+    }
+  },
+  "39": {
+    "inputs": {
+      "enable_mirostat": false,
+      "mirostat": 0,
+      "enable_mirostat_eta": false,
+      "mirostat_eta": 0.1,
+      "enable_mirostat_tau": false,
+      "mirostat_tau": 5,
+      "enable_num_ctx": false,
+      "num_ctx": 256,
+      "enable_repeat_last_n": false,
+      "repeat_last_n": 64,
+      "enable_repeat_penalty": false,
+      "repeat_penalty": 1.1,
+      "enable_temperature": true,
+      "temperature": [
+        "64",
+        0
+      ],
+      "enable_seed": true,
+      "seed": 1703144433,
+      "enable_stop": false,
+      "stop": "",
+      "enable_tfs_z": false,
+      "tfs_z": 1,
+      "enable_num_predict": true,
+      "num_predict": [
+        "62",
+        0
+      ],
+      "enable_top_k": false,
+      "top_k": 40,
+      "enable_top_p": false,
+      "top_p": 0.9,
+      "enable_min_p": false,
+      "min_p": 0,
+      "debug": false
+    },
+    "class_type": "OllamaOptionsV2",
+    "_meta": {
+      "title": "Ollama Options V2"
+    }
+  },
+  "40": {
+    "inputs": {
+      "url": "http://127.0.0.1:11434",
+      "model": "gemma3:12b-it-qat",
+      "keep_alive": 0,
+      "keep_alive_unit": "minutes"
+    },
+    "class_type": "OllamaConnectivityV2",
+    "_meta": {
+      "title": "Ollama Connectivity V2"
+    }
+  },
+  "46": {
+    "inputs": {
+      "text": "hello my dear friend",
+      "display_name": "Prompt",
+      "optional": false,
+      "advanced": false,
+      "order": 1,
+      "custom_id": "prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "54": {
+    "inputs": {
+      "root_dir": "output",
+      "file": "file.txt",
+      "append": "overwrite",
+      "insert": true,
+      "text": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "SaveText|pysssss",
+    "_meta": {
+      "title": "Save Text 🐍"
+    }
+  },
+  "60": {
+    "inputs": {
+      "text": "",
+      "display_name": "System Prompt",
+      "optional": true,
+      "advanced": false,
+      "order": 2,
+      "custom_id": "system_prompt",
+      "hidden": false,
+      "translatable": true
+    },
+    "class_type": "VixUiPrompt",
+    "_meta": {
+      "title": "VixUI-Prompt"
+    }
+  },
+  "62": {
+    "inputs": {
+      "value": 4096,
+      "display_name": "Number of tokens to generate",
+      "optional": true,
+      "advanced": true,
+      "min": 1024,
+      "max": 131072,
+      "step": 1,
+      "order": 99,
+      "custom_id": "num_predict",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeInt",
+    "_meta": {
+      "title": "Range Int (VixUI)"
+    }
+  },
+  "64": {
+    "inputs": {
+      "value": 0,
+      "display_name": "Temperature",
+      "optional": true,
+      "advanced": true,
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "order": 98,
+      "custom_id": "temperature",
+      "hidden": false
+    },
+    "class_type": "VixUiRangeFloat",
+    "_meta": {
+      "title": "Range Float (VixUI)"
+    }
+  }
+}
