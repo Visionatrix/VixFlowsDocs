@@ -131,17 +131,19 @@ DIT:
           prompt: []
           aspect_ratio: "1:1 (1024x1024)"
           steps_count: 30
+          diffusion_precision: "default"
   - flow_name: "flux1_schnell"
     test_cases:
       - name: "lighting"
         input_params:
           prompt: []
           aspect_ratio: "1:1 (1024x1024)"
+          diffusion_precision: "default"
   - flow_name: "sd3_5_medium"
     test_cases:
       - name: "default"
         input_params:
-          prompt: [ ]
+          prompt: []
           aspect_ratio: "1:1 (1024x1024)"
           steps_count: 30
   - flow_name: "sd3_5_large"
@@ -158,6 +160,7 @@ DIT:
           prompt: []
           aspect_ratio: "1:1 (1024x1024)"
           steps_count: 30
+          diffusion_precision: "default"
 
 PORTRAITS:
   - flow_name: "vintage_portrait"
