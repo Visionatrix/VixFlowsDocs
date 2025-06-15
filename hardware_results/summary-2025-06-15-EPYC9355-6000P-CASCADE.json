@@ -1,0 +1,53 @@
+{
+    "test_time": "2025/06/15",
+    "flows": [
+        {
+            "flow_name": "stable_cascade",
+            "flow_display_name": "Stable Cascade",
+            "test_cases": [
+                {
+                    "test_case": "3 passes",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 11.58037220800179,
+                    "avg_max_memory_usage": 13790.86
+                },
+                {
+                    "test_case": "3 passes",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 15.10900491650682,
+                    "avg_max_memory_usage": 7206.29
+                },
+                {
+                    "test_case": "1 pass",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 2.8440069325006334,
+                    "avg_max_memory_usage": 11961.23
+                },
+                {
+                    "test_case": "1 pass",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 4.173117465004907,
+                    "avg_max_memory_usage": 6961.56
+                },
+                {
+                    "test_case": "2 passes",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 6.406469800509512,
+                    "avg_max_memory_usage": 12750.74
+                },
+                {
+                    "test_case": "2 passes",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 8.743429477981408,
+                    "avg_max_memory_usage": 7128.0
+                }
+            ]
+        }
+    ]
+}

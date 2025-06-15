@@ -26,14 +26,16 @@ RESULTS_DIR: Path
 SELECTED_WORKER: dict
 AUTOMATIC_INSTALL = True  # do not ask before installing flows for test suites
 
-USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", "admin"), os.getenv(
-    "USER_PASSWORD", "admin"
+USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", "vadmin"), os.getenv(
+    "USER_PASSWORD", "vadmin"
 )
 BASIC_AUTH = (
     httpx.BasicAuth(USER_NAME, USER_PASSWORD) if USER_NAME and USER_PASSWORD else None
 )
 if BASIC_AUTH:
     print(f"Using authentication for connect, user: '{USER_NAME}'")
+
+SKIP_SM_DISABLED = int(os.environ.get("SKIP_SM_DISABLED", "0"))
 
 HUGGINGFACE_TOKEN = ""
 CIVITAI_TOKEN = ""
@@ -1061,7 +1063,8 @@ async def benchmarker():
         install_results = {f: (f in installed) for f in all_flows_to_install}
 
     try:
-        for pass_idx in (1, 2):
+        passes = (1, 2) if not SKIP_SM_DISABLED else (1,)
+        for pass_idx in passes:
             if pass_idx == 1:
                 if not await _set_worker_smart_memory(worker_id, True):
                     return

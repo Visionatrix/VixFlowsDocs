@@ -37,4 +37,8 @@ python3 -m visionatrix set-global-setting --key="insightface_provider" --value="
 
 This overrides the default provider, allowing the flows to leverage GPU hardware and run faster.
 
+!!! note
+
+    To force this default behavior for Docker deployment types where using the terminal is not always convenient, you can simply set the `INSIGHTFACE_PROVIDER` environment variable to `CUDA`. This is defined for our public RunPOD template.
+
 ---
