@@ -26,14 +26,16 @@ RESULTS_DIR: Path
 SELECTED_WORKER: dict
 AUTOMATIC_INSTALL = True  # do not ask before installing flows for test suites
 
-USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", "admin"), os.getenv(
-    "USER_PASSWORD", "admin"
+USER_NAME, USER_PASSWORD = os.getenv("USER_NAME", "vadmin"), os.getenv(
+    "USER_PASSWORD", "vadmin"
 )
 BASIC_AUTH = (
     httpx.BasicAuth(USER_NAME, USER_PASSWORD) if USER_NAME and USER_PASSWORD else None
 )
 if BASIC_AUTH:
     print(f"Using authentication for connect, user: '{USER_NAME}'")
+
+SKIP_SM_DISABLED = int(os.environ.get("SKIP_SM_DISABLED", "0"))
 
 HUGGINGFACE_TOKEN = ""
 CIVITAI_TOKEN = ""
@@ -1035,93 +1037,109 @@ async def benchmarker():
         return
 
     await select_worker()
+    worker_id = SELECTED_WORKER["worker_id"]
+
+    original_sm_value: bool | None = SELECTED_WORKER.get("smart_memory", None)
 
     test_suites = load_test_suites_from_yaml("benchmarks.yaml")
     await select_test_flow_suite(test_suites)
 
-    if AUTOMATIC_INSTALL:
-        do_install = True
-    else:
-        do_install = (
+    all_flows_to_install = {
+        ft.flow_name for _, suite in SELECTED_TEST_FLOW_SUITES for ft in suite
+    }
+
+    do_install = (
+        True
+        if AUTOMATIC_INSTALL
+        else (
             input("Install flows for all selected test suites? [y/N]: ").strip().lower()
             == "y"
         )
-
-    # Gather all flows from all selected test suites first
-    all_flows_to_install = set()
-    for _, suite_test_cases in SELECTED_TEST_FLOW_SUITES:
-        for flow_test in suite_test_cases:
-            all_flows_to_install.add(flow_test.flow_name)
-
-    # If do_install is True, install them all at once
+    )
     if do_install:
         install_results = await install_flows_in_parallel(list(all_flows_to_install))
     else:
-        installed_flows_list = await get_installed_flows()
-        installed_flow_names = {f["name"] for f in installed_flows_list}
-        install_results = {
-            flow_name: (flow_name in installed_flow_names)
-            for flow_name in all_flows_to_install
-        }
+        installed = {f["name"] for f in await get_installed_flows()}
+        install_results = {f: (f in installed) for f in all_flows_to_install}
 
-    # Now run each suite's tests
-    for suite_name, suite_test_cases in SELECTED_TEST_FLOW_SUITES:
-        global RESULTS_DIR, SELECTED_TEST_FLOW_SUITE
-        SELECTED_TEST_FLOW_SUITE = suite_test_cases
+    try:
+        passes = (1, 2) if not SKIP_SM_DISABLED else (1,)
+        for pass_idx in passes:
+            if pass_idx == 1:
+                if not await _set_worker_smart_memory(worker_id, True):
+                    return
+                SELECTED_WORKER["engine_details"]["disable_smart_memory"] = False
+            else:
+                if not await _set_worker_smart_memory(worker_id, False):
+                    return
+                SELECTED_WORKER["engine_details"]["disable_smart_memory"] = True
 
-        RESULTS_DIR = Path("results").joinpath(
-            f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_name}"
-        )
+            await asyncio.sleep(5)  # brief pause
 
-        print(f"\nRunning test suite: {suite_name}\n")
+            globals()["FIRST_TEST_FLAG"] = True
 
-        # Collect which flows in this suite actually got installed or were already installed
-        installed_ok = {
-            ft.flow_name for ft in suite_test_cases if install_results.get(ft.flow_name)
-        }
-
-        worker_engine_details = SELECTED_WORKER["engine_details"]
-        config_key_for_worker = (
-            f"{worker_engine_details['vram_state']}_disable_smart_memory_"
-            f"{worker_engine_details['disable_smart_memory']}"
-        )
-
-        test_semaphore = asyncio.Semaphore(1)
-
-        for flow_test in suite_test_cases:
-            if flow_test.flow_name not in installed_ok:
-                print(f"Skipping '{flow_test.flow_name}' (not installed).")
-                continue
-
-            flow_already_done = is_flow_fully_tested_for_config(
-                flow_test, config_key_for_worker, RESULTS_DIR
+            print(
+                f"\n================  PASS {pass_idx}  "
+                f"(smart_memory={SELECTED_WORKER.get('engine_details', {}).get('disable_smart_memory') is False})  "
+                "================\n"
             )
-            if flow_already_done:
-                print(
-                    f"All test cases for '{flow_test.flow_name}' are already completed "
-                    f"under configuration '{config_key_for_worker}'. Skipping entire flow."
-                )
-                continue
 
-            for test_case in flow_test.test_cases:
-                if (
-                    test_case.support_disable_smart_memory == 0
-                    and worker_engine_details["disable_smart_memory"]
-                ):
-                    print(
-                        f"Skipping test case '{test_case.name}' for flow '{flow_test.flow_name}' "
-                        "because it does not support disable_smart_memory."
-                    )
-                    continue
-
-                await run_test_case(
-                    flow_test.flow_name,
-                    test_case,
-                    test_semaphore,
-                    suite_name,
+            for suite_name, suite_test_cases in SELECTED_TEST_FLOW_SUITES:
+                global RESULTS_DIR, SELECTED_TEST_FLOW_SUITE
+                SELECTED_TEST_FLOW_SUITE = suite_test_cases
+                RESULTS_DIR = Path("results").joinpath(
+                    f"{TEST_START_TIME.strftime('%Y-%m-%d')}-{HARDWARE}-{suite_name}"
                 )
 
-        await generate_results_summary_json(suite_name)
+                installed_ok = {
+                    ft.flow_name
+                    for ft in suite_test_cases
+                    if install_results.get(ft.flow_name)
+                }
+
+                worker_engine_details = SELECTED_WORKER["engine_details"]
+                config_key_for_worker = (
+                    f"{worker_engine_details['vram_state']}_disable_smart_memory_"
+                    f"{worker_engine_details['disable_smart_memory']}"
+                )
+
+                test_semaphore = asyncio.Semaphore(1)
+
+                for flow_test in suite_test_cases:
+                    if flow_test.flow_name not in installed_ok:
+                        print(f"Skipping '{flow_test.flow_name}' (not installed).")
+                        continue
+
+                    if is_flow_fully_tested_for_config(
+                        flow_test, config_key_for_worker, RESULTS_DIR
+                    ):
+                        print(
+                            f"All test cases for '{flow_test.flow_name}' already done for this config – skipping."
+                        )
+                        continue
+
+                    for tc in flow_test.test_cases:
+                        if (
+                            tc.support_disable_smart_memory == 0
+                            and worker_engine_details["disable_smart_memory"]
+                        ):
+                            print(
+                                f"Skipping '{tc.name}' (does not support disable_smart_memory)."
+                            )
+                            continue
+
+                        await run_test_case(
+                            flow_test.flow_name,
+                            tc,
+                            test_semaphore,
+                            suite_name,
+                        )
+
+                await generate_results_summary_json(suite_name)
+
+    finally:
+        await _set_worker_smart_memory(worker_id, original_sm_value)
+        print("\nSmart-memory restored to its original value – benchmark finished.\n")
 
 
 def get_extension(res: httpx.Response):
@@ -1135,6 +1153,53 @@ def get_extension(res: httpx.Response):
             if "." in filename:
                 return f".{filename.rsplit('.', 1)[-1]}"
     return ".png"
+
+
+async def _fetch_worker_details(worker_id: str) -> dict | None:
+    """Return a single WorkerDetails record or None."""
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
+        try:
+            r = await client.get(
+                f"{SERVER_URL}/vapi/workers/info",
+                params={"worker_id": worker_id},
+                timeout=30,
+            )
+            r.raise_for_status()
+            data = r.json()
+            return data[0] if data else None
+        except (httpx.RequestError, httpx.HTTPStatusError):
+            return None
+
+
+async def _set_worker_smart_memory(worker_id: str, enable: bool) -> bool:
+    """Toggle Smart-Memory for the worker while keeping every other setting exactly as it was."""
+    details = await _fetch_worker_details(worker_id)
+    if not details:
+        print(f"Cannot change smart_memory: worker '{worker_id}' not found.")
+        return False
+
+    payload = {
+        "worker_id": worker_id,
+        "tasks_to_give": None,
+        "smart_memory": enable,
+        "cache_type": details.get("cache_type"),
+        "cache_size": details.get("cache_size"),
+        "vae_cpu": details.get("vae_cpu"),
+        "reserve_vram": details.get("reserve_vram"),
+    }
+
+    async with httpx.AsyncClient(auth=BASIC_AUTH) as client:
+        try:
+            r = await client.post(
+                f"{SERVER_URL}/vapi/workers/settings", json=payload, timeout=30
+            )
+            if r.status_code == 204:
+                print(f"\nSmart_memory set to {enable} for '{worker_id}'.")
+                return True
+            print(f"Failed to set smart_memory → {r.status_code}: {r.text}")
+        except httpx.RequestError as exc:
+            print(f"Error setting smart_memory: {exc}")
+    return False
 
 
 if __name__ == "__main__":

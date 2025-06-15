@@ -1,0 +1,39 @@
+{
+    "test_time": "2025/06/15",
+    "flows": [
+        {
+            "flow_name": "supir_upscaler",
+            "flow_display_name": "SUPIR Upscaler",
+            "test_cases": [
+                {
+                    "test_case": "1024x1024 - 1.5x scaling",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 38.337421193005866,
+                    "avg_max_memory_usage": 9411.67
+                },
+                {
+                    "test_case": "1024x1024 - 1.5x scaling",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 38.710350654495414,
+                    "avg_max_memory_usage": 9409.55
+                },
+                {
+                    "test_case": "1024x1024 - 2x scaling",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 77.01170131700928,
+                    "avg_max_memory_usage": 9415.61
+                },
+                {
+                    "test_case": "1024x1024 - 2x scaling",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 77.5297685675032,
+                    "avg_max_memory_usage": 9413.48
+                }
+            ]
+        }
+    ]
+}

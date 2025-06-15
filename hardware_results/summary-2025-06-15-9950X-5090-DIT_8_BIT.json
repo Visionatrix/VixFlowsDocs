@@ -1,0 +1,85 @@
+{
+    "test_time": "2025/06/15",
+    "flows": [
+        {
+            "flow_name": "flux1_schnell",
+            "flow_display_name": "Flux Lighting",
+            "test_cases": [
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 2.030649528489448,
+                    "avg_max_memory_usage": 23196.24
+                },
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 6.780173391045537,
+                    "avg_max_memory_usage": 12080.21
+                }
+            ]
+        },
+        {
+            "flow_name": "sketch_pencil",
+            "flow_display_name": "Pencil Sketch",
+            "test_cases": [
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 5.48632985498989,
+                    "avg_max_memory_usage": 23067.65
+                },
+                {
+                    "test_case": "lighting",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 10.126124210015405,
+                    "avg_max_memory_usage": 11942.5
+                }
+            ]
+        },
+        {
+            "flow_name": "sd3_5_large_8bit",
+            "flow_display_name": "SD3.5 Large (Small)",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 9.137951225566212,
+                    "avg_max_memory_usage": 20902.09
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 13.397865267470479,
+                    "avg_max_memory_usage": 10865.22
+                }
+            ]
+        },
+        {
+            "flow_name": "flux1_dev",
+            "flow_display_name": "Flux",
+            "test_cases": [
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 13.298433600517455,
+                    "avg_max_memory_usage": 23206.03
+                },
+                {
+                    "test_case": "default",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": true,
+                    "avg_exec_time": 18.06293304800056,
+                    "avg_max_memory_usage": 12090.75
+                }
+            ]
+        }
+    ]
+}

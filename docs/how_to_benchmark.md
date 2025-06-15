@@ -88,7 +88,8 @@ Please select the test suites you want to run:
 6. PORTRAITS Suite
 7. UPSCALERS Suite
 8. OTHER Suite
-9. OLLAMA Suite
+9. OLLAMA 1024 tokens suite
+10. OLLAMA 2048 tokens suite
 Enter the numbers of the suites to run, separated by commas (e.g., 1,3,5): 1,2,3,4,5 or `ALL`
 ```
 

@@ -1,0 +1,31 @@
+{
+    "test_time": "2025/06/12",
+    "flows": [
+        {
+            "flow_name": "remove_background_birefnet_lite",
+            "flow_display_name": "Remove background (BiRefNet Lite)",
+            "test_cases": [
+                {
+                    "test_case": "Remove Background",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 0.6643217699602246,
+                    "avg_max_memory_usage": 2635.2700000000004
+                }
+            ]
+        },
+        {
+            "flow_name": "remove_background_birefnet",
+            "flow_display_name": "Remove background (BiRefNet)",
+            "test_cases": [
+                {
+                    "test_case": "Remove Background",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 0.7867980999872088,
+                    "avg_max_memory_usage": 4027.135
+                }
+            ]
+        }
+    ]
+}

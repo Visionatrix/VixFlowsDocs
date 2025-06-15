@@ -1,0 +1,32 @@
+{
+    "test_time": "2025/06/15",
+    "flows": [
+        {
+            "flow_name": "stable_cascade",
+            "flow_display_name": "Stable Cascade",
+            "test_cases": [
+                {
+                    "test_case": "3 passes",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 31.6110143851256,
+                    "avg_max_memory_usage": 11961.23
+                },
+                {
+                    "test_case": "1 pass",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 5.81901358650066,
+                    "avg_max_memory_usage": 11961.23
+                },
+                {
+                    "test_case": "2 passes",
+                    "vram_state": "NORMAL_VRAM",
+                    "disable_smart_memory": false,
+                    "avg_exec_time": 16.853093130514026,
+                    "avg_max_memory_usage": 11961.23
+                }
+            ]
+        }
+    ]
+}
