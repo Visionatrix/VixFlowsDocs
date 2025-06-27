@@ -3,13 +3,13 @@
     "inputs": {
       "name": "ask_ai_internal",
       "display_name": "Ask AI (Internal)",
-      "description": "Performs a request to the Ollama",
+      "description": "Make a request to LLM(Ollama or Gemini)",
       "author": "bigcat88",
       "homepage": "",
       "documentation": "",
       "license": "",
       "tags": "[\"text\", \"llm\"]",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "requires": "[\"Ollama:gemma3:12b-it-qat\"]",
       "is_seed_supported": true,
       "is_count_supported": false,
@@ -43,6 +43,10 @@
       ],
       "options": [
         "39",
+        0
+      ],
+      "images": [
+        "67",
         0
       ]
     },
@@ -129,7 +133,7 @@
       "append": "overwrite",
       "insert": true,
       "text": [
-        "38",
+        "70",
         0
       ]
     },
@@ -188,6 +192,123 @@
     "class_type": "VixUiRangeFloat",
     "_meta": {
       "title": "Range Float (VixUI)"
+    }
+  },
+  "65": {
+    "inputs": {
+      "image": ""
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Image 1; optional;advanced;order=10;custom_id=image_1"
+    }
+  },
+  "66": {
+    "inputs": {
+      "image1": [
+        "65",
+        0
+      ],
+      "image2": [
+        "68",
+        0
+      ]
+    },
+    "class_type": "ImageBatch",
+    "_meta": {
+      "title": "Batch Images"
+    }
+  },
+  "67": {
+    "inputs": {
+      "image1": [
+        "66",
+        0
+      ],
+      "image2": [
+        "69",
+        0
+      ]
+    },
+    "class_type": "ImageBatch",
+    "_meta": {
+      "title": "Batch Images"
+    }
+  },
+  "68": {
+    "inputs": {
+      "image": ""
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Image 2; optional;advanced;order=11;custom_id=image_2"
+    }
+  },
+  "69": {
+    "inputs": {
+      "image": ""
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Image 3; optional;advanced;order=12;custom_id=image_3"
+    }
+  },
+  "70": {
+    "inputs": {
+      "state": false,
+      "display_name": "Use Gemini for vision instead of Ollama",
+      "optional": true,
+      "advanced": true,
+      "order": 50,
+      "custom_id": "use_gemini",
+      "hidden": false,
+      "input_off_state": [
+        "38",
+        0
+      ],
+      "input_on_state": [
+        "71",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
+    }
+  },
+  "71": {
+    "inputs": {
+      "prompt": [
+        "46",
+        0
+      ],
+      "safety_settings": "BLOCK_NONE",
+      "response_type": "text",
+      "model": "gemma-3-12b-it",
+      "api_key": "",
+      "proxy": "",
+      "system_instruction": [
+        "60",
+        0
+      ],
+      "error_fallback_value": "",
+      "seed": 1,
+      "temperature": [
+        "64",
+        0
+      ],
+      "num_predict": [
+        "62",
+        0
+      ],
+      "image_1": [
+        "67",
+        0
+      ]
+    },
+    "class_type": "Ask_Gemini",
+    "_meta": {
+      "title": "Ask Gemini"
     }
   }
 }
