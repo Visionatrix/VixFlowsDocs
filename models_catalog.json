@@ -1608,5 +1608,47 @@
     "types": [
       "checkpoints"
     ]
+  },
+  "Cosmos_Predict2_14B_t2i": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?cosmos_predict2_14B_t2i\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged/resolve/main/cosmos_predict2_14B_t2i.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/Cosmos_Predict2_repackaged",
+    "hash": "baef83d2a8aa7b0127d4189dd2b917f358af648202d1a7464fb97f33dec81089",
+    "file_size": 28530639317,
+    "types": [
+      "diffusion_models"
+    ]
+  },
+  "WAN_2.1-VAE": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:wan_2\\.1_vae\\.safetensors|onTHEFLYWanAIWan21VideoModel_comfyorgWan21Vae\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors",
+    "homepage": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+    "hash": "2fc39d31359a4b0a64f55876d8ff7fa8d780956ae2cb13463b0223e15148976b",
+    "file_size": 253815318,
+    "types": [
+      "vae"
+    ]
+  },
+  "CLIP-T5XXL-V1.0-FP8": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?oldt5_xxl_fp8_e4m3fn_scaled\\.safetensors$"
+      }
+    ],
+    "url": "https://huggingface.co/comfyanonymous/cosmos_1.0_text_encoder_and_VAE_ComfyUI/resolve/main/text_encoders/oldt5_xxl_fp8_e4m3fn_scaled.safetensors",
+    "homepage": "https://huggingface.co/comfyanonymous/cosmos_1.0_text_encoder_and_VAE_ComfyUI",
+    "hash": "1d0dd711ec9866173d4b39e86db3f45e1614a4e3f84919556f854f773352ea81",
+    "file_size": 4897785136,
+    "types": [
+      "text_encoders"
+    ]
   }
 }
