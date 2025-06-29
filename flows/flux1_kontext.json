@@ -231,11 +231,11 @@
   },
   "41": {
     "inputs": {
-      "image": "02B0D561-7E15-4C33-A73F-66194701A358.png"
+      "image": ""
     },
     "class_type": "LoadImage",
     "_meta": {
-      "title": "input;Image to edit;order=1;custom_id=image1"
+      "title": "input;Image to edit;order=1;custom_id=input_image"
     }
   },
   "42": {
