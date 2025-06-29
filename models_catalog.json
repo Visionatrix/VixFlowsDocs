@@ -1650,5 +1650,20 @@
     "types": [
       "text_encoders"
     ]
+  },
+  "FLUX-1-Dev-Kontext": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?(?:flux1\\-kontext\\-dev\\.safetensors|flux1Kontext_flux1KontextDev\\.safetensors)$"
+      }
+    ],
+    "url": "https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev/resolve/main/flux1-kontext-dev.safetensors",
+    "homepage": "https://huggingface.co/black-forest-labs/FLUX.1-Kontext-dev",
+    "hash": "843a26dc765d3105dba081c30bce7b14c65b0988f9e8d14e9fbc8856a6deebd5",
+    "file_size": 23802947360,
+    "types": [
+      "diffusion_models"
+    ],
+    "gated": true
   }
 }
