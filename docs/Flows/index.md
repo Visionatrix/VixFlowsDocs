@@ -13,7 +13,6 @@
 - [Stable Cascade](Stable_Cascade.md)
 - [Playground 2.5 Prometheus](Playground_2_5_prometheus.md)
 - [Playground 2.5 Aesthetic](Playground_2_5_aesthetic.md)
-- [Ghibli Portrait](GhibliPortrait.md)
 - [Comicu Portrait](ComicuPortrait.md)
 - [Vintage Portrait](VintagePortrait.md)
 - [Memoji Portrait](MemojiPortrait.md)
