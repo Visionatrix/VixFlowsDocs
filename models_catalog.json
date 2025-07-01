@@ -1665,5 +1665,20 @@
       "diffusion_models"
     ],
     "gated": true
+  },
+  "Flux-1D-Ghibli-Lora": {
+    "regexes": [
+      {
+        "input_value": "(?i)(?:[^\\/\\\\]*[\\/\\\\]?)?studio_ghibli_flux_000016250\\.safetensors$"
+      }
+    ],
+    "url": "https://civitai.com/api/download/models/928048",
+    "homepage": "https://civitai.com/models/829769",
+    "hash": "2C7048A245C7CF032E1C83D2D339DCABFF6CE64B6115DB5CDFC8CE33ADBC16B1",
+    "file_size": 343805452,
+    "filename": "studio_ghibli_flux_000016250.safetensors",
+    "types": [
+      "loras"
+    ]
   }
 }
