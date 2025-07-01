@@ -1,0 +1,341 @@
+{
+  "6": {
+    "inputs": {
+      "text": [
+        "227",
+        0
+      ],
+      "clip": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "31",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "31": {
+    "inputs": {
+      "seed": 232347503409083,
+      "steps": 28,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "simple",
+      "denoise": 1,
+      "model": [
+        "37",
+        0
+      ],
+      "positive": [
+        "35",
+        0
+      ],
+      "negative": [
+        "135",
+        0
+      ],
+      "latent_image": [
+        "124",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "35": {
+    "inputs": {
+      "guidance": 2.5,
+      "conditioning": [
+        "177",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "37": {
+    "inputs": {
+      "unet_name": "flux1-kontext-dev.safetensors",
+      "weight_dtype": [
+        "241",
+        0
+      ]
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "38": {
+    "inputs": {
+      "clip_name1": "clip_l.safetensors",
+      "clip_name2": "t5xxl_fp8_e4m3fn.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "39": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "124": {
+    "inputs": {
+      "pixels": [
+        "193",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "135": {
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "136": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "245",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "177": {
+    "inputs": {
+      "conditioning": [
+        "6",
+        0
+      ],
+      "latent": [
+        "124",
+        0
+      ]
+    },
+    "class_type": "ReferenceLatent",
+    "_meta": {
+      "title": "ReferenceLatent"
+    }
+  },
+  "193": {
+    "inputs": {
+      "upscale_method": "lanczos",
+      "megapixels": 1,
+      "image": [
+        "243",
+        0
+      ]
+    },
+    "class_type": "ImageScaleToTotalPixels",
+    "_meta": {
+      "title": "Scale Image to Total Pixels"
+    }
+  },
+  "227": {
+    "inputs": {
+      "string_a": "restore and colorize this photo, keep the appearance of the characters unchanged to the greatest extent, eliminate cracks, enhance clarity, achieve ultra-high-definition quality, reversal film photography, hdr,",
+      "string_b": [
+        "248",
+        0
+      ],
+      "delimiter": ""
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  },
+  "239": {
+    "inputs": {
+      "prompt": "Generate a flux model drawing prompt for this image, within 130 words. Only describe the content of the image; do not describe the artistic style such as photo, painting, anime, etc. Describe the scene in order from left to right, top to bottom, and from foreground to background, clearly indicating the position of each subject. Do not describe any human features such as gender, skin color, age, or hairstyle. Only describe clothing and reasonably infer the colors of garments based on context. For example, say \"the figure on the left is wearing a red dress\" or \"the figure on the right is in a blue suit with a white shirt.\" Ignore any aging effects in the photo such as speckles or ripples.\n\nOutput only the generated prompt and nothing else.",
+      "safety_settings": "BLOCK_NONE",
+      "response_type": "text",
+      "model": "gemini-2.5-flash",
+      "api_key": "",
+      "proxy": "",
+      "system_instruction": "",
+      "error_fallback_value": "",
+      "seed": 502120398,
+      "temperature": -0.05,
+      "num_predict": 0,
+      "image_1": [
+        "243",
+        0
+      ]
+    },
+    "class_type": "Ask_Gemini",
+    "_meta": {
+      "title": "Ask Gemini"
+    }
+  },
+  "241": {
+    "inputs": {
+      "default_value": "fp8_e4m3fn",
+      "possible_values": "[\"default\", \"fp8_e4m3fn\", \"fp8_e4m3fn_fast\", \"fp8_e5m2\"]",
+      "display_name": "Diffusion precision",
+      "optional": true,
+      "advanced": true,
+      "order": 30,
+      "custom_id": "diffusion_precision",
+      "hidden": false
+    },
+    "class_type": "VixUiList",
+    "_meta": {
+      "title": "VixUI-List"
+    }
+  },
+  "243": {
+    "inputs": {
+      "image": ""
+    },
+    "class_type": "LoadImage",
+    "_meta": {
+      "title": "input;Old photo;order=1;custom_id=src_image"
+    }
+  },
+  "244": {
+    "inputs": {
+      "name": "restore_old_photo",
+      "display_name": "Restore Old Photo",
+      "description": "Restore Old Damaged Photo",
+      "author": "Datou",
+      "homepage": "https://openart.ai/workflows/datou/restore-old-and-damaged-photosflux-kontext/yXttxLAnquPMZ9feVI7g",
+      "documentation": "",
+      "license": "",
+      "tags": "[\"restore\"]",
+      "version": "1.0.0",
+      "requires": "[\"Ollama: gemma3:12b-it-qat\"]",
+      "is_seed_supported": true,
+      "is_count_supported": true,
+      "is_translations_supported": false,
+      "is_macos_supported": true,
+      "required_memory_gb": 12,
+      "hidden": false,
+      "remote_vae": true
+    },
+    "class_type": "VixUiWorkflowMetadata",
+    "_meta": {
+      "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "245": {
+    "inputs": {
+      "state": false,
+      "input_off_state": [
+        "8",
+        0
+      ],
+      "input_on_state": [
+        "246",
+        0
+      ]
+    },
+    "class_type": "VixCheckboxLogic",
+    "_meta": {
+      "title": "remote_vae"
+    }
+  },
+  "246": {
+    "inputs": {
+      "vae_type": "Flux",
+      "samples": [
+        "31",
+        0
+      ]
+    },
+    "class_type": "RemoteVAEDecode",
+    "_meta": {
+      "title": "VAE Decode (Remote)"
+    }
+  },
+  "247": {
+    "inputs": {
+      "query": "Generate a flux model drawing prompt for this image, within 130 words. Only describe the content of the image; do not describe the artistic style such as photo, painting, anime, etc. Describe the scene in order from left to right, top to bottom, and from foreground to background, clearly indicating the position of each subject. Do not describe any human features such as gender, skin color, age, or hairstyle. Only describe clothing and reasonably infer the colors of garments based on context. For example, say \"the figure on the left is wearing a red dress\" or \"the figure on the right is in a blue suit with a white shirt.\" Ignore any aging effects in the photo such as speckles or ripples.\n\nOutput only the generated prompt and nothing else.",
+      "debug": "enable",
+      "url": "http://127.0.0.1:11434",
+      "model": "gemma3:12b-it-qat",
+      "keep_alive": 0,
+      "format": "text",
+      "seed": 1,
+      "images": [
+        "243",
+        0
+      ]
+    },
+    "class_type": "OllamaVision",
+    "_meta": {
+      "title": "Ollama Vision"
+    }
+  },
+  "248": {
+    "inputs": {
+      "state": true,
+      "display_name": "Use Gemini instead of Ollama",
+      "optional": true,
+      "advanced": true,
+      "order": 95,
+      "custom_id": "vision_provider",
+      "hidden": false,
+      "input_off_state": [
+        "247",
+        0
+      ],
+      "input_on_state": [
+        "239",
+        0
+      ]
+    },
+    "class_type": "VixUiCheckboxLogic",
+    "_meta": {
+      "title": "VixUI-CheckboxLogic"
+    }
+  }
+}
