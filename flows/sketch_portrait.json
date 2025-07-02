@@ -11,7 +11,7 @@
   "290": {
     "inputs": {
       "text": [
-        "406",
+        "408",
         0
       ],
       "clip": [
@@ -39,7 +39,7 @@
   },
   "336": {
     "inputs": {
-      "weight": 0.7000000000000001,
+      "weight": 0.7,
       "start_at": 0,
       "end_at": 0.85,
       "instantid": [
@@ -238,7 +238,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SketchPortrait/",
       "license": "",
       "tags": "[\"anime\", \"sketch\", \"portrait\"]",
-      "version": "2.1.1",
+      "version": "2.1.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -348,10 +348,10 @@
       "title": "Text Multiline"
     }
   },
-  "406": {
+  "408": {
     "inputs": {
-      "text": [
-        "407",
+      "string": [
+        "411",
         0
       ],
       "find": "{prompt}",
@@ -360,14 +360,14 @@
         0
       ]
     },
-    "class_type": "VixTextReplace",
+    "class_type": "StringReplace",
     "_meta": {
-      "title": "Text Replace"
+      "title": "Replace"
     }
   },
-  "407": {
+  "411": {
     "inputs": {
-      "text": [
+      "string": [
         "405",
         0
       ],
@@ -377,9 +377,9 @@
         0
       ]
     },
-    "class_type": "VixTextReplace",
+    "class_type": "StringReplace",
     "_meta": {
-      "title": "Text Replace"
+      "title": "Replace"
     }
   }
 }
