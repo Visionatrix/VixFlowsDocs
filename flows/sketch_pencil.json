@@ -2,7 +2,7 @@
   "6": {
     "inputs": {
       "text": [
-        "86",
+        "89",
         0
       ],
       "clip": [
@@ -167,7 +167,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"sketch\"]",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -329,26 +329,38 @@
       "title": "Text Multiline"
     }
   },
-  "86": {
+  "88": {
     "inputs": {
-      "delimiter": ", ",
-      "clean_whitespace": "true",
-      "text_a": [
+      "string_a": [
         "69",
         0
       ],
-      "text_b": [
+      "string_b": [
         "81",
         0
       ],
-      "text_c": [
+      "delimiter": ", "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
+    }
+  },
+  "89": {
+    "inputs": {
+      "string_a": [
+        "88",
+        0
+      ],
+      "string_b": [
         "85",
         0
-      ]
+      ],
+      "delimiter": ", "
     },
-    "class_type": "VixTextConcatenate",
+    "class_type": "StringConcatenate",
     "_meta": {
-      "title": "Text Concatenate"
+      "title": "Concatenate"
     }
   }
 }
