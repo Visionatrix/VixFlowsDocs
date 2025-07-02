@@ -2,7 +2,7 @@
   "5": {
     "inputs": {
       "text": [
-        "63",
+        "68",
         0
       ],
       "clip": [
@@ -291,6 +291,8 @@
       "system_instruction": "",
       "error_fallback_value": "",
       "seed": 1,
+      "temperature": -0.05,
+      "num_predict": 0,
       "image_1": [
         "37",
         0
@@ -333,7 +335,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"sketch\"]",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "requires": "[\"Ollama: gemma3:12b-it-qat\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -455,24 +457,6 @@
       "title": "Text Multiline"
     }
   },
-  "63": {
-    "inputs": {
-      "delimiter": ", ",
-      "clean_whitespace": "true",
-      "text_a": [
-        "61",
-        0
-      ],
-      "text_b": [
-        "40",
-        0
-      ]
-    },
-    "class_type": "VixTextConcatenate",
-    "_meta": {
-      "title": "Text Concatenate"
-    }
-  },
   "64": {
     "inputs": {
       "lora_name": "pencilbox.safetensors",
@@ -528,6 +512,23 @@
     "class_type": "LoraLoader",
     "_meta": {
       "title": "Load LoRA"
+    }
+  },
+  "68": {
+    "inputs": {
+      "string_a": [
+        "61",
+        0
+      ],
+      "string_b": [
+        "40",
+        0
+      ],
+      "delimiter": ", "
+    },
+    "class_type": "StringConcatenate",
+    "_meta": {
+      "title": "Concatenate"
     }
   }
 }
