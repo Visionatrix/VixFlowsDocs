@@ -1,0 +1,2764 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://visionatrix.github.io/AdminManual/environment_variables/">
+      
+      
+        <link rel="prev" href="../command_line_options/">
+      
+      
+        <link rel="next" href="../../FlowsDeveloping/vix_workflows/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Environment Variables - Visionatrix Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Environment Variables - Visionatrix Documentation" >
+      
+        <meta  property="og:description"  content="None" >
+      
+        <meta  property="og:image"  content="https://visionatrix.github.io/assets/images/social/AdminManual/environment_variables.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://visionatrix.github.io/AdminManual/environment_variables/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Environment Variables - Visionatrix Documentation" >
+      
+        <meta  name="twitter:description"  content="None" >
+      
+        <meta  name="twitter:image"  content="https://visionatrix.github.io/assets/images/social/AdminManual/environment_variables.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#environment-variables" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Visionatrix Documentation" class="md-header__button md-logo" aria-label="Visionatrix Documentation" data-md-component="logo">
+      
+  <img src="../../assets/vix_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Visionatrix Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Environment Variables
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Visionatrix/Visionatrix" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Visionatrix
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Visionatrix Documentation" class="md-nav__button md-logo" aria-label="Visionatrix Documentation" data-md-component="logo">
+      
+  <img src="../../assets/vix_logo.png" alt="logo">
+
+    </a>
+    Visionatrix Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Visionatrix/Visionatrix" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Visionatrix
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Flows
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Flows
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/Colorful_XL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Colorful XL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/Juggernaut_Lite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Juggernaut Lite
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/Juggernaut_XL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Juggernaut XL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/Mobius_XL/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mobius XL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/SDXL_Lighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SDXL Lighting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/HunyuanDiT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hunyuan DiT
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/Stable_Cascade/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stable Cascade
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/Playground_2_5_prometheus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Playground 2.5 Prometheus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/Playground_2_5_aesthetic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Playground 2.5 Aesthetic
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/ComicuPortrait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comicu Portrait
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/VintagePortrait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vintage Portrait
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/MemojiPortrait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Memoji Portrait
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/SketchPortrait/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sketch Portrait
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/Photomaker_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Photomaker 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/Photomaker_2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Photomaker 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/PhotoStickers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Photo Stickers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/PhotoStickers2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Photo Stickers 2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/MadScientist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mad Scientist
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/SupirUpscaler/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Supir Upscaler
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/HumanFaceDetailer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Human Face Detailer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/Flux_1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Flux 1
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/Inpaint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inpaint
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flows/AllYourLife/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    All Your Life
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Admin Manual
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Admin Manual
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation/pgsql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PostgreSQL Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation/proxy_gemini/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Gemini through Proxy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Working Modes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            Working Modes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WorkingModes/working_modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../WorkingModes/worker_to_database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Worker to the Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../command_line_options/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Command Line Options
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Environment Variables
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Environment Variables
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-env-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using a .env File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comfyui_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      COMFYUI_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base_data_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      BASE_DATA_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      INPUT_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      OUTPUT_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      USER_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      MODELS_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vix_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_MODE
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-for-specific-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables for Specific Modes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables for Specific Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-and-default-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      SERVER and DEFAULT Mode
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SERVER and DEFAULT Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vix_host" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_HOST
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vix_port" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_PORT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vix_server_workers" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_SERVER_WORKERS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vix_server_full_models" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_SERVER_FULL_MODELS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database_uri" class="md-nav__link">
+    <span class="md-ellipsis">
+      DATABASE_URI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      WORKER Mode
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WORKER Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vix_server" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_SERVER
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database_uri_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      DATABASE_URI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker_auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      WORKER_AUTH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker_net_timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      WORKER_NET_TIMEOUT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flows_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      FLOWS_URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_catalog_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      MODELS_CATALOG_URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#min_pause_interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      MIN_PAUSE_INTERVAL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max_pause_interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAX_PAUSE_INTERVAL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_collect_interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      GC_COLLECT_INTERVAL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user_backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      USER_BACKENDS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max_parallel_downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAX_PARALLEL_DOWNLOADS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cors_origins" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORS_ORIGINS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-a-env-file_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using a .env File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-variables-in-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Variables in the Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-visionatrix-with-command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting Visionatrix with Command-Line Arguments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Flows Developing
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Flows Developing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FlowsDeveloping/vix_workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FlowsDeveloping/technical_information/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Technical Information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FlowsDeveloping/comfyui_vix_migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ComfyUI to Vix Workflows Migration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FlowsDeveloping/models_catalog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Models Catalog
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FlowsDeveloping/gated_models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gated Models
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Integrations Manual
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Integrations Manual
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../IntegrationsManual/getting_started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware FAQ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware_results/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Results
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware_results_raw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Results (Raw)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../how_to_benchmark/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    How To Benchmark
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../swagger.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Swagger API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#using-a-env-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using a .env File
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#general-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="General Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#comfyui_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      COMFYUI_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base_data_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      BASE_DATA_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#input_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      INPUT_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      OUTPUT_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      USER_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      MODELS_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui_dir" class="md-nav__link">
+    <span class="md-ellipsis">
+      UI_DIR
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vix_mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_MODE
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-for-specific-modes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables for Specific Modes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables for Specific Modes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-and-default-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      SERVER and DEFAULT Mode
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SERVER and DEFAULT Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vix_host" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_HOST
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vix_port" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_PORT
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vix_server_workers" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_SERVER_WORKERS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vix_server_full_models" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_SERVER_FULL_MODELS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database_uri" class="md-nav__link">
+    <span class="md-ellipsis">
+      DATABASE_URI
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      WORKER Mode
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WORKER Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vix_server" class="md-nav__link">
+    <span class="md-ellipsis">
+      VIX_SERVER
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database_uri_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      DATABASE_URI
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker_auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      WORKER_AUTH
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worker_net_timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      WORKER_NET_TIMEOUT
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#other-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Other Variables
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Other Variables">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flows_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      FLOWS_URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#models_catalog_url" class="md-nav__link">
+    <span class="md-ellipsis">
+      MODELS_CATALOG_URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#min_pause_interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      MIN_PAUSE_INTERVAL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max_pause_interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAX_PAUSE_INTERVAL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc_collect_interval" class="md-nav__link">
+    <span class="md-ellipsis">
+      GC_COLLECT_INTERVAL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user_backends" class="md-nav__link">
+    <span class="md-ellipsis">
+      USER_BACKENDS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max_parallel_downloads" class="md-nav__link">
+    <span class="md-ellipsis">
+      MAX_PARALLEL_DOWNLOADS
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cors_origins" class="md-nav__link">
+    <span class="md-ellipsis">
+      CORS_ORIGINS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-a-env-file_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Using a .env File
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setting-variables-in-the-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Setting Variables in the Environment
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#starting-visionatrix-with-command-line-arguments" class="md-nav__link">
+    <span class="md-ellipsis">
+      Starting Visionatrix with Command-Line Arguments
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/Visionatrix/VixFlowsDocs/edit/main/docs/AdminManual/environment_variables.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/Visionatrix/VixFlowsDocs/raw/main/docs/AdminManual/environment_variables.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h1>
+<p>In addition to the usual ways of setting environment variables, they can be set via a <code>.env</code> file. Visionatrix uses the <a href="https://pypi.org/project/python-dotenv/">python-dotenv</a> package to load variables from a <code>.env</code> file.</p>
+<p>Additionally, some variables can also be specified via command-line arguments, which take precedence over environment variables.</p>
+<p>This document describes the available environment variables, their default values, and how they affect Visionatrix's operation.</p>
+<h2 id="using-a-env-file">Using a <code>.env</code> File<a class="headerlink" href="#using-a-env-file" title="Permanent link">&para;</a></h2>
+<p>To simplify configuration, you can create a <code>.env</code> file in the root directory of your Visionatrix installation. In this file, you can define environment variables in the format:</p>
+<div class="highlight"><pre><span></span><code><span class="na">VARIABLE_NAME</span><span class="o">=</span><span class="s">value</span>
+</code></pre></div>
+<h2 id="general-variables">General Variables<a class="headerlink" href="#general-variables" title="Permanent link">&para;</a></h2>
+<h3 id="comfyui_dir">COMFYUI_DIR<a class="headerlink" href="#comfyui_dir" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Directory for the folder containing ComfyUI. The path can be absolute or relative.</li>
+<li>
+<p><strong>Default</strong>: <code>./ComfyUI</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The database value <code>comfyui_folder</code> takes precedence over the environment variable.</p>
+</div>
+</li>
+</ul>
+<h3 id="base_data_dir">BASE_DATA_DIR<a class="headerlink" href="#base_data_dir" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Base directory for input,output, models and user directories. The path can be absolute or relative.</li>
+<li>
+<p><strong>Default</strong>: <code>./ComfyUI-Data</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The database value <code>comfyui_base_data_folder</code> takes precedence over the environment variable.</p>
+<p>Setting the values of <code>INPUT_DIR</code>, <code>OUTPUT_DIR</code>, <code>USER_DIR</code>, <code>MODELS_DIR</code> overrides the corresponding subdirectories and the value of <code>BASE_DATA_DIR</code> in them is no longer taken into account.</p>
+</div>
+</li>
+</ul>
+<h3 id="input_dir">INPUT_DIR<a class="headerlink" href="#input_dir" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Directory for input files. The path can be absolute or relative.</li>
+<li>
+<p><strong>Default</strong>: <code>ComfyUI-Data/input</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The database value <code>comfyui_input_folder</code> takes precedence over the environment variable.</p>
+</div>
+</li>
+</ul>
+<h3 id="output_dir">OUTPUT_DIR<a class="headerlink" href="#output_dir" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Directory for output files. The path can be absolute or relative.</li>
+<li>
+<p><strong>Default</strong>: <code>ComfyUI-Data/output</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The database value <code>comfyui_output_folder</code> takes precedence over the environment variable.</p>
+</div>
+</li>
+</ul>
+<h3 id="user_dir">USER_DIR<a class="headerlink" href="#user_dir" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Directory with user data. The path can be absolute or relative.</li>
+<li>
+<p><strong>Default</strong>: <code>ComfyUI-Data/user</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The database value <code>comfyui_user_folder</code> takes precedence over the environment variable.</p>
+</div>
+</li>
+</ul>
+<h3 id="models_dir">MODELS_DIR<a class="headerlink" href="#models_dir" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Directory with models. The path can be absolute or relative.</li>
+<li>
+<p><strong>Default</strong>: <code>ComfyUI-Data/models</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The database value <code>comfyui_models_folder</code> takes precedence over the environment variable.</p>
+</div>
+</li>
+</ul>
+<h3 id="ui_dir">UI_DIR<a class="headerlink" href="#ui_dir" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Path to the User Interface (JavaScript frontend). This is the directory that will be served as the root of the website.</li>
+<li>
+<p><strong>Default</strong>: Empty string.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li><strong>Command-line Argument</strong>:</li>
+<li><code>--ui</code> (enables the User Interface using the default frontend), or</li>
+<li><code>--ui=/path/to/frontend</code> (specifies the path to a custom frontend).</li>
+</ul>
+<p>Command-line arguments take precedence over the environment variable.</p>
+</div>
+</li>
+</ul>
+<h3 id="vix_mode">VIX_MODE<a class="headerlink" href="#vix_mode" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Description</strong>: Determines the working mode of Visionatrix.</li>
+<li>
+<p><code>DEFAULT</code>: Storage and delivery of tasks (Server) + task processing (Worker).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Authentication is disabled in this mode.</p>
+</div>
+</li>
+<li>
+<p><code>SERVER</code>: Only storage and management of tasks.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Authentication is enabled. Reccomend to use a PostgreSQL database.</p>
+</div>
+</li>
+<li>
+<p><code>WORKER</code>: Only processes tasks from the Server (client consuming mode, no backend).</p>
+</li>
+<li>
+<p><strong>Default</strong>: <code>DEFAULT</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The command-line argument <code>--mode=</code> takes precedence over the environment variable.</p>
+</div>
+</li>
+</ul>
+<p>Please refer to the <a href="../WorkingModes/working_modes/">Working Modes</a> documentation for more details.</p>
+<h2 id="variables-for-specific-modes">Variables for Specific Modes<a class="headerlink" href="#variables-for-specific-modes" title="Permanent link">&para;</a></h2>
+<h3 id="server-and-default-mode">SERVER and DEFAULT Mode<a class="headerlink" href="#server-and-default-mode" title="Permanent link">&para;</a></h3>
+<h4 id="vix_host">VIX_HOST<a class="headerlink" href="#vix_host" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: Address to bind to in the <code>DEFAULT</code> or <code>SERVER</code> mode.</li>
+<li>
+<p><strong>Default</strong>: <code>127.0.0.1</code> (binds to the local interface)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The command-line argument <code>--host=HOST</code> takes precedence over the environment variable.</p>
+</div>
+</li>
+</ul>
+<h4 id="vix_port">VIX_PORT<a class="headerlink" href="#vix_port" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: Port to bind to in the <code>DEFAULT</code> or <code>SERVER</code> mode.</li>
+<li>
+<p><strong>Default</strong>: <code>8288</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The command-line argument <code>--port=PORT</code> takes precedence over the environment variable.</p>
+</div>
+</li>
+</ul>
+<h4 id="vix_server_workers">VIX_SERVER_WORKERS<a class="headerlink" href="#vix_server_workers" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: Number of server instances to spawn (using Uvicorn). Useful for production environments with a large number of users.</li>
+<li><strong>Default</strong>: <code>1</code></li>
+</ul>
+<h4 id="vix_server_full_models">VIX_SERVER_FULL_MODELS<a class="headerlink" href="#vix_server_full_models" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: Flag that determines whether full models rather than dummy models should be stored in <code>SERVER</code> mode. Useful when both the Server and Workers are on the same machine, or when the <code>MODELS_DIR</code> is shared between the Server and Workers.</li>
+<li><strong>Default</strong>: <code>0</code> (disabled)</li>
+<li><strong>Set to</strong>: <code>1</code> to enable.</li>
+</ul>
+<h4 id="database_uri">DATABASE_URI<a class="headerlink" href="#database_uri" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: URI for the database used by Visionatrix. Required in <code>SERVER</code> mode.</li>
+<li><strong>Default</strong>: <code>sqlite:///./tasks_history.db</code></li>
+<li>For SQLite: If the path is relative, it is relative to the current directory.</li>
+<li><strong>Note</strong>: For PostgreSQL, the format is: <code>postgresql+psycopg://user:password@host:port/database</code></li>
+</ul>
+<h3 id="worker-mode">WORKER Mode<a class="headerlink" href="#worker-mode" title="Permanent link">&para;</a></h3>
+<p>When running in <code>WORKER</code> mode, the following variables are relevant:</p>
+<h4 id="vix_server">VIX_SERVER<a class="headerlink" href="#vix_server" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: The full URL of the Server to connect to when running in <code>WORKER</code> mode in the <a href="../WorkingModes/working_modes/#worker-to-server">Worker to Server</a> configuration.</li>
+<li>
+<p><strong>Default</strong>: Empty string (must be set in <code>WORKER</code> mode if not using <code>DATABASE_URI</code>)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If <code>VIX_SERVER</code> is set, the Worker will communicate with the Server via the network; <code>DATABASE_URI</code> will be ignored.</p>
+<p>You are <strong>required</strong> to specify either <code>VIX_SERVER</code> <strong>or</strong> <code>DATABASE_URI</code> for the Worker, so it can fetch tasks to process.</p>
+</div>
+</li>
+</ul>
+<h4 id="database_uri_1">DATABASE_URI<a class="headerlink" href="#database_uri_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: In <code>WORKER</code> mode, it is used only for the <a href="../WorkingModes/working_modes/#worker-to-database-fs">Worker to Database-FS</a> configuration.</li>
+<li><strong>Default</strong>: <code>sqlite:///./tasks_history.db</code></li>
+<li><strong>Note</strong>: For Workers connecting directly to a PostgreSQL database, use the appropriate <code>DATABASE_URI</code>.</li>
+</ul>
+<h4 id="worker_auth">WORKER_AUTH<a class="headerlink" href="#worker_auth" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: Authentication credentials for the Worker when connecting to the Server. Format: <code>USER_ID:PASSWORD</code></li>
+<li>
+<p><strong>Default</strong>: <code>admin:admin</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is only applicable for the <strong>Worker to Server</strong> configuration.</p>
+</div>
+</li>
+</ul>
+<h4 id="worker_net_timeout">WORKER_NET_TIMEOUT<a class="headerlink" href="#worker_net_timeout" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: Network timeout in seconds for the Worker when communicating with the Server.</li>
+<li>
+<p><strong>Default</strong>: <code>15.0</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is only applicable for the <strong>Worker to Server</strong> configuration.</p>
+</div>
+</li>
+</ul>
+<h3 id="other-variables">Other Variables<a class="headerlink" href="#other-variables" title="Permanent link">&para;</a></h3>
+<h4 id="flows_url">FLOWS_URL<a class="headerlink" href="#flows_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: URLs or file paths (separated by semicolons <code>;</code>) that point to locations of archive files containing lists and definitions of Visionatrix workflows. Specifies where Visionatrix fetches the available flows.</li>
+<li><strong>Default</strong>: <code>https://visionatrix.github.io/VixFlowsDocs/</code></li>
+<li><strong>More Information</strong>: <a href="../../FlowsDeveloping/technical_information/#workflows-storage">Workflows Storage</a></li>
+</ul>
+<h4 id="models_catalog_url">MODELS_CATALOG_URL<a class="headerlink" href="#models_catalog_url" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: URLs or file paths (separated by semicolons <code>;</code>) to fetch the models catalog for ComfyUI workflows. This catalog specifies available models.</li>
+<li><strong>Default</strong>: <code>https://visionatrix.github.io/VixFlowsDocs/models_catalog.json</code></li>
+</ul>
+<h4 id="min_pause_interval">MIN_PAUSE_INTERVAL<a class="headerlink" href="#min_pause_interval" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: Minimum interval in seconds (float) that the Worker waits between checking for new tasks when none are available. Helps reduce server load when idle.</li>
+<li><strong>Default</strong>: <code>0.1</code></li>
+</ul>
+<h4 id="max_pause_interval">MAX_PAUSE_INTERVAL<a class="headerlink" href="#max_pause_interval" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: Maximum interval in seconds (float) that the Worker waits between checking for new tasks when none are available. The pause interval increases gradually from <code>MIN_PAUSE_INTERVAL</code> to <code>MAX_PAUSE_INTERVAL</code> in 10 steps.</li>
+<li><strong>Default</strong>: <code>1.0</code></li>
+</ul>
+<h4 id="gc_collect_interval">GC_COLLECT_INTERVAL<a class="headerlink" href="#gc_collect_interval" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: Interval in seconds (float) after which the GPU memory release and garbage collection procedure is called after task execution. Not recommended to change unless you know what you're doing.</li>
+<li><strong>Default</strong>: <code>10.0</code></li>
+</ul>
+<h4 id="user_backends">USER_BACKENDS<a class="headerlink" href="#user_backends" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: List of user backends to enable. Each backend supports its own environment variables for configuration.</li>
+<li><strong>Default</strong>: <code>vix_db</code></li>
+<li><strong>Format</strong>: Semicolon-separated list of backends (e.g., <code>vix_db;nextcloud</code>)</li>
+<li><strong>Example</strong>:
+  <div class="highlight"><pre><span></span><code><span class="na">USER_BACKENDS</span><span class="o">=</span><span class="s">vix_db</span><span class="c1">;nextcloud</span>
+</code></pre></div>
+  This will enable the <code>nextcloud</code> user backend in addition to the default <code>vix_db</code>.</li>
+</ul>
+<h4 id="max_parallel_downloads">MAX_PARALLEL_DOWNLOADS<a class="headerlink" href="#max_parallel_downloads" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: Maximum number of parallel downloads allowed during workflow installation.</li>
+<li><strong>Default</strong>: <code>2</code></li>
+</ul>
+<h4 id="cors_origins">CORS_ORIGINS<a class="headerlink" href="#cors_origins" title="Permanent link">&para;</a></h4>
+<ul>
+<li><strong>Description</strong>: A comma-separated list of origins that are allowed to make Cross-Origin Resource Sharing (CORS) requests to the server. This is necessary when the frontend and backend are hosted on different domains or ports. By specifying allowed origins, you enable frontend applications running on those origins to interact with the Visionatrix backend.</li>
+<li><strong>Default</strong>: Empty string (CORS is disabled; only same-origin requests are allowed).</li>
+<li>
+<p><strong>Example</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="na">CORS_ORIGINS</span><span class="o">=</span><span class="s">&quot;http://localhost:3000,http://192.168.1.132:3000,http://192.168.1.132:8288&quot;</span>
+</code></pre></div>
+<p>In this example, requests are permitted from:</p>
+<ul>
+<li><code>http://localhost:3000</code></li>
+<li><code>http://192.168.1.132:3000</code></li>
+<li><code>http://192.168.1.132:8288</code></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This setting is important when developing or deploying the frontend separately from the backend, especially during development when the frontend might be served by a development server on a different port.</p>
+</div>
+</li>
+</ul>
+<h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<h3 id="using-a-env-file_1">Using a <code>.env</code> File<a class="headerlink" href="#using-a-env-file_1" title="Permanent link">&para;</a></h3>
+<p>Create a file named <code>.env</code> in the root directory of Visionatrix with the following content:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Set the working mode to SERVER</span>
+<span class="na">VIX_MODE</span><span class="o">=</span><span class="s">SERVER</span>
+
+<span class="c1"># Set the database URI to use PostgreSQL</span>
+<span class="na">DATABASE_URI</span><span class="o">=</span><span class="s">postgresql+psycopg://vix_user:vix_password@localhost:5432/vix_db</span>
+
+<span class="c1"># Set the number of server workers</span>
+<span class="na">VIX_SERVER_WORKERS</span><span class="o">=</span><span class="s">4</span>
+
+<span class="c1"># Enable full models on the server</span>
+<span class="na">VIX_SERVER_FULL_MODELS</span><span class="o">=</span><span class="s">1</span>
+
+<span class="c1"># Specify the host and port to bind to</span>
+<span class="na">VIX_HOST</span><span class="o">=</span><span class="s">0.0.0.0</span>
+<span class="na">VIX_PORT</span><span class="o">=</span><span class="s">8000</span>
+</code></pre></div>
+<h3 id="setting-variables-in-the-environment">Setting Variables in the Environment<a class="headerlink" href="#setting-variables-in-the-environment" title="Permanent link">&para;</a></h3>
+<p>On Linux or macOS:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">VIX_MODE</span><span class="o">=</span>WORKER
+<span class="nb">export</span><span class="w"> </span><span class="nv">VIX_SERVER</span><span class="o">=</span>http://server_address:8000
+<span class="nb">export</span><span class="w"> </span><span class="nv">WORKER_AUTH</span><span class="o">=</span>worker_user:worker_password
+</code></pre></div>
+<p>On Windows Command Prompt:</p>
+<div class="highlight"><pre><span></span><code>set VIX_MODE=WORKER
+set VIX_SERVER=http://server_address:8000
+set WORKER_AUTH=worker_user:worker_password
+</code></pre></div>
+<h3 id="starting-visionatrix-with-command-line-arguments">Starting Visionatrix with Command-Line Arguments<a class="headerlink" href="#starting-visionatrix-with-command-line-arguments" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>python3<span class="w"> </span>-m<span class="w"> </span>visionatrix<span class="w"> </span>run<span class="w"> </span>--comfyui_dir<span class="o">=</span>/path/to/comfyui<span class="w"> </span>--tasks_files_dir<span class="o">=</span>/path/to/tasks_files<span class="w"> </span>--ui
+</code></pre></div>
+<p>In this example, the directories are specified via command-line arguments, which will override any environment variables or settings in the <code>.env</code> file.</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="March 14, 2025 15:17:47 UTC">March 14, 2025</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="September 26, 2024 16:42:53 UTC">September 26, 2024</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.footnote.tooltips", "content.tabs.link", "content.tooltips", "content.action.edit", "content.action.view", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
