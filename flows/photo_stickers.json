@@ -855,7 +855,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.1.4",
+      "version": "1.1.5",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -964,72 +964,72 @@
   },
   "386": {
     "inputs": {
-      "text": "half body, looking at viewer, [1{gender}] laughing, Sticker, svg, vector art, sharp, kawaii style, Anime style "
+      "value": "half body, looking at viewer, [1{gender}] laughing, Sticker, svg, vector art, sharp, kawaii style, Anime style "
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "387": {
     "inputs": {
-      "text": "half body, looking at viewer, [1{gender}] happy, calm "
+      "value": "half body, looking at viewer, [1{gender}] happy, calm "
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "390": {
     "inputs": {
-      "text": "half body, looking at viewer, [1{gender}] shocked, surprised "
+      "value": "half body, looking at viewer, [1{gender}] shocked, surprised "
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "391": {
     "inputs": {
-      "text": "half body, looking at viewer, [1{gender}] angry, frustrated "
+      "value": "half body, looking at viewer, [1{gender}] angry, frustrated "
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "393": {
     "inputs": {
-      "text": "half body, looking at viewer, [1{gender}] shocked, surprised, Sticker, svg, vector art, sharp, kawaii style, Anime style "
+      "value": "half body, looking at viewer, [1{gender}] shocked, surprised, Sticker, svg, vector art, sharp, kawaii style, Anime style "
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "395": {
     "inputs": {
-      "text": "half body, looking at viewer, [1{gender}] angry, frustrated, Sticker, svg, vector art, sharp, kawaii style, Anime style "
+      "value": "half body, looking at viewer, [1{gender}] angry, frustrated, Sticker, svg, vector art, sharp, kawaii style, Anime style "
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "397": {
     "inputs": {
-      "text": "half body, looking at viewer, [1{gender}] happy, calm, Sticker, svg, vector art, sharp, kawaii style, Anime style "
+      "value": "half body, looking at viewer, [1{gender}] happy, calm, Sticker, svg, vector art, sharp, kawaii style, Anime style "
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "399": {
     "inputs": {
-      "text": "half body, looking at viewer, [1{gender}] laughing "
+      "value": "half body, looking at viewer, [1{gender}] laughing "
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }

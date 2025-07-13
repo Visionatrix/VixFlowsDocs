@@ -304,7 +304,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"video\"]",
-      "version": "1.0.2",
+      "version": "1.0.3",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -330,9 +330,9 @@
   },
   "106": {
     "inputs": {
-      "text": "[\n  {\n    \"display_name\": \"Animate(LTXV)\",\n    \"type\": \"image\"\n  }\n]"
+      "value": "[\n  {\n    \"display_name\": \"Animate(LTXV)\",\n    \"type\": \"image\"\n  }\n]"
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "WF_SUBFLOWS"
     }

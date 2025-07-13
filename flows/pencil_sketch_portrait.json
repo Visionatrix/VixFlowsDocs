@@ -335,7 +335,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"portrait\", \"sketch\"]",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "requires": "[\"Ollama: gemma3:12b-it-qat\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -441,18 +441,18 @@
   },
   "61": {
     "inputs": {
-      "text": "pencil sketch, minimalist, impressionism, negative space"
+      "value": "pencil sketch, minimalist, impressionism, negative space"
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "62": {
     "inputs": {
-      "text": "Generate a structured caption for the given image.\n\n    Detect and describe the position of all visible subjects or objects relative to the frame.\n    Provide description of the subjects, including physical appearance, attire, accessories, and expressions.\n    Detect and transcribe visible text, specifying its position and font style.\n    Conclude with the overall mood or atmosphere.\n\nDo not describe or pay attention to the background.\n\nThe description must be accurate, comprehensive, logically organized, and contain no more than 46 words.\n"
+      "value": "Generate a structured caption for the given image.\n\n    Detect and describe the position of all visible subjects or objects relative to the frame.\n    Provide description of the subjects, including physical appearance, attire, accessories, and expressions.\n    Detect and transcribe visible text, specifying its position and font style.\n    Conclude with the overall mood or atmosphere.\n\nDo not describe or pay attention to the background.\n\nThe description must be accurate, comprehensive, logically organized, and contain no more than 46 words.\n"
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
