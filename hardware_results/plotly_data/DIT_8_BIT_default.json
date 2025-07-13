@@ -1,0 +1,218 @@
+[
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 35.15716760948999,
+    "hardware_desc": "EPYC7452-3090",
+    "test_time": "2025/06/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 39.530427658508415,
+    "hardware_desc": "EPYC7452-3090",
+    "test_time": "2025/06/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 7.008012175007025,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 10.606992443004856,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 9.692792256508255,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 13.55982194650278,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 38.96144510799968,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 42.35608511249848,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 42.97831378450064,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 47.292216568001095,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 45.74486019750003,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 46.31600003100016,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 29.62012039800004,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 31.58730770200009,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 50.31822090689093,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 41.89524028543383,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 9.137951225566212,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 13.397865267470479,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 13.298433600517455,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 18.06293304800056,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 14.63937324192375,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 23.94084790814668,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large_8bit",
+    "flow_display_name": "SD3.5 Large (Small)",
+    "test_case": "default",
+    "avg_exec_time": 13.680266563547775,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 20.095410583075136,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  }
+]

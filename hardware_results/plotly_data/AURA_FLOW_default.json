@@ -1,0 +1,110 @@
+[
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 57.03044534650144,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 60.08820021949941,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 42.45270503302163,
+    "hardware_desc": "EPYC7452-3090",
+    "test_time": "2025/06/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 38.8349484135,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 43.39212631800001,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 13.807046884961892,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 17.825732544064522,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 44.318559743929654,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 20.052441485458985,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 26.705773001536727,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 9.758635999503895,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "auraflow",
+    "flow_display_name": "AuraFlow",
+    "test_case": "default",
+    "avg_exec_time": 12.35403403948294,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  }
+]

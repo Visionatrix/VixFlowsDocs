@@ -1,0 +1,542 @@
+[
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 4.825246019507176,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 5.839096230993164,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 8.531025590491481,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 14.19950856899959,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 3.5992530524963513,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 6.4623088279913645,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 3.3430799075140385,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 5.705716026001028,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 9.127471910018357,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 17.00432208899292,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 10.73452157434076,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 21.565539351664484,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 8.095880732871592,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 7.145593290217221,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 23.45251275599003,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 19.106380131095648,
+    "hardware_desc": "EPYC7552-3090",
+    "test_time": "2025/06/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 45.94035339727998,
+    "hardware_desc": "EPYC7552-3090",
+    "test_time": "2025/06/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 14.242526181042194,
+    "hardware_desc": "EPYC7552-3090",
+    "test_time": "2025/06/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 12.935843905434012,
+    "hardware_desc": "EPYC7552-3090",
+    "test_time": "2025/06/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 61.89868131745607,
+    "hardware_desc": "EPYC7552-3090",
+    "test_time": "2025/06/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 22.81644375482574,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 55.0360319474712,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 17.31228852691129,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 13.604336513206363,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 69.22570985881612,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 8.72755978803616,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 23.038413955946453,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 6.818055776064284,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 6.059738744515926,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 32.301557638915256,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 6.8303275924990885,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 8.22137795801973,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 11.874085043556988,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 18.3647526660352,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 4.852700280491263,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 8.561100887483917,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 4.812720541027375,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 7.648549233446829,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 14.559987362998072,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 21.52369072154397,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 24.31611425866625,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 25.23458238733292,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 40.23560354033543,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 43.5776588973337,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 15.872396535334701,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 19.189333639997738,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 17.895588647668774,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 20.433609681664773,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 44.927466473665845,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 47.92656897333169,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 17.17176595349997,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "hunyuan_dit",
+    "flow_display_name": "HunyuanDiT",
+    "test_case": "default",
+    "avg_exec_time": 19.134675149999794,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 12.238647837500139,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "pixart_e",
+    "flow_display_name": "PixArt Sigma",
+    "test_case": "default",
+    "avg_exec_time": 15.397214761499981,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 59.990806286999714,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_dev",
+    "flow_display_name": "Flux",
+    "test_case": "default",
+    "avg_exec_time": 62.27010685250002,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 47.62987465250012,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_large",
+    "flow_display_name": "SD3.5 Large",
+    "test_case": "default",
+    "avg_exec_time": 48.50220135949985,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 16.780980606999947,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sd3_5_medium",
+    "flow_display_name": "SD3.5 Medium",
+    "test_case": "default",
+    "avg_exec_time": 18.67830363850021,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": true
+  }
+]
