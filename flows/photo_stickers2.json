@@ -349,7 +349,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/PhotoStickers2/",
       "license": "",
       "tags": "[\"cartoon\", \"portrait\"]",
-      "version": "1.3.2",
+      "version": "1.3.3",
       "requires": "[\"Ollama: gemma3:12b-it-qat\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -478,18 +478,18 @@
   },
   "591": {
     "inputs": {
-      "text": ", Stickers, Sticker, chibi:1.5, flat:1.5, (full body:1.5), simple details，empty background, black background, "
+      "value": ", Stickers, Sticker, chibi:1.5, flat:1.5, (full body:1.5), simple details，empty background, black background, "
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "592": {
     "inputs": {
-      "text": "Ignore the artistic style of the picture.\n\nDescribe the person in detail, including any interesting features or characteristics, such as gender, age, facial expression, race, color, hairstyle, hair color, hat, eye color, beard. \n\nIf it is wearing glasses, describe the style of glasses.\n\nDo not describe anything else, such as background.\n\nPlease create an image generation prompt in English less than 46 words to fit the description above and do not output anything except the generation prompt."
+      "value": "Ignore the artistic style of the picture.\n\nDescribe the person in detail, including any interesting features or characteristics, such as gender, age, facial expression, race, color, hairstyle, hair color, hat, eye color, beard. \n\nIf it is wearing glasses, describe the style of glasses.\n\nDo not describe anything else, such as background.\n\nPlease create an image generation prompt in English less than 46 words to fit the description above and do not output anything except the generation prompt."
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }

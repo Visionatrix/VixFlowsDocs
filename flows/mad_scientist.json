@@ -333,7 +333,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/MadScientist/",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.3.1",
+      "version": "1.3.2",
       "requires": "[\"Ollama: gemma3:12b-it-qat\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -427,9 +427,9 @@
   },
   "51": {
     "inputs": {
-      "text": "Write a short prompt in English (less than 46 words) that defines the style (painting, 3DCG, or photography) and describes the artistic style of the image. Focus on the main subject, ignoring the background description. Only output the prompt itself."
+      "value": "Write a short prompt in English (less than 46 words) that defines the style (painting, 3DCG, or photography) and describes the artistic style of the image. Focus on the main subject, ignoring the background description. Only output the prompt itself."
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }

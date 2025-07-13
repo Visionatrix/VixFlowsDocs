@@ -226,7 +226,7 @@
       "documentation": "",
       "license": "",
       "tags": "[\"general\", \"animals\", \"clothing\"]",
-      "version": "1.3.3",
+      "version": "1.3.4",
       "requires": "[\"Ollama: gemma3:12b-it-qat\"]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -453,36 +453,36 @@
   },
   "103": {
     "inputs": {
-      "text": " fashion magazine shoots, aidmafluxpro1.1, solo,"
+      "value": " fashion magazine shoots, aidmafluxpro1.1, solo,"
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "104": {
     "inputs": {
-      "text": "Ignoring other information, describe the clothing in the picture."
+      "value": "Ignoring other information, describe the clothing in the picture."
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "105": {
     "inputs": {
-      "text": "Describe in detail the animal depicted in the image. If no animal is present, provide a detailed description of the person in the image. Focus only on the subject and their characteristics, ignoring other elements in the scene."
+      "value": "Describe in detail the animal depicted in the image. If no animal is present, provide a detailed description of the person in the image. Focus only on the subject and their characteristics, ignoring other elements in the scene."
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
   },
   "106": {
     "inputs": {
-      "text": "Please rewrite the following information into an AI painting prompt. The content is a fashion magazine cover photo taken by an anthropomorphic animal model. Keep the description of the animal characteristics and the description of the clothing. The exposed parts of the model's body have animal characteristics. The photo The background is a solid color background that echoes the clothing. \n\nDon't output anything else, such as \"Here's a rewritten AI painting prompt based on the provided information:\"\n\n---\n."
+      "value": "Please rewrite the following information into an AI painting prompt. The content is a fashion magazine cover photo taken by an anthropomorphic animal model. Keep the description of the animal characteristics and the description of the clothing. The exposed parts of the model's body have animal characteristics. The photo The background is a solid color background that echoes the clothing. \n\nDon't output anything else, such as \"Here's a rewritten AI painting prompt based on the provided information:\"\n\n---\n."
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }

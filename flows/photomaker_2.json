@@ -480,7 +480,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/Photomaker_2/",
       "license": "",
       "tags": "[\"general\", \"portrait\"]",
-      "version": "1.1.3",
+      "version": "1.1.4",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -668,9 +668,9 @@
   },
   "256": {
     "inputs": {
-      "text": "img"
+      "value": "img"
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }

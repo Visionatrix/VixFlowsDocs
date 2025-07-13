@@ -326,7 +326,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/SupirUpscaler/",
       "license": "",
       "tags": "[\"upscaler\", \"postprocess\"]",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -487,9 +487,9 @@
   },
   "148": {
     "inputs": {
-      "text": "[\n  {\n    \"display_name\": \"SUPIR(1.5x)\",\n    \"type\": \"image\",\n    \"input_params\": [\n      {\n        \"name\": \"scale_factor\",\n        \"default\": 1.5\n      }\n    ]\n  },\n  {\n    \"display_name\": \"SUPIR(2x)\",\n    \"type\": \"image\",\n    \"input_params\": [\n      {\n        \"name\": \"scale_factor\",\n        \"default\": 2.0\n      }\n    ]\n  }\n]"
+      "value": "[\n  {\n    \"display_name\": \"SUPIR(1.5x)\",\n    \"type\": \"image\",\n    \"input_params\": [\n      {\n        \"name\": \"scale_factor\",\n        \"default\": 1.5\n      }\n    ]\n  },\n  {\n    \"display_name\": \"SUPIR(2x)\",\n    \"type\": \"image\",\n    \"input_params\": [\n      {\n        \"name\": \"scale_factor\",\n        \"default\": 2.0\n      }\n    ]\n  }\n]"
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "WF_SUBFLOWS"
     }

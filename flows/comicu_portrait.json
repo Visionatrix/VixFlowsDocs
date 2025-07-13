@@ -207,7 +207,7 @@
       "documentation": "https://visionatrix.github.io/VixFlowsDocs/Flows/ComicuPortrait/",
       "license": "",
       "tags": "[\"anime\", \"portrait\"]",
-      "version": "2.1.2",
+      "version": "2.1.3",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -346,9 +346,9 @@
   },
   "411": {
     "inputs": {
-      "text": "[1{gender}] {prompt}, looking at viewer, half body, (masterpiece), (best quality), (ultra-detailed), very aesthetic, illustration, perfect composition"
+      "value": "[1{gender}] {prompt}, looking at viewer, half body, (masterpiece), (best quality), (ultra-detailed), very aesthetic, illustration, perfect composition"
     },
-    "class_type": "VixMultilineText",
+    "class_type": "PrimitiveStringMultiline",
     "_meta": {
       "title": "Text Multiline"
     }
