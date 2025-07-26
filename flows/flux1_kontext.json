@@ -380,7 +380,7 @@
       "documentation": "https://docs.comfy.org/tutorials/flux/flux-1-kontext-dev",
       "license": "",
       "tags": "[\"general\", \"edit\", \"loras\"]",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "requires": "[]",
       "is_seed_supported": true,
       "is_count_supported": true,
@@ -393,6 +393,15 @@
     "class_type": "VixUiWorkflowMetadata",
     "_meta": {
       "title": "VixUI-WorkflowMetadata"
+    }
+  },
+  "68": {
+    "inputs": {
+      "value": "[\n  {\n    \"display_name\": \"Flux Context\",\n    \"type\": \"image\"\n  }\n]"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "WF_SUBFLOWS"
     }
   }
 }
