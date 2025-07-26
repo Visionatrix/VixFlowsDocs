@@ -1,0 +1,218 @@
+[
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 6.710536791506456,
+    "hardware_desc": "EPYC7452-3090",
+    "test_time": "2025/06/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 18.05409117351519,
+    "hardware_desc": "EPYC7452-3090",
+    "test_time": "2025/06/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 1.5433766665082658,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 5.27432425400184,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 4.040263462011353,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 7.808947271987563,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 7.811144081999373,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 11.31588316449961,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 18.711079448999953,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 22.147378351499356,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 22.69301037150001,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 24.015869956499728,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 13.262467259999994,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 14.663790139499952,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 12.310342729557306,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 25.81040422944352,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 2.030649528489448,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 6.780173391045537,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 5.48632985498989,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 10.126124210015405,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 3.466334612108767,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 9.61541189160198,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "flux1_schnell",
+    "flow_display_name": "Flux Lighting",
+    "test_case": "lighting",
+    "avg_exec_time": 3.532706921105273,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "sketch_pencil",
+    "flow_display_name": "Pencil Sketch",
+    "test_case": "lighting",
+    "avg_exec_time": 8.670046846033074,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  }
+]

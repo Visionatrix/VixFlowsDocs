@@ -1,0 +1,41 @@
+{
+  "SDXL": [
+    "default",
+    "fast_run",
+    "lighting"
+  ],
+  "AURA_FLOW": [
+    "default"
+  ],
+  "CASCADE": [
+    "1 pass",
+    "2 passes",
+    "3 passes"
+  ],
+  "DIT_8_BIT": [
+    "default",
+    "lighting"
+  ],
+  "DIT": [
+    "default",
+    "lighting"
+  ],
+  "PORTRAITS": [
+    "default"
+  ],
+  "UPSCALERS": [
+    "1024x1024 - 1.5x scaling",
+    "1024x1024 - 2x scaling"
+  ],
+  "OTHER": [
+    "Remove Background"
+  ],
+  "OLLAMA_1024_TOKENS": [
+    "Generate prompt (gemma3:12b-it-qat)",
+    "Generate prompt (gemma3:12b-it-qat) (unload=True)"
+  ],
+  "OLLAMA_2048_TOKENS": [
+    "Generate prompt (gemma3:12b-it-qat)",
+    "Generate prompt (gemma3:12b-it-qat) (unload=True)"
+  ]
+}

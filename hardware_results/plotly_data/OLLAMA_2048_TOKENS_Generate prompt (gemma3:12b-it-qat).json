@@ -1,0 +1,74 @@
+[
+  {
+    "flow_name": "ask_ai_internal",
+    "flow_display_name": "Ask AI (Internal)",
+    "test_case": "Generate prompt (gemma3:12b-it-qat)",
+    "avg_exec_time": 37.21880111349992,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ask_ai_internal",
+    "flow_display_name": "Ask AI (Internal)",
+    "test_case": "Generate prompt (gemma3:12b-it-qat)",
+    "avg_exec_time": 30.05496983230114,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ask_ai_internal",
+    "flow_display_name": "Ask AI (Internal)",
+    "test_case": "Generate prompt (gemma3:12b-it-qat)",
+    "avg_exec_time": 21.303890378490905,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ask_ai_internal",
+    "flow_display_name": "Ask AI (Internal)",
+    "test_case": "Generate prompt (gemma3:12b-it-qat)",
+    "avg_exec_time": 61.68286562431604,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ask_ai_internal",
+    "flow_display_name": "Ask AI (Internal)",
+    "test_case": "Generate prompt (gemma3:12b-it-qat)",
+    "avg_exec_time": 39.84959672866535,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ask_ai_internal",
+    "flow_display_name": "Ask AI (Internal)",
+    "test_case": "Generate prompt (gemma3:12b-it-qat)",
+    "avg_exec_time": 35.887772504240274,
+    "hardware_desc": "EPYC7552-3090",
+    "test_time": "2025/06/12",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ask_ai_internal",
+    "flow_display_name": "Ask AI (Internal)",
+    "test_case": "Generate prompt (gemma3:12b-it-qat)",
+    "avg_exec_time": 30.330423190491274,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "ask_ai_internal",
+    "flow_display_name": "Ask AI (Internal)",
+    "test_case": "Generate prompt (gemma3:12b-it-qat)",
+    "avg_exec_time": 19.35486529598711,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  }
+]

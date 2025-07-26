@@ -1,0 +1,110 @@
+[
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 8.885095566045493,
+    "hardware_desc": "EPYC7702-4000A",
+    "test_time": "2025/06/11",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 3.9565114139113575,
+    "hardware_desc": "EPYC75F3-4090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 6.94202883600002,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 8.125589491500023,
+    "hardware_desc": "7900X-4070TiS",
+    "test_time": "2025/06/10",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 6.891418433000581,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 7.704606278499341,
+    "hardware_desc": "9950X-7900XTX",
+    "test_time": "2025/06/09",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 2.233077263503219,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 3.070169758502743,
+    "hardware_desc": "EPYC9355-6000P",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 2.8473624215112068,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 4.024712566984817,
+    "hardware_desc": "9950X-5090",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": true
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 7.888125794503139,
+    "hardware_desc": "EPYC7452-3090",
+    "test_time": "2025/06/13",
+    "disable_smart_memory": false
+  },
+  {
+    "flow_name": "playground_2_5_aesthetic",
+    "flow_display_name": "Aesthetic images",
+    "test_case": "default",
+    "avg_exec_time": 4.715739509090781,
+    "hardware_desc": "EPYC9364-6000A",
+    "test_time": "2025/06/15",
+    "disable_smart_memory": false
+  }
+]
